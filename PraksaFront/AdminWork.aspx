@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserWork.aspx.cs" Inherits="PraksaFront.RadneAkcije" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminWork.aspx.cs" Inherits="PraksaFront.WebForm2" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="width: 90%; float: left;">
             <table class="styled-table">
 <tr>
     <th width="250px">
@@ -18,11 +18,8 @@
     <th>
         Datum
     </th>
-    <th>
+     <th>
         Vrijeme
-    </th>
-    <th>
-        Prisutnost
     </th>
 </tr>
     <tr>
@@ -36,10 +33,10 @@
             15:30h
         </td>
         <td>
-            <asp:Button ID="Button1" runat="server" Text="Dolazim" />
-            <asp:Button ID="Button2" runat="server" Text="Ne dolazim" />
-            <asp:Button ID="Button3" runat="server" Text="Mozda dolazim" />
+            <asp:Button ID="Button1" runat="server" Text="Uredi" />
+            <asp:Button ID="Button2" runat="server" Text="Obriši" />
         </td>
+
     </tr>
     <tr>
         <td style="text-align:center">
@@ -52,13 +49,15 @@
             23:45h
         </td>
         <td>
-            <asp:Button ID="Button4" runat="server" Text="Dolazim" />
-            <asp:Button ID="Button5" runat="server" Text="Ne dolazim" />
-            <asp:Button ID="Button6" runat="server" Text="Mozda dolazim" />
+            <asp:Button ID="Button3" runat="server" Text="Uredi" />
+            <asp:Button ID="Button4" runat="server" Text="Obriši" />
         </td>
     </tr>
 </table>
         </div>
+            <div style="width: 10%; margin-top: 50px; float: left;">
+        <asp:Button ID="Button5" runat="server" Text="Nova akcija" />
+    </div>
     </form>
 </body>
 </html>
