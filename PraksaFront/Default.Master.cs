@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Default : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

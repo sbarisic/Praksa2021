@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class Home
+    public partial class About
     {
     }
 }
