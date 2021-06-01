@@ -73,17 +73,27 @@
     <Content Include="content\css\bootstrap-reboot.min.css" />
     <Content Include="content\css\bootstrap.css" />
     <Content Include="content\css\bootstrap.min.css" />
+    <Content Include="content\css\home.css" />
     <Content Include="content\js\bootstrap.bundle.js" />
     <Content Include="content\js\bootstrap.bundle.min.js" />
     <Content Include="content\js\bootstrap.js" />
     <Content Include="content\js\bootstrap.min.js" />
+    <Content Include="content\js\home.js" />
     <Content Include="content\page.css" />
+    <Content Include="Home.aspx" />
     <Content Include="Page.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Db.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Page.aspx.cs">
       <DependentUpon>Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
