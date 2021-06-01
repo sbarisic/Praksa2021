@@ -81,6 +81,7 @@
     <Content Include="content\js\home.js" />
     <Content Include="content\page.css" />
     <Content Include="Home.aspx" />
+    <Content Include="content\js\Login.js" />
     <Content Include="Page.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
