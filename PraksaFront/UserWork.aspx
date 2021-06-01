@@ -12,7 +12,7 @@
         <div>
             <table class="styled-table">
 <tr>
-    <th width="500px">
+    <th width="250px">
         Radna Akcija
     </th>
     <th>
@@ -26,7 +26,7 @@
     </th>
 </tr>
     <tr>
-        <td> <!--temp hardkodirane vrijednosti-->
+        <td style="text-align:center"> <!--temp hardkodirane vrijednosti-->
             Branje Jabuka
         </td>
         <td>
@@ -42,7 +42,7 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="text-align:center">
             Košnja Trave
         </td>
         <td>
