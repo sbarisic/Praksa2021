@@ -86,6 +86,7 @@
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
+    <Content Include="AdminWork.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Db.cs" />
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="UserWork.aspx.designer.cs">
       <DependentUpon>UserWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWork.aspx.cs">
+      <DependentUpon>AdminWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminWork.aspx.designer.cs">
+      <DependentUpon>AdminWork.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
