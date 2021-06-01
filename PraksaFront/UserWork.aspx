@@ -33,7 +33,7 @@
             25.06.2021
         </td>
         <td>
-            16:30h
+            15:30h
         </td>
         <td>
             <asp:Button ID="Button1" runat="server" Text="Dolazim" />
