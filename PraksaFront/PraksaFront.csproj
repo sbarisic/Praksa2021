@@ -83,6 +83,8 @@
     <Content Include="Home.aspx" />
     <Content Include="content\js\Login.js" />
     <Content Include="Page.aspx" />
+    <Content Include="RadneAkcije.aspx" />
+    <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
   </ItemGroup>
@@ -109,6 +111,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RadneAkcije.aspx.cs">
+      <DependentUpon>RadneAkcije.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RadneAkcije.aspx.designer.cs">
+      <DependentUpon>RadneAkcije.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
