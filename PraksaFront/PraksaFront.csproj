@@ -82,8 +82,7 @@
     <Content Include="content\page.css" />
     <Content Include="Home.aspx" />
     <Content Include="content\js\Login.js" />
-    <Content Include="Page.aspx" />
-    <Content Include="RadneAkcije.aspx" />
+    <Content Include="UserWork.aspx" />
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
@@ -97,13 +96,6 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Page.aspx.cs">
-      <DependentUpon>Page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Page.aspx.designer.cs">
-      <DependentUpon>Page.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -112,12 +104,12 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RadneAkcije.aspx.cs">
-      <DependentUpon>RadneAkcije.aspx</DependentUpon>
+    <Compile Include="UserWork.aspx.cs">
+      <DependentUpon>UserWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RadneAkcije.aspx.designer.cs">
-      <DependentUpon>RadneAkcije.aspx</DependentUpon>
+    <Compile Include="UserWork.aspx.designer.cs">
+      <DependentUpon>UserWork.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

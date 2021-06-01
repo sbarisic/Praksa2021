@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RadneAkcije.aspx.cs" Inherits="PraksaFront.RadneAkcije" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserWork.aspx.cs" Inherits="PraksaFront.RadneAkcije" %>
 
 <!DOCTYPE html>
 
@@ -19,6 +19,9 @@
         Datum
     </th>
     <th>
+        Vrijeme
+    </th>
+    <th>
         Prisutnost
     </th>
 </tr>
@@ -28,6 +31,9 @@
         </td>
         <td>
             25.06.2021
+        </td>
+        <td>
+            16:30h
         </td>
         <td>
             <asp:Button ID="Button1" runat="server" Text="Dolazim" />
@@ -41,6 +47,9 @@
         </td>
         <td>
             02.06.2021
+        </td>
+        <td>
+            23:45h
         </td>
         <td>
             <asp:Button ID="Button4" runat="server" Text="Dolazim" />
