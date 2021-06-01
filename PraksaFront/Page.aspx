@@ -21,6 +21,7 @@
 			<input type="password" class="form-control" id="inputPassword2" placeholder="Password" runat="server" />
 		</div>
 
+
 		<asp:Button CssClass="btn btn-primary mb-2" runat="server" OnClick="OnConfirm" Text="Confirm identity" />
 		<span id="status_label" runat="server">Success</span>
 	</form>

@@ -11,25 +11,16 @@ namespace PraksaFront
 {
 
 
-    public partial class Page
+    public partial class WebForm1
     {
 
         /// <summary>
-        /// inputPassword2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword inputPassword2;
-
-        /// <summary>
-        /// status_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl status_label;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }
