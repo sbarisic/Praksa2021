@@ -94,6 +94,7 @@
     <Content Include="Login.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Users.aspx" />
+    <Content Include="AddWork.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminWork.aspx.cs">
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddWork.aspx.cs">
+      <DependentUpon>AddWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddWork.aspx.designer.cs">
+      <DependentUpon>AddWork.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
