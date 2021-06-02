@@ -1,18 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminWork.aspx.cs" Inherits="PraksaFront.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminWork.aspx.cs" Inherits="PraksaFront.AdminWork" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
-</head>
 <body>
     <form id="form1" runat="server">
-        <div style="width: 90%; float: left;">
+        <div>
             <table class="styled-table">
 <tr>
-    <th width="250px">
+    <th width="500px">
         Radna Akcija
     </th>
     <th>
@@ -23,7 +23,7 @@
     </th>
 </tr>
     <tr>
-        <td style="text-align:center"> <!--temp hardkodirane vrijednosti-->
+        <td> <!--temp hardkodirane vrijednosti-->
             Branje Jabuka
         </td>
         <td>
@@ -39,7 +39,7 @@
 
     </tr>
     <tr>
-        <td style="text-align:center">
+        <td>
             Košnja Trave
         </td>
         <td>
@@ -55,9 +55,8 @@
     </tr>
 </table>
         </div>
-            <div style="width: 10%; margin-top: 50px; float: left;">
-        <asp:Button ID="Button5" runat="server" Text="Nova akcija" />
-    </div>
     </form>
 </body>
 </html>
+
+</asp:Content>
