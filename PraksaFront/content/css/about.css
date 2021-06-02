@@ -1,4 +1,9 @@
 ﻿#map {
     height: 400px;
-    width: 50%;
+    width: 50;
+}
+
+#center {
+    margin: auto;
+    width: 60%;
 }

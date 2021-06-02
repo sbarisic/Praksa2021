@@ -22,20 +22,27 @@
                         <th>Prisutnost
                         </th>
                     </tr>
-                    <% foreach (var action in actionList)
-                        { %>
-                    <tr>
-                        <td><%= action %></td>
-                        <td>25.06.2021</td>
-                        <td>16:35</td>
-                        <td>
-                            <asp:Button ID="yesButton" runat="server" Text="Dolazim" />
-                            <asp:Button ID="noButton" runat="server" Text="Ne dolazim" />
-                            <asp:Button ID="maybeButton" runat="server" Text="Mozda dolazim" />
-                        </td>
-                    </tr>
-                    <% } %>
-                </table>
+
+                    <asp:Repeater ID="UserWorkList" runat="server" ItemType="System.String">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# Item %></td>
+                                <td>25.06.2020</td>
+                                <td>16:45</td>
+                                <td><asp:Button ID="yesButton" runat="server" Text="Dolazim"
+                                        OnCommand="yes_Command" CommandArgument=<%# Item %> />
+                                <asp:Button ID="noButton" runat="server" Text="Ne dolazim"
+                                        OnCommand="no_Command" CommandArgument=<%# Item %> />
+                                <asp:Button ID="maybeButton" runat="server" Text="Mozda dolazim"
+                                        OnCommand="maybe_Command" CommandArgument=<%# Item %> /></td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+
+                
             </div>
         </form>
     </body>
