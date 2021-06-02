@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="width: 80%; float: left;">
             <table class="styled-table">
 <tr>
     <th width="500px">
@@ -55,7 +55,11 @@
     </tr>
 </table>
         </div>
+            <div style="width: 20%;margin-top: 20px;float: left;">
+        <asp:Button ID="Button5" runat="server" Text="Dodaj akciju" />
+    </div>
     </form>
+
 </body>
 </html>
 
