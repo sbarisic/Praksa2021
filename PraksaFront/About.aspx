@@ -9,7 +9,8 @@
     </head>
     <body>
         <div id="center">
-            <h3>Gdje se nalazimo?</h3>
+            <h3>O nama</h3>
+            <h4>Gdje se nalazimo?</h4>
             <div id="map"></div>
         </div>
         <script
