@@ -2,6 +2,27 @@
     margin: 50 auto;
 }
 
+.Background {
+    background-color: Black;
+    filter: opacity(90);
+    opacity: 0.8;
+}
+
+.Popup {
+    background-color: #FFFFFF;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 10px;
+    width: 850px;
+}
+
+.locationButton {
+    border: none;
+    background: none;
+    color: blue;
+}
+
 .workButton {
     display: inline-block;
     margin: 0 0.3em 0.3em 0;

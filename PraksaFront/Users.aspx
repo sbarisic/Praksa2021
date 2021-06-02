@@ -8,27 +8,45 @@
             <div>
                 <table class="styled-table">
                     <tr>
-                        <th width="200px">Ime
+                        <th>Ime
                         </th>
-                        <th width="200px">Prezime
+                        <th>Prezime
                         </th>
+                        <th>OIB</th>
+                        <th>E-Mail</th>
+                        <th>Broj telefona</th>
+                        <th>Adresa</th>
+                        <th>JMBG</th>
+                        <th>Dozvole</th>
                         <th>Uredi
                         </th>
                     </tr>
                     <tr>
                         <td>Pero</td>
                         <td>Perić</td>
+                        <td>18910347220</td>
+                        <td>peroperic@mail.com</td>
+                        <td>099123123</td>
+                        <td>Ul. Ante Trubića 5</td>
+                        <td>1205999310626</td>
+                        <td>Dozvola za ... <br /> Dozvola za...</td>
                         <td>
-                            <asp:Button ID="editButton" runat="server" Text="Uredi" />
-                            <asp:Button ID="deleteButton" runat="server" Text="Obriši" />
+                            <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" />
+                            <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" />
                         </td>
                     </tr>
                     <tr>
                         <td>Marko</td>
                         <td>Marušić</td>
+                        <td>52086959347</td>
+                        <td>marko.marusic@mail.com</td>
+                        <td>098987987</td>
+                        <td>Ul. Ivana Gundulića 5</td>
+                        <td>1206219314223</td>
+                        <td>Dozvola za ... <br /> Dozvola za...</td>
                         <td>
-                            <asp:Button ID="Button1" runat="server" Text="Uredi" />
-                            <asp:Button ID="Button2" runat="server" Text="Obriši" />
+                            <asp:Button CssClass="workButton" ID="Button1" runat="server" Text="Uredi" />
+                            <asp:Button CssClass="workButton" ID="Button2" runat="server" Text="Obriši" />
                         </td>
                     </tr>
                 </table>

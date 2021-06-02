@@ -44,6 +44,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +87,7 @@
     <Content Include="content\js\bootstrap.min.js" />
     <Content Include="content\js\home.js" />
     <Content Include="content\js\Login.js" />
+    <Content Include="LocationPopup.aspx" />
     <Content Include="UserWork.aspx" />
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="Web.config" />
@@ -107,6 +111,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LocationPopup.aspx.cs">
+      <DependentUpon>LocationPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocationPopup.aspx.designer.cs">
+      <DependentUpon>LocationPopup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
