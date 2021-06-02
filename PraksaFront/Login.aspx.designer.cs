@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class UserWork
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -22,14 +22,5 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// UserWorkList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater UserWorkList;
     }
 }
