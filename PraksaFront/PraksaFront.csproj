@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminWork.aspx" />
+    <Content Include="content\css\about.css" />
     <Content Include="content\css\bootstrap-grid.css" />
     <Content Include="content\css\bootstrap-grid.min.css" />
     <Content Include="content\css\bootstrap-reboot.css" />
@@ -75,6 +76,7 @@
     <Content Include="content\css\bootstrap.css" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\css\home.css" />
+    <Content Include="content\js\about.js" />
     <Content Include="content\js\bootstrap.bundle.js" />
     <Content Include="content\js\bootstrap.bundle.min.js" />
     <Content Include="content\js\bootstrap.js" />
