@@ -29,11 +29,11 @@
                                 <td><%# Item %></td>
                                 <td>25.06.2020</td>
                                 <td>16:45</td>
-                                <td><asp:Button ID="yesButton" runat="server" Text="Dolazim"
+                                <td><asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Dolazim"
                                         OnCommand="yes_Command" CommandArgument=<%# Item %> />
-                                <asp:Button ID="noButton" runat="server" Text="Ne dolazim"
+                                <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Ne dolazim"
                                         OnCommand="no_Command" CommandArgument=<%# Item %> />
-                                <asp:Button ID="maybeButton" runat="server" Text="Mozda dolazim"
+                                <asp:Button ID="maybeButton" CssClass="workButton" runat="server" Text="Mozda dolazim"
                                         OnCommand="maybe_Command" CommandArgument=<%# Item %> /></td>
                             </tr>
                         </ItemTemplate>
@@ -41,8 +41,7 @@
                             </table>
                         </FooterTemplate>
                     </asp:Repeater>
-
-                
+                </table>
             </div>
         </form>
     </body>
