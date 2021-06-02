@@ -87,6 +87,7 @@
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="Users.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminWork.aspx.cs">
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
