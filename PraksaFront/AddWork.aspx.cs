@@ -7,14 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class AddWork : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Submit_Command (object sender, CommandEventArgs e)
+        protected void Submit_Command(object sender, CommandEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(workText.Text + " | " + descriptionText.Text + " | " + dateText.Text + " | " + timeText.Text + " | " + RadioButton.SelectedValue);
         }

@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class WebForm2
+    public partial class AddWork
     {
 
         /// <summary>
