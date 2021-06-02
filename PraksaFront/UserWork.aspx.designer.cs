@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class RadneAkcije
+    public partial class UserWork
     {
 
         /// <summary>
