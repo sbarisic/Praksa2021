@@ -118,6 +118,13 @@
     <Compile Include="AdminWork.aspx.designer.cs">
       <DependentUpon>AdminWork.aspx</DependentUpon>
     </Compile>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\css\bootstrap-grid.css.map" />
