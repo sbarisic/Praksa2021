@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class UserWork
+    public partial class Users
     {
 
         /// <summary>
@@ -24,30 +24,39 @@ namespace PraksaFront
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// yesButton control.
+        /// editButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button yesButton;
+        protected global::System.Web.UI.WebControls.Button editButton;
 
         /// <summary>
-        /// noButton control.
+        /// deleteButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button noButton;
+        protected global::System.Web.UI.WebControls.Button deleteButton;
 
         /// <summary>
-        /// maybeButton control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button maybeButton;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
