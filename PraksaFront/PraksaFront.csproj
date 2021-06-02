@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminWork.aspx" />
     <Content Include="content\css\bootstrap-grid.css" />
     <Content Include="content\css\bootstrap-grid.min.css" />
     <Content Include="content\css\bootstrap-reboot.css" />
@@ -88,6 +89,13 @@
     <Content Include="About.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminWork.aspx.cs">
+      <DependentUpon>AdminWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminWork.aspx.designer.cs">
+      <DependentUpon>AdminWork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Db.cs" />
     <Compile Include="Default.Master.cs">
       <DependentUpon>Default.Master</DependentUpon>
@@ -110,13 +118,6 @@
     </Compile>
     <Compile Include="UserWork.aspx.designer.cs">
       <DependentUpon>UserWork.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminWork.aspx.cs">
-      <DependentUpon>AdminWork.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminWork.aspx.designer.cs">
-      <DependentUpon>AdminWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
