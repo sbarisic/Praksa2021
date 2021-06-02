@@ -16,5 +16,5 @@
         async
         ></script>
         <script src="content/js/about.js"></script>
-    </body
+    </body>
 </asp:Content>
