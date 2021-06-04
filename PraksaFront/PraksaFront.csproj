@@ -119,11 +119,8 @@
     <Content Include="Login.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Users.aspx" />
-<<<<<<< HEAD
     <Content Include="Registration.aspx" />
-=======
     <Content Include="Calendar.aspx" />
->>>>>>> 24246a4628dac778f71e1bcc114921dd872773ff
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddWork.aspx.cs">
@@ -191,21 +188,19 @@
     <Compile Include="Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
->>>>>>> 24246a4628dac778f71e1bcc114921dd872773ff
     </Compile>
   </ItemGroup>
   <ItemGroup>
