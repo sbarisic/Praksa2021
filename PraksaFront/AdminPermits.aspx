@@ -4,10 +4,9 @@
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <table style="margin: 0 auto;">
-        <tr>
-            <form id="form1" runat="server">
+    <form id="form1" runat="server">
+        <table style="margin: 0 auto;">
+            <tr>
                 <td>
 
                     <table class="styled-table">
@@ -36,11 +35,11 @@
 
                 </td>
                 <td>
-                    <div style="padding:20px;">
+                    <div style="padding: 20px;">
                         <asp:Button CssClass="workButton" ID="addPermitBtn" runat="server" Text="Dodaj dozvolu" />
                     </div>
                 </td>
-            </form>
-        </tr>
-    </table>
+            </tr>
+        </table>
+    </form>
 </asp:Content>

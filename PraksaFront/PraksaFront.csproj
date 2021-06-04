@@ -113,10 +113,9 @@
     <Content Include="content\js\Login.js" />
     <Content Include="AddPermit.aspx" />
     <Content Include="EditUser.aspx" />
-    <Content Include="LocationPopup.aspx" />
     <Content Include="AdminPermits.aspx" />
-    <Content Include="UserWork.aspx" />
     <Content Include="content\css\radneAkcijeStyle.css" />
+    <Content Include="UserWork.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="About.aspx" />
@@ -161,13 +160,6 @@
     <Compile Include="EditUser.aspx.designer.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LocationPopup.aspx.cs">
-      <DependentUpon>LocationPopup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LocationPopup.aspx.designer.cs">
-      <DependentUpon>LocationPopup.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AdminPermits.aspx.cs">
       <DependentUpon>AdminPermits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,13 +174,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserWork.aspx.cs">
-      <DependentUpon>UserWork.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserWork.aspx.designer.cs">
-      <DependentUpon>UserWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -217,6 +202,13 @@
     </Compile>
     <Compile Include="Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserWork.aspx.cs">
+      <DependentUpon>UserWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserWork.aspx.designer.cs">
+      <DependentUpon>UserWork.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
