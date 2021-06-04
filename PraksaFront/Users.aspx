@@ -31,8 +31,8 @@
                         <td>1205999310626</td>
                         <td>Dozvola za ... <br /> Dozvola za...</td>
                         <td>
-                            <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" />
-                            <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" />
+                            <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi"  />
+                            <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnClientClick="return confirm('Are you sure?')"/>
                         </td>
                     </tr>
                     <tr>
