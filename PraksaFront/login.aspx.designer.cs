@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class WebForm1
+    public partial class Registration
     {
 
         /// <summary>
