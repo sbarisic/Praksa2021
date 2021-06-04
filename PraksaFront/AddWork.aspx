@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AddWork.aspx.cs" Inherits="PraksaFront.AddWork" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddWork.aspx.cs" Inherits="PraksaFront.AddWork" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<head>
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</head>
+<body style="background-color:white;">
     <form id="f1" runat="server">
         <div>
             <table class="styled-table">
@@ -71,4 +71,4 @@
         </div>
     </form>
 
-</asp:Content>
+</body>

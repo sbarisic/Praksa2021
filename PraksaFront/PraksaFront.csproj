@@ -115,6 +115,7 @@
     <Content Include="EditUser.aspx" />
     <Content Include="AdminPermits.aspx" />
     <Content Include="content\css\radneAkcijeStyle.css" />
+    <Content Include="RegistrationRequests.aspx" />
     <Content Include="UserWork.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationRequests.aspx.cs">
+      <DependentUpon>RegistrationRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationRequests.aspx.designer.cs">
+      <DependentUpon>RegistrationRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
