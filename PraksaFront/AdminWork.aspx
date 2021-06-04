@@ -24,6 +24,15 @@
                         <asp:Button ID="Button2" runat="server" Text="Zatvori" />
                     </asp:Panel>
 
+                    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="addWorkButton"
+                        CancelControlID="ButtonClose" BackgroundCssClass="Background">
+                    </cc1:ModalPopupExtender>
+                    <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
+                        <iframe src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                        <br />
+                        <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+                    </asp:Panel>
+
                     <table class="styled-table">
                         <tr>
                             <th width="200px">Radna Akcija
