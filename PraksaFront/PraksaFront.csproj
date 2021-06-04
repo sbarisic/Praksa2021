@@ -111,6 +111,7 @@
     <Content Include="content\js\bootstrap.min.js" />
     <Content Include="content\js\home.js" />
     <Content Include="content\js\Login.js" />
+    <Content Include="AddPermit.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="LocationPopup.aspx" />
     <Content Include="Permits.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AddPermit.aspx.cs">
+      <DependentUpon>AddPermit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPermit.aspx.designer.cs">
+      <DependentUpon>AddPermit.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
