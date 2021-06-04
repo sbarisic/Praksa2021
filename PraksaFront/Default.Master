@@ -45,18 +45,18 @@
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading"></div>
                         <a class="nav-link" href="About.aspx">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             O nama
                         </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-handshake"></i></div>
                             Akcije
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="UserWork.aspx">Lista akcija</a>
-                                <a class="nav-link" href="Calendar.aspx">Kalendar akcija</a>
+                                <a class="nav-link" href="UserWork.aspx"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
+                                <a class="nav-link" href="Calendar.aspx"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar akcija</a>
                             </nav>
                         </div>
                         
@@ -87,8 +87,12 @@
                             </nav>
                         </div>
                         <a class="nav-link" href="Users.aspx">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Korisnici
+                        </a>
+                        <a class="nav-link" href="AdminPermits.aspx">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sticky-note"></i></div>
+                            Dozvole
                         </a>
                         
                     </div>
