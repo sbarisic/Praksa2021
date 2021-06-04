@@ -120,6 +120,7 @@
     <Content Include="About.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Calendar.aspx" />
+    <Content Include="Registration.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddWork.aspx.cs">
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

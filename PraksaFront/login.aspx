@@ -18,7 +18,7 @@
     				<input type="text" name="u" placeholder="Korisničko ime" required="required" />
 					<input type="password" name="p" placeholder="Lozinka" required="required" />
 					<button type="submit" class="btn btn-primary btn-block btn-large">Prijavi se</button>
-					<a href="#"><p style="text-align:center">Kreiraj novi korisnički račun</p></a>
+					<a href="Registration.aspx"><p style="text-align:center">Kreiraj novi korisnički račun</p></a>
 				</form>
 					</div>
 			</form><!-- form -->
