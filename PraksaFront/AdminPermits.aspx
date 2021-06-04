@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Permits.aspx.cs" Inherits="PraksaFront.Permits" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminPermits.aspx.cs" Inherits="PraksaFront.AdminPermits" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>

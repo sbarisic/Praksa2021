@@ -11,7 +11,7 @@ namespace PraksaFront
 {
 
 
-    public partial class Permits
+    public partial class AdminPermits
     {
 
         /// <summary>

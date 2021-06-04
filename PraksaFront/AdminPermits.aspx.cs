@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
-    public partial class Permits : System.Web.UI.Page
+    public partial class AdminPermits : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
