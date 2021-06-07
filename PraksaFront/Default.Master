@@ -94,6 +94,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-sticky-note"></i></div>
                             Dozvole
                         </a>
+                        <a class="nav-link" href="RegistrationRequests.aspx">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                            Zahtjevi registracije
+                        </a>
                         
                     </div>
                 </div>

@@ -17,7 +17,6 @@
                         <th>Broj telefona</th>
                         <th>Adresa</th>
                         <th>JMBG</th>
-                        <th>Dozvole</th>
                         <th>Uredi
                         </th>
                     </tr>
@@ -29,7 +28,6 @@
                         <td>099123123</td>
                         <td>Ul. Ante Trubića 5</td>
                         <td>1205999310626</td>
-                        <td>Dozvola za ... <br /> Dozvola za...</td>
                         <td>
                             <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi"  />
                             <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnClientClick="return confirm('Are you sure?')"/>
@@ -43,7 +41,6 @@
                         <td>098987987</td>
                         <td>Ul. Ivana Gundulića 5</td>
                         <td>1206219314223</td>
-                        <td>Dozvola za ... <br /> Dozvola za...</td>
                         <td>
                             <asp:Button CssClass="workButton" ID="Button1" runat="server" Text="Uredi" />
                             <asp:Button CssClass="workButton" ID="Button2" runat="server" Text="Obriši" />

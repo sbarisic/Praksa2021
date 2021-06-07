@@ -17,20 +17,16 @@
                             </th>
                             <th>Uredi</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Dozvola za C kategoriju</td>
-                            <td>
-                                <asp:Button CssClass="workButton" ID="Button3" runat="server" Text="Uredi" />
-                                <asp:Button CssClass="workButton" ID="Button4" runat="server" Text="Obriši" /></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Dozvola za oružje</td>
-                            <td>
-                                <asp:Button CssClass="workButton" ID="Button1" runat="server" Text="Uredi" />
-                                <asp:Button CssClass="workButton" ID="Button2" runat="server" Text="Obriši" /></td>
-                        </tr>
+                        <asp:Repeater ID="PermitRepeater" runat="server" ItemType="System.String">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>1</td>
+                                    <td><%# Item %></td>
+                                    <td>
+                                        <asp:Button CssClass="workButton" ID="Button4" runat="server" Text="Obriši" /></td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </table>
 
                 </td>
