@@ -1,39 +1,154 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="PraksaFront.Calendar" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+    <title>ASP.NET FullCalendar</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" rel="stylesheet" />
 
+    <style type='text/css'>
+        body
+        {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            font-family: "Lucida Grande" ,Helvetica,Arial,Verdana,sans-serif;
+        }
+        #calendar
+        {
+            width: 900px;
+            margin: 0 auto;
+        }
+        /* css for timepicker */
+        .ui-timepicker-div dl
+        {
+            text-align: left;
+        }
+        .ui-timepicker-div dl dt
+        {
+            height: 25px;
+        }
+        .ui-timepicker-div dl dd
+        {
+            margin: -25px 0 10px 65px;
+        }
+        .style1
+        {
+            width: 100%;
+        }
+        
+        /* table fields alignment*/
+        .alignRight
+        {
+        	text-align:right;
+        	padding-right:10px;
+        	padding-bottom:10px;
+        }
+        .alignLeft
+        {
+        	text-align:left;
+        	padding-bottom:10px;
+        }
+    </style>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<body>
     <form id="form1" runat="server">
-
-        <div style="width: 800px; height: 500 auto; margin-top: 80px; margin-bottom: 80px; margin-right: 80px; margin-left: 80px;">
-            <asp:Calendar
-                ID="Calendar1"
-                runat="server"
-                BackColor="White"
-                BorderColor="Black"
-                BorderStyle="Solid"
-                CellSpacing="1"
-                Font-Names="Verdana"
-                OnDayRender="Calendar1_DayRender"
-                Font-Size="9pt"
-                ForeColor="Black"
-                Height="500px"
-                NextPrevFormat="ShortMonth"
-                Width="800px"
-                ShowGridLines="true">
-                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="black" Height="8pt" />
-                <DayStyle BackColor="White" BorderColor="black" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="right" VerticalAlign="top" />
-                <NextPrevStyle Font-Bold="True" Font-Size="10pt" ForeColor="White" />
-                <OtherMonthDayStyle ForeColor="#999999" />
-                <SelectedDayStyle BackColor="black" ForeColor="White" />
-                <TitleStyle BackColor="black" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" />
-                <TodayDayStyle BackColor="black" ForeColor="White" />
-            </asp:Calendar>
-            <asp:GridView ID="GridView1" runat="server">
-            </asp:GridView>
-        </div>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+    </asp:ScriptManager>
+    <div id="calendar">
+    </div>
+    <div id="updatedialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px;display: none;"
+        title="Update or Delete Event">
+        <table class="style1">
+            <tr>
+                <td class="alignRight">
+                    Radna akcija::</td>
+                <td class="alignLeft">
+                    <input id="eventName" type="text" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Opis:</td>
+                <td class="alignLeft">
+                    <textarea id="eventDesc" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Lokacija:</td>
+                <td class="alignLeft">
+                    <textarea id="eventLoc" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Vrijeme:</td>
+                <td class="alignLeft">
+                    <textarea id="eventTime" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Obveznost:</td>
+                <td class="alignLeft">
+                    <textarea id="eventReq" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Start:</td>
+                <td class="alignLeft">
+                    <span id="eventStart"></span></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    End: </td>
+                <td class="alignLeft">
+                    <span id="eventEnd"></span><input type="hidden" id="eventId" /></td>
+            </tr>
+        </table>
+    </div>
+    <div id="addDialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px;" title="Add Event">
+    <table class="style1">
+            <tr>
+                <td class="alignRight">
+                    Radna akcija::</td>
+                <td class="alignLeft">
+                    <input id="addEventName" type="text" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Opis:</td>
+                <td class="alignLeft">
+                    <textarea id="addEventDesc" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Lokacija:</td>
+                <td class="alignLeft">
+                    <input id="addEventLoc" type="text" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Vrijeme:</td>
+                <td class="alignLeft">
+                    <input id="addEventTime" type="text" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Obveznost:</td>
+                <td class="alignLeft">
+                    <input id="addEventReq" type="text" size="33" /><br /></td>
+            </tr>
+        </table>
+        
+    </div>
+    <div runat="server" id="jsonDiv" />
+    <input type="hidden" id="hdClient" runat="server" />
     </form>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+    <script src="scripts/calendarscript.js" type="text/javascript"></script>
+</body>
 </asp:Content>
