@@ -18,11 +18,12 @@ namespace PraksaFront
         {
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Date");
-            dt.Columns.Add("Desc");
-            dt.Rows.Add("01/July/2019 ", "party time");
-            dt.Rows.Add("02/July/2019", "holiday");
-            dt.Rows.Add("30/June/2019", "holiday");
-            dt.Rows.Add("15/August/2019", "holiday");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Time");
+            dt.Rows.Add("07/June/2021 ", "party time", "16:45");
+            dt.Rows.Add("02/July/2019", "holiday", "Bjelovar");
+            dt.Rows.Add("30/June/2019", "holiday", "Bjelovar");
+            dt.Rows.Add("15/August/2019", "holiday", "Bjelovar");
             return dt;
         }
  
@@ -33,13 +34,10 @@ namespace PraksaFront
             {
                 if (Convert.ToDateTime(e.Day.Date) == Convert.ToDateTime(row["Date"]))
                     {
-                    Label Label1 = new Label();
-                    Label1.Text = "<br/>";
-                    Label Label2 = new Label();
-                    Label2.Text = "Desc";
-                    e.Cell.Controls.Add(Label1);
+                    System.Web.UI.WebControls.Label Label2 = new System.Web.UI.WebControls.Label();
+                    Label2.Text = "<br/>" + Convert.ToString(row["Name"]) + "<br/>" + Convert.ToString(row["Time"]);
                     e.Cell.Controls.Add(Label2);
-                    }
+                }
             }
         }
     }
