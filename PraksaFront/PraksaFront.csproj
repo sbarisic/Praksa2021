@@ -117,6 +117,7 @@
     <Content Include="AdminPermits.aspx" />
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="RegistrationRequests.aspx" />
+    <Content Include="scripts\calendarscript.js" />
     <Content Include="UserWork.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />

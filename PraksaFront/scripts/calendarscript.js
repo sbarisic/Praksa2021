@@ -35,21 +35,21 @@ function deleteSuccess(deleteResult) {
 }
 
 function addSuccess(addResult) {
-// if addresult is -1, means event was not added
-//    alert("added key: " + addResult);
+    // if addresult is -1, means event was not added
+    //    alert("added key: " + addResult);
 
     if (addResult != -1) {
         $('#calendar').fullCalendar('renderEvent',
-						{
-						    title: $("#addEventName").val(),
-						    start: addStartDate,
-						    end: addEndDate,
-						    id: addResult,
-						    description: $("#addEventDesc").val(),
-						    allDay: globalAllDay
-						},
-						true // make the event "stick"
-					);
+            {
+                title: $("#addEventName").val(),
+                start: addStartDate,
+                end: addEndDate,
+                id: addResult,
+                description: $("#addEventDesc").val(),
+                allDay: globalAllDay
+            },
+            true // make the event "stick"
+        );
 
 
         $('#calendar').fullCalendar('unselect');
@@ -117,7 +117,7 @@ function eventResized(event, dayDelta, minuteDelta, revertFunc) {
 
 function checkForSpecialChars(stringToCheck) {
     var pattern = /[^A-Za-z0-9 ]/;
-    return pattern.test(stringToCheck); 
+    return pattern.test(stringToCheck);
 }
 
 function isAllDay(startDate, endDate) {
@@ -131,7 +131,7 @@ function isAllDay(startDate, endDate) {
         allDay = false;
         globalAllDay = false;
     }
-    
+
     return allDay;
 }
 
@@ -139,20 +139,20 @@ function qTipText(start, end, description) {
     var text;
 
     if (end !== null)
-        text =  "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong> " + end.format("MM/DD/YYYY hh:mm T") + "<br/><br/>" + description;
+        text = "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong> " + end.format("MM/DD/YYYY hh:mm T") + "<br/><br/>" + description;
     else
-        text =  "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong><br/><br/>" + description;
+        text = "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong><br/><br/>" + description;
 
     return text;
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     // update Dialog
     $('#updatedialog').dialog({
         autoOpen: false,
         width: 470,
         buttons: {
-            "update": function() {
+            "update": function () {
                 //alert(currentUpdateEvent.title);
                 var eventToUpdate = {
                     id: currentUpdateEvent.id,
@@ -173,7 +173,7 @@ $(document).ready(function() {
                 }
 
             },
-            "delete": function() {
+            "delete": function () {
 
                 if (confirm("do you really want to delete this event?")) {
 
@@ -190,7 +190,7 @@ $(document).ready(function() {
         autoOpen: false,
         width: 470,
         buttons: {
-            "Add": function() {
+            "Add": function () {
                 //alert("sent:" + addStartDate.format("dd-MM-yyyy hh:mm:ss tt") + "==" + addStartDate.toLocaleString());
                 var eventToAdd = {
                     name: $("#addEventName").val(),
@@ -201,7 +201,7 @@ $(document).ready(function() {
 
                     allDay: isAllDay(addStartDate, addEndDate)
                 };
-                
+
                 if (checkForSpecialChars(eventToAdd.title) || checkForSpecialChars(eventToAdd.description)) {
                     alert("please enter characters: A to Z, a to z, 0 to 9, spaces");
                 }
@@ -234,7 +234,7 @@ $(document).ready(function() {
         customButtons: {
             customBtn: {
                 text: 'Custom Button',
-                click: function() {
+                click: function () {
                     alert('This custom button is hot! 🔥\nNow go have fun!');
                 }
             }
@@ -248,7 +248,7 @@ $(document).ready(function() {
         events: "JsonResponse.ashx",
         eventDrop: eventDropped,
         eventResize: eventResized,
-        eventRender: function(event, element) {
+        eventRender: function (event, element) {
             //alert(event.title);
             element.qtip({
                 content: {
