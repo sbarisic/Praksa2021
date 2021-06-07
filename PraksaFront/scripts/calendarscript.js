@@ -195,10 +195,10 @@ $(document).ready(function () {
                 var eventToAdd = {
                     name: $("#addEventName").val(),
                     description: $("#addEventDesc").val(),
-                    start: addStartDate.toJSON(),
-                    end: addEndDate.toJSON(),
+                    location: $("#addEventLoc").val(),
+                    time: $("#addEventTime").val(),
+                    requirement: $("#addEventReq").val()
 
-                    allDay: isAllDay(addStartDate, addEndDate)
                 };
 
                 if (checkForSpecialChars(eventToAdd.title) || checkForSpecialChars(eventToAdd.description)) {
