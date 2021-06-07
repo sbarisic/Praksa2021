@@ -8,16 +8,16 @@
             <div>
                 <table class="styled-table">
                     <tr>
-                        <th>Ime
+                        <th><asp:Label runat="server" Text="Ime"></asp:Label>
                         </th>
-                        <th>Prezime
+                        <th><asp:Label runat="server" Text="Prezime"></asp:Label>
                         </th>
-                        <th>OIB</th>
-                        <th>E-Mail</th>
-                        <th>Broj telefona</th>
-                        <th>Adresa</th>
-                        <th>JMBG</th>
-                        <th>Uredi
+                        <th><asp:Label runat="server" Text="OIB"></asp:Label></th>
+                        <th><asp:Label runat="server" Text="E-Mail"></asp:Label></th>
+                        <th><asp:Label runat="server" Text="Broj telefona"></asp:Label></th>
+                        <th><asp:Label runat="server" Text="Adresa"></asp:Label></th>
+                        <th><asp:Label runat="server" Text="JMBC"></asp:Label></th>
+                        <th><asp:Label runat="server" Text="Uredi"></asp:Label>
                         </th>
                     </tr>
                     <tr>
