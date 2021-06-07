@@ -15,18 +15,18 @@ using System.Configuration;
 /// </summary>
 public class EventDAO
 {
-	//change the connection string as per your database connection.
+    //change the connection string as per your database connection.
     private static string connectionString = ConfigurationManager.AppSettings["DBConnString"];
 
-	//this method retrieves all events within range start-end
+    //this method retrieves all events within range start-end
     public static List<CalendarEvent> getEvents(DateTime start, DateTime end)
-    {   
+    {
         List<CalendarEvent> events = new List<CalendarEvent>();
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand("SELECT event_id, description, title, event_start, event_end, all_day FROM Event where event_start>=@start AND event_end<=@end", con);
         cmd.Parameters.Add("@start", SqlDbType.DateTime).Value = start;
         cmd.Parameters.Add("@end", SqlDbType.DateTime).Value = end;
-        
+
         using (con)
         {
             /*con.Open();
@@ -52,13 +52,13 @@ public class EventDAO
         //then add paramter as:cmd.Parameters.AddWithValue("@user_id", HttpContext.Current.Session["userid"]);
     }
 
-	//this method updates the event title and description
+    //this method updates the event title and description
     public static void updateEvent(int id, String title, String description)
     {
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd = new SqlCommand("UPDATE Event SET title=@name, description=@description WHERE event_id=@event_id", con);
         cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = title;
-        cmd.Parameters.Add("@description", SqlDbType.VarChar).Value= description;
+        cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = description;
         cmd.Parameters.Add("@date", SqlDbType.Int).Value = id;
 
         using (con)
@@ -68,7 +68,7 @@ public class EventDAO
         }
     }
 
-	//this method updates the event start and end time ... allDay parameter added for FullCalendar 2.x
+    //this method updates the event start and end time ... allDay parameter added for FullCalendar 2.x
     public static void updateEventTime(int id, DateTime start, DateTime end, bool allDay)
     {
         SqlConnection con = new SqlConnection(connectionString);
@@ -85,7 +85,7 @@ public class EventDAO
         }
     }
 
-	//this mehtod deletes event with the id passed in.
+    //this mehtod deletes event with the id passed in.
     public static void deleteEvent(int id)
     {
         SqlConnection con = new SqlConnection(connectionString);
@@ -99,7 +99,7 @@ public class EventDAO
         }
     }
 
-	//this method adds events to the database
+    //this method adds events to the database
     public static int addEvent(CalendarEvent cevent)
     {
         //add event to the database and return the primary key of the added event row

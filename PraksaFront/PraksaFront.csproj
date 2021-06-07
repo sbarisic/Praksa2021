@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="AddWork.aspx" />
     <Content Include="AdminWork.aspx" />
+    <Content Include="Calendar.aspx" />
     <Content Include="content\css\about.css" />
     <Content Include="content\css\bootstrap-grid.css" />
     <Content Include="content\css\bootstrap-grid.min.css" />
@@ -138,6 +139,16 @@
     <Compile Include="AdminWork.aspx.designer.cs">
       <DependentUpon>AdminWork.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar\CalendarEvent.cs" />
+    <Compile Include="Calendar\EventDAO.cs" />
+    <Compile Include="Calendar\ImproperCalendarEvent.cs" />
     <Compile Include="Code\Db.cs" />
     <Compile Include="Default.Master.cs">
       <DependentUpon>Default.Master</DependentUpon>
