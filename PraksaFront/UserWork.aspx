@@ -3,10 +3,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
             
@@ -20,32 +20,37 @@
                     <asp:Button ID="Button2" runat="server" Text="Zatvori" />
                 </asp:Panel>
 
-            <table class="styled-table">
+            <div class="card-header">
+            <h1>Radne akcije</h1>
+        </div>
+        <div class="card-body">
+            <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+                <div class="dataTable-container">
+                    <table class="dataTable-table">
                 <tr>
-                    <th width="200px">Radna Akcija
+                    <th width="200px"><asp:Label runat="server" Text="Radna Akcija"></asp:Label>
                     </th>
-                    <th>Opis</th>
-                    <th>Datum
+                    <th><asp:Label runat="server" Text="Opis"></asp:Label></th>
+                    <th><asp:Label runat="server" Text="Datum"></asp:Label>
                     </th>
-                    <th>Vrijeme
+                    <th><asp:Label runat="server" Text="Vrijeme"></asp:Label>
                     </th>
-                    <th>Lokacija
+                    <th><asp:Label runat="server" Text="Lokacija"></asp:Label>
                     </th>
-                    <th>Obveznost</th>
-                    <th>Prisutnost
+                    <th><asp:Label runat="server" Text="Obveznost"></asp:Label></th>
+                    <th><asp:Label runat="server" Text="Prisutnost"></asp:Label>
                     </th>
                 </tr>
                 <asp:Repeater ID="UserWorkList" runat="server" ItemType="System.String">
                     <ItemTemplate>
                         <tr>
-                            <td>
-                                <%# Item %>
-                            <td>Košnja parka pomoću motorne kosilice</td>
-                            <td>25.06.2020</td>
-                            <td>16:45</td>
+                            <td><asp:Label runat="server" Text="<%# Item %>"></asp:Label></td>
+                                    <td><asp:Label runat="server" Text="Košnja parka pomoću motorne kosilice"></asp:Label></td>
+                                    <td><asp:Label runat="server" Text="25.06.2020"></asp:Label></td>
+                                    <td><asp:Label runat="server" Text="16:45"></asp:Label></td>
                             <td>
                                 <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text="Ul. Ivana Gundulića 6" OnClick="locButton_Click" />
-                            <td>Obavezno</td>
+                            <td><asp:Label runat="server" Text="Obavezno"></asp:Label></td>
                             <td>
                                 <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Dolazim"
                                     OnCommand="yes_Command" CommandArgument="<%# Item %>" />
@@ -60,6 +65,8 @@
                     </FooterTemplate>
                 </asp:Repeater>
             </table>
+        </div>
+        </div>
         </div>
     </form>
 </asp:Content>
