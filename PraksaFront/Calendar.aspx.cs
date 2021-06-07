@@ -40,6 +40,23 @@ namespace PraksaFront
                 }
             }
         }
+
+        protected void Selection_Change(Object sender, EventArgs e)
+        {
+            foreach (DateTime day in Calendar1.SelectedDates)
+            {
+                ModalPopupExtender1.Show();
+                System.Diagnostics.Debug.WriteLine(day.Date.ToShortDateString());
+            }
+
+        }
+
+        protected void actionBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("testing<<<<<");
+            ModalPopupExtender1.Show();
+            Button btn = (Button)sender;
+        }
     }
 
 

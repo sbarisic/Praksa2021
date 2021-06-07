@@ -175,7 +175,6 @@
     <Compile Include="AdminPermits.aspx.designer.cs">
       <DependentUpon>AdminPermits.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Label.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
