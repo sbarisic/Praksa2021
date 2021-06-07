@@ -33,7 +33,13 @@
                         <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
                     </asp:Panel>
 
-                    <table class="styled-table">
+                                <div class="card-header">
+            <h1>Radne akcije</h1>
+        </div>
+        <div class="card-body">
+            <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+                <div class="dataTable-container">
+                    <table class="dataTable-table">
                         <tr>
                             <th width="200px"><asp:Label runat="server" Text="Radna Akcija"></asp:Label>
                     </th>
@@ -78,6 +84,9 @@
                 </td>
             </tr>
         </table>
+</div>
+        </div>
+        </div>
     </form>
 
 

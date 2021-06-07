@@ -8,8 +8,13 @@
         <table style="margin: 0 auto;">
             <tr>
                 <td>
-
-                    <table class="styled-table">
+                    <div class="card-header">
+                    <h1>Dozvole</h1>
+                    </div>
+        <div class="card-body">
+            <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+                <div class="dataTable-container">
+                    <table class="dataTable-table">
                         <tr>
                             <th>Broj dozvole
                             </th>
@@ -28,7 +33,9 @@
                             </ItemTemplate>
                         </asp:Repeater>
                     </table>
-
+                </div>
+            </div>
+        </div>
                 </td>
                 <td>
                     <div style="padding: 20px;">
