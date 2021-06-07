@@ -195,7 +195,6 @@ $(document).ready(function () {
                 var eventToAdd = {
                     name: $("#addEventName").val(),
                     description: $("#addEventDesc").val(),
-
                     start: addStartDate.toJSON(),
                     end: addEndDate.toJSON(),
 

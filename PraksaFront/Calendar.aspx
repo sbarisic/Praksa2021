@@ -63,15 +63,33 @@
         <table class="style1">
             <tr>
                 <td class="alignRight">
-                    Name:</td>
+                    Radna akcija::</td>
                 <td class="alignLeft">
                     <input id="eventName" type="text" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
-                    Description:</td>
+                    Opis:</td>
                 <td class="alignLeft">
                     <textarea id="eventDesc" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Lokacija:</td>
+                <td class="alignLeft">
+                    <textarea id="eventLoc" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Vrijeme:</td>
+                <td class="alignLeft">
+                    <textarea id="eventTime" cols="30" rows="3" ></textarea></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Obveznost:</td>
+                <td class="alignLeft">
+                    <textarea id="eventReq" cols="30" rows="3" ></textarea></td>
             </tr>
             <tr>
                 <td class="alignRight">
@@ -91,27 +109,33 @@
     <table class="style1">
             <tr>
                 <td class="alignRight">
-                    Name:</td>
+                    Radna akcija::</td>
                 <td class="alignLeft">
                     <input id="addEventName" type="text" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
-                    Description:</td>
+                    Opis:</td>
                 <td class="alignLeft">
                     <textarea id="addEventDesc" cols="30" rows="3" ></textarea></td>
             </tr>
             <tr>
                 <td class="alignRight">
-                    Start:</td>
+                    Lokacija:</td>
                 <td class="alignLeft">
-                    <span id="addEventStartDate" ></span></td>
+                    <input id="addEventLoc" type="text" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
-                    End:</td>
+                    Vrijeme:</td>
                 <td class="alignLeft">
-                    <span id="addEventEndDate" ></span></td>
+                    <input id="addEventTime" type="text" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
+                    Obveznost:</td>
+                <td class="alignLeft">
+                    <input id="addEventReq" type="text" size="33" /><br /></td>
             </tr>
         </table>
         
