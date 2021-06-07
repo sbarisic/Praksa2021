@@ -232,6 +232,7 @@
     <Content Include="content\js\bootstrap.js.map" />
     <Content Include="content\js\bootstrap.min.js.map" />
     <Content Include="Default.Master" />
+    <Content Include="libman.json" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -239,6 +240,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PraksaMid\PraksaMid.csproj">
+      <Project>{3b01a968-2394-4d92-ab0a-8cbf4dc770a9}</Project>
+      <Name>PraksaMid</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
