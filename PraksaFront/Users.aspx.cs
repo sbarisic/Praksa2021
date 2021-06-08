@@ -26,9 +26,6 @@ namespace PraksaFront
             User user = new User();
             UserRepeater.DataSource = user.GetUsers(connectionString);
             UserRepeater.DataBind();
-            //GridUsers.DataSource = user.GetUsers(connectionString);
-            //GridUsers.DataBind();
-
         }
     }
 }
