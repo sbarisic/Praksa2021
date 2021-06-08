@@ -41,23 +41,23 @@
                     <th><asp:Label runat="server" Text="Prisutnost"></asp:Label>
                     </th>
                 </tr>
-                <asp:Repeater ID="UserWorkList" runat="server" ItemType="System.String">
+                <asp:Repeater ID="UserWorkList" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td><asp:Label runat="server" Text="<%# Item %>"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="Košnja parka pomoću motorne kosilice"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="25.06.2020"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="16:45"></asp:Label></td>
+                            <td><asp:Label runat="server" Text='<%# Eval ("Name")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Description")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Date")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Time")%>'></asp:Label></td>
                             <td>
-                                <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text="Ul. Ivana Gundulića 6" OnClick="locButton_Click" />
+                                <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
                             <td><asp:Label runat="server" Text="Obavezno"></asp:Label></td>
                             <td>
                                 <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Dolazim"
-                                    OnCommand="yes_Command" CommandArgument="<%# Item %>" />
+                                    OnCommand="yes_Command" CommandArgument='<%# Eval ("ID")%>' />
                                 <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Ne dolazim"
-                                    OnCommand="no_Command" CommandArgument="<%# Item %>" />
+                                    OnCommand="no_Command" CommandArgument='<%# Eval ("ID")%>' />
                                 <asp:Button ID="maybeButton" CssClass="workButton" runat="server" Text="Mozda dolazim"
-                                    OnCommand="maybe_Command" CommandArgument="<%# Item %>" /></td>
+                                    OnCommand="maybe_Command" CommandArgument='<%# Eval ("ID")%>' /></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
