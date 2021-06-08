@@ -42,8 +42,8 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Prihvati" OnClientClick="return confirm('Are you sure?')" />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Odbij" OnClientClick="return confirm('Are you sure?')" />
+                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("uniqueid") %>' />
+                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" CommandArgument='<%# Eval("uniqueid") %>'/>
                                     </td>
                                 </tr>
                             </ItemTemplate>
