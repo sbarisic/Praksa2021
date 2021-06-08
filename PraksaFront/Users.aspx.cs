@@ -27,5 +27,17 @@ namespace PraksaFront
             UserRepeater.DataSource = user.GetUsers(connectionString);
             UserRepeater.DataBind();
         }
+
+
+        protected void editButton_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("EditUser.aspx?id=" + e.CommandArgument.ToString());
+        }
+
+        protected void deleteButton_Command(object sender, CommandEventArgs e)
+        {
+            // delete user with unique id e.CommandArgument.ToStrin();
+            System.Diagnostics.Debug.WriteLine("delete " + e.CommandArgument.ToString());
+        }
     }
 }
