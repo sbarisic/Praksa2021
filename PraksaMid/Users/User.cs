@@ -42,6 +42,7 @@ namespace PraksaMid.Users
                 {
                     User user = new User
                     {
+                        Id = Convert.ToInt32(dr["ID"]),
                         UniqueId = dr["Jedinstveni broj člana"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
