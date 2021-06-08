@@ -12,27 +12,43 @@
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <asp:GridView 
-                        ID="GridUsers"
-                        runat="server" 
-                        gridlines="both"
-                        CellPadding ="1"
-                      
-            >
-                    
-                        <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
-                        <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
-                        <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
-                        <RowStyle HorizontalAlign="Center" BackColor="White" BorderColor="#0000CC" 
-                            BorderStyle="Solid" BorderWidth="2px" ForeColor="#003399" />
-                        <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                        <SortedAscendingCellStyle BackColor="#EDF6F6" />
-                        <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
-                        <SortedDescendingCellStyle BackColor="#D6DFDF" />
-                        <SortedDescendingHeaderStyle BackColor="#002876" />
-
-                        
-                    </asp:GridView>
+                    <table class="dataTable-table">
+                        <tr>
+                            <th>
+                                <asp:Label runat="server" Text="Ime"></asp:Label>
+                            </th>
+                            <th>
+                                <asp:Label runat="server" Text="Prezime"></asp:Label>
+                            </th>
+                            <th>
+                                <asp:Label runat="server" Text="E-Mail"></asp:Label></th>
+                            <th>
+                                <asp:Label runat="server" Text="Broj telefona"></asp:Label></th>
+                            <th>
+                                <asp:Label runat="server" Text="Adresa"></asp:Label></th>
+                            <th>
+                                <asp:Label runat="server" Text="JMBC"></asp:Label></th>
+                            <th>
+                                <asp:Label runat="server" Text="Status"></asp:Label>
+                            </th>
+                        </tr>
+                        <asp:Repeater ID="UserRepeater" runat="server">
+                            <ItemTemplate>
+                                <tr>
+                                    <td><asp:Label runat="server" Text='<%# Eval("firstname")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("lastname")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label></td>
+                                    <td>
+                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Prihvati" OnClientClick="return confirm('Are you sure?')" />
+                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Odbij" OnClientClick="return confirm('Are you sure?')" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </table>
                 </div>
             </div>
         </div>
