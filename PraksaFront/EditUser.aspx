@@ -50,7 +50,7 @@
                             </tr>
                             <tr>
                                 <th width="150px">
-                                    <asp:Label ID="lvlOib" runat="server" Text="OIB"></asp:Label>
+                                    <asp:Label ID="lblOib" runat="server" Text="OIB"></asp:Label>
                                 </th>
                                 <th>
                                     <asp:TextBox ID="txtOib" runat="server"></asp:TextBox>
@@ -66,10 +66,10 @@
                             </tr>
                             <tr>
                                 <th width="150px">
-                                    <asp:Label ID="lblContactNum" runat="server" Text="Kontakt broj"></asp:Label>
+                                    <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
                                 </th>
                                 <th>
-                                    <asp:TextBox ID="txtContactNum" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
                                 </th>
                             </tr>
                             <tr>

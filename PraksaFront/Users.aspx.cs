@@ -31,7 +31,8 @@ namespace PraksaFront
 
         protected void editButton_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("EditUser.aspx?id=" + e.CommandArgument.ToString());
+            Console.WriteLine(e.CommandArgument);
+            Response.Redirect("EditUser.aspx?userId=" + e.CommandArgument);
         }
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)

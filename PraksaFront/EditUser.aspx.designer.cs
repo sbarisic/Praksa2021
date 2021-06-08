@@ -96,13 +96,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.TextBox txtAdress;
 
         /// <summary>
-        /// lvlOib control.
+        /// lblOib control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lvlOib;
+        protected global::System.Web.UI.WebControls.Label lblOib;
 
         /// <summary>
         /// txtOib control.
@@ -132,22 +132,22 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// lblContactNum control.
+        /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContactNum;
+        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
 
         /// <summary>
-        /// txtContactNum control.
+        /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContactNum;
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
 
         /// <summary>
         /// lblPermits control.

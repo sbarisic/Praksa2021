@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -57,6 +58,46 @@ namespace PraksaMid.Users
                 }
             }
             return users;
+        }
+
+        public User GetUser(string connectionString, int id)
+        {
+            List<User> users = new List<User>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            
+            SqlCommand cmd = new SqlCommand("getUser", con)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+            SqlParameter parameter = new SqlParameter
+            {
+                ParameterName = "@ID",
+                SqlDbType = SqlDbType.Int,
+                Direction = ParameterDirection.Input,
+                Value = id
+            };
+            cmd.Parameters.Add(parameter);
+
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            User user = new User();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    user.UniqueId = dr["Jedinstveni broj člana"].ToString();
+                    user.FirstName = dr["Ime"].ToString();
+                    user.LastName = dr["Prezime"].ToString();
+                    user.Address = dr["Adresa"].ToString();
+                    user.PhoneNumber = dr["Broj mobitela"].ToString();
+                    user.Email = dr["Epošta"].ToString();
+                    user.Oib = dr["OIB"].ToString();
+                }
+            }
+            return user;
         }
     }
 }
