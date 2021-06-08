@@ -228,16 +228,9 @@ $(document).ready(function () {
         header: {
             left: 'prev,next today customBtn',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            right: 'month'
         },
-        customButtons: {
-            customBtn: {
-                text: 'Custom Button',
-                click: function () {
-                    alert('This custom button is hot! 🔥\nNow go have fun!');
-                }
-            }
-        },
+        
         defaultView: 'month',
         eventClick: updateEvent,
         selectable: true,
