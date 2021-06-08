@@ -54,21 +54,21 @@
                     <th><asp:Label runat="server" Text="Prisutnost"></asp:Label>
                     </th>
                         </tr>
-                        <asp:Repeater ID="UserWorkList" runat="server" ItemType="System.String">
+                        <asp:Repeater ID="UserWorkList" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td><asp:Label runat="server" Text="<%# Item %>"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="Košnja parka pomoću motorne kosilice"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="25.06.2020"></asp:Label></td>
-                                    <td><asp:Label runat="server" Text="16:45"></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Name")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Description")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Date")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Time")%>'></asp:Label></td>
                                     <td>
-                                        <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text="Ul. Ivana Gundulića 6" OnClick="locButton_Click" /></td>
+                                        <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" /></td>
                                     <td><asp:Label runat="server" Text="Obavezno"></asp:Label></td>
                                     <td>
                                         <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Uredi"
-                                            OnCommand="edit_Command" CommandArgument="<%# Item %>" />
+                                            OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
                                         <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Obriši"
-                                            OnCommand="delete_Command" CommandArgument="<%# Item %>" />
+                                            OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
