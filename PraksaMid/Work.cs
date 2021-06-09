@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -49,6 +50,34 @@ namespace PraksaMid.Works
                 }
             }
             return works;
+        }
+
+        public void CreateWork(string connectionString, Work work)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("insertJob", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    string dateStr = work.Date + " " + work.Time;
+                    DateTime date = DateTime.Parse(dateStr);
+
+                    cmd.Parameters.Add(new SqlParameter("@Name", work.Name));
+                    cmd.Parameters.Add(new SqlParameter("@Date", date));
+                    cmd.Parameters.Add(new SqlParameter("@Location", work.Location));
+                    cmd.Parameters.Add(new SqlParameter("@Description", work.Description));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
