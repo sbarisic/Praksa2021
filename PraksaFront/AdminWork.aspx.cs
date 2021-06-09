@@ -31,7 +31,7 @@ namespace PraksaFront
         }
         protected void edit_Command(object sender, CommandEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("edit " + e.CommandArgument.ToString());
+            Response.Redirect("EditWork.aspx?workId=" + e.CommandArgument);
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
