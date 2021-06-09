@@ -37,6 +37,7 @@ namespace PraksaFront
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
             lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
+            roleButton.SelectedValue = user.IdRole.ToString();
         }
         protected void BtnCancel_Click(object sender, EventArgs e)
         {

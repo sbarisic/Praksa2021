@@ -78,6 +78,17 @@
                                     ValidChars="+ " TargetControlID="txtPhoneNumber" />
                             </th>
                         </tr>
+                        <tr> 
+                            <th width="150px">
+                                <asp:Label ID="lblRole" runat="server" Text="Uloga"></asp:Label>
+                            </th>
+                            <td>
+                                <asp:RadioButtonList ID="roleButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
+                                    <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
+                                    <asp:ListItem Value="2">Korisnik</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </td>
+                        </tr>
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>

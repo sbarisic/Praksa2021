@@ -222,5 +222,6 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Button BtnCancel;
 
         protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.RadioButtonList roleButton;
     }
 }
