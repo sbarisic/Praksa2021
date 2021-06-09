@@ -81,5 +81,34 @@ namespace PraksaMid.Works
                 throw ex;
             }
         }
+
+        public Work GetWork(string connectionString, int workId)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getJob", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+            cmd.Parameters.Add(new SqlParameter("@ID", workId));
+            Work work = new Work();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    work.Name = dr["Naziv akcije"].ToString();
+                    work.Description = dr["Opis"].ToString();
+                    work.Location = dr["Mjesto"].ToString();
+                    work.Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d");
+                    work.Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t");
+                    work.Obligation = dr["Obaveznost"].ToString();
+
+                }
+            }
+            return work;
+        }
     }
 }
