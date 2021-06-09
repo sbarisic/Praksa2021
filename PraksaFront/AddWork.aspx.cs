@@ -26,7 +26,8 @@ namespace PraksaFront
                 Description = descriptionText.Text,
                 Date = dateText.Text.ToString(),
                 Time = timeText.Text.ToString(),
-                Location = locationText.Text
+                Location = locationText.Text,
+                Obligation = obligationButton.SelectedValue
             };
 
             work.CreateWork(connectionString, work);
@@ -38,7 +39,7 @@ namespace PraksaFront
             dateText.Text = "";
             timeText.Text = "";
             locationText.Text = "";
-            RadioButton.SelectedIndex = -1;
+            obligationButton.SelectedIndex = -1;
         }
 
 

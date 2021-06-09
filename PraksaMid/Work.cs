@@ -70,6 +70,7 @@ namespace PraksaMid.Works
                     cmd.Parameters.Add(new SqlParameter("@Date", date));
                     cmd.Parameters.Add(new SqlParameter("@Location", work.Location));
                     cmd.Parameters.Add(new SqlParameter("@Description", work.Description));
+                    cmd.Parameters.Add(new SqlParameter("@Obligation", Convert.ToInt32(work.Obligation)));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

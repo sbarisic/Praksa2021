@@ -57,9 +57,9 @@
                                     <asp:Label ID="Label6" runat="server" Text="Obveznost"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:RadioButtonList ID="RadioButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
-                                        <asp:ListItem>Obavezno</asp:ListItem>
-                                        <asp:ListItem>Neobavezno</asp:ListItem>
+                                    <asp:RadioButtonList ID="obligationButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
+                                        <asp:ListItem Value="1">Obavezno</asp:ListItem>
+                                        <asp:ListItem Value="0">Nije obavezno</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                             </tr>
