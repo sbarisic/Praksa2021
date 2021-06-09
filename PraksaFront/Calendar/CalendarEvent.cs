@@ -5,11 +5,12 @@
 /// </summary>
 public class CalendarEvent
 {
-    public int id { get; set; }
-    public string name { get; set; }
-    public string description { get; set; }
-    public string location { get; set; }
-    public DateTime date { get; set; }
-    public string time { get; set; }
-    public bool requirement { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Date { get; set; }
+    public string Time { get; set; }
+    public string Description { get; set; }
+    public string Location { get; set; }
+    public string Obligation { get; set; }
+    public int IdAttendant { get; set; }
 }

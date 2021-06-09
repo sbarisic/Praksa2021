@@ -161,8 +161,6 @@
       <DependentUpon>Calendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Calendar\CalendarEvent.cs" />
-    <Compile Include="Calendar\EventDAO.cs" />
-    <Compile Include="Calendar\ImproperCalendarEvent.cs" />
     <Compile Include="Code\Db.cs" />
     <Compile Include="Default.Master.cs">
       <DependentUpon>Default.Master</DependentUpon>
