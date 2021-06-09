@@ -16,17 +16,17 @@
                 <tr>
                     <td>Ime</td>
                     <td>
-                        <asp:TextBox ID="txtIme" runat="server" placeholder="Unesite ime :" required="required"></asp:TextBox></td>
+                        <asp:TextBox ID="txtFirstName" runat="server" placeholder="Unesite ime :" required="required"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Prezime</td>
                     <td>
-                        <asp:TextBox ID="txtPrezime" runat="server" placeholder="Unesite prezime :" required="required"></asp:TextBox></td>
+                        <asp:TextBox ID="txtLastName" runat="server" placeholder="Unesite prezime :" required="required"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Adresa</td>
                     <td>
-                        <asp:TextBox ID="txtAdresa" runat="server" placeholder="Unesite adresu :" required="required"></asp:TextBox></td>
+                        <asp:TextBox ID="txtAdress" runat="server" placeholder="Unesite adresu :" required="required"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Email</td>
@@ -36,24 +36,13 @@
                 <tr>
                     <td>Kontakt broj</td>
                     <td>
-                        <asp:TextBox ID="txtKontaktbroj" runat="server" placeholder="Unesite kontakt broj :" required="required"></asp:TextBox></td>
+                        <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Unesite kontakt broj :" required="required"></asp:TextBox></td>
                 </tr>
                 <tr>
                      <td>Oib</td>
                      <td>
                         <asp:TextBox ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required"></asp:TextBox></td>
-                </tr>
-                <tr>
-                     <td>UID</td>
-                     <td>
-                        <asp:TextBox ID="txtUID" runat="server" placeholder="Unesite UID :" required="required"></asp:TextBox></td>
-                </tr>
-                <tr>
-                     <td>IdRole</td>
-                     <td>
-                        <asp:TextBox ID="txtIdRole" runat="server" placeholder="Unesite 1 ili 2 :" required="required"></asp:TextBox></td>
-                </tr>
-               
+                </tr>               
                 <tr>
                       <td>Lozinka</td>
                       <td>

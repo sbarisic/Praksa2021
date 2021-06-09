@@ -20,7 +20,7 @@ namespace PraksaFront
             _jsPostBackCall = ClientScript.GetPostBackEventReference(this, "RowClicked");
             if (!IsPostBack)
             {
-                GetUsers();    
+                GetUsers();
             }
         }
 
@@ -40,8 +40,10 @@ namespace PraksaFront
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            // delete user with unique id e.CommandArgument.ToStrin();
-            System.Diagnostics.Debug.WriteLine("delete " + e.CommandArgument.ToString());
+            int userId = Convert.ToInt16(e.CommandArgument);
+            User user = new User();
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
         }
 
         public void RaisePostBackEvent(string eventArgument)
