@@ -20,8 +20,9 @@
         <script>
         function hideEditModalPopup() {
             $find("ModalPopupExtender1").hide();
+            document.getElementById("btnSample").click();
             return false;
-        }
+    }
 </script>
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -31,7 +32,7 @@
                 <iframe src="AddPermitName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
-
+        <asp:Button runat="server" ID="btnSample" ClientIDMode="Static" Text="" style="display:none;" OnClick="btnSample_Click" />
         <table style="margin: 0 auto;">
             <tr>
                 <td>
