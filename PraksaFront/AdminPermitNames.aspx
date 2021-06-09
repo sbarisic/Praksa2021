@@ -52,7 +52,7 @@
                                 <tr>
                                     <td><%# Eval("name")%></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="DeleteWork" runat="server" Text="Obriši" /></td>
+                                        <asp:Button CssClass="workButton" OnCommand="deletePermitBtn_Command" CommandArgument='<%# Eval("id") %>' ID="deletePermitBtn" runat="server" Text="Obriši" /></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

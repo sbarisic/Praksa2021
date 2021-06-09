@@ -5,14 +5,14 @@
     <title></title>
     <link rel="stylesheet" href="content/css/home.css" />
     <script type="text/javascript">
-        function checkDate(sender, args) {
-            if (sender._selectedDate < new Date()) {
-                alert("Ne možete odabrati dan u prošlosti.");
-                sender._selectedDate = new Date();
-                // set the date back to the current date
-                sender._textbox.set_Value(sender._selectedDate.format(sender._format))
-            }
+    function checkDate(sender, args) {
+        if (sender._selectedDate < new Date()) {
+            alert("Ne možete odabrati dan u prošlosti.");
+            sender._selectedDate = new Date();
+            // set the date back to the current date
+            sender._textbox.set_Value(sender._selectedDate.format(sender._format))
         }
+    }
     </script>
 </head>
 <body style="background-color: white;">
@@ -60,10 +60,18 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <asp:Label ID="Label5" runat="server" Text="Lokacija"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="Grad"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox Width="300px" Placeholder="Lokacija..." ID="locationText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" Placeholder="Grad..." ID="cityText" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+<tr>
+                                <th>
+                                    <asp:Label ID="Label52" runat="server" Text="Ulica"></asp:Label>
+                                </th>
+                                <td>
+                                    <asp:TextBox Width="300px" Placeholder="Ulica..." ID="streetText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
