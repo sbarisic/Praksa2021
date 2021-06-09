@@ -18,10 +18,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <script>
-        function hideEditModalPopup() {
-            $find("ModalPopupExtender1").hide();
-            document.getElementById("btnSample").click();
-            return false;
+    function hideEditModalPopup() {
+        $find("ModalPopupExtender1").hide();
+        document.getElementById("btnSample").click();
+        return false;
     }
 </script>
 
@@ -42,7 +42,7 @@
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table" >
+                    <table class="dataTable-table table-striped" >
                         <tr>
                             <th colspan="2">Naziv dozvole
                             </th>

@@ -36,7 +36,7 @@ namespace PraksaFront
             txtOib.Text = user.Oib;
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
-            lblTitle.Text = user.FirstName + " " + user.LastName;
+            lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
         }
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
