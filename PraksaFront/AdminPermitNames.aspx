@@ -16,19 +16,15 @@
                 <div class="dataTable-container">
                     <table class="dataTable-table">
                         <tr>
-                            <th>Broj dozvole
-                            </th>
                             <th>Naziv dozvole
                             </th>
-                            <th>Uredi</th>
                         </tr>
-                        <asp:Repeater ID="PermitRepeater" runat="server" ItemType="System.String">
+                        <asp:Repeater ID="PermitRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td>1</td>
-                                    <td><%# Item %></td>
+                                    <td><%# Eval("name")%></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="Button4" runat="server" Text="Obriši" /></td>
+                                        <asp:Button CssClass="workButton" ID="DeleteWork" runat="server" Text="Obriši" /></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
