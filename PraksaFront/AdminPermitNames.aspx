@@ -43,7 +43,7 @@
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
                     <table class="dataTable-table table-striped" >
-                        <tr>
+                        <tr style="background-color:lightgreen;">
                             <th colspan="2">Naziv dozvole
                             </th>
                         </tr>
