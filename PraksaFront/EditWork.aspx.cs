@@ -12,15 +12,21 @@ namespace PraksaFront
     public partial class EditWork : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-
+        int workId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillWorkData();
+            if (Request.QueryString["userId"] != "")
+                workId = Convert.ToInt16(Request.QueryString["workId"]);
+            else
+                Response.Redirect("Users.aspx");
+            if (!IsPostBack)
+            {
+                FillWorkData();
+            }
         }
 
         private void FillWorkData()
         {
-            int workId = Convert.ToInt16(Request.QueryString["workId"]);
             Work work = new Work();
             work = work.GetWork(connectionString, workId);
             workText.Text = work.Name;
@@ -34,6 +40,7 @@ namespace PraksaFront
         {
             Work work = new Work
             {
+                Id = workId,
                 Name = workText.Text,
                 Description = descriptionText.Text,
                 Date = dateText.Text.ToString(),

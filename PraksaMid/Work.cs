@@ -145,7 +145,7 @@ namespace PraksaMid.Works
 
                     string dateStr = work.Date + " " + work.Time;
                     DateTime date = DateTime.Parse(dateStr);
-
+                    cmd.Parameters.Add(new SqlParameter("@ID", work.Id));
                     cmd.Parameters.Add(new SqlParameter("@Name", work.Name));
                     cmd.Parameters.Add(new SqlParameter("@Date", date));
                     cmd.Parameters.Add(new SqlParameter("@Location", work.Location));
