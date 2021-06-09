@@ -9,12 +9,12 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="card-header">
-            <h1>Korisnik</h1>
+            <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
         </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
+                    <table class="dataTable-table table-striped">
                         <tr>
                             <th width="250px">
                                 <asp:Label ID="lblJmbc" runat="server" Text="Jedinstveni matični broj člana"></asp:Label>

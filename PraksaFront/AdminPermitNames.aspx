@@ -35,15 +35,15 @@
         <table style="margin: 0 auto;">
             <tr>
                 <td>
-                    <div class="card-header">
+                    <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
                     <h1>Dozvole</h1>
                     </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
+                    <table class="dataTable-table" >
                         <tr>
-                            <th>Naziv dozvole
+                            <th colspan="2">Naziv dozvole
                             </th>
                         </tr>
                         <asp:Repeater ID="PermitRepeater" runat="server">
