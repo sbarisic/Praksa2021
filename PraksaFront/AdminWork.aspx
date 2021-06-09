@@ -30,8 +30,8 @@
                     <asp:HiddenField ID="hdnField2" runat="server" />
                     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="Panl3" TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
-                        <table class="dataTable-table">
-                            <tr>
+                        <table class="dataTable-table table-striped">
+                            <tr style="background-color:lightgreen;">
                                 <th><asp:Label runat="server" Text="Ime"></asp:Label></th>
                                 <th><asp:Label runat="server" Text="Prezime"></asp:Label></th>
                                 <th><asp:Label runat="server" Text="Interes"></asp:Label></th>

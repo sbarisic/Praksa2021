@@ -50,7 +50,7 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label></td>
                                     <td>
                                         <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" CommandArgument='<%# Eval("id") %>'/>
+                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
                                     </td>
                                 </tr>
                             </ItemTemplate>

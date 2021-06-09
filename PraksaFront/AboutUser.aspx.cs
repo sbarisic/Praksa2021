@@ -42,11 +42,11 @@ namespace PraksaFront
         {
             Response.Redirect("EditUser.aspx?userId=" + userId.ToString());
         }
-
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            // delete user with userId;
-            System.Diagnostics.Debug.WriteLine("delete " + userId.ToString());
+            User user = new User();
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
         }
 
         protected void backButton_Click(object sender, EventArgs e)
