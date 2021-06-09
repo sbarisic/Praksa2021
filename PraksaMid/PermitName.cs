@@ -9,6 +9,7 @@ namespace PraksaMid
 {
     public class PermitName
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public void createPermitName(string connectionString, PermitName permitName)
@@ -31,6 +32,35 @@ namespace PraksaMid
             {
                 throw ex;
             }
+        }
+
+        public List<PermitName> getPermitNames(string connectionString)
+        {
+            List<PermitName> permitNames = new List<PermitName>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getPermitNames", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    PermitName permitName = new PermitName()
+                    {
+                        Id = Convert.ToInt32(dr["Id"]),
+                        Name = dr["Naziv dozvole"].ToString()
+                    };
+
+                    permitNames.Add(permitName);
+                }
+            }
+            return permitNames;
         }
     }
 }
