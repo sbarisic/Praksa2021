@@ -26,7 +26,8 @@ namespace PraksaFront
                 Description = descriptionText.Text,
                 Date = dateText.Text.ToString(),
                 Time = timeText.Text.ToString(),
-                Location = locationText.Text
+                Location = cityText.Text + ", " + streetText.Text,
+                Obligation = obligationButton.SelectedValue
             };
 
             work.CreateWork(connectionString, work);
@@ -37,8 +38,9 @@ namespace PraksaFront
             descriptionText.Text = "";
             dateText.Text = "";
             timeText.Text = "";
-            locationText.Text = "";
-            RadioButton.SelectedIndex = -1;
+            cityText.Text = "";
+            streetText.Text = "";
+            obligationButton.SelectedIndex = -1;
         }
 
 

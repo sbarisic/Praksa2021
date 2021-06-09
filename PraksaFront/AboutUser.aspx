@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AboutUser.aspx.cs" Inherits="PraksaFront.AboutUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+       <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+        <link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
@@ -10,7 +12,7 @@
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
+                    <table class="dataTable-table table-striped">
                         <tr>
                             <th width="250px">
                                 <asp:Label ID="lblJmbc" runat="server" Text="Jedinstveni matični broj člana"></asp:Label>
@@ -82,7 +84,7 @@
                         <tr>
                             <td colspan="2">
                                 <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='' />
-                                <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" CommandArgument='' />
+                                <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
                                 <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Natrag" OnClick="backButton_Click"/>
                             </td>
 

@@ -24,6 +24,15 @@ namespace PraksaFront
         protected global::System.Web.UI.HtmlControls.HtmlForm f1;
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,15 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.TextBox dateText;
 
         /// <summary>
+        /// CalendarExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -111,7 +129,8 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox locationText;
+        protected global::System.Web.UI.WebControls.TextBox cityText;
+        protected global::System.Web.UI.WebControls.TextBox streetText;
 
         /// <summary>
         /// Label6 control.
@@ -123,13 +142,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// RadioButton control.
+        /// obligationButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButton;
+        protected global::System.Web.UI.WebControls.RadioButtonList obligationButton;
 
         /// <summary>
         /// AddWorkButton control.

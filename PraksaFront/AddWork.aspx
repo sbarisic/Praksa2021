@@ -1,11 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddWork.aspx.cs" Inherits="PraksaFront.AddWork" %>
 
-<head>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<<head runat="server" />
     <title></title>
     <link rel="stylesheet" href="content/css/home.css" />
+    <script type="text/javascript">
+    function checkDate(sender, args) {
+        if (sender._selectedDate < new Date()) {
+            alert("Ne možete odabrati dan u prošlosti.");
+            sender._selectedDate = new Date();
+            // set the date back to the current date
+            sender._textbox.set_Value(sender._selectedDate.format(sender._format))
+        }
+    }
+    </script>
 </head>
 <body style="background-color: white;">
     <form id="f1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
         <div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -33,7 +45,9 @@
                                     <asp:Label ID="Label3" runat="server" Text="Datum"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox Width="300px" TextMode="Date" Placeholder="Datum..." ID="dateText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" Placeholder="Datum..." ID="dateText" runat="server"></asp:TextBox>
+                                    <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="dateText"
+                                        OnClientDateSelectionChanged="checkDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
                                 </td>
                             </tr>
                             <tr>
@@ -46,10 +60,18 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <asp:Label ID="Label5" runat="server" Text="Lokacija"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="Grad"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox Width="300px" Placeholder="Lokacija..." ID="locationText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" Placeholder="Grad..." ID="cityText" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+<tr>
+                                <th>
+                                    <asp:Label ID="Label52" runat="server" Text="Ulica"></asp:Label>
+                                </th>
+                                <td>
+                                    <asp:TextBox Width="300px" Placeholder="Ulica..." ID="streetText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -57,9 +79,9 @@
                                     <asp:Label ID="Label6" runat="server" Text="Obveznost"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:RadioButtonList ID="RadioButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
-                                        <asp:ListItem>Obavezno</asp:ListItem>
-                                        <asp:ListItem>Neobavezno</asp:ListItem>
+                                    <asp:RadioButtonList ID="obligationButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
+                                        <asp:ListItem Value="1">Obavezno</asp:ListItem>
+                                        <asp:ListItem Value="0">Nije obavezno</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                             </tr>

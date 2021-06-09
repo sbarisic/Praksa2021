@@ -4,17 +4,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Korisnik</title>
     <link rel="stylesheet" href="content/css/home.css" />
+    <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="card-header">
-            <h1>Korisnik</h1>
+            <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
         </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
+                    <table class="dataTable-table table-striped">
                         <tr>
                             <th width="250px">
                                 <asp:Label ID="lblJmbc" runat="server" Text="Jedinstveni matični broj člana"></asp:Label>
@@ -77,6 +78,17 @@
                                     ValidChars="+ " TargetControlID="txtPhoneNumber" />
                             </th>
                         </tr>
+                        <tr> 
+                            <th width="150px">
+                                <asp:Label ID="lblRole" runat="server" Text="Uloga"></asp:Label>
+                            </th>
+                            <td>
+                                <asp:RadioButtonList ID="roleButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
+                                    <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
+                                    <asp:ListItem Value="2">Korisnik</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </td>
+                        </tr>
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
@@ -91,8 +103,8 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
-                                <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
                             </th>
 
                         </tr>

@@ -20,14 +20,14 @@
                     <asp:Button ID="Button2" runat="server" Text="Zatvori" />
                 </asp:Panel>
 
-            <div class="card-header">
+            <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
             <h1>Radne akcije</h1>
         </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
-                <tr>
+                    <table class="dataTable-table table-striped">
+                <tr style="background-color:lightgreen;">
                     <th width="200px"><asp:Label runat="server" Text="Radna Akcija"></asp:Label>
                     </th>
                     <th><asp:Label runat="server" Text="Opis"></asp:Label></th>

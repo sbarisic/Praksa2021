@@ -12,14 +12,14 @@
     </script>
     
     <form id="form1" runat="server">
-        <div class="card-header">
+        <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
             <h1>Korisnici</h1>
         </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
-                        <tr>
+                    <table class="dataTable-table table-striped">
+                        <tr style="background-color:lightgreen;">
                             <th>
                                 <asp:Label runat="server" Text="Ime"></asp:Label>
                             </th>
@@ -50,7 +50,7 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label></td>
                                     <td>
                                         <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" CommandArgument='<%# Eval("id") %>'/>
+                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
                                     </td>
                                 </tr>
                             </ItemTemplate>

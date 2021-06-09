@@ -18,10 +18,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <script>
-        function hideEditModalPopup() {
-            $find("ModalPopupExtender1").hide();
-            return false;
-        }
+    function hideEditModalPopup() {
+        $find("ModalPopupExtender1").hide();
+        document.getElementById("btnSample").click();
+        return false;
+    }
 </script>
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -31,19 +32,19 @@
                 <iframe src="AddPermitName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
-
+        <asp:Button runat="server" ID="btnSample" ClientIDMode="Static" Text="" style="display:none;" OnClick="btnSample_Click" />
         <table style="margin: 0 auto;">
             <tr>
                 <td>
-                    <div class="card-header">
+                    <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
                     <h1>Dozvole</h1>
                     </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
-                    <table class="dataTable-table">
-                        <tr>
-                            <th>Naziv dozvole
+                    <table class="dataTable-table table-striped" >
+                        <tr style="background-color:lightgreen;">
+                            <th colspan="2">Naziv dozvole
                             </th>
                         </tr>
                         <asp:Repeater ID="PermitRepeater" runat="server">
@@ -51,7 +52,7 @@
                                 <tr>
                                     <td><%# Eval("name")%></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="DeleteWork" runat="server" Text="Obriši" /></td>
+                                        <asp:Button CssClass="workButton" OnCommand="deletePermitBtn_Command" CommandArgument='<%# Eval("id") %>' ID="deletePermitBtn" runat="server" Text="Obriši" /></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

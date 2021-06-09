@@ -35,18 +35,18 @@ namespace PraksaFront
             txtOib.Text = user.Oib;
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
-            lblTitle.Text = user.FirstName + " " + user.LastName;
+            lblTitle.Text = "Informacije o korisniku - " + user.FirstName + " " + user.LastName;
         }
 
         protected void editButton_Command(object sender, CommandEventArgs e)
         {
             Response.Redirect("EditUser.aspx?userId=" + userId.ToString());
         }
-
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            // delete user with userId;
-            System.Diagnostics.Debug.WriteLine("delete " + userId.ToString());
+            User user = new User();
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
         }
 
         protected void backButton_Click(object sender, EventArgs e)
