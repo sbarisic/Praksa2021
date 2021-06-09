@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+    function updateId(param) {
+       document.getElementById("<%=hiddenId.ClientID%>").value = param;
+    }
+    </script>
+    
     <form id="form1" runat="server">
         <div class="card-header">
             <h1>Korisnici</h1>
@@ -32,9 +38,10 @@
                                 <asp:Label runat="server" Text="Status"></asp:Label>
                             </th>
                         </tr>
+                        <asp:HiddenField id="hiddenId" value="" runat="server"></asp:HiddenField>
                         <asp:Repeater ID="UserRepeater" runat="server">
                             <ItemTemplate>
-                                <tr>
+                                <tr onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;" style="cursor:pointer">
                                     <td><asp:Label runat="server" Text='<%# Eval("firstname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("lastname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>

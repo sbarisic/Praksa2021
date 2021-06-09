@@ -92,6 +92,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUser.aspx" />
     <Content Include="AddWork.aspx" />
     <Content Include="AdminWork.aspx" />
     <Content Include="Calendar.aspx" />
@@ -126,6 +127,13 @@
     <Content Include="Registration.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUser.aspx.cs">
+      <DependentUpon>AboutUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUser.aspx.designer.cs">
+      <DependentUpon>AboutUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddWork.aspx.cs">
       <DependentUpon>AddWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -10,11 +10,14 @@ using PraksaMid.Users;
 
 namespace PraksaFront
 {
-    public partial class Users : System.Web.UI.Page
+    public partial class Users : System.Web.UI.Page, IPostBackEventHandler
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
+        protected String _jsPostBackCall;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            _jsPostBackCall = ClientScript.GetPostBackEventReference(this, "RowClicked");
             if (!IsPostBack)
             {
                 GetUsers();
@@ -41,6 +44,26 @@ namespace PraksaFront
             User user = new User();
             user.DeleteUser(connectionString, userId);
             Response.Redirect("Users.aspx");
+        }
+
+        public void RaisePostBackEvent(string eventArgument)
+        {
+            switch (eventArgument)
+            {
+                case "RowClicked":
+                    HandleRowClick();
+                    break;
+
+                // you can add other controls that need postback processing here
+
+                default:
+                    throw new ArgumentException();
+            }
+        }
+
+        private void HandleRowClick()
+        {
+            Response.Redirect("AboutUser.aspx?userId=" + hiddenId.Value);
         }
     }
 }
