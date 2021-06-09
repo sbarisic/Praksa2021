@@ -123,13 +123,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// RadioButton control.
+        /// obligationButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButton;
+        protected global::System.Web.UI.WebControls.RadioButtonList obligationButton;
 
         /// <summary>
         /// AddWorkButton control.
