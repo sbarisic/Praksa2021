@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AddPermit.aspx.cs" Inherits="PraksaFront.AddPermit" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddPermit.aspx.cs" Inherits="PraksaFront.AddPermit" %>
+<head>
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</head>
+<body>
     <form id="f1" runat="server">
         <div>
             <table class="styled-table">
@@ -26,4 +26,4 @@
             </table>
         </div>
     </form>
-</asp:Content>
+</body>

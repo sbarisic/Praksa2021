@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminWork.aspx.cs" Inherits="PraksaFront.AdminWork" %> <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit"
-TagPrefix="cc1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminWork.aspx.cs" Inherits="PraksaFront.AdminWork" %> 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit"TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />

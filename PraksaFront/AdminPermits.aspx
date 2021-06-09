@@ -1,45 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminPermits.aspx.cs" Inherits="PraksaFront.AdminPermits" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:HiddenField ID="hdnField" runat="server" />
+        <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe src="AddPermit.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+        </asp:Panel>
+
         <table style="margin: 0 auto;">
             <tr>
                 <td>
                     <div class="card-header">
-                    <h1>Dozvole</h1>
+                        <h1>Dozvole</h1>
                     </div>
-        <div class="card-body">
-            <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
-                <div class="dataTable-container">
-                    <table class="dataTable-table">
-                        <tr>
-                            <th>Broj dozvole
-                            </th>
-                            <th>Naziv dozvole
-                            </th>
-                            <th>Uredi</th>
-                        </tr>
-                        <asp:Repeater ID="PermitRepeater" runat="server" ItemType="System.String">
-                            <ItemTemplate>
-                                <tr>
-                                    <td>1</td>
-                                    <td><%# Item %></td>
-                                    <td>
-                                        <asp:Button CssClass="workButton" ID="Button4" runat="server" Text="Obriši" /></td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </table>
-                </div>
-            </div>
-        </div>
+                    <div class="card-body">
+                        <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+                            <div class="dataTable-container">
+                                <table class="dataTable-table">
+                                    <tr>
+                                        <th>
+                                            <asp:Label ID="lblId" runat="server" Text="Broj dozvole"></asp:Label>
+                                        </th>
+                                        <th>
+                                            <asp:Label ID="lblName" runat="server" Text="Naziv dozvole"></asp:Label>
+                                        </th>
+                                        <th>
+                                            <asp:Label ID="lblEdit" runat="server" Text="Uredi"></asp:Label></th>
+                                    </tr>
+                                    <asp:Repeater ID="PermitRepeater" runat="server" ItemType="System.String">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><%# Item %></td>
+                                                <td>
+                                                    <asp:Button CssClass="workButton" ID="Button4" runat="server" Text="Obriši" /></td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="addPermitBtn" runat="server" Text="Dodaj dozvolu" />
+                        <asp:Button CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu" />
                     </div>
                 </td>
             </tr>
