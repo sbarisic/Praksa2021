@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddPermit.aspx.cs" Inherits="PraksaFront.AddPermit" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddPermitName.aspx.cs" Inherits="PraksaFront.AddPermit" %>
 <head>
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </head>
