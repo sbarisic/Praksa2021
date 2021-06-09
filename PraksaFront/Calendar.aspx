@@ -75,7 +75,7 @@
             </tr>
             <tr>
                 <td class="alignRight">
-                    Lokacija:</td>
+                    Datum:</td>
                 <td class="alignLeft">
                     <textarea id="eventLoc" cols="30" rows="3" ></textarea></td>
             </tr>
@@ -87,13 +87,13 @@
             </tr>
             <tr>
                 <td class="alignRight">
-                    Obveznost:</td>
+                    Lokacija:</td>
                 <td class="alignLeft">
                     <textarea id="eventReq" cols="30" rows="3" ></textarea></td>
             </tr>
             <tr>
                 <td class="alignRight">
-                    Start:</td>
+                    Obveznost:</td>
                 <td class="alignLeft">
                     <span id="eventStart"></span></td>
             </tr>
@@ -127,15 +127,25 @@
             </tr>
             <tr>
                 <td class="alignRight">
+                    Datum:</td>
+                <td class="alignLeft">
+                    <input id="addEventDate" type="Date" size="33" /><br /></td>
+            </tr>
+            <tr>
+                <td class="alignRight">
                     Vrijeme:</td>
                 <td class="alignLeft">
-                    <input id="addEventTime" type="text" size="33" /><br /></td>
+                    <input id="addEventTime" type="Time" size="33" /><br /></td>
             </tr>
             <tr>
                 <td class="alignRight">
                     Obveznost:</td>
-                <td class="alignLeft">
-                    <input id="addEventReq" type="text" size="33" /><br /></td>
+                <td class="alignCenter">
+                    <input id="obl1"  type="radio" value="Da" />Da
+                </td>
+                <td class="alignCenter">
+                    <input id="obl2"  type="radio" value="Ne" />Ne
+                </td>
             </tr>
         </table>
         
