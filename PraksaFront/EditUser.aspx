@@ -16,7 +16,7 @@
                 <div class="dataTable-container">
                     <table class="dataTable-table">
                         <tr>
-                            <th width="150px">
+                            <th width="250px">
                                 <asp:Label ID="lblJmbc" runat="server" Text="Jedinstveni matični broj člana"></asp:Label>
                             </th>
                             <th>
