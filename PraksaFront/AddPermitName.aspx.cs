@@ -26,6 +26,7 @@ namespace PraksaFront
             };
 
             permit.createPermitName(connectionString, permit);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
     }
 }
