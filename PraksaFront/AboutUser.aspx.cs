@@ -35,7 +35,7 @@ namespace PraksaFront
             txtOib.Text = user.Oib;
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
-            lblTitle.Text = user.FirstName + " " + user.LastName;
+            lblTitle.Text = "Informacije o korisniku - " + user.FirstName + " " + user.LastName;
         }
 
         protected void editButton_Command(object sender, CommandEventArgs e)

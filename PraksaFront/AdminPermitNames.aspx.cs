@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -26,5 +27,10 @@ namespace PraksaFront
         {
             ModalPopupExtender1.Show();
         }
+        protected void btnSample_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminPermitNames.aspx");
+        }
+
     }
 }

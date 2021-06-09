@@ -12,7 +12,7 @@
     </script>
     
     <form id="form1" runat="server">
-        <div class="card-header">
+        <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
             <h1>Korisnici</h1>
         </div>
         <div class="card-body">

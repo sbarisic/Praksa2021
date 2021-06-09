@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Korisnik</title>
     <link rel="stylesheet" href="content/css/home.css" />
+    <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
@@ -102,8 +103,8 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
-                                <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
                             </th>
 
                         </tr>
