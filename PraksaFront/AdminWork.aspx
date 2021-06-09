@@ -41,7 +41,7 @@ TagPrefix="cc1" %>
                         <asp:Repeater ID="attendanceRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <!-- promijeniti 'test' s Eval("x") za potrebne vrijednosti -->
+                                    <!-- promijeniti 'test' s Eval("x") za potrebne vrijednosti i sloziti data za repeater u .cs -->
                                     <td><asp:Label runat="server" Text='test'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='test'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='test'></asp:Label></td>
