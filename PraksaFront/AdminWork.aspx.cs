@@ -43,6 +43,10 @@ namespace PraksaFront
             Button btn = (Button)sender;
             url = urlStart + btn.Text + urlEnd;
         }
+        protected void attendance_Command(object sender, CommandEventArgs e)
+        {
+            ModalPopupExtender3.Show();
+        }
 
     }
 }
