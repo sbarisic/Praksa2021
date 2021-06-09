@@ -16,6 +16,7 @@ namespace PraksaMid.Works
         public string Time { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
+        public string Obligation { get; set; }
         public int IdAttendant { get; set; }
 
         public List<Work> GetWorks(string connectionString)
@@ -27,7 +28,7 @@ namespace PraksaMid.Works
 
             SqlCommand cmd = new SqlCommand("getJobs", con)
             {
-                CommandType = System.Data.CommandType.StoredProcedure
+                CommandType = CommandType.StoredProcedure
             };
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -43,6 +44,7 @@ namespace PraksaMid.Works
                         Location = dr["Mjesto"].ToString(),
                         Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d"),
                         Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t"),
+                        Obligation = dr["Obaveznost"].ToString()
                     };
 
                     works.Add(work);

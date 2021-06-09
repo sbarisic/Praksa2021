@@ -78,7 +78,7 @@
                                                 <td>
                                                     <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
                                                 </td>
-                                                <td><asp:Label runat="server" Text="Obavezno"></asp:Label></td>
+                                                <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
                                                 <td>
                                                     <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                     <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Obriši" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
