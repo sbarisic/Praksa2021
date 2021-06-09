@@ -13,6 +13,13 @@
         padding-top: 10px;
         width: 410px;
     }
+        .auto-style1 {
+            width: 71px;
+            height: 41px;
+        }
+        .auto-style2 {
+            height: 41px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -52,7 +59,7 @@
                                 <tr>
                                     <td><%# Eval("name")%></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="DeleteWork" runat="server" Text="Obriši" /></td>
+                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Obriši" OnCommand="deleteWorkBtn_Command" CommandArgument='<%# Eval("id") %>'/></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -63,7 +70,7 @@
                 </td>
                 <td>
                     <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu" />
+                        <asp:Button CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu"/>
                     </div>
                 </td>
             </tr>
