@@ -21,5 +21,10 @@ namespace PraksaFront
                 PermitRepeater.DataBind();
             }
         }
+
+        protected void addPermitBtn_Click(object sender, EventArgs e)
+        {
+            ModalPopupExtender1.Show();
+        }
     }
 }

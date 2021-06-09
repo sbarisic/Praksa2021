@@ -1,10 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AdminPermitNames.aspx.cs" Inherits="PraksaFront.AdminPermits" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:HiddenField ID="hdnField" runat="server" />
+        <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe src="AddPermit.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+        </asp:Panel>
+
         <table style="margin: 0 auto;">
             <tr>
                 <td>
@@ -35,7 +45,7 @@
                 </td>
                 <td>
                     <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="addPermitBtn" runat="server" Text="Dodaj dozvolu" />
+                        <asp:Button CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu" />
                     </div>
                 </td>
             </tr>
