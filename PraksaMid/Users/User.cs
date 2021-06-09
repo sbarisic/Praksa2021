@@ -15,6 +15,7 @@ namespace PraksaMid.Users
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int IdRole { get; set; }
+        public string RoleName { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Oib { get; set; }
@@ -70,14 +71,8 @@ namespace PraksaMid.Users
             {
                 CommandType = System.Data.CommandType.StoredProcedure
             };
-            SqlParameter parameter = new SqlParameter
-            {
-                ParameterName = "@ID",
-                SqlDbType = SqlDbType.Int,
-                Direction = ParameterDirection.Input,
-                Value = id
-            };
-            cmd.Parameters.Add(parameter);
+
+            cmd.Parameters.Add(new SqlParameter("@ID", id));
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -95,6 +90,8 @@ namespace PraksaMid.Users
                     user.PhoneNumber = dr["Broj mobitela"].ToString();
                     user.Email = dr["Epošta"].ToString();
                     user.Oib = dr["OIB"].ToString();
+                    user.RoleName = dr["Uloga"].ToString();
+                    user.IdRole = Convert.ToInt32(dr["ID Uloge"]);
                 }
             }
             return user;
@@ -141,7 +138,6 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
-                    cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole));
                     cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber));
                     cmd.Parameters.Add(new SqlParameter("@Email", user.Email));
 
@@ -165,7 +161,7 @@ namespace PraksaMid.Users
                     SqlCommand cmd = new SqlCommand("deleteUser", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add(new SqlParameter("@ID", userId));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", userId));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

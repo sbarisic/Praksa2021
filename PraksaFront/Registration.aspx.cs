@@ -21,7 +21,6 @@ namespace PraksaFront
             Random rnd = new Random();
             User user = new User
             {
-                IdRole = 2,
                 UniqueId = rnd.Next().ToString(),
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,

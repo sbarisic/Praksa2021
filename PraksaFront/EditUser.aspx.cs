@@ -36,6 +36,7 @@ namespace PraksaFront
             txtOib.Text = user.Oib;
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
+            roleButton.SelectedValue = user.IdRole.ToString();
             lblTitle.Text = user.FirstName + " " + user.LastName;
         }
         protected void BtnCancel_Click(object sender, EventArgs e)
