@@ -18,8 +18,8 @@
                 <tr>
                     <td colspan="2">
                         <div class="text-center">
-                            <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="Button1" runat="server" Text="Potvrdi" OnClientClick="return confirm('Are you sure?')" />
-                            <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="Button2" runat="server" Text="Odustani" OnClientClick="return confirm('Are you sure?')" />
+                            <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="AddButton" runat="server" Text="Potvrdi" OnClientClick="return confirm('Are you sure?')" OnClick="AddButton_Click" />
+                            <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="CancelButton" runat="server" Text="Odustani" OnClientClick="return confirm('Are you sure?')" />
                         </div>
                     </td>
                 </tr>
