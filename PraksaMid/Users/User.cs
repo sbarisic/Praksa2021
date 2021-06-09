@@ -99,5 +99,33 @@ namespace PraksaMid.Users
             }
             return user;
         }
+
+        public void EditUser(string connectionString, User user)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateUser", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ID", user.Id));
+                    cmd.Parameters.Add(new SqlParameter("@UniqueId", user.UniqueId ));
+                    cmd.Parameters.Add(new SqlParameter("@FirstName", user.FirstName));
+                    cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName ));
+                    cmd.Parameters.Add(new SqlParameter("@Adress", user.Address ));
+                    cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib ));
+                    cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
+                    cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber ));
+                    cmd.Parameters.Add(new SqlParameter("@Email",  user.Email ));
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

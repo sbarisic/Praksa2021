@@ -86,8 +86,8 @@
                             </tr>
                             <tr>
                                 <th colspan="2">
-                                    <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="Button1" runat="server" Text="Potvrdi" OnClientClick="return confirm('Are you sure?')" />
-                                    <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="Button2" runat="server" Text="Odustani" OnClientClick="return confirm('Are you sure?')" />
+                                    <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click"  />
+                                    <asp:Button Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click"  />
                                 </th>
 
                             </tr>

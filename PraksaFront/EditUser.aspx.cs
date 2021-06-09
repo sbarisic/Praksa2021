@@ -22,10 +22,10 @@ namespace PraksaFront
                 Response.Redirect("Users.aspx");
             if (!IsPostBack)
             {
-                FillBookData();
+                FillUserData();
             }
         }
-        private void FillBookData()
+        private void FillUserData()
         {
             User user = new User();
             user = user.GetUser(connectionString, userId);
@@ -37,8 +37,27 @@ namespace PraksaFront
             txtEmail.Text = user.Email;
             txtPhoneNumber.Text = user.PhoneNumber;
         }
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void BtnCancel_Click(object sender, EventArgs e)
         {
+            Response.Redirect("Users.aspx");
+        }
+
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            User user = new User
+            {
+                Id = userId,
+                IdRole = 2,
+                UniqueId = txtJmbc.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Address = txtAdress.Text,
+                Oib = txtOib.Text,
+                Email = txtEmail.Text,
+                PhoneNumber = txtPhoneNumber.Text
+            };
+
+            user.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
         }
     }
