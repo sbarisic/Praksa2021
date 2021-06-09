@@ -17,7 +17,7 @@
                                 </th>
 
                                 <td>
-                                    <asp:TextBox Placeholder="Radna akcija..." ID="workText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" Placeholder="Radna akcija..." ID="workText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -25,7 +25,7 @@
                                     <asp:Label ID="Label2" runat="server" Text="Opis"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox Placeholder="Opis..." ID="descriptionText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" TextMode="MultiLine" Placeholder="Opis..." ID="descriptionText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +33,7 @@
                                     <asp:Label ID="Label3" runat="server" Text="Datum"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox TextMode="Date" Placeholder="Datum..." ID="dateText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" TextMode="Date" Placeholder="Datum..." ID="dateText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -41,7 +41,7 @@
                                     <asp:Label ID="Label4" runat="server" Text="Vrijeme"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox TextMode="Time" Placeholder="Vrijeme..." ID="timeText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" TextMode="Time" Placeholder="Vrijeme..." ID="timeText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -49,7 +49,7 @@
                                     <asp:Label ID="Label5" runat="server" Text="Lokacija"></asp:Label>
                                 </th>
                                 <td>
-                                    <asp:TextBox Placeholder="Lokacija..." ID="locationText" runat="server"></asp:TextBox>
+                                    <asp:TextBox Width="300px" Placeholder="Lokacija..." ID="locationText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>

@@ -20,7 +20,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblFirstName" runat="server" Text="Ime"></asp:Label>
                             </th>
                             <th>
@@ -28,7 +28,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblLastName" runat="server" Text="Prezime"></asp:Label>
                             </th>
                             <th>
@@ -36,7 +36,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblAdress" runat="server" Text="Adresa"></asp:Label>
                             </th>
                             <th>
@@ -44,7 +44,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblOib" runat="server" Text="OIB"></asp:Label>
                             </th>
                             <th>
@@ -52,7 +52,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
                             </th>
                             <th>
@@ -60,7 +60,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
                             </th>
                             <th>
@@ -68,7 +68,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th width="150px">
+                            <th>
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
                             </th>
                             <th>
@@ -83,7 +83,7 @@
                             <td colspan="2">
                                 <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='' />
                                 <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnCommand="deleteButton_Command" CommandArgument='' />
-                                <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Nazad" OnClick="backButton_Click"/>
+                                <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Natrag" OnClick="backButton_Click"/>
                             </td>
 
                         </tr>
