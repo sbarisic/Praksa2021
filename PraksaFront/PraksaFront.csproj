@@ -130,7 +130,6 @@
     <Content Include="About.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Registration.aspx" />
-    <Content Include="AddPermit.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUser.aspx.cs">
@@ -240,13 +239,6 @@
     </Compile>
     <Compile Include="UserWork.aspx.designer.cs">
       <DependentUpon>UserWork.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddPermit.aspx.cs">
-      <DependentUpon>AddPermit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddPermit.aspx.designer.cs">
-      <DependentUpon>AddPermit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
