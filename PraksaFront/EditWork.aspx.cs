@@ -34,7 +34,10 @@ namespace PraksaFront
             dateText.Text = work.Date;
             timeText.Text = work.Time;
             locationText.Text = work.Location;
-            obligationButton.SelectedValue = work.Obligation;
+            if(work.Obligation == "Obavezno")
+                obligationButton.SelectedValue = "1";
+            else 
+                obligationButton.SelectedValue = "0";
         }
         protected void Submit_Command(object sender, CommandEventArgs e)
         {
