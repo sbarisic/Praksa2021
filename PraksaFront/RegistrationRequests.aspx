@@ -32,8 +32,6 @@
                                 <th>
                                     <asp:Label runat="server" Text="Adresa"></asp:Label></th>
                                 <th>
-                                    <asp:Label runat="server" Text="JMBC"></asp:Label></th>
-                                <th>
                                     <asp:Label runat="server" Text="Status"></asp:Label>
                                 </th>
                             </tr>
@@ -47,10 +45,9 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Prihvati" OnClientClick="return confirm('Are you sure?')" />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Odbij" OnClientClick="return confirm('Are you sure?')" />
+                                        <asp:Button CssClass="workButton" OnCommand="AcceptBtn_Command" CommandArgument='<%# Eval("id")%>' ID="AcceptBtn" runat="server" Text="Prihvati" OnClientClick="return confirm('Are you sure?')" />
+                                        <asp:Button CssClass="workButton" OnCommand="DeleteBtn_Command" CommandArgument='<%# Eval("id")%>' ID="DeleteBtn" runat="server" Text="Odbij" OnClientClick="return confirm('Are you sure?')" />
                                     </td>
                                 </tr>
                             </ItemTemplate>
