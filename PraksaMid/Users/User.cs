@@ -113,7 +113,7 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
                     cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber ));
                     cmd.Parameters.Add(new SqlParameter("@Email",  user.Email ));
-                    cmd.Parameters.Add(new SqlParameter("@Accepted", user.Accepted));
+                    cmd.Parameters.Add(new SqlParameter("@Accepted", true));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
