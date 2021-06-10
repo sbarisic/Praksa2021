@@ -121,6 +121,7 @@
       <BrowseToURL>~/AdminPermitNames.aspx</BrowseToURL>
     </Content>
     <Content Include="content\css\radneAkcijeStyle.css" />
+    <Content Include="EditWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
     <Content Include="scripts\calendarscript.js" />
     <Content Include="UserWork.aspx" />
@@ -189,6 +190,13 @@
     </Compile>
     <Compile Include="AdminPermitNames.aspx.designer.cs">
       <DependentUpon>AdminPermitNames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditWork.aspx.cs">
+      <DependentUpon>EditWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditWork.aspx.designer.cs">
+      <DependentUpon>EditWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">

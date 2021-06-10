@@ -32,11 +32,12 @@ namespace PraksaFront
             Response.Redirect("AdminPermitNames.aspx");
         }
 
-        protected void deletePermitBtn_Command(object sender, CommandEventArgs e)
+        protected void deletePermitNameBtn_Command(object sender, CommandEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(e.CommandArgument);
-            //Response.Redirect("EditUser.aspx?userId=" + e.CommandArgument);
+            int permitNameId = Convert.ToInt32(e.CommandArgument);
+            PermitName permitName = new PermitName();
+            permitName.DeletePermitName(connectionString, permitNameId);
+            Response.Redirect("AdminPermitNames.aspx");
         }
-
     }
 }

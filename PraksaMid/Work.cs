@@ -92,8 +92,9 @@ namespace PraksaMid.Works
             {
                 CommandType = CommandType.StoredProcedure
             };
+            cmd.Parameters.Add(new SqlParameter("@IDjob", workId));
+
             SqlDataReader dr = cmd.ExecuteReader();
-            cmd.Parameters.Add(new SqlParameter("@ID", workId));
             Work work = new Work();
 
             if (dr != null)
@@ -110,6 +111,56 @@ namespace PraksaMid.Works
                 }
             }
             return work;
+        }
+
+        public void DeleteWork(string connectionString, int workId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("deleteJob", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@IDjob", workId));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void EditWork(string connectionString, Work work)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateJob", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    string dateStr = work.Date + " " + work.Time;
+                    DateTime date = DateTime.Parse(dateStr);
+                    cmd.Parameters.Add(new SqlParameter("@ID", work.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Name", work.Name));
+                    cmd.Parameters.Add(new SqlParameter("@Date", date));
+                    cmd.Parameters.Add(new SqlParameter("@Location", work.Location));
+                    cmd.Parameters.Add(new SqlParameter("@Description", work.Description));
+                    cmd.Parameters.Add(new SqlParameter("@Obligation", Convert.ToInt32(work.Obligation)));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

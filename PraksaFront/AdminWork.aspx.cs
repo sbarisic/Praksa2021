@@ -31,11 +31,13 @@ namespace PraksaFront
         }
         protected void edit_Command(object sender, CommandEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("edit " + e.CommandArgument.ToString());
+            Response.Redirect("EditWork.aspx?workId=" + e.CommandArgument);
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("delete " + e.CommandArgument.ToString());
+            Work work = new Work();
+            work.DeleteWork(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect("AdminWork.aspx");
         }
         protected void locButton_Click(object sender, EventArgs e)
         {
