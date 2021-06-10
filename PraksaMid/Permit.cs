@@ -12,7 +12,6 @@ namespace PraksaMid
         public int Id { get; set; }
         public int IdUser { get; set; }
         public int IdPermit { get; set; }
-        public string Number { get; set; }
         public string ExpiryDate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,10 +27,11 @@ namespace PraksaMid
                     SqlCommand cmd = new SqlCommand("insertPermitName", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    DateTime date = DateTime.Parse(ExpiryDate); 
+
                     cmd.Parameters.Add(new SqlParameter("@IdUser", permit.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@IdPermit", permit.IdPermit));
-                    cmd.Parameters.Add(new SqlParameter("@Number", permit.Number));
-                    cmd.Parameters.Add(new SqlParameter("@Date", permit.ExpiryDate));
+                    cmd.Parameters.Add(new SqlParameter("@Date", date));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -66,11 +66,11 @@ namespace PraksaMid
                 {
                     Permit permit = new Permit
                     {
+                        Id = Convert.ToInt32(dr["ID"]),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
                         PermitName = dr["Dozvola"].ToString(),
-                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d"),
-                        Number = dr["Broj mobitela"].ToString()
+                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d")
     
                     };
 
@@ -90,6 +90,32 @@ namespace PraksaMid
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", IdPermit));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditPermit(string connectionString, Permit permit)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updatePermit", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@ID", permit.Id));
+                    cmd.Parameters.Add(new SqlParameter("@IDpermit", permit.IdPermit));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", permit.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@ExpiryDate", IdPermit));
+
 
                     con.Open();
                     cmd.ExecuteNonQuery();
