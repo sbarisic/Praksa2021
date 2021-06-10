@@ -4,6 +4,7 @@ var addEndDate;
 var globalAllDay;
 
 function updateEvent(event, element) {
+
     //alert(event.description);
 
     if ($(this).data("qtip")) $(this).qtip("destroy");
@@ -41,7 +42,7 @@ function addSuccess(addResult) {
     if (addResult != -1) {
         $('#calendar').fullCalendar('renderEvent',
             {
-                title: $("#addEventName").val(),
+                name: $("#addEventName").val(),
                 start: addStartDate,
                 end: addEndDate,
                 id: addResult,
@@ -61,19 +62,18 @@ function UpdateTimeSuccess(updateResult) {
 }
 
 function selectDate(start, end, allDay) {
-
-    $('#addDialog').dialog('open');
-    $("#addEventStartDate").text("" + start.toLocaleString());
+    //$('#addDialog').dialog('open');
+    addWork();
+    /*$("#addEventStartDate").text("" + start.toLocaleString());
     $("#addEventEndDate").text("" + end.toLocaleString());
 
     addStartDate = start;
     addEndDate = end;
-    globalAllDay = allDay;
+    globalAllDay = allDay;*/
     //alert(allDay);
 }
 
 function updateEventOnDropResize(event, allDay) {
-
     //alert("allday: " + allDay);
     var eventToUpdate = {
         id: event.id,
@@ -135,13 +135,9 @@ function isAllDay(startDate, endDate) {
     return allDay;
 }
 
-function qTipText(start, end, description) {
+function qTipText(description) {
     var text;
-
-    if (end !== null)
-        text = "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong> " + end.format("MM/DD/YYYY hh:mm T") + "<br/><br/>" + description;
-    else
-        text = "<strong>Start:</strong> " + start.format("MM/DD/YYYY hh:mm T") + "<br/><strong>End:</strong><br/><br/>" + description;
+    text = description;
 
     return text;
 }
@@ -198,15 +194,12 @@ $(document).ready(function () {
                     location: $("#addEventLoc").val(),
                     time: $("#addEventTime").val(),
                     requirement: $("#addEventReq").val()
-
                 };
-
                 if (checkForSpecialChars(eventToAdd.title) || checkForSpecialChars(eventToAdd.description)) {
                     alert("please enter characters: A to Z, a to z, 0 to 9, spaces");
                 }
                 else {
                     //alert("sending " + eventToAdd.title);
-
                     PageMethods.addEvent(eventToAdd, addSuccess);
                     $(this).dialog("close");
                 }
@@ -222,6 +215,8 @@ $(document).ready(function () {
         weekday: "long", year: "numeric", month: "short",
         day: "numeric", hour: "2-digit", minute: "2-digit"
     };
+    var nevent = testF();
+
 
     $('#calendar').fullCalendar({
         theme: true,
@@ -237,7 +232,7 @@ $(document).ready(function () {
         selectHelper: true,
         select: selectDate,
         editable: true,
-        events: "JsonResponse.ashx",
+        events: nevent,
         eventDrop: eventDropped,
         eventResize: eventResized,
         eventRender: function (event, element) {
