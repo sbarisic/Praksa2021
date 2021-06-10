@@ -111,10 +111,11 @@ namespace PraksaMid
                     SqlCommand cmd = new SqlCommand("updatePermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    DateTime date = DateTime.Parse(ExpiryDate);
                     cmd.Parameters.Add(new SqlParameter("@ID", permit.Id));
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", permit.IdPermit));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", permit.IdUser));
-                    cmd.Parameters.Add(new SqlParameter("@ExpiryDate", IdPermit));
+                    cmd.Parameters.Add(new SqlParameter("@ExpiryDate", date));
 
 
                     con.Open();
