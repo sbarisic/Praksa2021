@@ -41,7 +41,7 @@
                                 <tr>
                                     <td><asp:Label runat="server" Text='<%# Eval("firstname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("lastname")%>'></asp:Label></td>
-                                    <td>...</td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("oib")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
