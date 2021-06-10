@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AboutUser.aspx.cs" Inherits="PraksaFront.AboutUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-       <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
-        <link rel="stylesheet" href="content/css/home.css" />
+    <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <div class="card-header">
-            <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
+            <h1>
+                <asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
         </div>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -66,26 +67,26 @@
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
                             </th>
                             <th>
-                                <asp:Label ID="txtPhoneNumber" runat="server" Font-Bold="false"></asp:Label>
+                                <asp:Label ID="txtPhoneNumber" runat="server" Font-Bold="false" Text="Dozvole"></asp:Label>
                             </th>
                         </tr>
                         <tr>
                             <th>
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
                             </th>
-                            <th>
-                                <asp:CheckBoxList ID="cbPermits" runat="server">
-                                    <asp:ListItem>Dozvola 1</asp:ListItem>
-                                    <asp:ListItem>Dozvola 2</asp:ListItem>
-                                    <asp:ListItem>Dozvola 3</asp:ListItem>
-                                </asp:CheckBoxList>
-                            </th>
+                           <td>
+                                <asp:Repeater ID="PermitRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%> <br />
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='' />
                                 <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
-                                <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Natrag" OnClick="backButton_Click"/>
+                                <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Natrag" OnClick="backButton_Click" />
                             </td>
 
                         </tr>

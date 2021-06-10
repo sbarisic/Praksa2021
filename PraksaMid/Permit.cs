@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace PraksaMid
+namespace PraksaMid.Permit
 {
     public class Permit
     {
@@ -49,7 +49,7 @@ namespace PraksaMid
             List<Permit> permits = new List<Permit>();
 
             SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
+            
 
             SqlCommand cmd = new SqlCommand("getPermits", con)
             {
@@ -58,6 +58,7 @@ namespace PraksaMid
 
             cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
 
+            con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr != null)
@@ -66,7 +67,6 @@ namespace PraksaMid
                 {
                     Permit permit = new Permit
                     {
-                        Id = Convert.ToInt32(dr["ID"]),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
                         PermitName = dr["Dozvola"].ToString(),
