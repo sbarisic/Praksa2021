@@ -28,14 +28,18 @@ namespace PraksaFront
             workList = work.GetWorks(connectionString);
             List<ImproperCalendarEvent> tasksList = new List<ImproperCalendarEvent>();
             //Generate JSON serializable events
+            
             foreach (Work wrk in workList)
             {
+                DateTime tempDate = new DateTime();
+                tempDate = Convert.ToDateTime(wrk.Date);
+
                 tasksList.Add(new ImproperCalendarEvent
                 {
                     id = wrk.Id,
                     title = wrk.Name,
-                    start = "2021-06-22", //test vrijednosti
-                    end = "2021-06-23",
+                    start = tempDate.ToString("yyyy-MM-dd"), 
+                    end = tempDate.ToString("yyyy-MM-dd"),
 
                     description = wrk.Description,
                     allDay = false,
