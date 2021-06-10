@@ -81,6 +81,7 @@ namespace PraksaMid.Users
             {
                 while (dr.Read())
                 {
+                    user.Id = Convert.ToInt32(dr["ID"]);
                     user.UniqueId = dr["Jedinstveni broj člana"].ToString();
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
@@ -90,7 +91,6 @@ namespace PraksaMid.Users
                     user.Oib = dr["OIB"].ToString();
                     user.RoleName = dr["Uloga"].ToString();
                     user.IdRole = Convert.ToInt32(dr["ID Uloge"]);
-                    //user.Accepted = (bool)dr["Prihvaćen"];
                 }
             }
             return user;
@@ -113,7 +113,7 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
                     cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber ));
                     cmd.Parameters.Add(new SqlParameter("@Email",  user.Email ));
-                    cmd.Parameters.Add(new SqlParameter("@Accepted", "TRUE"));
+                    cmd.Parameters.Add(new SqlParameter("@Accepted", user.Accepted));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

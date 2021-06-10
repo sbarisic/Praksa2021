@@ -22,7 +22,6 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            // user placeholder zasad, zamijeniti kasnije
             User user = new User();
             UserRepeater.DataSource = user.GetRegistartionsRequestUser(connectionString);
             UserRepeater.DataBind();
@@ -30,15 +29,17 @@ namespace PraksaFront
 
         protected void AcceptBtn_Command(object sender, CommandEventArgs e)
         {
-            User user = new User();
-            var u = user.GetUser(connectionString, Convert.ToInt16(e.CommandArgument));
-            //u.Accepted = true;
-            user.EditUser(connectionString, u);
+            int userId = Convert.ToInt16(e.CommandArgument);
+            User user = new User().GetUser(connectionString, userId);
+            user.Accepted = true;
+            user.EditUser(connectionString, user);
             Response.Redirect("RegistrationRequests.aspx");
         }
         protected void DeleteBtn_Command(object sender, CommandEventArgs e)
         {
             User user = new User();
+            int userId = Convert.ToInt16(e.CommandArgument);
+            user.DeleteUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
     }
