@@ -7,11 +7,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <script>
+            function hideEditModalPopup() {
+                $find("ModalPopupExtender2").hide();
+                document.getElementById("hdnBtn").click();
+                return false;
+            }
+        </script>
         <table style="margin: 0 auto;">
             <tr>
                 <td>
+                    <!-- LOKACIJA POPUP-->
                     <asp:ScriptManager ID="ScriptManager1" runat="server"> </asp:ScriptManager>
-
+                    <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
                     <asp:HiddenField ID="hdnField" runat="server" />
                     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="Panl1" TargetControlID="hdnField" CancelControlID="Button2" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" Style="display: none">
@@ -19,14 +27,24 @@
                         <br />
                         <asp:Button ID="Button2" runat="server" Text="Zatvori" />
                     </asp:Panel>
-
-                    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="addWorkButton" CancelControlID="ButtonClose" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
+                    
+                    <!-- ADDWORK POPUP-->
+                    <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender2" ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="addWorkButton" CancelControlID="ButtonClose" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
                         <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
                     </asp:Panel>
 
+                    <!-- EDITWORK POPUP-->
+                    <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="addWorkButton" CancelControlID="ButtonCloseEdit" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
+                    <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
+                        <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                        <br />
+                        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Zatvori" />
+                    </asp:Panel>
+
+                    <!-- DOLAZNOST POPUP-->
                     <asp:HiddenField ID="hdnField2" runat="server" />
                     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="Panl3" TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
@@ -81,8 +99,8 @@
                                                 </td>
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
                                                 <td>
-                                                    <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
-                                                    <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Obriši" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                    <asp:Button ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                    <asp:Button ID="deleteButton" CssClass="workButton" runat="server" Text="Obriši" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />

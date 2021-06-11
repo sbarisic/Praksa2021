@@ -53,6 +53,7 @@ namespace PraksaFront
             };
 
             work.EditWork(connectionString, work);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
         protected void Cancel_Command(object sender, CommandEventArgs e)
         {

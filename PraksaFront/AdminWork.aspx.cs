@@ -15,6 +15,7 @@ namespace PraksaFront
         static string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
         static string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
         protected string url;
+        protected string EditFrameUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -31,7 +32,8 @@ namespace PraksaFront
         }
         protected void edit_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("EditWork.aspx?workId=" + e.CommandArgument);
+            EditFrameUrl = "EditWork.aspx?workId=" + e.CommandArgument;
+            EditModalPopupExtender.Show();
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
@@ -49,6 +51,9 @@ namespace PraksaFront
         {
             ModalPopupExtender3.Show();
         }
-
+        protected void hdnBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminWork.aspx");
+        }
     }
 }

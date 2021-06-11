@@ -62,5 +62,12 @@ namespace PraksaFront
             user.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
         }
+
+        protected void deleteButton_Command(object sender, CommandEventArgs e)
+        {
+            User user = new User();
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
+        }
     }
 }

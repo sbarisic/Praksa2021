@@ -46,8 +46,8 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" OnCommand="AcceptBtn_Command" CommandArgument='<%# Eval("id")%>' ID="AcceptBtn" runat="server" Text="Prihvati" OnClientClick="return confirm('Are you sure?')" />
-                                        <asp:Button CssClass="workButton" OnCommand="DeleteBtn_Command" CommandArgument='<%# Eval("id")%>' ID="DeleteBtn" runat="server" Text="Odbij" OnClientClick="return confirm('Are you sure?')" />
+                                        <asp:Button CssClass="workButton" OnCommand="AcceptBtn_Command" CommandArgument='<%# Eval("id")%>' ID="AcceptBtn" runat="server" Text="Prihvati" OnClientClick="return confirm('Jeste li sigurni da želite prihvatiti registraciju?')" />
+                                        <asp:Button CssClass="workButton" OnCommand="DeleteBtn_Command" CommandArgument='<%# Eval("id")%>' ID="DeleteBtn" runat="server" Text="Odbij" OnClientClick="return confirm('Jeste li sigurni da želite odbiti registraciju?')" />
                                     </td>
                                 </tr>
                             </ItemTemplate>

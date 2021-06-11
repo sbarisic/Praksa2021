@@ -26,7 +26,7 @@
                 <tr>
                     <td colspan="2">
                         <div class="text-center">
-                            <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="AddButton" runat="server" Text="Potvrdi" OnClientClick="return confirm('Jeste li sigurni?')" OnClick="AddButton_Click" />
+                            <asp:Button Style="display: inline-block; text-align: center; margin-right: 10px;" ID="AddButton" runat="server" Text="Potvrdi" OnClick="AddButton_Click" />
                         </div>
                     </td>
                 </tr>

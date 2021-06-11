@@ -20,17 +20,25 @@ namespace PraksaFront
 
         protected void Submit_Command(object sender, CommandEventArgs e)
         {
-            Work work = new Work
-            {
-                Name = workText.Text,
-                Description = descriptionText.Text,
-                Date = dateText.Text.ToString(),
-                Time = timeText.Text.ToString(),
-                Location = cityText.Text + ", " + streetText.Text,
-                Obligation = obligationButton.SelectedValue
-            };
+            bool isEmpty = String.IsNullOrEmpty(workText.Text) || String.IsNullOrEmpty(descriptionText.Text) || String.IsNullOrEmpty(dateText.Text.ToString()) ||
+                            String.IsNullOrEmpty(timeText.Text.ToString()) && String.IsNullOrEmpty(cityText.Text) || String.IsNullOrEmpty(streetText.Text)
+                            || obligationButton.SelectedIndex == -1;
 
-            work.CreateWork(connectionString, work);
+            if (!isEmpty)
+            {
+                Work work = new Work
+                {
+                    Name = workText.Text,
+                    Description = descriptionText.Text,
+                    Date = dateText.Text.ToString(),
+                    Time = timeText.Text.ToString(),
+                    Location = cityText.Text + ", " + streetText.Text,
+                    Obligation = obligationButton.SelectedValue
+                };
+
+                work.CreateWork(connectionString, work);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
+            }
         }
         protected void Cancel_Command(object sender, CommandEventArgs e)
         {

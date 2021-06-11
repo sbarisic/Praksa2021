@@ -8,7 +8,12 @@
     <script type="text/javascript">
     function updateId(param) {
        document.getElementById("<%=hiddenId.ClientID%>").value = param;
-    }
+        }
+        function hideEditModalPopup() {
+            $find("ModalPopupExtender1").hide();
+            document.getElementById("btnSample").click();
+            return false;
+        }
     </script>
     
     <form id="form1" runat="server">
