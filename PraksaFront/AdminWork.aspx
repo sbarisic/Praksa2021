@@ -79,14 +79,15 @@
                     <div class="card-body">
                         <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                             <div class="dataTable-container">
-                                <table class="dataTable-table">
-                                    <tr>
+                                <table class="dataTable-table table-striped">
+                                    <tr style="background-color:#93cff5;">
                                         <th width="200px"><asp:Label runat="server" Text="Radna Akcija"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Opis"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Datum"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Vrijeme"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Lokacija"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Obveznost"></asp:Label></th>
+                                        <th></th><th></th>
                                     </tr>
                                     <asp:Repeater ID="UserWorkList" runat="server">
                                         <ItemTemplate>
