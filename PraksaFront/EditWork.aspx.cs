@@ -15,7 +15,7 @@ namespace PraksaFront
         int workId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["userId"] != "")
+            if (Request.QueryString["workId"] != "")
                 workId = Convert.ToInt16(Request.QueryString["workId"]);
             else
                 Response.Redirect("Users.aspx");

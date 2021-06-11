@@ -6,7 +6,7 @@ var globalAllDay;
 function updateEvent(event, element) {
 
     //alert(event.description);
-    setEditID(event.id);
+    setEditID(event.id, event.start);
     editWork();
     
 }
@@ -47,6 +47,8 @@ function UpdateTimeSuccess(updateResult) {
 
 function selectDate(start, end, allDay) {
     //$('#addDialog').dialog('open');
+    start = moment(start).format('DD.MM.YYYY');
+    setAddDate(start);
     addWork();
     /*$("#addEventStartDate").text("" + start.toLocaleString());
     $("#addEventEndDate").text("" + end.toLocaleString());
@@ -198,7 +200,7 @@ $(document).ready(function () {
     var options = {
         weekday: "long", year: "numeric", month: "short",
         day: "numeric", hour: "2-digit", minute: "2-digit"
-    };
+    }; 
     var nevent = testF();
 
 

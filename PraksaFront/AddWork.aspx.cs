@@ -12,10 +12,19 @@ namespace PraksaFront
     public partial class AddWork : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-
+        string date = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            date = Request.QueryString["date"];
+            System.Diagnostics.Debug.WriteLine(date);
+            if (!IsPostBack)
+            {
+                if (!String.IsNullOrEmpty(date))
+                {
+                    dateRow.Visible = false;
+                    dateText.Text = date;
+                }
+            }
         }
 
         protected void Submit_Command(object sender, CommandEventArgs e)

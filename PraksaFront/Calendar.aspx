@@ -63,7 +63,7 @@
          <asp:HiddenField ID="hdnField" runat="server" />
          <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender2" ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
          <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-            <iframe src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe ID="addFrame" src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <br />
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
          </asp:Panel>
@@ -140,9 +140,12 @@
          function testF() {
              return jQuery.parseJSON(document.getElementById('<%=jsonField.ClientID%>').innerHTML);
          }
-         function setEditID(editId) {
+    function setEditID(editId) {
             document.getElementById('editFrame').src = "EditWork.aspx?workId=" + editId;
-         }
+    }
+    function setAddDate(date) {
+        document.getElementById('addFrame').src = "AddWork.aspx?date=" + date;
+    }
          function hideEditModalPopup() {
                 $find("ModalPopupExtender2").hide();
                 $find("EditModalPopupExtender").hide();

@@ -45,7 +45,7 @@
                                     <asp:TextBox Width="300px" TextMode="MultiLine" Placeholder="Opis..." ID="descriptionText" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr ID="dateRow" runat="server">
                                 <th>
                                     <asp:Label ID="Label3" runat="server" Text="Datum"></asp:Label>
                                 </th>
