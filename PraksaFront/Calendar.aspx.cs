@@ -54,5 +54,10 @@ namespace PraksaFront
 
             jsonField.Text = sJSON;
         }
+
+        protected void hdnBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Calendar.aspx");
+        }
     }
 }

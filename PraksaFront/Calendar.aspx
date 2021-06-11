@@ -128,6 +128,7 @@
                </tr>
             </table>
          </div>
+<asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
       </form>
       <script type="application/javascript">
          function addWork() {
@@ -142,7 +143,12 @@
          function setEditID(editId) {
             document.getElementById('editFrame').src = "EditWork.aspx?workId=" + editId;
          }
-                 
+         function hideEditModalPopup() {
+                $find("ModalPopupExtender2").hide();
+                $find("EditModalPopupExtender").hide();
+                document.getElementById("hdnBtn").click();
+                return false;
+         }       
       </script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

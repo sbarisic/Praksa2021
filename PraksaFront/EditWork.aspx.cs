@@ -55,14 +55,11 @@ namespace PraksaFront
             work.EditWork(connectionString, work);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
-        protected void Cancel_Command(object sender, CommandEventArgs e)
+        protected void delete_Command(object sender, CommandEventArgs e)
         {
-            workText.Text = "";
-            descriptionText.Text = "";
-            dateText.Text = "";
-            timeText.Text = "";
-            locationText.Text = "";
-            obligationButton.SelectedIndex = -1;
+            Work work = new Work();
+            work.DeleteWork(connectionString, workId);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
     }
 }
