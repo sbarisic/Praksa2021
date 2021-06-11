@@ -22,15 +22,25 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            // user placeholder zasad, zamijeniti kasnije
             User user = new User();
-            UserRepeater.DataSource = user.GetUsers(connectionString);
+            UserRepeater.DataSource = user.GetRegistartionsRequestUser(connectionString);
             UserRepeater.DataBind();
         }
 
-        protected void editButton_Click(object sender, EventArgs e)
+        protected void AcceptBtn_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("EditUser.aspx");
+            int userId = Convert.ToInt16(e.CommandArgument);
+            User user = new User().GetUser(connectionString, userId);
+            user.Accepted = true;
+            user.EditUser(connectionString, user);
+            Response.Redirect("RegistrationRequests.aspx");
+        }
+        protected void DeleteBtn_Command(object sender, CommandEventArgs e)
+        {
+            User user = new User();
+            int userId = Convert.ToInt16(e.CommandArgument);
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("RegistrationRequests.aspx");
         }
     }
 }

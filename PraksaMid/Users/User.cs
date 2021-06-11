@@ -22,8 +22,9 @@ namespace PraksaMid.Users
         public string Email { get; set; }
         public string PasswordSalt { get; set; }
         public string PasswordHash { get; set; }
+        public bool Accepted { get; set; }
 
-        
+
 
         public List<User> GetUsers(string connectionString)
         {
@@ -32,9 +33,9 @@ namespace PraksaMid.Users
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("getUsers", con)
+            SqlCommand cmd = new SqlCommand("getAcceptedUsers", con)
             {
-                CommandType = System.Data.CommandType.StoredProcedure
+                CommandType = CommandType.StoredProcedure
             };
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -53,7 +54,6 @@ namespace PraksaMid.Users
                         Email = dr["Epošta"].ToString()
                     };
 
-
                     users.Add(user);
 
                 }
@@ -63,8 +63,6 @@ namespace PraksaMid.Users
 
         public User GetUser(string connectionString, int id)
         {
-            List<User> users = new List<User>();
-
             SqlConnection con = new SqlConnection(connectionString);
             
             SqlCommand cmd = new SqlCommand("getUser", con)
@@ -83,6 +81,7 @@ namespace PraksaMid.Users
             {
                 while (dr.Read())
                 {
+                    user.Id = Convert.ToInt32(dr["ID"]);
                     user.UniqueId = dr["Jedinstveni broj člana"].ToString();
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
@@ -114,9 +113,12 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
                     cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber ));
                     cmd.Parameters.Add(new SqlParameter("@Email",  user.Email ));
+                    cmd.Parameters.Add(new SqlParameter("@Accepted", true));
+
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    var i = user.Accepted;
                 }
             }
             catch (Exception ex)
@@ -172,6 +174,42 @@ namespace PraksaMid.Users
             {
                 throw ex;
             }
+        }
+
+        public List<User> GetRegistartionsRequestUser(string connectionString)
+        {
+            List<User> users = new List<User>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getUnacceptedUsers", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    User user = new User
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Oib = dr["OIB"].ToString(),
+                        FirstName = dr["Ime"].ToString(),
+                        LastName = dr["Prezime"].ToString(),
+                        Address = dr["Adresa"].ToString(),
+                        PhoneNumber = dr["Broj mobitela"].ToString(),
+                        Email = dr["Epošta"].ToString()
+                    };
+
+
+                    users.Add(user);
+
+                }
+            }
+            return users;
         }
     }
 }

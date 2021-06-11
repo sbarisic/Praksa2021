@@ -1,4 +1,5 @@
 ﻿using PraksaMid.Users;
+using PraksaMid.Permit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace PraksaFront
         private void FillUserData()
         {
             User user = new User();
+            Permit permit = new Permit();
+            PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataBind();
             user = user.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
