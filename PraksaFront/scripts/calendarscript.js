@@ -6,25 +6,9 @@ var globalAllDay;
 function updateEvent(event, element) {
 
     //alert(event.description);
-
-    if ($(this).data("qtip")) $(this).qtip("destroy");
-
-    currentUpdateEvent = event;
-
-    $('#updatedialog').dialog('open');
-    $("#eventName").val(event.title);
-    $("#eventDesc").val(event.description);
-    $("#eventId").val(event.id);
-    $("#eventStart").text("" + event.start.toLocaleString());
-
-    if (event.end === null) {
-        $("#eventEnd").text("");
-    }
-    else {
-        $("#eventEnd").text("" + event.end.toLocaleString());
-    }
-
-    return false;
+    setEditID(event.id);
+    editWork();
+    
 }
 
 function updateSuccess(updateResult) {

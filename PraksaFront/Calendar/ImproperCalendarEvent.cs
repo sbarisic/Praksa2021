@@ -13,6 +13,8 @@ namespace PraksaFront
         public string description { get; set; }
         public string start { get; set; }
         public string end { get; set; }
+        public string location { get; set; }
+        public string obligation { get; set; }
         public bool allDay { get; set; }
     }
 }

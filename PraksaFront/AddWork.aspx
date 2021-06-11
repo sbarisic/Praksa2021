@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="AddWork.aspx.cs" Inherits="PraksaFront.AddWork" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<<head runat="server" />
+<head runat="server" />
     <title></title>
     <link rel="stylesheet" href="content/css/home.css" />
     <script type="text/javascript">

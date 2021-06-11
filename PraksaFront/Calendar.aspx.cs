@@ -40,20 +40,19 @@ namespace PraksaFront
                     title = wrk.Name,
                     start = tempDate.ToString("yyyy-MM-dd"), 
                     end = tempDate.ToString("yyyy-MM-dd"),
-
                     description = wrk.Description,
-                    allDay = false,
+                    location = wrk.Location,
+                    obligation = wrk.Obligation,
+                    allDay = true,
                 });
                 idList.Add(wrk.Id);
             }
-
 
             //Serialize events to string
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             string sJSON = oSerializer.Serialize(tasksList);
 
             jsonField.Text = sJSON;
-            System.Diagnostics.Debug.WriteLine(jsonField.Text);
         }
     }
 }
