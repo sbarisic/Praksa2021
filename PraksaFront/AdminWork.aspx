@@ -37,7 +37,7 @@
                     </asp:Panel>
 
                     <!-- EDITWORK POPUP-->
-                    <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="addWorkButton" CancelControlID="ButtonCloseEdit" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
+                    <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="hdnField" CancelControlID="ButtonCloseEdit" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
@@ -71,7 +71,8 @@
                         </asp:Repeater>
                         <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
                     </asp:Panel>
-
+                
+                    <!-- WORK TABLE-->
                     <div class="card-header">
                         <h1>Radne akcije</h1>
                     </div>
@@ -100,7 +101,7 @@
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
                                                 <td>
                                                     <asp:Button ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
-                                                    <asp:Button ID="deleteButton" CssClass="workButton" runat="server" Text="Obriši" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                    <asp:Button ID="deleteButton" CssClass="workButton" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" runat="server" Text="Obriši" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
