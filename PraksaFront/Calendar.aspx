@@ -58,11 +58,10 @@
         $find("ModalPopupExtender2").show();
     }
     function testF() {
-        return jQuery.parseJSON(document.getElementById('<%=Label1.ClientID%>').innerHTML);
+        return jQuery.parseJSON(document.getElementById('<%=jsonField.ClientID%>').innerHTML);
     }
-</script>
-            <asp:HiddenField ID="jsonField" value="test" runat="server"></asp:HiddenField>
-            <asp:Label ID="Label1" runat="server" Text='[{"id":7,"title":"Kopanje grabe","description":"Treba kopat","start":"2021-06-22","end":"2021-06-23","allDay":false},{"id":18,"title":"Čišćenje doma","description":"Čišćenje doma svi dobrodošli","start":"2021-06-22","end":"2021-06-23","allDay":false}]' Style="display: none"></asp:Label>
+            </script>
+            <asp:Label ID="jsonField" runat="server" Text='' Style="display: none"></asp:Label>
             <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
 
             <asp:HiddenField ID="hdnField" runat="server" />

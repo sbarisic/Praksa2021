@@ -24,13 +24,13 @@ namespace PraksaFront
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// jsonField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label jsonField;
 
         /// <summary>
         /// ScriptManager1 control.
@@ -49,7 +49,7 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnField;
-        protected global::System.Web.UI.WebControls.HiddenField jsonField;
+
         /// <summary>
         /// ModalPopupExtender2 control.
         /// </summary>
@@ -76,15 +76,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonClose;
-
-        /// <summary>
-        /// btnSample control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSample;
 
         /// <summary>
         /// addEventName control.

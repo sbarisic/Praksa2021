@@ -52,8 +52,8 @@ namespace PraksaFront
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             string sJSON = oSerializer.Serialize(tasksList);
 
-            Label1.Text = sJSON;
-            System.Diagnostics.Debug.WriteLine(Label1.Text);
+            jsonField.Text = sJSON;
+            System.Diagnostics.Debug.WriteLine(jsonField.Text);
         }
     }
 }
