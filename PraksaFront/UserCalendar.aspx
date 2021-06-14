@@ -50,7 +50,7 @@
       border-style: solid;
       border-color: black;
       padding-top: 10px;
-      width: 850px;
+      width: 900px;
       }
    </style>
 </asp:Content>
