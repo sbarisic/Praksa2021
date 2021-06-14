@@ -141,7 +141,7 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
-                    cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber));
+                    cmd.Parameters.Add(new SqlParameter("@Number", user.PhoneNumber));
                     cmd.Parameters.Add(new SqlParameter("@Email", user.Email));
 
                     con.Open();
