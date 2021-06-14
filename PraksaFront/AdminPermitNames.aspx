@@ -59,7 +59,7 @@
                                 <tr>
                                     <td><%# Eval("name")%></td>
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Obriši" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("id") %>'/></td>
+                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("id") %>'/></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

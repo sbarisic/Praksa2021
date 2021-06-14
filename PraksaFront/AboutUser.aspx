@@ -85,7 +85,7 @@
                         <tr>
                             <td colspan="2">
                                 <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='' />
-                                <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Obriši" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
+                                <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
                                 <asp:Button CssClass="workButton" ID="backButton" runat="server" Text="Natrag" OnClick="backButton_Click" />
                             </td>
 
