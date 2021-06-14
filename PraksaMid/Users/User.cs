@@ -90,9 +90,7 @@ namespace PraksaMid.Users
                     user.Oib = dr["OIB"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
-                    user.Email = dr["Epošta"].ToString();
                     user.RoleName = dr["Uloga"].ToString();
-                    user.PhoneNumber = dr["Broj mobitela"].ToString();
                 }
             }
             return user;
@@ -106,7 +104,7 @@ namespace PraksaMid.Users
                 {
                     SqlCommand cmd = new SqlCommand("updateUser", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@ID", user.Id));
+                    cmd.Parameters.Add(new SqlParameter("@IDUser", user.Id));
                     cmd.Parameters.Add(new SqlParameter("@UniqueId", user.UniqueId));
                     cmd.Parameters.Add(new SqlParameter("@FirstName", user.FirstName));
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName ));
