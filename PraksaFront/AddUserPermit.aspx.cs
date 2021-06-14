@@ -29,12 +29,24 @@ namespace PraksaFront
 
         private void GetPermits()
         {
-            PermitName permits = new PermitName();
+            PermitName allPermits = new PermitName();
             Permit permit = new Permit();
-            foreach (Permit prmt in permit.GetPermits(connectionString, userId))
-                permitList.Add(prmt.PermitName);
-            PermitRepeater.DataSource = permits.getPermitNames(connectionString);
+            System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
+
+
+            PermitRepeater.DataSource = allPermits.getPermitNames(connectionString);
             PermitRepeater.DataBind();
+
+            LoadOwnedPermits();
+        }
+
+        protected void LoadOwnedPermits()
+        {
+            foreach(RepeaterItem item in PermitRepeater.Items)
+            {
+                var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+
+            }
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)

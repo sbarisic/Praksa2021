@@ -20,6 +20,7 @@
         <div class="card-header">
             <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
         </div>
+            <asp:HiddenField ID="userIdField" runat="server"></asp:HiddenField>
         <div class="card-body">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
@@ -81,9 +82,15 @@
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
-                                    ValidChars="+ " TargetControlID="txtPhoneNumber" />
+                                <asp:Repeater ID="NumberRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                                            <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
+                                                ValidChars="+ " TargetControlID="txtPhoneNumber" />
+                                            <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </th>
                         </tr>
                         <tr> 
@@ -101,14 +108,14 @@
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label><br>
                                 <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
-                                OnClientClick="setPermitFrame(<%= userId %>)" ID="BtnAddPermit" runat="server" Text="Dodaj" OnClick="BtnAddPermit_Click" />
+                                onclientclick="setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Dodaj" OnClick="BtnAddPermit_Click" />
                             </th>
                             <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">
                                     <ItemTemplate>
                                             <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%>
                                             <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
-                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </td>
@@ -126,8 +133,9 @@
             </div>
         </div>
         <script>
-            function setPermitFrame(str) {
-                document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + str;
+            function setPermitFrame() {
+                var id = document.getElementById('<%= userIdField.ClientID %>').value;
+                document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + id;
             }
         </script>
     </form>

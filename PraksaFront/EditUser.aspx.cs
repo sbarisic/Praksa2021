@@ -1,4 +1,5 @@
-﻿using PraksaMid.Permit;
+﻿using PraksaMid;
+using PraksaMid.Permit;
 using PraksaMid.Users;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace PraksaFront
     public partial class EditUser : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-        int userId = 0;
+        protected int userId = 0;
         protected string permitUrl = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,6 +25,7 @@ namespace PraksaFront
                 Response.Redirect("Users.aspx");
             if (!IsPostBack)
             {
+                userIdField.Value = userId.ToString();
                 FillUserData();
             }
         }
@@ -34,13 +36,15 @@ namespace PraksaFront
             Permit permit = new Permit();
             PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
+            ContactNumber number = new ContactNumber();
+            NumberRepeater.DataSource = number.GetContactNumbers(connectionString, userId);
+            NumberRepeater.DataBind();
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
             txtAdress.Text = user.Address;
             txtOib.Text = user.Oib;
             txtEmail.Text = user.Email;
-            txtPhoneNumber.Text = user.PhoneNumber;
             lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
             roleButton.SelectedValue = user.IdRole.ToString();
         }
@@ -70,8 +74,7 @@ namespace PraksaFront
 
         protected void BtnAddPermit_Click(object sender, EventArgs e)
         {
-            //permitUrl = "AddUserPermit.aspx ? userId = " + userId;
-            System.Diagnostics.Debug.WriteLine("TEST");
+            ModalPopupExtender1.Show();
         }
         
         protected void deleteButton_Command(object sender, CommandEventArgs e)

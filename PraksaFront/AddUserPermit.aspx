@@ -14,8 +14,8 @@
                 <asp:Repeater ID="PermitRepeater" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <asp:HiddenField ID="hdnField" Value='<%# Eval("PermitName") %>' runat="server" />
-                            <asp:CheckBox ID="permitCheckbox" Checked='<%# Convert.ToBoolean(checkPermit(Convert.ToString(Eval("PermitName")))) %>' runat="server" Text='<%# Eval("PermitName") + ", " + Eval("ExpiryDate")%>' />
+                            <asp:HiddenField ID="hdnField" Value='<%# Eval("Name") %>' runat="server" />
+                            <asp:CheckBox ID="permitCheckbox" runat="server" Text='<%# Eval("Name")%>' />
                             <br />
                         </tr>
                     </ItemTemplate>
