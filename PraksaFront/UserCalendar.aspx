@@ -65,7 +65,7 @@
          <asp:Label id="lblEditID" runat="server" Text="" style="display:none;"></asp:Label>
          <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
          <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
-            <iframe ID="editFrame" src="EditWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe ID="aboutFrame" src="EditWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <br />
             <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
          </asp:Panel>
@@ -82,9 +82,11 @@
          }
          function testF() {
              return jQuery.parseJSON(document.getElementById('<%=jsonField.ClientID%>').innerHTML);
-         }
+    }
+    function setEditID(aboutId) {
+        document.getElementById('aboutFrame').src = "AboutWork.aspx?workId=" + aboutId;
+    }
          function hideEditModalPopup() {
-                $find("ModalPopupExtender2").hide();
                 $find("EditModalPopupExtender").hide();
                 document.getElementById("hdnBtn").click();
                 return false;

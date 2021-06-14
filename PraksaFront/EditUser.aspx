@@ -92,8 +92,8 @@
                             </th>
                             <td>
                                 <asp:RadioButtonList ID="roleButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
-                                    <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
-                                    <asp:ListItem Value="2">Korisnik</asp:ListItem>
+                                     <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
+                                     <asp:ListItem Value="2">Korisnik</asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                         </tr>
