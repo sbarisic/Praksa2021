@@ -21,7 +21,13 @@ namespace PraksaFront
             Random rnd = new Random();
             User user = new User
             {
-               
+                UniqueId = rnd.Next().ToString(),
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Address = txtAdress.Text,
+                Oib = txtOib.Text,
+                Email = txtEmail.Text,
+                PhoneNumber = txtPhoneNumber.Text
             };
 
             user.CreateUser(connectionString, user);
