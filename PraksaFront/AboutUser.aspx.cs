@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PraksaMid;
 
 namespace PraksaFront
 {
@@ -28,17 +29,25 @@ namespace PraksaFront
         private void FillUserData()
         {
             User user = new User();
+
             Permit permit = new Permit();
             PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
+
+            ContactNumber contactNumber = new ContactNumber();
+            PhoneNumberRepeater.DataSource = contactNumber.GetContactNumbers(connectionString, userId);
+            PhoneNumberRepeater.DataBind();
+
+            ContactEmail email = new ContactEmail();
+            EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataBind();
+
             user = user.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
             txtAdress.Text = user.Address;
             txtOib.Text = user.Oib;
-            txtEmail.Text = user.Email;
-            txtPhoneNumber.Text = user.PhoneNumber;
             lblTitle.Text = "Informacije o korisniku - " + user.FirstName + " " + user.LastName;
         }
 

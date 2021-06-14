@@ -58,17 +58,25 @@
                             <th>
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
                             </th>
-                            <th>
-                                <asp:Label ID="txtEmail" runat="server" Font-Bold="false"></asp:Label>
-                            </th>
+                            <td>
+                                <asp:Repeater ID="EmailRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <%# Eval("Email")%> <br />
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </td>
                         </tr>
                         <tr>
                             <th>
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
                             </th>
-                            <th>
-                                <asp:Label ID="txtPhoneNumber" runat="server" Font-Bold="false" Text="Dozvole"></asp:Label>
-                            </th>
+                            <td>
+                                <asp:Repeater ID="PhoneNumberRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <%# Eval("Number")%> <br />
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </td>
                         </tr>
                         <tr>
                             <th>

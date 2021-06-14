@@ -132,13 +132,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// txtEmail control.
+        /// EmailRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtEmail;
+        protected global::System.Web.UI.WebControls.Repeater EmailRepeater;
 
         /// <summary>
         /// lblPhoneNumber control.
@@ -150,13 +150,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
 
         /// <summary>
-        /// txtPhoneNumber control.
+        /// PhoneNumberRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.Repeater PhoneNumberRepeater;
 
         /// <summary>
         /// lblPermits control.
