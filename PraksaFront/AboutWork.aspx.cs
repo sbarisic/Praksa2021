@@ -13,6 +13,9 @@ namespace PraksaFront
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int workId = 0;
+        static string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
+        static string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
+        protected string url;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["workId"] != "")
@@ -33,8 +36,15 @@ namespace PraksaFront
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;
             timeText.Text = work.Time;
-            locationText.Text = work.Location;
+            locButton.Text = work.Location;
             obligationText.Text = work.Obligation;
+        }
+
+        protected void locButton_Click(object sender, EventArgs e)
+        {
+            ModalPopupExtender1.Show();
+            Button btn = (Button)sender;
+            url = urlStart + btn.Text + urlEnd;
         }
     }
 }
