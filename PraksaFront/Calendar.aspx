@@ -80,54 +80,7 @@
          </div>
          <div runat="server" id="jsonDiv" />
          <input type="hidden" id="hdClient" runat="server" />
-         <div id="updatedialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px; display: none;"
-            title="Update or Delete Event">
-            <table class="style1">
-               <tr>
-                  <td class="alignRight">Radna akcija::</td>
-                  <td class="alignLeft">
-                     <input id="eventName" type="text" size="33" /><br />
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">Opis:</td>
-                  <td class="alignLeft">
-                     <textarea id="eventDesc" cols="30" rows="3"></textarea>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">Datum:</td>
-                  <td class="alignLeft">
-                     <textarea id="eventLoc" cols="30" rows="3"></textarea>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">Vrijeme:</td>
-                  <td class="alignLeft">
-                     <textarea id="eventTime" cols="30" rows="3"></textarea>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">Lokacija:</td>
-                  <td class="alignLeft">
-                     <textarea id="eventReq" cols="30" rows="3"></textarea>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">Obveznost:</td>
-                  <td class="alignLeft">
-                     <span id="eventStart"></span>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="alignRight">End: </td>
-                  <td class="alignLeft">
-                     <span id="eventEnd"></span>
-                     <input type="hidden" id="eventId" />
-                  </td>
-               </tr>
-            </table>
-         </div>
+         
 <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
       </form>
       <script type="application/javascript">

@@ -114,7 +114,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <asp:Button OnClick="attendanceButton_click" ID="attendanceButton" Text="Dolaznost" runat="server" />
+                                    <asp:Button OnCommand="attendance_Command" CommandArgument='<%= workId %>' ID="attendanceButton" Text="Dolaznost" runat="server" />
                                 </td>
                             </tr>
                             <tr>
