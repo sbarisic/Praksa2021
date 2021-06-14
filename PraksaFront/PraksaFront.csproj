@@ -223,6 +223,7 @@
     <Compile Include="EditWork.aspx.designer.cs">
       <DependentUpon>EditWork.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\PasswordManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

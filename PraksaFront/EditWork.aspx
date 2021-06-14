@@ -121,7 +121,7 @@
                                 <td colspan="2">
                                     <div class="text-center">
                                         <asp:Button OnCommand="Submit_Command" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="AddWorkButton" runat="server" Text="Potvrdi" />
-                                        <asp:Button OnCommand="delete_Command" Style="display: inline-block; text-align: center; margin-right: 10px;" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" ID="DeleteWorkButton" runat="server" Text="Obriši" />
+                                        <asp:Button OnCommand="delete_Command" Style="display: inline-block; text-align: center; margin-right: 10px;" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" ID="DeleteWorkButton" runat="server" Text="Zatvori" />
                                     </div>
                                 </td>
                             </tr>
