@@ -66,5 +66,28 @@ namespace PraksaMid
                 throw ex;
             }
         }
+
+        public void EditContactNumber(string connectionString, ContactNumber contactNumber)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateContactNumber", con);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ID", contactNumber.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Number", contactNumber.Number));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

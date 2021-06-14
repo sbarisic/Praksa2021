@@ -65,5 +65,28 @@ namespace PraksaMid
                 throw ex;
             }
         }
+
+        public void EditEmail(string connectionString, ContactEmail email)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateEmail", con);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ID", email.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Email", email.Email));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
