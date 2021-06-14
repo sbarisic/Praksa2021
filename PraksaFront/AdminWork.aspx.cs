@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PraksaMid;
 using PraksaMid.Works;
 
 namespace PraksaFront
@@ -49,6 +50,10 @@ namespace PraksaFront
         }
         protected void attendance_Command(object sender, CommandEventArgs e)
         {
+            Attendant attendant = new Attendant();
+            Repeater attRepeater = ModalPopupExtender3.FindControl("attendanceRepeater") as Repeater;
+            attRepeater.DataSource = attendant.GetAttendants(connectionString, Convert.ToInt32(e.CommandArgument));
+            attRepeater.DataBind();
             ModalPopupExtender3.Show();
         }
         protected void hdnBtn_Click(object sender, EventArgs e)
