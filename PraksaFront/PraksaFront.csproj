@@ -105,8 +105,8 @@
     <Content Include="content\css\bootstrap.css" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\css\home.css" />
-    <Content Include="content\css\Login.css" />
     <Content Include="content\css\Calendar.css" />
+    <Content Include="content\css\Register.css" />
     <Content Include="content\js\about.js" />
     <Content Include="content\js\bootstrap.bundle.js" />
     <Content Include="content\js\bootstrap.bundle.min.js" />
@@ -126,6 +126,7 @@
     <Content Include="EditWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
     <Content Include="scripts\calendarscript.js" />
+    <Content Include="UserCalendar.aspx" />
     <Content Include="UserWork.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="RegistrationRequests.aspx.designer.cs">
       <DependentUpon>RegistrationRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCalendar.aspx.cs">
+      <DependentUpon>UserCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserCalendar.aspx.designer.cs">
+      <DependentUpon>UserCalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

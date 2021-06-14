@@ -8,11 +8,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:HiddenField ID="hdnField" runat="server" />
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-                <iframe ID="permitFrame" src'<%= permitUrl %>' width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe ID="permitFrame" src='' width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
 

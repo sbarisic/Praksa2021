@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="PraksaFront.Calendar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="UserCalendar.aspx.cs" Inherits="PraksaFront.UserCalendar" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    <title>ASP.NET FullCalendar</title>
@@ -59,14 +59,7 @@
       <form id="form1" runat="server">
          <asp:Label ID="jsonField" runat="server" Text='' Style="display: none"></asp:Label>
          <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
-         <!--ADD WORK POPUP-->
-         <asp:HiddenField ID="hdnField" runat="server" />
-         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender2" ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
-         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-            <iframe ID="addFrame" src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
-            <br />
-            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
-         </asp:Panel>
+
          <!--EDIT WORK POPUP-->
          <asp:HiddenField ID="hdnField2" runat="server" value="test"/>
          <asp:Label id="lblEditID" runat="server" Text="" style="display:none;"></asp:Label>
@@ -84,21 +77,12 @@
 <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
       </form>
       <script type="application/javascript">
-         function addWork() {
-             $find("ModalPopupExtender2").show();
-         }
          function editWork() {
              $find("EditModalPopupExtender").show();
          }
          function testF() {
              return jQuery.parseJSON(document.getElementById('<%=jsonField.ClientID%>').innerHTML);
          }
-    function setEditID(editId) {
-            document.getElementById('editFrame').src = "EditWork.aspx?workId=" + editId;
-    }
-    function setAddDate(date) {
-        document.getElementById('addFrame').src = "AddWork.aspx?date=" + date;
-    }
          function hideEditModalPopup() {
                 $find("ModalPopupExtender2").hide();
                 $find("EditModalPopupExtender").hide();
