@@ -11,6 +11,7 @@ namespace PraksaMid
     {
         public int Id { get; set; }
         public string Email { get; set; }
+        public int IdUser { get; set; }
 
         public List<ContactEmail> GetContactEmails(string connectionString, int idUser)
         {
@@ -40,6 +41,52 @@ namespace PraksaMid
                 }
             }
             return contactEmails;
+        }
+
+        public void CreateEmail(string connectionString, ContactEmail email)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("insertEmail", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@IdUser", email.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@Email", email.Email));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditEmail(string connectionString, ContactEmail email)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateEmail", con);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ID", email.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Email", email.Email));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

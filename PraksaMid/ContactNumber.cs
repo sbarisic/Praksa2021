@@ -11,8 +11,9 @@ namespace PraksaMid
     {
         public int Id { get; set; }
         public string Number { get; set; }
+        public int IdUser { get; set; }
 
-       public List<ContactNumber> GetContactNumbers(string connectionString, int idUser)
+        public List<ContactNumber> GetContactNumbers(string connectionString, int idUser)
         {
             List<ContactNumber> contactNumbers= new List<ContactNumber>();
 
@@ -41,6 +42,52 @@ namespace PraksaMid
                 }
             }
             return contactNumbers;
+        }
+
+        public void CreateContactNumber(string connectionString, ContactNumber contactNumber)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("insertContactNumber", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@IdUser", contactNumber.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@Number", contactNumber.Number));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditContactNumber(string connectionString, ContactNumber contactNumber)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateContactNumber", con);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@ID", contactNumber.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Number", contactNumber.Number));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
