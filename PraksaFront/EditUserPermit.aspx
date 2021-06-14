@@ -31,7 +31,7 @@
                     <tr>
                         <td colspan="2" style="text-align:center;">
                             <asp:Button ID="Button1" runat="server" Text="Potvrdi" />
-                            <asp:Button ID="Button2" runat="server" Text="Obriši" />
+                            <asp:Button ID="Button2" runat="server" Text="Zatvori" />
                         </td>
                     </tr>
                 </table>

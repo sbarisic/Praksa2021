@@ -47,9 +47,18 @@ function UpdateTimeSuccess(updateResult) {
 
 function selectDate(start, end, allDay) {
     //$('#addDialog').dialog('open');
-    start = moment(start).format('DD.MM.YYYY');
-    setAddDate(start);
-    addWork();
+    const datesAreOnSameDay = (first, second) =>
+        first.getFullYear() === second.year() &&
+        first.getMonth() === second.month() &&
+        first.getDate() === second.date();
+    var today = new Date();
+
+    if (start >= today || datesAreOnSameDay(today,start)) {
+        start = moment(start).format('DD.MM.YYYY');
+        setAddDate(start);
+        addWork();
+    }
+    
     /*$("#addEventStartDate").text("" + start.toLocaleString());
     $("#addEventEndDate").text("" + end.toLocaleString());
 
