@@ -104,8 +104,8 @@
     <Content Include="content\css\bootstrap.css" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\css\home.css" />
-    <Content Include="content\css\Login.css" />
     <Content Include="content\css\Calendar.css" />
+    <Content Include="content\css\Register.css" />
     <Content Include="content\js\about.js" />
     <Content Include="content\js\bootstrap.bundle.js" />
     <Content Include="content\js\bootstrap.bundle.min.js" />

@@ -51,8 +51,9 @@ namespace PraksaMid.Users
                         LastName = dr["Prezime"].ToString(),
                         Address = dr["Adresa"].ToString(),
                         PhoneNumber = dr["Broj mobitela"].ToString(),
-                        Email = dr["Epošta"].ToString()
-                    };
+                        Email = dr["Epošta"].ToString(),
+                        
+                };
 
                     users.Add(user);
 
@@ -85,10 +86,10 @@ namespace PraksaMid.Users
                     user.UniqueId = dr["Jedinstveni broj člana"].ToString();
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
+                    user.Oib = dr["OIB"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.PhoneNumber = dr["Broj mobitela"].ToString();
-                    user.Email = dr["Epošta"].ToString();
-                    user.Oib = dr["OIB"].ToString();
+                    user.Email = dr["Epošta"].ToString();  
                     user.RoleName = dr["Uloga"].ToString();
                     user.IdRole = Convert.ToInt32(dr["ID Uloge"]);
                 }
