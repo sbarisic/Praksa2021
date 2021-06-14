@@ -9,6 +9,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:HiddenField ID="hdnField" runat="server" />
+        <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe ID="permitFrame" src'<%= permitUrl %>' width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+        </asp:Panel>
+
         <div class="card-header">
             <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
         </div>
@@ -91,15 +98,19 @@
                         </tr>
                         <tr>
                             <th width="150px">
-                                <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
+                                <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label><br>
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
+                                OnClientClick="setPermitFrame(<%= userId %>)" ID="BtnAddPermit" runat="server" Text="Dodaj" OnClick="BtnAddPermit_Click" />
                             </th>
-                            <th>
-                                <asp:CheckBoxList ID="cbPermits" runat="server">
-                                    <asp:ListItem>Dozvola 1</asp:ListItem>
-                                    <asp:ListItem>Dozvola 2</asp:ListItem>
-                                    <asp:ListItem>Dozvola 3</asp:ListItem>
-                                </asp:CheckBoxList>
-                            </th>
+                            <td>
+                                <asp:Repeater ID="PermitRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%>
+                                            <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </td>
                         </tr>
                         <tr>
                             <th colspan="2">
@@ -113,6 +124,11 @@
                 </div>
             </div>
         </div>
+        <script>
+            function setPermitFrame(str) {
+                document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + str;
+            }
+        </script>
     </form>
 </asp:Content>
 
