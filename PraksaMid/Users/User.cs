@@ -213,5 +213,27 @@ namespace PraksaMid.Users
             }
             return users;
         }
+
+        public void VerificateUser(string connectionString, int userId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("verificateUser", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IDUser", userId));
+                    cmd.Parameters.Add(new SqlParameter("@Accepted", true));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace PraksaFront
             int userId = Convert.ToInt16(e.CommandArgument);
             User user = new User().GetUser(connectionString, userId);
             user.Accepted = true;
-            user.EditUser(connectionString, user);
+            user.VerificateUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
         protected void DeleteBtn_Command(object sender, CommandEventArgs e)
