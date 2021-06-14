@@ -39,7 +39,7 @@ namespace PraksaFront
         {
             User user = new User();
             int userId = Convert.ToInt16(e.CommandArgument);
-            user.DeleteUser(connectionString, userId);
+            user.RejectUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
     }
