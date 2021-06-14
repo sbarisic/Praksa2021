@@ -47,6 +47,7 @@ namespace PraksaMid.Users
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         UniqueId = dr["Jedinstveni broj člana"].ToString(),
+                        Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
                         Address = dr["Adresa"].ToString(),
@@ -64,7 +65,7 @@ namespace PraksaMid.Users
         public User GetUser(string connectionString, int id)
         {
             SqlConnection con = new SqlConnection(connectionString);
-            
+
             SqlCommand cmd = new SqlCommand("getUser", con)
             {
                 CommandType = System.Data.CommandType.StoredProcedure
@@ -86,15 +87,15 @@ namespace PraksaMid.Users
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
                     user.Address = dr["Adresa"].ToString();
-                    user.PhoneNumber = dr["Broj mobitela"].ToString();
-                    user.Email = dr["Epošta"].ToString();
                     user.Oib = dr["OIB"].ToString();
+                    user.Email = dr["Epošta"].ToString();
                     user.RoleName = dr["Uloga"].ToString();
-                    user.IdRole = Convert.ToInt32(dr["ID Uloge"]);
+                    user.PhoneNumber = dr["Broj mobitela"].ToString();
                 }
             }
             return user;
         }
+        
 
         public void EditUser(string connectionString, User user)
         {
