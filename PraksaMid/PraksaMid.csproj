@@ -67,6 +67,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attendant.cs" />
     <Compile Include="Permit.cs" />
     <Compile Include="PermitName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -223,5 +223,7 @@ namespace PraksaFront
 
         protected global::System.Web.UI.WebControls.Label lblTitle;
         protected global::System.Web.UI.WebControls.RadioButtonList roleButton;
+        protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
     }
 }

@@ -11,7 +11,7 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
             <br />
-            <a class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
+            <a style="background-color:#383c44; border:1px solid #28242c" class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
         </div>
         <div class="product-device box-shadow d-none d-md-block"></div>
         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>

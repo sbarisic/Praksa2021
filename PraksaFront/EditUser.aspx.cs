@@ -1,4 +1,5 @@
-﻿using PraksaMid.Users;
+﻿using PraksaMid.Permit;
+using PraksaMid.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace PraksaFront
     public partial class EditUser : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-
         int userId = 0;
+        protected string permitUrl = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["userId"] != "")
@@ -29,6 +31,9 @@ namespace PraksaFront
         {
             User user = new User();
             user = user.GetUser(connectionString, userId);
+            Permit permit = new Permit();
+            PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataBind();
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
@@ -43,7 +48,7 @@ namespace PraksaFront
         {
             Response.Redirect("Users.aspx");
         }
-
+        
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             User user = new User
@@ -63,10 +68,20 @@ namespace PraksaFront
             Response.Redirect("Users.aspx");
         }
 
+        protected void BtnAddPermit_Click(object sender, EventArgs e)
+        {
+            //permitUrl = "AddUserPermit.aspx ? userId = " + userId;
+            System.Diagnostics.Debug.WriteLine("TEST");
+        }
+        
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
             User user = new User();
             user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
+        }
+        protected void BtnDeletePermit_command(object sender, CommandEventArgs e)
+        {
             Response.Redirect("Users.aspx");
         }
     }
