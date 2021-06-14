@@ -61,5 +61,10 @@ namespace PraksaFront
             work.DeleteWork(connectionString, workId);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
+
+        protected void attendanceButton_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

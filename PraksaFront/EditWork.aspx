@@ -4,6 +4,7 @@
 <head runat="server" />
     <title></title>
     <link rel="stylesheet" href="content/css/home.css" />
+    <link rel="stylesheet" href="content/css/radneAkcijeStyle.css" />
     <script type="text/javascript">
         function checkDate(sender, args) {
             if (sender._selectedDate < new Date()) {
@@ -23,6 +24,35 @@
 <body style="background-color: white;">
     <form id="f1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
+        <!-- DOLAZNOST POPUP-->
+                    <asp:HiddenField ID="hdnField2" runat="server" />
+                    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="Panl3" TargetControlID="attendanceButton" CancelControlID="ButtonClose2" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
+                    <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
+                        <table class="dataTable-table table-striped">
+                            <tr style="background-color:lightgreen;">
+                                <th><asp:Label runat="server" Text="Ime"></asp:Label></th>
+                                <th><asp:Label runat="server" Text="Prezime"></asp:Label></th>
+                                <th><asp:Label runat="server" Text="Interes"></asp:Label></th>
+                                <th><asp:Label runat="server" Text="Vrijeme Odabira"></asp:Label></th>
+                                <th><asp:Label runat="server" Text="Dolaznost"></asp:Label></th>
+                            </tr>
+                        </table>
+                        <asp:Repeater ID="attendanceRepeater" runat="server">
+                            <ItemTemplate>
+                                <tr>
+                                    <!-- promijeniti 'test' s Eval("x") za potrebne vrijednosti i sloziti data za repeater u .cs -->
+                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
+                    </asp:Panel>
+
+
         <div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -80,6 +110,11 @@
                                         <asp:ListItem Value="1">Obavezno</asp:ListItem>
                                         <asp:ListItem Value="0">Nije obavezno</asp:ListItem>
                                     </asp:RadioButtonList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button OnClick="attendanceButton_click" ID="attendanceButton" Text="Dolaznost" runat="server" />
                                 </td>
                             </tr>
                             <tr>
