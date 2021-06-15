@@ -277,6 +277,7 @@ namespace PraksaFront
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
         protected global::System.Web.UI.WebControls.Repeater NumberRepeater;
+        protected global::System.Web.UI.WebControls.Repeater EmailRepeater;
 
         /// <summary>
         /// BtnSubmit control.

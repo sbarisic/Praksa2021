@@ -74,7 +74,13 @@
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                <asp:Repeater ID="EmailRepeater" runat="server">
+                                        <ItemTemplate>
+                                                <asp:TextBox Text='<%# Eval("Email") %>' ID="txtEmail" runat="server"></asp:TextBox>
+                                                <asp:Button CssClass="workButton" ID="BtnDeleteEmail" runat="server" Text="x" 
+                                                OnClientClick="return confirm('Jeste li sigurni da želite obrisati email?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                             </th>
                         </tr>
                         <tr>
@@ -87,7 +93,7 @@
                                             <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server"></asp:TextBox>
                                             <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
                                                 ValidChars="+ " TargetControlID="txtPhoneNumber" />
-                                            <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
+                                            <asp:Button CssClass="workButton" ID="BtnDeletePhoneNumber" runat="server" Text="x" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>

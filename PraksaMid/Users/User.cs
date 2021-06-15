@@ -17,9 +17,7 @@ namespace PraksaMid.Users
         public int IdRole { get; set; }
         public string RoleName { get; set; }
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
         public string Oib { get; set; }
-        public string Email { get; set; }
         public string PasswordSalt { get; set; }
         public string PasswordHash { get; set; }
         public bool Accepted { get; set; }
@@ -50,10 +48,7 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString(),
-                        PhoneNumber = dr["Broj mobitela"].ToString(),
-                        Email = dr["Epošta"].ToString(),
-                        
+                        Address = dr["Adresa"].ToString()                        
                 };
 
                     users.Add(user);
@@ -111,8 +106,6 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address ));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib ));
                     cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
-                    cmd.Parameters.Add(new SqlParameter("@PhoneNumber", user.PhoneNumber ));
-                    cmd.Parameters.Add(new SqlParameter("@Email",  user.Email ));
                     cmd.Parameters.Add(new SqlParameter("@Accepted", true));
 
                     con.Open();
@@ -140,8 +133,6 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
-                    cmd.Parameters.Add(new SqlParameter("@Number", user.PhoneNumber));
-                    cmd.Parameters.Add(new SqlParameter("@Email", user.Email));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -199,11 +190,8 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString(),
-                        PhoneNumber = dr["Broj mobitela"].ToString(),
-                        Email = dr["Epošta"].ToString()
+                        Address = dr["Adresa"].ToString()
                     };
-
 
                     users.Add(user);
 

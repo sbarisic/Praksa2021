@@ -33,18 +33,24 @@ namespace PraksaFront
         {
             User user = new User();
             user = user.GetUser(connectionString, userId);
+
             Permit permit = new Permit();
             PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
+
             ContactNumber number = new ContactNumber();
             NumberRepeater.DataSource = number.GetContactNumbers(connectionString, userId);
             NumberRepeater.DataBind();
+
+            ContactEmail email = new ContactEmail();
+            EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataBind();
+
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
             txtAdress.Text = user.Address;
             txtOib.Text = user.Oib;
-            txtEmail.Text = user.Email;
             lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
             roleButton.SelectedValue = user.IdRole.ToString();
         }
@@ -64,8 +70,6 @@ namespace PraksaFront
                 LastName = txtLastName.Text,
                 Address = txtAdress.Text,
                 Oib = txtOib.Text,
-                Email = txtEmail.Text,
-                PhoneNumber = txtPhoneNumber.Text
             };
 
             user.EditUser(connectionString, user);
