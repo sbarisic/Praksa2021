@@ -84,5 +84,27 @@ namespace PraksaMid
                 throw ex;
             }
         }
+        public void EditPermitName(string connectionString, PermitName permitName)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updatePermitName", con);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IDpermit", permitName.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
