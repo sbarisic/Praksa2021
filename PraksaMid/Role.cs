@@ -64,7 +64,7 @@ namespace PraksaMid
                         Role role = new Role()
                         {
                             IdName = Convert.ToInt32(dr["ID"]),
-                            Name = dr["NazivUloge"].ToString()
+                            Name = dr["Uloga"].ToString()
                         };
 
                         roles.Add(role);

@@ -104,10 +104,12 @@
                                 <asp:Label ID="lblRole" runat="server" Text="Uloga"></asp:Label>
                             </th>
                             <td>
-                                <asp:RadioButtonList ID="roleButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
-                                     <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
-                                     <asp:ListItem Value="2">Korisnik</asp:ListItem>
-                                </asp:RadioButtonList>
+                                <asp:Repeater ID="RoleRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <asp:HiddenField ID="roleId" Value='<%# Eval("Id") %>' runat="server"></asp:HiddenField>
+                                        <asp:CheckBox ID="chkBox" runat="server" Text='<%# Eval("Name") %>'></asp:CheckBox><br>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </td>
                         </tr>
                         <tr>

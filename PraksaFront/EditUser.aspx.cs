@@ -46,13 +46,16 @@ namespace PraksaFront
             EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
+            Role role = new Role();
+            RoleRepeater.DataSource = role.GetRoleNames(connectionString, userId);
+            RoleRepeater.DataBind(); //slozit da su chekirani boxovi s rolovima koje ima user
+
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
             txtAdress.Text = user.Address;
             txtOib.Text = user.Oib;
             lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
-            roleButton.SelectedValue = user.IdRole.ToString();
         }
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -86,5 +89,6 @@ namespace PraksaFront
         {
             Response.Redirect("Users.aspx");
         }
+
     }
 }
