@@ -16,6 +16,7 @@ namespace PraksaMid.Permit
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PermitName { get; set; }
+        public string PermitNumber { get; set; }
 
 
         public void CreatePermit(string connectionString, Permit permit)
@@ -29,9 +30,11 @@ namespace PraksaMid.Permit
 
                     DateTime date = DateTime.Parse(ExpiryDate); 
 
-                    cmd.Parameters.Add(new SqlParameter("@IdUser", permit.IdUser));
-                    cmd.Parameters.Add(new SqlParameter("@IdPermit", permit.IdPermit));
+                    cmd.Parameters.Add(new SqlParameter("@UserID", permit.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@PermitID", permit.IdPermit));
                     cmd.Parameters.Add(new SqlParameter("@Date", date));
+                    cmd.Parameters.Add(new SqlParameter("@PermitNumber", permit.PermitNumber));
+
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -70,6 +73,7 @@ namespace PraksaMid.Permit
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
                         PermitName = dr["Dozvola"].ToString(),
+                        PermitNumber = dr["Broj dozvole"].ToString(),
                         ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d")
     
                     };
@@ -115,6 +119,7 @@ namespace PraksaMid.Permit
                     cmd.Parameters.Add(new SqlParameter("@ID", permit.Id));
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", permit.IdPermit));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", permit.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@Number", permit.PermitNumber));
                     cmd.Parameters.Add(new SqlParameter("@ExpiryDate", date));
 
 
