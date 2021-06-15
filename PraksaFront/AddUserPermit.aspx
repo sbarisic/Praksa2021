@@ -23,7 +23,7 @@
                             
                             <td>
                             <asp:TextBox CssClass="padded" ID="txtDate" runat="server" Placeholder="Datum isteka dozvole..." Enabled="false"></asp:TextBox>
-                            <asp:TextBox CssClass="padded" ID="txtNumber" runat="server" Placeholder="Broj dozvole..." Enabled="false"></asp:TextBox></td>
+                            <asp:TextBox CssClass="padded" ID="txtNumber" runat="server" Placeholder="Broj dozvole..." Enabled="false" ></asp:TextBox></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
