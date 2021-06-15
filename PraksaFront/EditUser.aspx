@@ -13,7 +13,7 @@
         <asp:HiddenField ID="hdnField" runat="server" />
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-                <iframe ID="permitFrame" src='' width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe ID="permitFrame" src="" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
 
@@ -108,7 +108,7 @@
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label><br>
                                 <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
-                                onclientclick="setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Dodaj" OnClick="BtnAddPermit_Click" />
+                                onclientclick="return setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Dodaj" />
                             </th>
                             <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">
@@ -136,6 +136,8 @@
             function setPermitFrame() {
                 var id = document.getElementById('<%= userIdField.ClientID %>').value;
                 document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + id;
+                $find('ModalPopupExtender1').show();
+                return false;
             }
         </script>
     </form>

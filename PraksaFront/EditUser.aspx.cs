@@ -65,16 +65,11 @@ namespace PraksaFront
                 Address = txtAdress.Text,
                 Oib = txtOib.Text,
                 Email = txtEmail.Text,
-                PhoneNumber = txtPhoneNumber.Text
+                //PhoneNumber = txtPhoneNumber.Text
             };
 
             user.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
-        }
-
-        protected void BtnAddPermit_Click(object sender, EventArgs e)
-        {
-            ModalPopupExtender1.Show();
         }
         
         protected void deleteButton_Command(object sender, CommandEventArgs e)

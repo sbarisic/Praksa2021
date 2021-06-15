@@ -78,6 +78,15 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
+        /// userIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField userIdField;
+
+        /// <summary>
         /// lblJmbc control.
         /// </summary>
         /// <remarks>
@@ -213,22 +222,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
 
         /// <summary>
-        /// txtPhoneNumber control.
+        /// NumberRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
-
-        /// <summary>
-        /// PhoneFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender PhoneFilter;
+        protected global::System.Web.UI.WebControls.Repeater NumberRepeater;
 
         /// <summary>
         /// lblRole control.
@@ -247,8 +247,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList roleButton;
-
-        protected global::System.Web.UI.WebControls.HiddenField userIdField;
 
         /// <summary>
         /// lblPermits control.
@@ -276,7 +274,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
-        protected global::System.Web.UI.WebControls.Repeater NumberRepeater;
 
         /// <summary>
         /// BtnSubmit control.
