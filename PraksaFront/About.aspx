@@ -9,7 +9,7 @@
 
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/bjelovar.jpg') no-repeat; background-size:100%;">
         <div class="p-lg-5 mx-auto my-5">
-            <div style="width:100%; background-color: rgba(255, 255, 255, 0.8);">
+            <div style="width:100%; height:77px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));">
             <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
                 </div>
             <br />
