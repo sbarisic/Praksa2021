@@ -15,6 +15,7 @@
                     <ItemTemplate>
                         <tr>
                             <asp:HiddenField ID="hdnField" Value='<%# Eval("Name") %>' runat="server" />
+                            <asp:HiddenField ID="hdnId" Value='<%# Eval("Id") %>' runat="server" />
                             <asp:CheckBox ID="permitCheckbox" runat="server" Text='<%# Eval("Name")%>' />
                             <br />
                         </tr>

@@ -17,23 +17,25 @@ namespace PraksaFront
         protected List<string> permitList;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["userId"] != "")
-                userId = Convert.ToInt16(Request.QueryString["userId"]);
-            else
-                Response.Redirect("Users.aspx");
+            userId = Convert.ToInt16(Request.QueryString["userId"]);
+
             if (!IsPostBack)
             {
-                GetPermits();
+                LoadData();
             }
         }
 
-        private void GetPermits()
+        private void LoadData()
         {
             PermitName allPermits = new PermitName();
             Permit permit = new Permit();
             System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
-
-
+            List<Permit> tmpList = permit.GetPermits(connectionString, userId);
+            foreach(Permit prmt in tmpList)
+            {
+                System.Diagnostics.Debug.WriteLine(prmt.PermitName);
+                permitList.Add(prmt.PermitName);
+            }
             PermitRepeater.DataSource = allPermits.getPermitNames(connectionString);
             PermitRepeater.DataBind();
 
@@ -43,9 +45,11 @@ namespace PraksaFront
         protected void LoadOwnedPermits()
         {
             foreach(RepeaterItem item in PermitRepeater.Items)
-            {
+            { 
                 var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                var hdnField = item.FindControl("hdnField") as HiddenField;
 
+                checkbox.Checked = checkPermit(hdnField.Value);
             }
         }
 
@@ -55,11 +59,17 @@ namespace PraksaFront
             {
                 var checkbox = item.FindControl("permitCheckbox") as CheckBox;
                 var hdnField = item.FindControl("hdnField") as HiddenField;
+                var hdnId = item.FindControl("hdnId") as HiddenField;
+
                 if (checkbox.Checked) //ako je oznacena dozvola
                 {
                     if (!checkPermit(hdnField.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
                     {
-                        System.Diagnostics.Debug.WriteLine("DODAJ" + checkbox.Text);
+                        Permit permit = new Permit();
+                        permit.IdUser = userId;
+                        permit.ExpiryDate = "25.06.2021";
+                        permit.IdPermit = Convert.ToInt32(hdnId.Value);
+                        permit.CreatePermit(connectionString, permit);
                     }
                 }
                 else
@@ -74,7 +84,10 @@ namespace PraksaFront
         }
         protected Boolean checkPermit(string prmt)
         {
-            return permitList.Contains(prmt);
+            if (permitList != null)
+                return permitList.Contains(prmt);
+            else
+                return false;
         }
 
 
