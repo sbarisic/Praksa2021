@@ -25,9 +25,7 @@ namespace PraksaFront
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 Address = txtAdress.Text,
-                Oib = txtOib.Text,
-                Email = txtEmail.Text,
-                PhoneNumber = txtPhoneNumber.Text
+                Oib = txtOib.Text
             };
 
             user.CreateUser(connectionString, user);

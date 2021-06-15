@@ -106,7 +106,6 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address ));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib ));
                     cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
-                    cmd.Parameters.Add(new SqlParameter("@Accepted", true));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
