@@ -106,5 +106,29 @@ namespace PraksaMid
                 throw ex;
             }
         }
+
+        public PermitName GetPermitName(string connectionString, int idPermitName)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("GetPermitName", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDPermitName", idPermitName));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            PermitName permitName = new PermitName();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    permitName.Name = dr["Naziv dozvol"].ToString();
+                }
+            }
+            return permitName;
+        }
     }
 }
