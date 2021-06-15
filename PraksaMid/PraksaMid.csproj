@@ -73,6 +73,7 @@
     <Compile Include="Permit.cs" />
     <Compile Include="PermitName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Work.cs" />
   </ItemGroup>
