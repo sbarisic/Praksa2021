@@ -25,8 +25,12 @@ namespace PraksaFront
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 Address = txtAdress.Text,
-                Oib = txtOib.Text
+                Oib = txtOib.Text,
+                Password = txtLozinka.Text,
+                Email = txtEmail.Text,
+                Number = txtPhoneNumber.Text,
             };
+
 
             user.CreateUser(connectionString, user);
             Response.Redirect("About.aspx");

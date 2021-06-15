@@ -21,6 +21,9 @@ namespace PraksaMid.Users
         public string PasswordSalt { get; set; }
         public string PasswordHash { get; set; }
         public bool Accepted { get; set; }
+        public string Password{ get; set; }
+        public string Email { get; set; }
+        public string Number { get; set; }
 
 
 
@@ -121,8 +124,11 @@ namespace PraksaMid.Users
 
         public void CreateUser(string connectionString, User user)
         {
+            string hash, salt;
+            PasswordManager.GenerateSaltHashPair(Password, out hash, out salt);
             try
             {
+                            
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertUser", con);
@@ -132,6 +138,10 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
+                    cmd.Parameters.Add(new SqlParameter("@Email", user.Email));
+                    cmd.Parameters.Add(new SqlParameter("@Number", user.Number));
+                    cmd.Parameters.Add(new SqlParameter("@PasswordSalt", salt));
+                    cmd.Parameters.Add(new SqlParameter("@PasswordHash", hash));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

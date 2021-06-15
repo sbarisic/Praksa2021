@@ -78,13 +78,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.TextBox txtOib;
 
         /// <summary>
-        /// txtlozinka control.
+        /// txtLozinka control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlozinka;
+        protected global::System.Web.UI.WebControls.TextBox txtLozinka;
 
         /// <summary>
         /// btnReg control.
