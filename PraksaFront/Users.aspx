@@ -56,9 +56,7 @@
                                 <tr onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;" style="cursor:pointer">
                                     <td><asp:Label runat="server" Text='<%# Eval("firstname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("lastname")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("uniqueid")%>'></asp:Label>
                                     <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
                                     <td>
