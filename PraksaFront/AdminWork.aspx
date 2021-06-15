@@ -60,12 +60,11 @@
                         <asp:Repeater ID="attendanceRepeater" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <!-- promijeniti 'test' s Eval("x") za potrebne vrijednosti i sloziti data za repeater u .cs -->
-                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='test'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("UserFirstName")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("UserLastName")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Interes")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("SelectionTime")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval ("Attendance")%>'></asp:Label></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
