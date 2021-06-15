@@ -90,6 +90,14 @@ namespace PraksaFront
                 return false;
         }
 
-
+        protected void permitCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = (CheckBox)sender;
+            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
+            TextBox txtDate = (TextBox)item.FindControl("txtDate");
+            TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+            txtDate.Enabled = chk.Checked;
+            txtNumber.Enabled = chk.Checked;
+        }
     }
 }
