@@ -7,9 +7,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/bjelovar.jpg') no-repeat; background-size:100%;">
+        <div class="p-lg-5 mx-auto my-5">
+            <div style="width:100%; background-color: rgba(255, 255, 255, 0.8);">
             <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
+                </div>
             <br />
             <a style="background-color:#383c44; border:1px solid #28242c" class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
         </div>

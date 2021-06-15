@@ -98,6 +98,7 @@
     <Content Include="AddWork.aspx" />
     <Content Include="AdminWork.aspx" />
     <Content Include="Calendar.aspx" />
+    <Content Include="content\bjelovar.jpg" />
     <Content Include="content\css\about.css" />
     <Content Include="content\css\bootstrap-grid.css" />
     <Content Include="content\css\bootstrap-grid.min.css" />
