@@ -69,7 +69,6 @@
                     <td><a href="Registration.aspx">
                         <p style="text-align: center">Kreiraj novi korisnički račun</p>
                     </a>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
                 </tr>
             </table>
         </div>
