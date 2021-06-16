@@ -70,7 +70,7 @@ namespace PraksaMid.Users
                 CommandType = System.Data.CommandType.StoredProcedure
             };
 
-            cmd.Parameters.Add(new SqlParameter("@ID", id));
+            cmd.Parameters.Add(new SqlParameter("@IDuser", id));
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
