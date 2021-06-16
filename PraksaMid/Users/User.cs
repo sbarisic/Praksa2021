@@ -24,7 +24,6 @@ namespace PraksaMid.Users
         public string Password{ get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
-
         public DateTime Dismissed { get; set; }
 
         public List<User> GetUsers(string connectionString)
@@ -51,7 +50,9 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString()                        
+                        Address = dr["Adresa"].ToString(),                        
+                        Email = dr["Epošta"].ToString(),                        
+                        Number = dr["Broj mobitela"].ToString()                        
                 };
 
                     users.Add(user);
@@ -61,7 +62,7 @@ namespace PraksaMid.Users
             return users;
         }
 
-        public User GetUser(string connectionString, int id)
+        public User GetUser(string connectionString, int idUser)
         {
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -70,7 +71,7 @@ namespace PraksaMid.Users
                 CommandType = System.Data.CommandType.StoredProcedure
             };
 
-            cmd.Parameters.Add(new SqlParameter("@IDuser", id));
+            cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -85,7 +86,6 @@ namespace PraksaMid.Users
                     user.UniqueId = dr["Jedinstveni broj člana"].ToString();
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
-                    user.Oib = dr["OIB"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
                     user.RoleName = dr["Uloga"].ToString();
@@ -113,7 +113,6 @@ namespace PraksaMid.Users
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    var i = user.Accepted;
                 }
             }
             catch (Exception ex)
@@ -124,8 +123,7 @@ namespace PraksaMid.Users
 
         public void CreateUser(string connectionString, User user)
         {
-            string hash, salt;
-            PasswordManager.GenerateSaltHashPair(Password, out hash, out salt);
+            PasswordManager.GenerateSaltHashPair(Password, out string hash, out string salt);
             try
             {
                             
@@ -199,11 +197,11 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString()
+                        Address = dr["Adresa"].ToString(),
+                        Email = dr["Epošta"].ToString(),
+                        Number = dr["Broj mobitela"].ToString()
                     };
-
                     users.Add(user);
-
                 }
             }
             return users;
@@ -279,9 +277,7 @@ namespace PraksaMid.Users
                         Number = dr["Broj mobitela"].ToString(),
                         Dismissed = DateTime.Parse(dr["Datum zatvaranja"].ToString())
                     };
-
                     users.Add(user);
-
                 }
             }
             return users;
