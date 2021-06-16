@@ -121,7 +121,7 @@
                             <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">
                                     <ItemTemplate>
-                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%>
+                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%> <%# Eval("PermitNumber")%>
                                             <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
                                     </ItemTemplate>

@@ -85,7 +85,7 @@
                            <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">
                                     <ItemTemplate>
-                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%> <br />
+                                            <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%> <%# Eval("PermitNumber")%> <br />
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </td>

@@ -204,13 +204,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// txtEmail control.
+        /// EmailRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Repeater EmailRepeater;
 
         /// <summary>
         /// lblPhoneNumber control.
@@ -221,6 +221,14 @@ namespace PraksaFront
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
 
+        /// <summary>
+        /// NumberRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater NumberRepeater;
 
         /// <summary>
         /// lblRole control.
@@ -232,13 +240,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblRole;
 
         /// <summary>
-        /// roleButton control.
+        /// RoleRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList roleButton;
+        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
 
         /// <summary>
         /// lblPermits control.
@@ -266,9 +274,7 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
-        protected global::System.Web.UI.WebControls.Repeater NumberRepeater;
-        protected global::System.Web.UI.WebControls.Repeater EmailRepeater;
-        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
+
         /// <summary>
         /// BtnSubmit control.
         /// </summary>
