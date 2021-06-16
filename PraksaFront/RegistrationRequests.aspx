@@ -42,8 +42,6 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("firstname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("lastname")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("oib")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("email")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("phonenumber")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
                                     <td>
                                         <asp:Button CssClass="workButton" OnCommand="AcceptBtn_Command" CommandArgument='<%# Eval("id")%>' ID="AcceptBtn" runat="server" Text="Prihvati" OnClientClick="return confirm('Jeste li sigurni da želite prihvatiti registraciju?')" />

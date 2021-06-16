@@ -110,5 +110,30 @@ namespace PraksaMid
                 throw ex;
             }
         }
+
+        public ContactEmail GetEmail(string connectionString, int idUser, int idEmail)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getEmail", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDUser", idUser));
+            cmd.Parameters.Add(new SqlParameter("@IDEmail", idEmail));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            ContactEmail email = new ContactEmail();
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    email.Email = dr["Epošta"].ToString();
+                    email.Id = Convert.ToInt32(dr["IDEmail"]);
+                }
+            }
+            return email;
+        }
     }
 }

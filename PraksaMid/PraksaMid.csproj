@@ -68,9 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attendant.cs" />
+    <Compile Include="Authentication.cs" />
     <Compile Include="ContactNumber.cs" />
     <Compile Include="ContactEmail.cs" />
-    <Compile Include="Authentication.cs" />
     <Compile Include="PasswordManager.cs" />
     <Compile Include="Permit.cs" />
     <Compile Include="PermitName.cs" />
