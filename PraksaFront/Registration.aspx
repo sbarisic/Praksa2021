@@ -54,6 +54,10 @@
                     <label>Lozinka</label>
                     <asp:TextBox ID="txtLozinka" runat="server" placeholder="Unesite lozinku :" TextMode="Password"></asp:TextBox>
                 </div>
+                <div class="inputfield">
+                    <label>Lozinka</label>
+                    <asp:TextBox ID="txtLozinka2" runat="server" placeholder="Unesite lozinku :" TextMode="Password"></asp:TextBox>
+                </div>
                 <div align="center" class="registration">
                     <asp:Button ID="btnReg" runat="server" Text="Kreiraj korisnički račun" OnClick="btnReg_Click" />
                 </div>

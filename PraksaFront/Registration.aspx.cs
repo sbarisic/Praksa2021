@@ -16,22 +16,26 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void btnReg_Click (object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            User user = new User
+            if (txtLozinka.Text.Equals(txtLozinka2.Text))
             {
-                UniqueId = rnd.Next().ToString(),
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Address = txtAdress.Text,
-                Oib = txtOib.Text,
-                Password = txtLozinka.Text,
-                Email = txtEmail.Text,
-                Number = txtPhoneNumber.Text,
-            };
+                Random rnd = new Random();
+                User user = new User
+                {
+                    UniqueId = rnd.Next().ToString(),
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Address = txtAdress.Text,
+                    Oib = txtOib.Text,
+                    Password = txtLozinka.Text,
+                    Email = txtEmail.Text,
+                    Number = txtPhoneNumber.Text,
+                };
 
 
-            user.CreateUser(connectionString, user);
-            Response.Redirect("About.aspx");
+                user.CreateUser(connectionString, user);
+                Response.Redirect("About.aspx");
+            } else
+                Response.Write("<script>alert('Lozinke nisu identične');</script>");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
