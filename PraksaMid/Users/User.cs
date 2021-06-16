@@ -25,7 +25,7 @@ namespace PraksaMid.Users
         public string Email { get; set; }
         public string Number { get; set; }
 
-
+        public DateTime Dismissed { get; set; }
 
         public List<User> GetUsers(string connectionString)
         {
@@ -250,6 +250,41 @@ namespace PraksaMid.Users
             {
                 throw ex;
             }
+        }
+        public List<User> GetDismissedUsers(string connectionString)
+        {
+            List<User> users = new List<User>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getDismissedUsers", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    User user = new User
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Oib = dr["OIB"].ToString(),
+                        FirstName = dr["Ime"].ToString(),
+                        LastName = dr["Prezime"].ToString(),
+                        Address = dr["Adresa"].ToString(),
+                        Email = dr["Epošta"].ToString(),
+                        Number = dr["Broj mobitela"].ToString(),
+                        Dismissed = DateTime.Parse(dr["Datum zatvaranja"].ToString())
+                    };
+
+                    users.Add(user);
+
+                }
+            }
+            return users;
         }
     }
 }
