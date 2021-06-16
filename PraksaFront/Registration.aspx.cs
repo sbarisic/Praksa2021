@@ -14,8 +14,6 @@ namespace PraksaFront
     public partial class Registration : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-
-
         protected void btnReg_Click (object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -33,6 +31,11 @@ namespace PraksaFront
 
 
             user.CreateUser(connectionString, user);
+            Response.Redirect("About.aspx");
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
             Response.Redirect("About.aspx");
         }
 

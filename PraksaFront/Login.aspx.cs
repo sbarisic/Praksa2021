@@ -32,5 +32,9 @@ namespace PraksaFront
             else if(rv == 2)
                 Response.Write("<script>alert('Dobrodošli');</script>");
         }
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("About.aspx");
+        }
     }
 }
