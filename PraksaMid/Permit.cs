@@ -25,7 +25,7 @@ namespace PraksaMid.Permit
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertPermitName", con);
+                    SqlCommand cmd = new SqlCommand("insertPermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     DateTime date = DateTime.Parse(ExpiryDate); 
@@ -74,8 +74,9 @@ namespace PraksaMid.Permit
                         LastName = dr["Prezime"].ToString(),
                         PermitName = dr["Dozvola"].ToString(),
                         PermitNumber = dr["Broj dozvole"].ToString(),
-                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d")
-    
+                        IdPermit = Convert.ToInt32(dr["ID dozvole"]),
+                        Id = Convert.ToInt32(dr["ID"]),
+                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d"),  
                     };
 
                     permits.Add(permit);

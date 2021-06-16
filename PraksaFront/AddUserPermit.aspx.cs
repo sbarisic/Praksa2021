@@ -14,11 +14,12 @@ namespace PraksaFront
     {
         protected int userId = 0;
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-        protected List<string> permitList;
+        protected List<Permit> permitList = new List<Permit>();
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt16(Request.QueryString["userId"]);
-
+            Permit tmp = new Permit();
+            permitList = tmp.GetPermits(connectionString, userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -30,12 +31,6 @@ namespace PraksaFront
             PermitName allPermits = new PermitName();
             Permit permit = new Permit();
             System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
-            List<Permit> tmpList = permit.GetPermits(connectionString, userId);
-            foreach(Permit prmt in tmpList)
-            {
-                System.Diagnostics.Debug.WriteLine(prmt.PermitName);
-                permitList.Add(prmt.PermitName);
-            }
             PermitRepeater.DataSource = allPermits.getPermitNames(connectionString);
             PermitRepeater.DataBind();
 
@@ -44,12 +39,26 @@ namespace PraksaFront
 
         protected void LoadOwnedPermits()
         {
-            foreach(RepeaterItem item in PermitRepeater.Items)
-            { 
-                var checkbox = item.FindControl("permitCheckbox") as CheckBox;
-                var hdnField = item.FindControl("hdnField") as HiddenField;
+            if(permitList.Count != 0)
+            {
+                int i = 0;
+                foreach (RepeaterItem item in PermitRepeater.Items)
+                {
+                    var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                    var hdnId = item.FindControl("hdnId") as HiddenField;
+                    checkbox.Checked = checkPermit(hdnId.Value);
+                    TextBox txtDate = (TextBox)item.FindControl("txtDate");
+                    TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+                    txtDate.Enabled = checkbox.Checked;
+                    txtNumber.Enabled = checkbox.Checked;
 
-                checkbox.Checked = checkPermit(hdnField.Value);
+                    if (checkPermit(hdnId.Value))
+                    {
+                        txtDate.Text = permitList[i].ExpiryDate;
+                        txtNumber.Text = permitList[i].PermitNumber;
+                        i++;
+                    }
+                }
             }
         }
 
@@ -58,38 +67,73 @@ namespace PraksaFront
             foreach (RepeaterItem item in PermitRepeater.Items) //item = dozvola
             {
                 var checkbox = item.FindControl("permitCheckbox") as CheckBox;
-                var hdnField = item.FindControl("hdnField") as HiddenField;
                 var hdnId = item.FindControl("hdnId") as HiddenField;
+                TextBox txtDate = (TextBox)item.FindControl("txtDate");
+                TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+                Permit permit = new Permit();
 
                 if (checkbox.Checked) //ako je oznacena dozvola
                 {
-                    if (!checkPermit(hdnField.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
+                    if (!checkPermit(hdnId.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
                     {
-                        Permit permit = new Permit();
                         permit.IdUser = userId;
-                        permit.ExpiryDate = "25.06.2021";
+                        permit.ExpiryDate = txtDate.Text;
                         permit.IdPermit = Convert.ToInt32(hdnId.Value);
+                        permit.PermitNumber = txtNumber.Text;
                         permit.CreatePermit(connectionString, permit);
                     }
                 }
                 else
                 {
-                    if (checkPermit(hdnField.Value)) // ako nije oznacena dozvola i user ju ima, makni ju
+                    if (checkDeletePermit(hdnId.Value, item)) // ako nije oznacena dozvola i user ju ima, makni ju
                     {
-                        System.Diagnostics.Debug.WriteLine("MAKNI" + checkbox.Text);
+                        HiddenField hdn = (HiddenField)item.FindControl("hdnField");
+                        permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
                     }
                 }
                 
             }
+
+            
         }
-        protected Boolean checkPermit(string prmt)
+        protected Boolean checkPermit(string strPermit)
         {
-            if (permitList != null)
-                return permitList.Contains(prmt);
-            else
-                return false;
+            foreach(Permit prmt in permitList)
+            {
+                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
+        protected Boolean checkDeletePermit(string strPermit, RepeaterItem item)
+        {
+            foreach (Permit prmt in permitList)
+            {
+                System.Diagnostics.Debug.WriteLine(prmt.Id + " " + prmt.PermitName);
+                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                {
+                    
+                    HiddenField hdn = (HiddenField)item.FindControl("hdnField");
+                    hdn.Value = prmt.Id.ToString();
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        protected void permitCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = (CheckBox)sender;
+            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
+            TextBox txtDate = (TextBox)item.FindControl("txtDate");
+            TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+            HiddenField hdnId = (HiddenField)item.FindControl("hdnId");
+            System.Diagnostics.Debug.WriteLine(hdnId.Value);
+            txtDate.Enabled = chk.Checked;
+            txtNumber.Enabled = chk.Checked;
+        }
     }
 }

@@ -13,7 +13,7 @@
         <asp:HiddenField ID="hdnField" runat="server" />
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-                <iframe ID="permitFrame" src="" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe ID="permitFrame" src="" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
 
@@ -104,10 +104,12 @@
                                 <asp:Label ID="lblRole" runat="server" Text="Uloga"></asp:Label>
                             </th>
                             <td>
-                                <asp:RadioButtonList ID="roleButton" runat="server" RepeatLayout="Flow" RepeatDirection="Vertical">
-                                     <asp:ListItem Value="1">Ravnatelj/tajnik</asp:ListItem>
-                                     <asp:ListItem Value="2">Korisnik</asp:ListItem>
-                                </asp:RadioButtonList>
+                                <asp:Repeater ID="RoleRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <asp:HiddenField ID="roleId" Value='<%# Eval("Id") %>' runat="server"></asp:HiddenField>
+                                        <asp:CheckBox ID="chkBox" runat="server" Text='<%# Eval("Name") %>'></asp:CheckBox><br>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </td>
                         </tr>
                         <tr>
