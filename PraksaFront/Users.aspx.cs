@@ -32,12 +32,19 @@ namespace PraksaFront
         }
 
 
-        protected void ActivateBtn_Command(object sender, CommandEventArgs e)
+        protected void editButton_Command(object sender, CommandEventArgs e)
         {
             Console.WriteLine(e.CommandArgument);
             Response.Redirect("EditUser.aspx?userId=" + e.CommandArgument);
         }
 
+        protected void deleteButton_Command(object sender, CommandEventArgs e)
+        {
+            int userId = Convert.ToInt16(e.CommandArgument);
+            User user = new User();
+            user.DeleteUser(connectionString, userId);
+            Response.Redirect("Users.aspx");
+        }
 
         public void RaisePostBackEvent(string eventArgument)
         {
