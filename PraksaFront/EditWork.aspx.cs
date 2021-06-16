@@ -14,6 +14,8 @@ namespace PraksaFront
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int workId = 0;
+        protected string AttendanceFrameUrl;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["workId"] != "")
@@ -65,10 +67,7 @@ namespace PraksaFront
 
         protected void attendance_Command(object sender, CommandEventArgs e)
         {
-            Attendant attendant = new Attendant();
-            Repeater attRepeater = ModalPopupExtender3.FindControl("attendanceRepeater") as Repeater;
-            attRepeater.DataSource = attendant.GetAttendants(connectionString, Convert.ToInt32(e.CommandArgument));
-            attRepeater.DataBind();
+            AttendanceFrameUrl = "Attendants.aspx?workId=" + workId;
             ModalPopupExtender3.Show();
         }
     }
