@@ -31,9 +31,17 @@
         return false;
     }
 </script>
-
+        <!-- EDITUSERPERMIT POPUP-->
+        <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="hdnField" CancelControlID="ButtonCloseEdit" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
+        <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
+        <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+        <br />
+        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Odustani" />
+                    </asp:Panel>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:HiddenField ID="hdnField" runat="server" />
+
+        <!-- CLOSEUSERPERMIT-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
                 <iframe src="AddPermitName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
@@ -58,9 +66,8 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("name")%></td>
-                                    <td><asp:Button CssClass="workButton" ID="EditWorkBtn" runat="server" Text="Uredi" OnClientClick="return confirm('Jeste li sigurni da želite urediti dozvolu?')"  CommandArgument='<%# Eval("id") %>'/>
-                                   
-                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("id") %>'/></td>
+                                    <td><asp:Button ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("Id")%>' />
+                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("Id") %>'/></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

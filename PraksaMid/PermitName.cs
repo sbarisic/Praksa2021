@@ -125,7 +125,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    permitName.Name = dr["Naziv dozvol"].ToString();
+                    permitName.Name = dr["Naziv dozvole"].ToString();
                 }
             }
             return permitName;
