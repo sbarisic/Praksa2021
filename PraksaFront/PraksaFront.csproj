@@ -98,6 +98,7 @@
     <Content Include="AddUserPermit.aspx" />
     <Content Include="AddWork.aspx" />
     <Content Include="AdminWork.aspx" />
+    <Content Include="Attendants.aspx" />
     <Content Include="Calendar.aspx" />
     <Content Include="content\bjelovar.jpg" />
     <Content Include="content\css\about.css" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="AdminWork.aspx.designer.cs">
       <DependentUpon>AdminWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Attendants.aspx.cs">
+      <DependentUpon>Attendants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Attendants.aspx.designer.cs">
+      <DependentUpon>Attendants.aspx</DependentUpon>
     </Compile>
     <Compile Include="Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
