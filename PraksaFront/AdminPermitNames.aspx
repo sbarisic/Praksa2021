@@ -58,7 +58,8 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("name")%></td>
-                                    <td>
+                                    <td><asp:Button CssClass="workButton" ID="EditWorkBtn" runat="server" Text="Uredi" OnClientClick="return confirm('Jeste li sigurni da želite urediti dozvolu?')"  CommandArgument='<%# Eval("id") %>'/>
+                                   
                                         <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("id") %>'/></td>
                                 </tr>
                             </ItemTemplate>

@@ -41,7 +41,7 @@
                     <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
-                        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Zatvori" />
+                        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Odustani" />
                     </asp:Panel>
 
                     <!-- DOLAZNOST POPUP-->
