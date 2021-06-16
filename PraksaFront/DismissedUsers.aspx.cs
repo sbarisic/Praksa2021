@@ -33,27 +33,10 @@ namespace PraksaFront
 
         protected void ActivateBtn_Command(object sender, CommandEventArgs e)
         {
-            Console.WriteLine(e.CommandArgument);
-        }
+            User user = new User();
+            user.ActivateUser(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect("DismissedUsers.aspx");
 
-        public void RaisePostBackEvent(string eventArgument)
-        {
-            switch (eventArgument)
-            {
-                case "RowClicked":
-                    HandleRowClick();
-                    break;
-
-                // you can add other controls that need postback processing here
-
-                default:
-                    throw new ArgumentException();
-            }
-        }
-
-        private void HandleRowClick()
-        {
-            Response.Redirect("AboutUser.aspx?userId=" + hiddenId.Value);
         }
     }
 }
