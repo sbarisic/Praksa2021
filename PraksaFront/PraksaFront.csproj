@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="AboutUser.aspx" />
     <Content Include="AboutWork.aspx" />
+    <Content Include="EditPermitName.aspx" />
     <Content Include="AddUserPermit.aspx" />
     <Content Include="AddWork.aspx" />
     <Content Include="AdminWork.aspx" />
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="AboutWork.aspx.designer.cs">
       <DependentUpon>AboutWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPermitName.aspx.cs">
+      <DependentUpon>EditPermitName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPermitName.aspx.designer.cs">
+      <DependentUpon>EditPermitName.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddUserPermit.aspx.cs">
       <DependentUpon>AddUserPermit.aspx</DependentUpon>
