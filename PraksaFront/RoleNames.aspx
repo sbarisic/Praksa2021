@@ -45,7 +45,7 @@
         <!-- CLOSEPERMITNAME-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-            <iframe src="AddPermitName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="AddRoleName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
         <asp:Button runat="server" ID="BtnSample" ClientIDMode="Static" Text="" Style="display: none;" OnClick="BtnSample_Click" />
@@ -53,14 +53,14 @@
             <tr>
                 <td>
                     <div class="card-header" style="border: 1px solid rgba(0,0,0,0.1)">
-                        <h1>Dozvole</h1>
+                        <h1>Uloge</h1>
                     </div>
                     <div class="card-body">
                         <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                             <div class="dataTable-container">
                                 <table class="dataTable-table table-striped">
                                     <tr style="background-color: #93cff5;">
-                                        <th colspan="2">Naziv dozvole
+                                        <th colspan="2">Naziv uloge
                                         </th>
                                     </tr>
                                     <asp:Repeater ID="RoleNameRepeater" runat="server">
@@ -81,7 +81,7 @@
                 </td>
                 <td>
                     <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Dodaj dozvolu" />
+                        <asp:Button CssClass="workButton" ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Dodaj ulogu" />
                     </div>
                 </td>
             </tr>

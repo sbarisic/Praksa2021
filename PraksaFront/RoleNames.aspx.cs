@@ -35,7 +35,7 @@ namespace PraksaFront
         }
         protected void BtnEdit_Command(object sender, CommandEventArgs e)
         {
-            //EditFrameUrl = "EditPermitName.aspx?permitNameId=" + e.CommandArgument;
+            EditFrameUrl = "EditRoleName.aspx?roleNameId=" + e.CommandArgument;
             EditModalPopupExtender.Show();
         }
     }
