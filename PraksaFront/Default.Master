@@ -102,8 +102,12 @@
                             Zahtjevi registracije
                         </a>
                         <a class="nav-link" href="DismissedUsers.aspx">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-minus"></i></div>
                             Zatvoreni korisnici
+                        </a>
+                        <a class="nav-link" href="RoleNames.aspx">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Uloge
                         </a>
                         
                     </div>
