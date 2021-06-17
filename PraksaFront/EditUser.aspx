@@ -147,6 +147,12 @@
                 $find('ModalPopupExtender1').show();
                 return false;
             }
+            function hideEditModalPopup() {
+                $find("ModalPopupExtender2").hide();
+                document.getElementById("hdnBtn").click();
+                return false;
+            }
+
         </script>
     </form>
 </asp:Content>

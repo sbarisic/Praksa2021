@@ -94,7 +94,7 @@ namespace PraksaFront
                 
             }
 
-            
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
         protected Boolean checkPermit(string strPermit)
         {
