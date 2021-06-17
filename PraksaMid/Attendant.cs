@@ -38,7 +38,7 @@ namespace PraksaMid
                         Job = dr["Naziv posla"].ToString(),
                         Interes = dr["Interes"].ToString(),
                         Attendance = dr["Dolaznost"].ToString(),
-                        SelectionTime =dr["Vrijeme odabira"].ToString()
+                        SelectionTime = dr["Vrijeme odabira"].ToString()
                     };
                     attendants.Add(attendant);
                 }
@@ -95,4 +95,5 @@ namespace PraksaMid
                 throw ex;
             }
         }
+    }
 }
