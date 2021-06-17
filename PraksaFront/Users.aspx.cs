@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Person;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -6,7 +7,6 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PraksaMid.Users;
 
 namespace PraksaFront
 {
@@ -26,8 +26,7 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            User user = new User();
-            UserRepeater.DataSource = user.GetUsers(connectionString);
+            UserRepeater.DataSource = Person.GetUsers(connectionString);
             UserRepeater.DataBind();
         }
 
@@ -40,9 +39,7 @@ namespace PraksaFront
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            int userId = Convert.ToInt16(e.CommandArgument);
-            User user = new User();
-            user.DeleteUser(connectionString, userId);
+            Person.DeleteUser(connectionString, Convert.ToInt16(e.CommandArgument));
             Response.Redirect("Users.aspx");
         }
 

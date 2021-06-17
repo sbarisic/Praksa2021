@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using PraksaMid.Works;
 using System;
 using System.Collections.Generic;
@@ -30,8 +31,7 @@ namespace PraksaFront
 
         private void FillWorkData()
         {
-            Work work = new Work();
-            work = work.GetWork(connectionString, workId);
+            WorkModel work = Work.GetWork(connectionString, workId);
             workText.Text = work.Name;
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;
@@ -45,7 +45,7 @@ namespace PraksaFront
         }
         protected void Submit_Command(object sender, CommandEventArgs e)
         {
-            Work work = new Work
+            WorkModel work = new WorkModel
             {
                 Id = workId,
                 Name = workText.Text,
@@ -56,13 +56,12 @@ namespace PraksaFront
                 Obligation = obligationButton.SelectedValue
             };
 
-            work.EditWork(connectionString, work);
+            Work.EditWork(connectionString, work);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
-            Work work = new Work();
-            work.DeleteWork(connectionString, workId);
+            Work.DeleteWork(connectionString, workId);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 

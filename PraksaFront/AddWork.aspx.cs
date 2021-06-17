@@ -1,4 +1,5 @@
-﻿using PraksaMid.Works;
+﻿using PraksaMid.Model;
+using PraksaMid.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace PraksaFront
 
             if (!isEmpty)
             {
-                Work work = new Work
+                WorkModel work = new WorkModel
                 {
                     Name = workText.Text,
                     Description = descriptionText.Text,
@@ -44,7 +45,7 @@ namespace PraksaFront
                     Obligation = obligationButton.SelectedValue
                 };
 
-                work.CreateWork(connectionString, work);
+                Work.CreateWork(connectionString, work);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
             }
         }

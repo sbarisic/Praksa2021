@@ -1,5 +1,4 @@
-﻿using PraksaMid.Users;
-using PraksaMid.Permit;
+﻿using PraksaMid.Permit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,8 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PraksaMid;
+using PraksaMid.Model;
+using PraksaMid.Person;
 
 namespace PraksaFront
 {
@@ -28,8 +29,6 @@ namespace PraksaFront
         }
         private void FillUserData()
         {
-            User user = new User();
-
             PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
@@ -39,7 +38,8 @@ namespace PraksaFront
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
-            user = user.GetUser(connectionString, userId);
+            PersonModel user = new PersonModel();
+            user = Person.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
@@ -54,8 +54,7 @@ namespace PraksaFront
         }
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            User user = new User();
-            user.DeleteUser(connectionString, userId);
+            Person.DeleteUser(connectionString, userId);
             Response.Redirect("Users.aspx");
         }
 

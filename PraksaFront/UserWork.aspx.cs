@@ -22,8 +22,7 @@ namespace PraksaFront
         {
             if (!Page.IsPostBack)
             {
-                Work work = new Work();
-                UserWorkList.DataSource = work.GetWorks(connectionString);
+                UserWorkList.DataSource = Work.GetWorks(connectionString);
                 UserWorkList.DataBind();
             }
         }

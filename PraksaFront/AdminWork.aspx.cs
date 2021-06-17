@@ -6,6 +6,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PraksaMid;
+using PraksaMid.Model;
 using PraksaMid.Works;
 
 namespace PraksaFront
@@ -28,8 +29,7 @@ namespace PraksaFront
 
         private void GetWorks()
         {
-            Work work = new Work();
-            UserWorkList.DataSource = work.GetWorks(connectionString);
+            UserWorkList.DataSource = Work.GetWorks(connectionString);
             UserWorkList.DataBind();
         }
         protected void edit_Command(object sender, CommandEventArgs e)
@@ -39,8 +39,7 @@ namespace PraksaFront
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
-            Work work = new Work();
-            work.DeleteWork(connectionString, Convert.ToInt32(e.CommandArgument));
+            Work.DeleteWork(connectionString, Convert.ToInt32(e.CommandArgument));
             Response.Redirect("AdminWork.aspx");
         }
         protected void locButton_Click(object sender, EventArgs e)
