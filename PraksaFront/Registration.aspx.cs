@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
-using PraksaMid.Users;
+using PraksaMid.Model;
+using PraksaMid.Person;
 
 namespace PraksaFront
 {
@@ -19,7 +20,7 @@ namespace PraksaFront
             if (txtLozinka.Text.Equals(txtLozinka2.Text))
             {
                 Random rnd = new Random();
-                User user = new User
+                PersonModel user = new PersonModel()
                 {
                     UniqueId = rnd.Next().ToString(),
                     FirstName = txtFirstName.Text,
@@ -32,7 +33,7 @@ namespace PraksaFront
                 };
 
 
-                user.CreateUser(connectionString, user);
+                Person.CreateUser(connectionString, user);
                 Response.Redirect("About.aspx");
             } else
                 Response.Write("<script>alert('Lozinke nisu identične');</script>");

@@ -1,4 +1,4 @@
-﻿using PraksaMid.Users;
+﻿using PraksaMid.Person;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +25,14 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            User user = new User();
-            UserRepeater.DataSource = user.GetDismissedUsers(connectionString);
+            UserRepeater.DataSource = Person.GetDismissedUsers(connectionString);
             UserRepeater.DataBind();
         }
 
 
         protected void ActivateBtn_Command(object sender, CommandEventArgs e)
         {
-            User user = new User();
-            user.ActivateUser(connectionString, Convert.ToInt32(e.CommandArgument));
+            Person.ActivateUser(connectionString, Convert.ToInt32(e.CommandArgument));
             Response.Redirect("DismissedUsers.aspx");
 
         }

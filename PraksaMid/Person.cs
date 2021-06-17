@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,29 +7,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 
-namespace PraksaMid.Users
+namespace PraksaMid.Person
 {
-    public class User
+    public static class Person
     {
-        public int Id { get; set; }
-        public string UniqueId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int IdRole { get; set; }
-        public string RoleName { get; set; }
-        public string Address { get; set; }
-        public string Oib { get; set; }
-        public string PasswordSalt { get; set; }
-        public string PasswordHash { get; set; }
-        public bool Accepted { get; set; }
-        public string Password{ get; set; }
-        public string Email { get; set; }
-        public string Number { get; set; }
-        public DateTime Dismissed { get; set; }
-
-        public List<User> GetUsers(string connectionString)
+        public static List<PersonModel> GetUsers(string connectionString)
         {
-            List<User> users = new List<User>();
+            List<PersonModel> users = new List<PersonModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -43,7 +28,7 @@ namespace PraksaMid.Users
             {
                 while (dr.Read())
                 {
-                    User user = new User
+                    PersonModel user = new PersonModel
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         UniqueId = dr["Jedinstveni broj člana"].ToString(),
@@ -54,15 +39,13 @@ namespace PraksaMid.Users
                         Email = dr["Epošta"].ToString(),                        
                         Number = dr["Broj mobitela"].ToString()                        
                 };
-
                     users.Add(user);
-
                 }
             }
             return users;
         }
 
-        public User GetUser(string connectionString, int idUser)
+        public static PersonModel GetUser(string connectionString, int idUser)
         {
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -76,7 +59,7 @@ namespace PraksaMid.Users
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
-            User user = new User();
+            PersonModel user = new PersonModel();
 
             if (dr != null)
             {
@@ -94,14 +77,16 @@ namespace PraksaMid.Users
             return user;
         }
 
-        public void EditUser(string connectionString, User user)
+        public static void EditUser(string connectionString, PersonModel user)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updateUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updateUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@IDUser", user.Id));
                     cmd.Parameters.Add(new SqlParameter("@UniqueId", user.UniqueId));
                     cmd.Parameters.Add(new SqlParameter("@FirstName", user.FirstName));
@@ -121,16 +106,18 @@ namespace PraksaMid.Users
             }
         }
 
-        public void CreateUser(string connectionString, User user)
+        public static void CreateUser(string connectionString, PersonModel user)
         {
-            PasswordManager.GenerateSaltHashPair(Password, out string hash, out string salt);
+            PasswordManager.GenerateSaltHashPair(user.Password, out string hash, out string salt);
             try
             {
                             
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@UniqueId", user.UniqueId));
                     cmd.Parameters.Add(new SqlParameter("@FirstName", user.FirstName));
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
@@ -152,14 +139,16 @@ namespace PraksaMid.Users
             }
         }
 
-        public void DeleteUser(string connectionString, int userId)
+        public static void DeleteUser(string connectionString, int userId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deleteUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deleteUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDuser", userId));
 
@@ -174,9 +163,9 @@ namespace PraksaMid.Users
             }
         }
 
-        public List<User> GetRegistartionsRequestUser(string connectionString)
+        public static List<PersonModel> GetRegistartionsRequestUser(string connectionString)
         {
-            List<User> users = new List<User>();
+            List<PersonModel> users = new List<PersonModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -191,7 +180,7 @@ namespace PraksaMid.Users
             {
                 while (dr.Read())
                 {
-                    User user = new User
+                    PersonModel user = new PersonModel
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         Oib = dr["OIB"].ToString(),
@@ -207,14 +196,16 @@ namespace PraksaMid.Users
             return users;
         }
 
-        public void VerificateUser(string connectionString, int userId)
+        public static void VerificateUser(string connectionString, int userId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("verificateUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("verificateUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@IDUser", userId));
                     cmd.Parameters.Add(new SqlParameter("@Accepted", true));
 
@@ -228,14 +219,16 @@ namespace PraksaMid.Users
                 throw ex;
             }
         }
-        public void RejectUser(string connectionString, int userId)
+        public static void RejectUser(string connectionString, int userId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("rejectUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("rejectUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@IDUser", userId));
                     cmd.Parameters.Add(new SqlParameter("@Accepted", false));
 
@@ -249,9 +242,9 @@ namespace PraksaMid.Users
                 throw ex;
             }
         }
-        public List<User> GetDismissedUsers(string connectionString)
+        public static List<PersonModel> GetDismissedUsers(string connectionString)
         {
-            List<User> users = new List<User>();
+            List<PersonModel> users = new List<PersonModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -266,7 +259,7 @@ namespace PraksaMid.Users
             {
                 while (dr.Read())
                 {
-                    User user = new User
+                    PersonModel user = new PersonModel
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         Oib = dr["OIB"].ToString(),
@@ -282,14 +275,16 @@ namespace PraksaMid.Users
             }
             return users;
         }
-        public void ActivateUser(string connectionString, int userId)
+        public static void ActivateUser(string connectionString, int userId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("activateUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("activateUser", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDuser", userId));
 
