@@ -74,8 +74,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deleteRole", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deleteRole", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDrole", idRole));
 
@@ -95,13 +97,37 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertEmail", con)
+                    SqlCommand cmd = new SqlCommand("insertRole", con)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
 
                     cmd.Parameters.Add(new SqlParameter("@IdUser", role.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@Email", role.IdName));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EditRole(string connectionString, RoleModel role)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateRole", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@ID", role.Id));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", role.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@IDrole", role.IdName));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
