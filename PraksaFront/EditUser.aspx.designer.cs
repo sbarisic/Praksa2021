@@ -24,6 +24,15 @@ namespace PraksaFront
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// hdnBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button hdnBtn;
+
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -240,13 +249,13 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblRole;
 
         /// <summary>
-        /// RoleRepeater control.
+        /// roleRow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell roleRow;
 
         /// <summary>
         /// lblPermits control.
@@ -301,7 +310,5 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCancel;
-
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell roleRow;
     }
 }

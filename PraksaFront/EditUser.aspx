@@ -61,10 +61,10 @@
                         </tr>
                         <tr>
                             <th width="150px">
-                                <asp:Label ID="lblOib" runat="server" Text="OIB"></asp:Label>
+                                <asp:Label ID="lblOib"  runat="server" Text="OIB"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtOib" runat="server" MaxLength="11"></asp:TextBox>
+                                <asp:TextBox ID="txtOib" pattern=".{11}"  runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="OibFilter" runat="server" FilterType="Numbers"
                                     TargetControlID="txtOib" />
                             </th>
