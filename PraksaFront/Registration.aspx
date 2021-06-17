@@ -1,8 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="PraksaFront.Registration" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="content/css/Login.css" />
+    <link rel="stylesheet" href="content/css/home.css" />
     <title>Registracija</title>
     <style>
         body {
@@ -10,10 +12,11 @@
             position: center;
         }
 
-        div {
-            width: 400px;
+        .wrapper {
+            width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-align:center;
             position: center;
         }
     </style>
@@ -26,6 +29,7 @@
             <br />
             <h2>Registriraj se</h2>
             <div class="form">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <div class="inputfield">
                     <label>Ime</label>
                     <asp:TextBox ID="txtFirstName" runat="server" placeholder="Unesite ime :" required="required"></asp:TextBox>
@@ -53,6 +57,14 @@
                 <div class="inputfield">
                     <label>Lozinka</label>
                     <asp:TextBox ID="txtLozinka" runat="server" placeholder="Unesite lozinku :" TextMode="Password"></asp:TextBox>
+                    <div visible="false" id="errorPassword" runat="server" class="alert alert-danger" style="width: 300px; display: inline; padding: 8px;">
+                        <strong>Greška!</strong> Lozinka mora imati barem 8 znakova.
+                    </div>
+                    <cc1:PasswordStrength ID="txtLozinka_PwStrength" runat="server"
+                        Enabled="True" TargetControlID="txtLozinka" DisplayPosition="RightSide"
+                        StrengthIndicatorType="Text" PreferredPasswordLength="8" PrefixText="Jačina lozinke: "
+                        TextStrengthDescriptions="Jako slaba; Slaba; Prosječna; Jaka; Vrlo jaka"
+                        TextCssClass="textIndicator" />
                 </div>
                 <div class="inputfield">
                     <label>Lozinka</label>
