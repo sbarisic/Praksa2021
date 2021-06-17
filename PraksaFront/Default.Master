@@ -110,9 +110,8 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    <a href="EditUser.aspx">
-                            <p style="text-align: center">"lbluname"</p>
-                        </a>
+                    <asp:Label ID="lbluname" runat="server" Text="Label"></asp:Label>
+
                 </div>
             </nav>
         </div>

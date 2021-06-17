@@ -48,7 +48,7 @@
                 </div>
                 <div class="inputfield">
                     <label>OIB</label>
-                    <asp:TextBox ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required"></asp:TextBox>
+                    <asp:TextBox ID="txtOib" pattern=".{11}"  runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki"></asp:TextBox>
                 </div>
                 <div class="inputfield">
                     <label>Lozinka</label>
