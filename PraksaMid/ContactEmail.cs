@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,15 +8,11 @@ using System.Web;
 
 namespace PraksaMid
 {
-    public class ContactEmail
+    public static class ContactEmail
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public int IdUser { get; set; }
-
-        public List<ContactEmail> GetContactEmails(string connectionString, int idUser)
+        public static List<ContactEmailModel> GetContactEmails(string connectionString, int idUser)
         {
-            List<ContactEmail> contactEmails = new List<ContactEmail>();
+            List<ContactEmailModel> contactEmails = new List<ContactEmailModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -31,7 +28,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    ContactEmail contactEmail = new ContactEmail()
+                    ContactEmailModel contactEmail = new ContactEmailModel()
                     {
                         Id = Convert.ToInt32(dr["IDEmail"]),
                         Email = dr["Epošta"].ToString()
@@ -43,14 +40,16 @@ namespace PraksaMid
             return contactEmails;
         }
 
-        public void CreateEmail(string connectionString, ContactEmail email)
+        public static void CreateEmail(string connectionString, ContactEmailModel email)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertEmail", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertEmail", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IdUser", email.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@Email", email.Email));
@@ -66,15 +65,16 @@ namespace PraksaMid
             }
         }
 
-        public void EditEmail(string connectionString, ContactEmail email)
+        public static void EditEmail(string connectionString, ContactEmailModel email)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updateEmail", con);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updateEmail", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@ID", email.Id));
                     cmd.Parameters.Add(new SqlParameter("@Email", email.Email));
 
@@ -89,14 +89,16 @@ namespace PraksaMid
             }
         }
 
-        public void DeleteEmail(string connectionString, int idEmail)
+        public static void DeleteEmail(string connectionString, int idEmail)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deleteEmail", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deleteEmail", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDEmail", idEmail));
 
@@ -111,7 +113,7 @@ namespace PraksaMid
             }
         }
 
-        public ContactEmail GetEmail(string connectionString, int idUser, int idEmail)
+        public static ContactEmailModel GetEmail(string connectionString, int idUser, int idEmail)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -124,7 +126,7 @@ namespace PraksaMid
             cmd.Parameters.Add(new SqlParameter("@IDEmail", idEmail));
 
             SqlDataReader dr = cmd.ExecuteReader();
-            ContactEmail email = new ContactEmail();
+            ContactEmailModel email = new ContactEmailModel();
             if (dr != null)
             {
                 while (dr.Read())
