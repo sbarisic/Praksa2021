@@ -29,9 +29,7 @@ namespace PraksaFront
 
         protected void Submit_Command(object sender, CommandEventArgs e)
         {
-            bool isEmpty = String.IsNullOrEmpty(workText.Text) || String.IsNullOrEmpty(descriptionText.Text) || String.IsNullOrEmpty(dateText.Text.ToString()) ||
-                            String.IsNullOrEmpty(timeText.Text.ToString()) && String.IsNullOrEmpty(cityText.Text) || String.IsNullOrEmpty(streetText.Text)
-                            || obligationButton.SelectedIndex == -1;
+            bool isEmpty = CheckFields();
 
             if (!isEmpty)
             {
@@ -60,6 +58,40 @@ namespace PraksaFront
             obligationButton.SelectedIndex = -1;
         }
 
-
+        protected bool CheckFields()
+        {
+            errorTime.Visible = false; errorDate.Visible = false; errorObligation.Visible = false; errorName.Visible = false;
+            errorDescription.Visible = false; errorCity.Visible = false; errorStreet.Visible = false;
+            bool rtn = false;
+            if (String.IsNullOrEmpty(timeText.Text)) {
+                rtn = true;
+                errorTime.Visible = true;
+            }
+            if (String.IsNullOrEmpty(dateText.Text)) {
+                rtn = true;
+                errorDate.Visible = true;
+            }
+            if (obligationButton.SelectedIndex == -1){
+                rtn = true;
+                errorObligation.Visible = true;
+            }
+            if (String.IsNullOrEmpty(workText.Text)){
+                rtn = true;
+                errorName.Visible = true;
+            }
+            if (String.IsNullOrEmpty(descriptionText.Text)){
+                rtn = true;
+                errorDescription.Visible = true;
+            }
+            if (String.IsNullOrEmpty(cityText.Text)){
+                rtn = true;
+                errorCity.Visible = true;
+            }
+            if (String.IsNullOrEmpty(streetText.Text)){
+                rtn = true;
+                errorStreet.Visible = true;
+            }
+            return rtn;
+        }
     }
 }
