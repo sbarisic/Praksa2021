@@ -1,4 +1,5 @@
-﻿using PraksaMid.Users;
+﻿using PraksaMid.Model;
+using PraksaMid.Person;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,24 +23,22 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            User user = new User();
-            UserRepeater.DataSource = user.GetRegistartionsRequestUser(connectionString);
+            UserRepeater.DataSource = Person.GetRegistartionsRequestUser(connectionString);
             UserRepeater.DataBind();
         }
 
         protected void AcceptBtn_Command(object sender, CommandEventArgs e)
         {
             int userId = Convert.ToInt16(e.CommandArgument);
-            User user = new User().GetUser(connectionString, userId);
+            PersonModel user = Person.GetUser(connectionString, userId);
             user.Accepted = true;
-            user.VerificateUser(connectionString, userId);
+            Person.VerificateUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
         protected void DeleteBtn_Command(object sender, CommandEventArgs e)
         {
-            User user = new User();
             int userId = Convert.ToInt16(e.CommandArgument);
-            user.RejectUser(connectionString, userId);
+            Person.RejectUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
     }
