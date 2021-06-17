@@ -77,7 +77,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
         /// <summary>
         /// dateText control.
         /// </summary>
@@ -113,7 +112,13 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox timeText;
-
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorTime;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorDate;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorObligation;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorCity;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorStreet;
         /// <summary>
         /// Label5 control.
         /// </summary>

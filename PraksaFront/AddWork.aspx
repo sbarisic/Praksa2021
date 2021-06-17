@@ -35,6 +35,9 @@
 
                                 <td>
                                     <asp:TextBox Width="300px" Placeholder="Radna akcija..." ID="workText" runat="server"></asp:TextBox>
+                                    <div Visible="false" id="errorName" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Naziv akcije ne može biti prazan.
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -43,6 +46,9 @@
                                 </th>
                                 <td>
                                     <asp:TextBox Width="300px" TextMode="MultiLine" Placeholder="Opis..." ID="descriptionText" runat="server"></asp:TextBox>
+                                    <div Visible="false" id="errorDescription" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Opis ne može biti prazan.
+                                    </div>
                                 </td>
                             </tr>
                             <tr ID="dateRow" runat="server">
@@ -53,6 +59,9 @@
                                     <asp:TextBox Width="300px" Placeholder="Datum..." ID="dateText" runat="server"></asp:TextBox>
                                     <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="dateText"
                                         OnClientDateSelectionChanged="checkDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                                    <div Visible="false" id="errorDate" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Datum ne može biti prazan.
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -61,6 +70,10 @@
                                 </th>
                                 <td>
                                     <asp:TextBox Width="300px" TextMode="Time" Placeholder="Vrijeme..." ID="timeText" runat="server"></asp:TextBox>
+                                    <div Visible="false" id="errorTime" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Vrijeme ne može biti prazno.
+                                    </div>
+                                    </asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -69,6 +82,9 @@
                                 </th>
                                 <td>
                                     <asp:TextBox Width="300px" Placeholder="Grad..." ID="cityText" runat="server"></asp:TextBox>
+                                    <div Visible="false" id="errorCity" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Grad ne može biti prazan.
+                                    </div>
                                 </td>
                             </tr>
 <tr>
@@ -77,6 +93,9 @@
                                 </th>
                                 <td>
                                     <asp:TextBox Width="300px" Placeholder="Ulica..." ID="streetText" runat="server"></asp:TextBox>
+                                    <div Visible="false" id="errorStreet" runat="server" class="alert alert-danger" style="width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Ulica ne može biti prazna.
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -88,6 +107,9 @@
                                         <asp:ListItem Value="1">Obavezno</asp:ListItem>
                                         <asp:ListItem Value="0">Nije obavezno</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <div Visible="false" id="errorObligation" runat="server" class="alert alert-danger" style="left:185px; width:300px; display:inline; padding:8px;">
+                                        <strong>Greška!</strong> Morate odabrati obveznost.
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
