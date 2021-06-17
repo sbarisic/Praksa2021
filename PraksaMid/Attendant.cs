@@ -70,5 +70,29 @@ namespace PraksaMid
                 throw ex;
             }
         }
-    }
+        public static void EditAttendant(string connectionString, AttendantModel attendant)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateAttendant", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@ID", attendant.Id));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@IDjob", attendant.IdJob));
+                    cmd.Parameters.Add(new SqlParameter("@IDinerest", attendant.IdInteres));
+                    cmd.Parameters.Add(new SqlParameter("@IDattendance", attendant.IdAttendance));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 }
