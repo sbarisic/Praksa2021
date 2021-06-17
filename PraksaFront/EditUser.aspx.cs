@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using PraksaMid.Permit;
 using PraksaMid.Users;
 using System;
@@ -34,12 +35,10 @@ namespace PraksaFront
             User user = new User();
             user = user.GetUser(connectionString, userId);
 
-            Permit permit = new Permit();
-            PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
-            ContactNumber number = new ContactNumber();
-            NumberRepeater.DataSource = number.GetContactNumbers(connectionString, userId);
+            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
             NumberRepeater.DataBind();
 
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
@@ -94,14 +93,11 @@ namespace PraksaFront
 
         protected void GetRoles()
         {
-            Role role = new Role();
-            List<Role> allRoles = new List<Role>();
-            List<Role> userRoles = new List<Role>();
-            allRoles = role.GetRoleNames(connectionString);
+            List<RoleModel> allRoles = Role.GetRoleNames(connectionString);
             User user = new User();
             user = user.GetUser(connectionString, userId);
 
-            foreach(Role rl in allRoles)
+            foreach(RoleModel rl in allRoles)
             {
                 CheckBox chk = new CheckBox();
                 chk.Text = rl.Name;

@@ -1,4 +1,6 @@
-﻿using PraksaMid.Works;
+﻿using PraksaMid;
+using PraksaMid.Model;
+using PraksaMid.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +30,35 @@ namespace PraksaFront
 
         protected void yes_Command(object sender, CommandEventArgs e)
         {
+            AttendantModel attendant = new AttendantModel();
+            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
+            attendant.IdInteres = 3;
+            attendant.IdUser = 11; //GET LOGGED IN USER ID
+            attendant.IdAttendance = 1;
+            Attendant.CreateAttendant(connectionString, attendant);
+            
             System.Diagnostics.Debug.WriteLine("Dolazi na " + e.CommandArgument.ToString());
         }
         protected void no_Command(object sender, CommandEventArgs e)
         {
+            AttendantModel attendant = new AttendantModel();
+            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
+            attendant.IdInteres = 1;
+            attendant.IdUser = 11; //GET LOGGED IN USER ID
+            attendant.IdAttendance = 1;
+            Attendant.CreateAttendant(connectionString, attendant);
+
             System.Diagnostics.Debug.WriteLine("Ne dolazi na " + e.CommandArgument.ToString());
         }
         protected void maybe_Command(object sender, CommandEventArgs e)
         {
+            AttendantModel attendant = new AttendantModel();
+            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
+            attendant.IdInteres = 2;
+            attendant.IdUser = 11; //GET LOGGED IN USER ID
+            attendant.IdAttendance = 1;
+            Attendant.CreateAttendant(connectionString, attendant);
+
             System.Diagnostics.Debug.WriteLine("Mozda dolazi na " + e.CommandArgument.ToString());
         }
 

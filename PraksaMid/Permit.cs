@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,19 +8,9 @@ using System.Web;
 
 namespace PraksaMid.Permit
 {
-    public class Permit
+    public static class Permit
     {
-        public int Id { get; set; }
-        public int IdUser { get; set; }
-        public int IdPermit { get; set; }
-        public string ExpiryDate { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string PermitName { get; set; }
-        public string PermitNumber { get; set; }
-
-
-        public void CreatePermit(string connectionString, Permit permit)
+        public static void CreatePermit(string connectionString, PermitModel permit)
         {
             try
             {
@@ -28,7 +19,7 @@ namespace PraksaMid.Permit
                     SqlCommand cmd = new SqlCommand("insertPermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    DateTime date = DateTime.Parse(ExpiryDate); 
+                    DateTime date = DateTime.Parse(permit.ExpiryDate); 
 
                     cmd.Parameters.Add(new SqlParameter("@UserID", permit.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@PermitID", permit.IdPermit));
@@ -47,9 +38,9 @@ namespace PraksaMid.Permit
             }
         }
 
-        public List<Permit> GetPermits(string connectionString, int idUser)
+        public static List<PermitModel> GetPermits(string connectionString, int idUser)
         {
-            List<Permit> permits = new List<Permit>();
+            List<PermitModel> permits = new List<PermitModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             
@@ -68,7 +59,7 @@ namespace PraksaMid.Permit
             {
                 while (dr.Read())
                 {
-                    Permit permit = new Permit
+                    PermitModel permit = new PermitModel
                     {
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
@@ -85,7 +76,7 @@ namespace PraksaMid.Permit
             return permits;
         }
 
-        public void DeletePermit(string connectionString, int IdPermit)
+        public static void DeletePermit(string connectionString, int IdPermit)
         {
             try
             {
@@ -107,7 +98,7 @@ namespace PraksaMid.Permit
             }
         }
 
-        public void EditPermit(string connectionString, Permit permit)
+        public static void EditPermit(string connectionString, PermitModel permit)
         {
             try
             {
@@ -116,7 +107,7 @@ namespace PraksaMid.Permit
                     SqlCommand cmd = new SqlCommand("updatePermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    DateTime date = DateTime.Parse(ExpiryDate);
+                    DateTime date = DateTime.Parse(permit.ExpiryDate);
                     cmd.Parameters.Add(new SqlParameter("@ID", permit.Id));
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", permit.IdPermit));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", permit.IdUser));

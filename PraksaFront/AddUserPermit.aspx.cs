@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using PraksaMid.Permit;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,11 @@ namespace PraksaFront
     {
         protected int userId = 0;
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-        protected List<Permit> permitList = new List<Permit>();
+        protected List<PermitModel> permitList = new List<PermitModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt16(Request.QueryString["userId"]);
-            Permit tmp = new Permit();
-            permitList = tmp.GetPermits(connectionString, userId);
+            permitList = Permit.GetPermits(connectionString, userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -28,8 +28,6 @@ namespace PraksaFront
 
         private void LoadData()
         {
-            
-            Permit permit = new Permit();
             System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
             PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
             PermitRepeater.DataBind();
@@ -70,7 +68,7 @@ namespace PraksaFront
                 var hdnId = item.FindControl("hdnId") as HiddenField;
                 TextBox txtDate = (TextBox)item.FindControl("txtDate");
                 TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
-                Permit permit = new Permit();
+                PermitModel permit = new PermitModel();
 
                 if (checkbox.Checked) //ako je oznacena dozvola
                 {
@@ -80,7 +78,7 @@ namespace PraksaFront
                         permit.ExpiryDate = txtDate.Text;
                         permit.IdPermit = Convert.ToInt32(hdnId.Value);
                         permit.PermitNumber = txtNumber.Text;
-                        permit.CreatePermit(connectionString, permit);
+                        Permit.CreatePermit(connectionString, permit);
                     }
                 }
                 else
@@ -88,7 +86,7 @@ namespace PraksaFront
                     if (checkDeletePermit(hdnId.Value, item)) // ako nije oznacena dozvola i user ju ima, makni ju
                     {
                         HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                        permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
+                        Permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
                     }
                 }
                 
@@ -98,7 +96,7 @@ namespace PraksaFront
         }
         protected Boolean checkPermit(string strPermit)
         {
-            foreach(Permit prmt in permitList)
+            foreach (PermitModel prmt in permitList)
             {
                 if (strPermit.Equals(prmt.IdPermit.ToString()))
                 {
@@ -110,7 +108,7 @@ namespace PraksaFront
 
         protected Boolean checkDeletePermit(string strPermit, RepeaterItem item)
         {
-            foreach (Permit prmt in permitList)
+            foreach (PermitModel prmt in permitList)
             {
                 System.Diagnostics.Debug.WriteLine(prmt.Id + " " + prmt.PermitName);
                 if (strPermit.Equals(prmt.IdPermit.ToString()))

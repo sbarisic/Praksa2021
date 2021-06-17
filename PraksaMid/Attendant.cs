@@ -57,7 +57,7 @@ namespace PraksaMid
 
                     cmd.Parameters.Add(new SqlParameter("@IDjob", attendant.IdJob));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
-                    cmd.Parameters.Add(new SqlParameter("@IDinerest", attendant.IdInteres));
+                    cmd.Parameters.Add(new SqlParameter("@IDinterest", attendant.IdInteres));
                     cmd.Parameters.Add(new SqlParameter("@IDattendance", attendant.IdAttendance));
 
                     con.Open();
