@@ -89,5 +89,29 @@ namespace PraksaMid
                 throw ex;
             }
         }
+        public static void CreateRole(string connectionString, RoleModel role)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("insertEmail", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.Add(new SqlParameter("@IdUser", role.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@Email", role.IdName));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
