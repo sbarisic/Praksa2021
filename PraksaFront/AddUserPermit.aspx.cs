@@ -128,8 +128,7 @@ namespace PraksaFront
             RepeaterItem item = (RepeaterItem)chk.NamingContainer;
             TextBox txtDate = (TextBox)item.FindControl("txtDate");
             TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
-            HiddenField hdnId = (HiddenField)item.FindControl("hdnId");
-            System.Diagnostics.Debug.WriteLine(hdnId.Value);
+
             txtDate.Enabled = chk.Checked;
             txtNumber.Enabled = chk.Checked;
         }

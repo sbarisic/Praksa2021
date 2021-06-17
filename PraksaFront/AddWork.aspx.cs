@@ -23,6 +23,7 @@ namespace PraksaFront
                 {
                     dateRow.Visible = false;
                     dateText.Text = date;
+                    lblHeader.Text = "Dodaj akciju za datum - " + date;
                 }
             }
         }

@@ -21,7 +21,7 @@
     }
     </script>
 </head>
-<body style="background-color: white;">
+<body>
     <form id="f1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
         <!-- DOLAZNOST POPUP-->
@@ -33,8 +33,10 @@
                         <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
                     </asp:Panel>
 
-
         <div>
+        <div class="card-header" style="border:1px solid rgba(0,0,0,0.1); margin-top: -50px">
+            <h3><asp:Label ID="lblHeader" runat="server" Text=""></asp:Label></h3>
+        </div>
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                     <div class="dataTable-container">
