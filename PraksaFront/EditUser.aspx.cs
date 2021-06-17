@@ -46,9 +46,7 @@ namespace PraksaFront
             EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
-            Role role = new Role();
-            RoleRepeater.DataSource = role.GetRoleNames(connectionString);
-            RoleRepeater.DataBind(); //slozit da su chekirani boxovi s rolovima koje ima user
+            GetRoles();
 
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
@@ -95,5 +93,28 @@ namespace PraksaFront
             Response.Redirect(Request.RawUrl);
         }
 
+        protected void GetRoles()
+        {
+            Role role = new Role();
+            List<Role> allRoles = new List<Role>();
+            List<Role> userRoles = new List<Role>();
+            allRoles = role.GetRoleNames(connectionString);
+            User user = new User();
+            user = user.GetUser(connectionString, userId);
+
+            foreach(Role rl in allRoles)
+            {
+                CheckBox chk = new CheckBox();
+                chk.Text = rl.Name;
+
+                if (user.RoleName.Equals(rl.Name))
+                    chk.Checked = true;
+
+
+                roleRow.Controls.Add(chk);
+                roleRow.Controls.Add(new LiteralControl("<br>"));
+            }
+            
+        }
     }
 }

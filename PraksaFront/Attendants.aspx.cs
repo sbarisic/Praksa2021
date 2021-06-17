@@ -27,8 +27,7 @@ namespace PraksaFront
 
         private void GetAttendants()
         {
-            Attendant attendants = new Attendant();
-            attendanceRepeater.DataSource = attendants.GetAttendants(connectionString, workId);
+            attendanceRepeater.DataSource = Attendant.GetAttendants(connectionString, workId);
             attendanceRepeater.DataBind();
         }
     }

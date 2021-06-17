@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,24 +8,11 @@ using System.Web;
 
 namespace PraksaMid
 {
-    public class Attendant
+    public static class Attendant
     {
-        public int Id { get; set; }
-        public int IdJob { get; set; }
-        public int IdUser { get; set; }
-        public int IdInteres { get; set; }
-        public int IdAttendance { get; set; }
-        public string SelectionTime { get; set; }
-        public string UserFirstName { get; set; }
-        public string UserLastName { get; set; }
-        public string Job { get; set; }
-        public string Interes { get; set; }
-        public string Attendance { get; set; }
-
-
-        public List<Attendant> GetAttendants(string connectionString, int idJob)
+        public static List<AttendantModel> GetAttendants(string connectionString, int idJob)
         {
-            List<Attendant> attendants = new List<Attendant>();
+            List<AttendantModel> attendants = new List<AttendantModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -43,7 +31,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    Attendant attendant = new Attendant
+                    AttendantModel attendant = new AttendantModel
                     {
                         UserFirstName = dr["Ime"].ToString(),
                         UserLastName = dr["Prezime"].ToString(),
@@ -58,5 +46,53 @@ namespace PraksaMid
             return attendants;
         }
 
-    }
+        public static void CreateAttendant(string connectionString, AttendantModel attendant)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("insertAttendant", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@IDjob", attendant.IdJob));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@IDinerest", attendant.IdInteres));
+                    cmd.Parameters.Add(new SqlParameter("@IDattendance", attendant.IdAttendance));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EditAttendant(string connectionString, AttendantModel attendant)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateAttendant", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@ID", attendant.Id));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@IDjob", attendant.IdJob));
+                    cmd.Parameters.Add(new SqlParameter("@IDinerest", attendant.IdInteres));
+                    cmd.Parameters.Add(new SqlParameter("@IDattendance", attendant.IdAttendance));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 }

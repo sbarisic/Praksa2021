@@ -19,8 +19,7 @@ namespace PraksaFront
         {
             if (!Page.IsPostBack)
             {
-                PermitName permitName = new PermitName();
-                PermitRepeater.DataSource = permitName.getPermitNames(connectionString);
+                PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
                 PermitRepeater.DataBind();
             }
         }
@@ -36,14 +35,11 @@ namespace PraksaFront
 
         protected void deletePermitNameBtn_Command(object sender, CommandEventArgs e)
         {
-            int permitNameId = Convert.ToInt32(e.CommandArgument);
-            PermitName permitName = new PermitName();
-            permitName.DeletePermitName(connectionString, permitNameId);
+            PermitName.DeletePermitName(connectionString, Convert.ToInt32(e.CommandArgument));
             Response.Redirect("AdminPermitNames.aspx");
         }
         protected void edit_Command(object sender, CommandEventArgs e)
         {
-            
             EditFrameUrl = "EditPermitName.aspx?permitNameId=" + e.CommandArgument;
             EditModalPopupExtender.Show();
         }

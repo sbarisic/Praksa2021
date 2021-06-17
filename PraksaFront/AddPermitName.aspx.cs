@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,12 @@ namespace PraksaFront
 
         protected void AddButton_Click(object sender, EventArgs e)
         {
-            PermitName permit = new PermitName()
+            PermitNameModel permit = new PermitNameModel()
             {
                 Name = permitText.Text
             };
 
-            permit.createPermitName(connectionString, permit);
+            PermitName.CreatePermitName(connectionString, permit);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
     }

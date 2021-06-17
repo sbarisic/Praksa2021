@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,20 +29,19 @@ namespace PraksaFront
 
         private void FillPermitNamesData()
         {
-            PermitName permitName = new PermitName();
-            permitName = permitName.GetPermitName(connectionString, permitNameId);
+            PermitNameModel permitName = PermitName.GetPermitName(connectionString, permitNameId);
             permitNameText.Text = permitName.Name;
         }
 
         protected void EditButton_Click(object sender, EventArgs e)
         {
-            PermitName permit = new PermitName()
+            PermitNameModel permit = new PermitNameModel()
             {
                 Id = permitNameId,
                 Name = permitNameText.Text
             };
 
-            permit.EditPermitName(connectionString, permit);
+            PermitName.EditPermitName(connectionString, permit);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
         

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,19 +8,19 @@ using System.Web;
 
 namespace PraksaMid
 {
-    public class PermitName
+    public static class PermitName
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
 
-        public void createPermitName(string connectionString, PermitName permitName)
+        public static void CreatePermitName(string connectionString, PermitNameModel permitName)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertPermitName", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertPermitName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
 
@@ -34,9 +35,9 @@ namespace PraksaMid
             }
         }
 
-        public List<PermitName> getPermitNames(string connectionString)
+        public static List<PermitNameModel> GetPermitNames(string connectionString)
         {
-            List<PermitName> permitNames = new List<PermitName>();
+            List<PermitNameModel> permitNames = new List<PermitNameModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -51,26 +52,28 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    PermitName permitName = new PermitName()
+                    PermitNameModel permitNameModel = new PermitNameModel()
                     {
                         Id = Convert.ToInt32(dr["Id"]),
                         Name = dr["Naziv dozvole"].ToString()
                     };
 
-                    permitNames.Add(permitName);
+                    permitNames.Add(permitNameModel);
                 }
             }
             return permitNames;
         }
 
-        public void DeletePermitName(string connectionString, int permitNameId)
+        public static void DeletePermitName(string connectionString, int permitNameId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deletePermitName", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deletePermitName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", permitNameId));
 
@@ -84,15 +87,16 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public void EditPermitName(string connectionString, PermitName permitName)
+        public static void EditPermitName(string connectionString, PermitNameModel permitName)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updatePermitName", con);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updatePermitName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", permitName.Id));
                     cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
 
@@ -107,7 +111,7 @@ namespace PraksaMid
             }
         }
 
-        public PermitName GetPermitName(string connectionString, int idPermitName)
+        public static PermitNameModel GetPermitName(string connectionString, int idPermitName)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -119,7 +123,7 @@ namespace PraksaMid
             cmd.Parameters.Add(new SqlParameter("@IDPermitName", idPermitName));
 
             SqlDataReader dr = cmd.ExecuteReader();
-            PermitName permitName = new PermitName();
+            PermitNameModel permitName = new PermitNameModel();
 
             if (dr != null)
             {
