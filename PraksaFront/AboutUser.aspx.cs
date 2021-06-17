@@ -30,8 +30,7 @@ namespace PraksaFront
         {
             User user = new User();
 
-            Permit permit = new Permit();
-            PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
             PhoneNumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
