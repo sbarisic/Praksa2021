@@ -1,4 +1,5 @@
-﻿using PraksaMid.Works;
+﻿using PraksaMid.Model;
+using PraksaMid.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,8 @@ namespace PraksaFront
 
         private void FillWorkData()
         {
-            Work work = new Work();
-            work = work.GetWork(connectionString, workId);
+            WorkModel work = new WorkModel();
+            work = Work.GetWork(connectionString, workId);
             workText.Text = work.Name;
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;
