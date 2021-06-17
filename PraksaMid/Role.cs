@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,15 +8,11 @@ using System.Web;
 
 namespace PraksaMid
 {
-    public class Role
+    public static class Role
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int IdName { get; set; }
-
-        public List<Role> GetRoles(string connectionString, int idUser)
+        public static List<RoleModel> GetRoles(string connectionString, int idUser)
         {
-            List<Role> roles = new List<Role>();
+            List<RoleModel> roles = new List<RoleModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -31,7 +28,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    Role role = new Role()
+                    RoleModel role = new RoleModel()
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         Name = dr["Uloga"].ToString()
@@ -43,9 +40,9 @@ namespace PraksaMid
             return roles;
         }
 
-            public List<Role> GetRoleNames(string connectionString)
+            public static List<RoleModel> GetRoleNames(string connectionString)
             {
-                List<Role> roles = new List<Role>();
+                List<RoleModel> roles = new List<RoleModel>();
 
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
@@ -60,7 +57,7 @@ namespace PraksaMid
                 {
                     while (dr.Read())
                     {
-                        Role role = new Role()
+                        RoleModel role = new RoleModel()
                         {
                             IdName = Convert.ToInt32(dr["ID"]),
                             Name = dr["Naziv uloge"].ToString()

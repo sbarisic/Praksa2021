@@ -76,6 +76,7 @@
     <Compile Include="Model\ContactNumberModel.cs" />
     <Compile Include="Model\PermitModel.cs" />
     <Compile Include="Model\PermitNameModel.cs" />
+    <Compile Include="Model\RoleModel.cs" />
     <Compile Include="PasswordManager.cs" />
     <Compile Include="Permit.cs" />
     <Compile Include="PermitName.cs" />
