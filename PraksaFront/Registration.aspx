@@ -55,7 +55,12 @@
                         <tr>
                             <th>
                                 <asp:Label ID="Label6" runat="server" Text="OIB"></asp:Label></th>
-                            <td><asp:TextBox ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required"></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegExp1" runat="server"    
+                                   ErrorMessage="OIB mora biti duljine 11 znamenki."
+                                   ControlToValidate="txtOib"
+                                   ValidationExpression="^[0-9]{11}$" />
+                        </td>
                         </tr>
                         <tr>
                             <th>
