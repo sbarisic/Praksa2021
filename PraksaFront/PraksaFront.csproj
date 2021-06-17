@@ -100,7 +100,7 @@
     <Content Include="AdminWork.aspx" />
     <Content Include="Attendants.aspx" />
     <Content Include="Calendar.aspx" />
-    <Content Include="content\bjelovar.jpg" />
+    <Content Include="content\Img\bjelovar.jpg" />
     <Content Include="content\css\about.css" />
     <Content Include="content\css\bootstrap-grid.css" />
     <Content Include="content\css\bootstrap-grid.min.css" />
