@@ -38,34 +38,6 @@ namespace PraksaMid
             return roles;
         }
 
-        public static List<RoleModel> GetRoleNames(string connectionString)
-        {
-            List<RoleModel> roles = new List<RoleModel>();
-
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("getRoleNames", con)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    RoleModel role = new RoleModel()
-                    {
-                        IdName = Convert.ToInt32(dr["ID"]),
-                        Name = dr["Naziv uloge"].ToString()
-                    };
-
-                    roles.Add(role);
-                }
-            }
-            return roles;
-        }
         public static void DeleteRole(string connectionString, int idRole)
         {
             try
