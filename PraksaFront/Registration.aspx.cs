@@ -17,10 +17,11 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void btnReg_Click (object sender, EventArgs e)
         {
-            if(txtLozinka.Text.Length < 8)
+            if (txtLozinka.Text.Length < 8)
                 errorPassword.Visible = true;
             else
             {
+                errorPassword.Visible = false;
                 if (txtLozinka.Text.Equals(txtLozinka2.Text))
                 {
                     Random rnd = new Random();
@@ -48,7 +49,15 @@ namespace PraksaFront
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("About.aspx");
+            errorPassword.Visible = false;
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtAdress.Text = "";
+            txtEmail.Text = "";
+            txtOib.Text = "";
+            txtPhoneNumber.Text = "";
+            txtLozinka.Text = "";
+            txtLozinka2.Text = "";
         }
 
     }
