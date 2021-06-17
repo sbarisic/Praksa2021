@@ -34,8 +34,7 @@ namespace PraksaFront
             PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
-            ContactNumber contactNumber = new ContactNumber();
-            PhoneNumberRepeater.DataSource = contactNumber.GetContactNumbers(connectionString, userId);
+            PhoneNumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
             PhoneNumberRepeater.DataBind();
 
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);

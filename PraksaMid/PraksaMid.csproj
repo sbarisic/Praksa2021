@@ -73,6 +73,7 @@
     <Compile Include="ContactEmail.cs" />
     <Compile Include="Model\AttendantModel.cs" />
     <Compile Include="Model\ContactEmailModel.cs" />
+    <Compile Include="Model\ContactNumberModel.cs" />
     <Compile Include="Model\PermitNameModel.cs" />
     <Compile Include="PasswordManager.cs" />
     <Compile Include="Permit.cs" />
