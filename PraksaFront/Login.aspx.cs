@@ -25,6 +25,7 @@ namespace PraksaFront
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             int rv = Authentication.LogIn(connectionString, txtEmail.Text, txtPassword.Text);
+            TextBox1.Text = txtEmail.Text;
             if (rv == 0)
                 Response.Write("<script>alert('Email ili loznika nisu ispravni');</script>");
             else if (rv == 1)
@@ -32,7 +33,7 @@ namespace PraksaFront
             else if (rv == 2)
                 Response.Write("<script>alert('Dobrodošli');</script>");
 
-            Session["uname"] = txtEmail.Text;
+            Session["uname"] = TextBox1.Text;
             Response.Redirect("About.aspx");
 
         }

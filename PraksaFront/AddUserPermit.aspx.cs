@@ -135,5 +135,6 @@ namespace PraksaFront
             txtDate.Enabled = chk.Checked;
             txtNumber.Enabled = chk.Checked;
         }
+
     }
 }
