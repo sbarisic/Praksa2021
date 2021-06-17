@@ -21,8 +21,10 @@ namespace PraksaMid.Users
         public string PasswordSalt { get; set; }
         public string PasswordHash { get; set; }
         public bool Accepted { get; set; }
-
-
+        public string Password{ get; set; }
+        public string Email { get; set; }
+        public string Number { get; set; }
+        public DateTime Dismissed { get; set; }
 
         public List<User> GetUsers(string connectionString)
         {
@@ -48,7 +50,9 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString()                        
+                        Address = dr["Adresa"].ToString(),                        
+                        Email = dr["Epošta"].ToString(),                        
+                        Number = dr["Broj mobitela"].ToString()                        
                 };
 
                     users.Add(user);
@@ -58,7 +62,7 @@ namespace PraksaMid.Users
             return users;
         }
 
-        public User GetUser(string connectionString, int id)
+        public User GetUser(string connectionString, int idUser)
         {
             SqlConnection con = new SqlConnection(connectionString);
 
@@ -67,7 +71,7 @@ namespace PraksaMid.Users
                 CommandType = System.Data.CommandType.StoredProcedure
             };
 
-            cmd.Parameters.Add(new SqlParameter("@ID", id));
+            cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -82,7 +86,6 @@ namespace PraksaMid.Users
                     user.UniqueId = dr["Jedinstveni broj člana"].ToString();
                     user.FirstName = dr["Ime"].ToString();
                     user.LastName = dr["Prezime"].ToString();
-                    user.Oib = dr["OIB"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
                     user.RoleName = dr["Uloga"].ToString();
@@ -110,7 +113,6 @@ namespace PraksaMid.Users
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    var i = user.Accepted;
                 }
             }
             catch (Exception ex)
@@ -121,8 +123,10 @@ namespace PraksaMid.Users
 
         public void CreateUser(string connectionString, User user)
         {
+            PasswordManager.GenerateSaltHashPair(Password, out string hash, out string salt);
             try
             {
+                            
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertUser", con);
@@ -132,6 +136,10 @@ namespace PraksaMid.Users
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
+                    cmd.Parameters.Add(new SqlParameter("@Email", user.Email));
+                    cmd.Parameters.Add(new SqlParameter("@Number", user.Number));
+                    cmd.Parameters.Add(new SqlParameter("@PasswordSalt", salt));
+                    cmd.Parameters.Add(new SqlParameter("@PasswordHash", hash));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -189,11 +197,11 @@ namespace PraksaMid.Users
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString()
+                        Address = dr["Adresa"].ToString(),
+                        Email = dr["Epošta"].ToString(),
+                        Number = dr["Broj mobitela"].ToString()
                     };
-
                     users.Add(user);
-
                 }
             }
             return users;
@@ -230,6 +238,60 @@ namespace PraksaMid.Users
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@IDUser", userId));
                     cmd.Parameters.Add(new SqlParameter("@Accepted", false));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<User> GetDismissedUsers(string connectionString)
+        {
+            List<User> users = new List<User>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getDismissedUsers", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    User user = new User
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Oib = dr["OIB"].ToString(),
+                        FirstName = dr["Ime"].ToString(),
+                        LastName = dr["Prezime"].ToString(),
+                        Address = dr["Adresa"].ToString(),
+                        Email = dr["Epošta"].ToString(),
+                        Number = dr["Broj mobitela"].ToString(),
+                        Dismissed = DateTime.Parse(dr["Datum zatvaranja"].ToString())
+                    };
+                    users.Add(user);
+                }
+            }
+            return users;
+        }
+        public void ActivateUser(string connectionString, int userId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("activateUser", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", userId));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

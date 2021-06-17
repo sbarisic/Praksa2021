@@ -10,8 +10,10 @@ using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
+    
     public partial class AdminPermits : System.Web.UI.Page
     {
+        protected string EditFrameUrl;
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,6 +40,12 @@ namespace PraksaFront
             PermitName permitName = new PermitName();
             permitName.DeletePermitName(connectionString, permitNameId);
             Response.Redirect("AdminPermitNames.aspx");
+        }
+        protected void edit_Command(object sender, CommandEventArgs e)
+        {
+            
+            EditFrameUrl = "EditPermitName.aspx?permitNameId=" + e.CommandArgument;
+            EditModalPopupExtender.Show();
         }
     }
 }

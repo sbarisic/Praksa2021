@@ -78,13 +78,22 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.TextBox txtOib;
 
         /// <summary>
-        /// txtlozinka control.
+        /// txtLozinka control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlozinka;
+        protected global::System.Web.UI.WebControls.TextBox txtLozinka;
+
+        /// <summary>
+        /// txtLozinka2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLozinka2;
 
         /// <summary>
         /// btnReg control.
@@ -94,5 +103,14 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReg;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

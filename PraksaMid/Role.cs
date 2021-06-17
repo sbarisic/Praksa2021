@@ -43,18 +43,17 @@ namespace PraksaMid
             return roles;
         }
 
-            public List<Role> GetRoleNames(string connectionString, int idUser)
+            public List<Role> GetRoleNames(string connectionString)
             {
                 List<Role> roles = new List<Role>();
 
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("getRoles", con)
+                SqlCommand cmd = new SqlCommand("getRoleNames", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr != null)
@@ -64,7 +63,7 @@ namespace PraksaMid
                         Role role = new Role()
                         {
                             IdName = Convert.ToInt32(dr["ID"]),
-                            Name = dr["Uloga"].ToString()
+                            Name = dr["Naziv uloge"].ToString()
                         };
 
                         roles.Add(role);

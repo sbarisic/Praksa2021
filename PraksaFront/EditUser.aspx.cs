@@ -47,7 +47,7 @@ namespace PraksaFront
             EmailRepeater.DataBind();
 
             Role role = new Role();
-            RoleRepeater.DataSource = role.GetRoleNames(connectionString, userId);
+            RoleRepeater.DataSource = role.GetRoleNames(connectionString);
             RoleRepeater.DataBind(); //slozit da su chekirani boxovi s rolovima koje ima user
 
             txtJmbc.Text = user.UniqueId;

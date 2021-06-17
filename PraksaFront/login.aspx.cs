@@ -8,12 +8,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using PraksaMid.Users;
+using PraksaMid;
 
 namespace PraksaFront
 {
 
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblErrorMessage.Visible = false;
@@ -21,32 +24,22 @@ namespace PraksaFront
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910");
-            SqlCommand cmd = new SqlCommand("select * from users where Email=@Email", con);
+            int rv = Authentication.LogIn(connectionString, txtEmail.Text, txtPassword.Text);
+            TextBox1.Text = txtEmail.Text;
+            if (rv == 0)
+                Response.Write("<script>alert('Email ili loznika nisu ispravni');</script>");
+            else if (rv == 1)
+                Response.Write("<script>alert('Korisnik još nije prihvaćen');</script>");
+            else if (rv == 2)
+                Response.Write("<script>alert('Dobrodošli');</script>");
 
-            cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+            Session["uname"] = TextBox1.Text;
+            Response.Redirect("About.aspx");
 
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            if (dt.Rows.Count > 0)
-            {
-                Server.Transfer("About.aspx");
-            }
-            else
-            {
-                lblErrorMessage.Visible = true;
-            }
-
-
-
-            {
-                
-                
-
-            }
+        }
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("About.aspx");
         }
     }
 }

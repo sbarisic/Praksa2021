@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="PraksaFront.Users" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="DismissedUsers.aspx.cs" Inherits="PraksaFront.DismissedUsers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,10 +40,10 @@
                                 <asp:Label runat="server" Text="Broj telefona"></asp:Label>
                             </th>
                             <th>
-                                <asp:Label runat="server" Text="JMBC"></asp:Label>
+                                <asp:Label runat="server" Text="OIB"></asp:Label>
                             </th>
                             <th>
-                                <asp:Label runat="server" Text="OIB"></asp:Label>
+                                <asp:Label runat="server" Text="Zatvoren"></asp:Label>
                             </th>
                              <th>
                                 <asp:Label runat="server" Text="Status"></asp:Label>
@@ -54,16 +53,16 @@
                         <asp:Repeater ID="UserRepeater" runat="server">
                             <ItemTemplate>
                                 <tr onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;" style="cursor:pointer">
-                                    <td><asp:Label runat="server" Text='<%# Eval("Firstname")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Lastname")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("FirstName")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("LastName")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("Email")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label>
+                                    <td><asp:Label runat="server" Text='<%# Eval("Address")%>'></asp:Label>
                                     <td><asp:Label runat="server" Text='<%# Eval("Number")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Uniqueid")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("Dismissed")%>'></asp:Label></td>
+
                                     <td>
-                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
+                                        <asp:Button CssClass="workButton" ID="ActivateBtn" runat="server" Text="Aktiviraj" OnCommand="ActivateBtn_Command" CommandArgument='<%# Eval("id") %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>

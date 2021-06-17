@@ -33,6 +33,51 @@ namespace PraksaFront
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
+        /// hdnField2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnField2;
+
+        /// <summary>
+        /// ModalPopupExtender3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender3;
+
+        /// <summary>
+        /// Panl3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panl3;
+
+        /// <summary>
+        /// attendanceRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater attendanceRepeater;
+
+        /// <summary>
+        /// ButtonClose2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonClose2;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -150,6 +195,15 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.RadioButtonList obligationButton;
 
         /// <summary>
+        /// attendanceButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button attendanceButton;
+
+        /// <summary>
         /// AddWorkButton control.
         /// </summary>
         /// <remarks>
@@ -159,14 +213,12 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Button AddWorkButton;
 
         /// <summary>
-        /// CancelButton control.
+        /// DeleteWorkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelButton;
-
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender3;
+        protected global::System.Web.UI.WebControls.Button DeleteWorkButton;
     }
 }

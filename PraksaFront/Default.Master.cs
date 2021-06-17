@@ -11,7 +11,7 @@ namespace PraksaFront
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbluname.Text = (string)Session["uname"];
         }
     }
 }
