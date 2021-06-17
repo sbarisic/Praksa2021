@@ -88,10 +88,10 @@ namespace PraksaFront
 
         protected void GetRoles()
         {
-            List<RoleModel> allRoles = Role.GetRoleNames(connectionString);
+            List<RoleNameModel> allRoles = RoleName.GetRoleNames(connectionString);
             PersonModel user = Person.GetUser(connectionString, userId);
 
-            foreach (RoleModel rl in allRoles)
+            foreach (RoleNameModel rl in allRoles)
             {
                 CheckBox chk = new CheckBox();
                 chk.Text = rl.Name;

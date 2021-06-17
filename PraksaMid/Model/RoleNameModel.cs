@@ -1,6 +1,6 @@
 ﻿namespace PraksaMid.Model
 {
-    public class RoleNamesModel
+    public class RoleNameModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

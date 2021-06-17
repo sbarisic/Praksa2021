@@ -6,11 +6,11 @@ using System.Data.SqlClient;
 
 namespace PraksaMid
 {
-    public static class RoleNames
+    public static class RoleName
     {
-        public static List<RoleNamesModel> GetRoleNames(string connectionString)
+        public static List<RoleNameModel> GetRoleNames(string connectionString)
         {
-            List<RoleNamesModel> roles = new List<RoleNamesModel>();
+            List<RoleNameModel> roles = new List<RoleNameModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -25,7 +25,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    RoleNamesModel roleName = new RoleNamesModel()
+                    RoleNameModel roleName = new RoleNameModel()
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         Name = dr["Naziv uloge"].ToString()

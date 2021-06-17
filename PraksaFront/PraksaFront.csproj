@@ -129,6 +129,7 @@
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="EditWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
+    <Content Include="RoleNames.aspx" />
     <Content Include="scripts\calendarscript.js" />
     <Content Include="UserCalendar.aspx" />
     <Content Include="UserWork.aspx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="RegistrationRequests.aspx.designer.cs">
       <DependentUpon>RegistrationRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleNames.aspx.cs">
+      <DependentUpon>RoleNames.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleNames.aspx.designer.cs">
+      <DependentUpon>RoleNames.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserCalendar.aspx.cs">
       <DependentUpon>UserCalendar.aspx</DependentUpon>
