@@ -90,5 +90,10 @@ namespace PraksaFront
             Response.Redirect("Users.aspx");
         }
 
+        protected void hdnBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+        }
+
     }
 }
