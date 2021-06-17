@@ -28,10 +28,10 @@ namespace PraksaFront
 
         private void LoadData()
         {
-            PermitName allPermits = new PermitName();
+            
             Permit permit = new Permit();
             System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
-            PermitRepeater.DataSource = allPermits.getPermitNames(connectionString);
+            PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
             PermitRepeater.DataBind();
 
             LoadOwnedPermits();
