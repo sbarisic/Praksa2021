@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-using PraksaMid.Model;
+﻿using PraksaMid.Model;
 using PraksaMid.Person;
+using System;
+using System.Web.Configuration;
 
 namespace PraksaFront
 {
     public partial class Registration : System.Web.UI.Page
     {
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-        protected void btnReg_Click (object sender, EventArgs e)
+        protected void btnReg_Click(object sender, EventArgs e)
         {
             if (txtLozinka.Text.Length < 8)
                 errorPassword.Visible = true;
@@ -44,7 +37,7 @@ namespace PraksaFront
                 else
                     Response.Write("<script>alert('Lozinke nisu identične');</script>");
             }
-            
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
