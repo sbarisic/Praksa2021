@@ -123,6 +123,7 @@
     </Content>
     <Content Include="DismissedUsers.aspx" />
     <Content Include="AddRoleName.aspx" />
+    <Content Include="EditRoleName.aspx" />
     <Content Include="EditUser.aspx" />
     <Content Include="AdminPermitNames.aspx">
       <BrowseToURL>~/AdminPermitNames.aspx</BrowseToURL>
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="AddRoleName.aspx.designer.cs">
       <DependentUpon>AddRoleName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRoleName.aspx.cs">
+      <DependentUpon>EditRoleName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRoleName.aspx.designer.cs">
+      <DependentUpon>EditRoleName.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>

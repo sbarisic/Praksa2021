@@ -83,5 +83,53 @@ namespace PraksaMid
                 throw ex;
             }
         }
+        public static void EditRoleName(string connectionString, RoleNameModel role)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("updateRoleName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@IDrole", role.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Name", role.Name));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static RoleNameModel GetRoleName(string connectionString, int idRoleName)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getRoleName", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@IDrole", idRoleName));
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            RoleNameModel roleName = new RoleNameModel();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    roleName.Id = Convert.ToInt32(dr["ID"]);
+                    roleName.Name = dr["Naziv uloge"].ToString();
+                }
+            }
+            return roleName;
+        }
     }
 }
