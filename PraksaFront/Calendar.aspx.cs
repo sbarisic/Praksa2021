@@ -1,12 +1,9 @@
-﻿using PraksaMid.Model;
-using PraksaMid.Works;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
@@ -27,7 +24,7 @@ namespace PraksaFront
             List<WorkModel> workList = Work.GetWorks(connectionString);
             List<ImproperCalendarEvent> tasksList = new List<ImproperCalendarEvent>();
             //Generate JSON serializable events
-            
+
             foreach (WorkModel wrk in workList)
             {
                 DateTime tempDate = new DateTime();
@@ -37,7 +34,7 @@ namespace PraksaFront
                 {
                     id = wrk.Id,
                     title = wrk.Name,
-                    start = tempDate.ToString("yyyy-MM-dd"), 
+                    start = tempDate.ToString("yyyy-MM-dd"),
                     end = tempDate.ToString("yyyy-MM-dd"),
                     description = wrk.Description,
                     location = wrk.Location,

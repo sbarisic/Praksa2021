@@ -1,11 +1,7 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
-using PraksaMid.Permit;
-using PraksaMid.Person;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,6 +26,7 @@ namespace PraksaFront
                 FillUserData();
             }
         }
+
         private void FillUserData()
         {
             PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
@@ -51,11 +48,12 @@ namespace PraksaFront
             txtOib.Text = user.Oib;
             lblTitle.Text = "Uredi korisnika - " + user.FirstName + " " + user.LastName;
         }
+
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Users.aspx");
         }
-        
+
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             PersonModel user = new PersonModel
@@ -72,7 +70,7 @@ namespace PraksaFront
             Person.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
         }
-        
+
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
             Person.DeleteUser(connectionString, userId);
@@ -93,7 +91,7 @@ namespace PraksaFront
             List<RoleModel> allRoles = Role.GetRoleNames(connectionString);
             PersonModel user = Person.GetUser(connectionString, userId);
 
-            foreach(RoleModel rl in allRoles)
+            foreach (RoleModel rl in allRoles)
             {
                 CheckBox chk = new CheckBox();
                 chk.Text = rl.Name;
@@ -105,7 +103,7 @@ namespace PraksaFront
                 roleRow.Controls.Add(chk);
                 roleRow.Controls.Add(new LiteralControl("<br>"));
             }
-            
+
         }
     }
 }

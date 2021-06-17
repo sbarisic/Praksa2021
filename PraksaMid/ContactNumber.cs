@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace PraksaMid
 {
@@ -12,7 +10,7 @@ namespace PraksaMid
     {
         public static List<ContactNumberModel> GetContactNumbers(string connectionString, int idUser)
         {
-            List<ContactNumberModel> contactNumbers= new List<ContactNumberModel>();
+            List<ContactNumberModel> contactNumbers = new List<ContactNumberModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -29,7 +27,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    ContactNumberModel contactNumber= new ContactNumberModel()
+                    ContactNumberModel contactNumber = new ContactNumberModel()
                     {
                         Id = Convert.ToInt32(dr["IDNumber"]),
                         Number = dr["Kontakt broj"].ToString()

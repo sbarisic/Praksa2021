@@ -1,5 +1,5 @@
-﻿using PraksaMid.Model;
-using PraksaMid.Person;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Web.Configuration;
 
@@ -29,7 +29,6 @@ namespace PraksaFront
                         Email = txtEmail.Text,
                         Number = txtPhoneNumber.Text,
                     };
-
 
                     Person.CreateUser(connectionString, user);
                     Response.Redirect("About.aspx");

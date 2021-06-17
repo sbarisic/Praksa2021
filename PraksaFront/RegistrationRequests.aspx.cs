@@ -1,11 +1,7 @@
-﻿using PraksaMid.Model;
-using PraksaMid.Person;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PraksaFront
@@ -35,6 +31,7 @@ namespace PraksaFront
             Person.VerificateUser(connectionString, userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
+
         protected void DeleteBtn_Command(object sender, CommandEventArgs e)
         {
             int userId = Convert.ToInt16(e.CommandArgument);

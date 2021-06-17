@@ -1,12 +1,9 @@
-﻿using PraksaMid.Model;
-using PraksaMid.Works;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
@@ -24,7 +21,7 @@ namespace PraksaFront
         protected void GetWork()
         {
             List<int> idList = new List<int>();
-            List<WorkModel>  workList = Work.GetWorks(connectionString);
+            List<WorkModel> workList = Work.GetWorks(connectionString);
             List<ImproperCalendarEvent> tasksList = new List<ImproperCalendarEvent>();
             //Generate JSON serializable events
 

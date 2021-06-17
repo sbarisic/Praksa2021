@@ -1,10 +1,7 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
-using PraksaMid.Permit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,7 +34,7 @@ namespace PraksaFront
 
         protected void LoadOwnedPermits()
         {
-            if(permitList.Count != 0)
+            if (permitList.Count != 0)
             {
                 int i = 0;
                 foreach (RepeaterItem item in PermitRepeater.Items)
@@ -89,7 +86,7 @@ namespace PraksaFront
                         Permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
                     }
                 }
-                
+
             }
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
@@ -113,7 +110,7 @@ namespace PraksaFront
                 System.Diagnostics.Debug.WriteLine(prmt.Id + " " + prmt.PermitName);
                 if (strPermit.Equals(prmt.IdPermit.ToString()))
                 {
-                    
+
                     HiddenField hdn = (HiddenField)item.FindControl("hdnField");
                     hdn.Value = prmt.Id.ToString();
                     return true;

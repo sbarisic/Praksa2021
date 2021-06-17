@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PraksaFront
+﻿namespace PraksaFront
 {
     //Do not use this object, it is used just as a go between between javascript and asp.net
     public class ImproperCalendarEvent
