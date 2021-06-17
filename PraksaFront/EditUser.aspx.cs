@@ -1,7 +1,7 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using PraksaMid.Permit;
-using PraksaMid.Users;
+using PraksaMid.Person;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +32,6 @@ namespace PraksaFront
         }
         private void FillUserData()
         {
-            User user = new User();
-            user = user.GetUser(connectionString, userId);
-
             PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
@@ -46,6 +43,7 @@ namespace PraksaFront
 
             GetRoles();
 
+            PersonModel user = Person.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
@@ -60,7 +58,7 @@ namespace PraksaFront
         
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            User user = new User
+            PersonModel user = new PersonModel
             {
                 Id = userId,
                 IdRole = 2,
@@ -71,14 +69,13 @@ namespace PraksaFront
                 Oib = txtOib.Text,
             };
 
-            user.EditUser(connectionString, user);
+            Person.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
         }
         
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            User user = new User();
-            user.DeleteUser(connectionString, userId);
+            Person.DeleteUser(connectionString, userId);
             Response.Redirect("Users.aspx");
         }
         protected void BtnDeletePermit_command(object sender, CommandEventArgs e)
@@ -94,8 +91,7 @@ namespace PraksaFront
         protected void GetRoles()
         {
             List<RoleModel> allRoles = Role.GetRoleNames(connectionString);
-            User user = new User();
-            user = user.GetUser(connectionString, userId);
+            PersonModel user = Person.GetUser(connectionString, userId);
 
             foreach(RoleModel rl in allRoles)
             {

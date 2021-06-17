@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
-using PraksaMid.Users;
 using PraksaMid;
 
 namespace PraksaFront
