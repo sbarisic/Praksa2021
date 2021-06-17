@@ -10,8 +10,6 @@ namespace PraksaMid
 {
     public static class Authentication
     {
-        static int returnValue;
-
         public static int LogIn(string connectionString, string email, string password)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -25,13 +23,13 @@ namespace PraksaMid
             var salt = GetPasswordSalt(connectionString, email);
 
            if (salt != "") {
-                var loz = cmd.Parameters.Add(new SqlParameter("@PasswordHash", PasswordManager.HashPassword(password, salt)));
+                cmd.Parameters.Add(new SqlParameter("@PasswordHash", PasswordManager.HashPassword(password, salt)));
 
                 cmd.Parameters.Add("@ReturnValue", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                returnValue = Convert.ToInt32(cmd.Parameters["@ReturnValue"].Value);
+                int returnValue = Convert.ToInt32(cmd.Parameters["@ReturnValue"].Value);
                 con.Close();
 
                 return returnValue;

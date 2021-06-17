@@ -38,8 +38,7 @@ namespace PraksaFront
             PhoneNumberRepeater.DataSource = contactNumber.GetContactNumbers(connectionString, userId);
             PhoneNumberRepeater.DataBind();
 
-            ContactEmail email = new ContactEmail();
-            EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
             user = user.GetUser(connectionString, userId);
