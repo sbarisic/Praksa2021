@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,20 +9,11 @@ using System.Web;
 
 namespace PraksaMid.Works
 {
-    public class Work
+    public static class Work
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
-        public string Obligation { get; set; }
-        public int IdAttendant { get; set; }
-
-        public List<Work> GetWorks(string connectionString)
+        public static List<WorkModel> GetWorks(string connectionString)
         {
-            List<Work> works = new List<Work>();
+            List<WorkModel> works = new List<WorkModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -36,7 +28,7 @@ namespace PraksaMid.Works
             {
                 while (dr.Read())
                 {
-                    Work work = new Work
+                    WorkModel work = new WorkModel
                     {
                         Id = Convert.ToInt32(dr["ID"]),
                         Name = dr["Naziv akcije"].ToString(),
@@ -54,7 +46,7 @@ namespace PraksaMid.Works
             return works;
         }
 
-        public void CreateWork(string connectionString, Work work)
+        public static void CreateWork(string connectionString, WorkModel work)
         {
             try
             {
@@ -83,7 +75,7 @@ namespace PraksaMid.Works
             }
         }
 
-        public Work GetWork(string connectionString, int workId)
+        public static WorkModel GetWork(string connectionString, int workId)
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -95,7 +87,7 @@ namespace PraksaMid.Works
             cmd.Parameters.Add(new SqlParameter("@IDjob", workId));
 
             SqlDataReader dr = cmd.ExecuteReader();
-            Work work = new Work();
+            WorkModel work = new WorkModel();
 
             if (dr != null)
             {
@@ -113,7 +105,7 @@ namespace PraksaMid.Works
             return work;
         }
 
-        public void DeleteWork(string connectionString, int workId)
+        public static void DeleteWork(string connectionString, int workId)
         {
             try
             {
@@ -134,7 +126,7 @@ namespace PraksaMid.Works
                 throw ex;
             }
         }
-        public void EditWork(string connectionString, Work work)
+        public static void EditWork(string connectionString, WorkModel work)
         {
             try
             {

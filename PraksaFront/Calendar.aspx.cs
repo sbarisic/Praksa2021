@@ -1,4 +1,5 @@
-﻿using PraksaMid.Works;
+﻿using PraksaMid.Model;
+using PraksaMid.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,11 @@ namespace PraksaFront
         protected void GetWork()
         {
             List<int> idList = new List<int>();
-            Work work = new Work();
-            List<Work> workList = new List<Work>();
-            workList = work.GetWorks(connectionString);
+            List<WorkModel> workList = Work.GetWorks(connectionString);
             List<ImproperCalendarEvent> tasksList = new List<ImproperCalendarEvent>();
             //Generate JSON serializable events
             
-            foreach (Work wrk in workList)
+            foreach (WorkModel wrk in workList)
             {
                 DateTime tempDate = new DateTime();
                 tempDate = Convert.ToDateTime(wrk.Date);

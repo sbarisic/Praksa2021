@@ -24,7 +24,7 @@ namespace PraksaFront
                 if (txtLozinka.Text.Equals(txtLozinka2.Text))
                 {
                     Random rnd = new Random();
-                    User user = new User
+                    PersonModel user = new PersonModel
                     {
                         UniqueId = rnd.Next().ToString(),
                         FirstName = txtFirstName.Text,
@@ -37,7 +37,7 @@ namespace PraksaFront
                     };
 
 
-                    user.CreateUser(connectionString, user);
+                    Person.CreateUser(connectionString, user);
                     Response.Redirect("About.aspx");
                 }
                 else
