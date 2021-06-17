@@ -1,10 +1,6 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
-using PraksaMid.Works;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,9 +34,9 @@ namespace PraksaFront
             timeText.Text = work.Time;
             locationText.Text = work.Location;
             lblHeader.Text = "Uredi akciju za datum - " + work.Date;
-            if(work.Obligation == "Obavezno")
+            if (work.Obligation == "Obavezno")
                 obligationButton.SelectedValue = "1";
-            else 
+            else
                 obligationButton.SelectedValue = "0";
         }
         protected void Submit_Command(object sender, CommandEventArgs e)

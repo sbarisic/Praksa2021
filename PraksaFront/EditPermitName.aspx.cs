@@ -1,12 +1,8 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
@@ -18,7 +14,7 @@ namespace PraksaFront
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["PermitNameID"] != "")
-                 permitNameId= Convert.ToInt16(Request.QueryString["PermitNameID"]);
+                permitNameId = Convert.ToInt16(Request.QueryString["PermitNameID"]);
             else
                 Response.Redirect("Users.aspx");
             if (!IsPostBack)
@@ -44,7 +40,7 @@ namespace PraksaFront
             PermitName.EditPermitName(connectionString, permit);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
-        
+
 
     }
 }

@@ -1,9 +1,6 @@
-﻿using PraksaMid.Model;
-using PraksaMid.Works;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -49,6 +46,7 @@ namespace PraksaFront
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
             }
         }
+
         protected void Cancel_Command(object sender, CommandEventArgs e)
         {
             workText.Text = "";
@@ -65,31 +63,38 @@ namespace PraksaFront
             errorTime.Visible = false; errorDate.Visible = false; errorObligation.Visible = false; errorName.Visible = false;
             errorDescription.Visible = false; errorCity.Visible = false; errorStreet.Visible = false;
             bool rtn = false;
-            if (String.IsNullOrEmpty(timeText.Text)) {
+            if (String.IsNullOrEmpty(timeText.Text))
+            {
                 rtn = true;
                 errorTime.Visible = true;
             }
-            if (String.IsNullOrEmpty(dateText.Text)) {
+            if (String.IsNullOrEmpty(dateText.Text))
+            {
                 rtn = true;
                 errorDate.Visible = true;
             }
-            if (obligationButton.SelectedIndex == -1){
+            if (obligationButton.SelectedIndex == -1)
+            {
                 rtn = true;
                 errorObligation.Visible = true;
             }
-            if (String.IsNullOrEmpty(workText.Text)){
+            if (String.IsNullOrEmpty(workText.Text))
+            {
                 rtn = true;
                 errorName.Visible = true;
             }
-            if (String.IsNullOrEmpty(descriptionText.Text)){
+            if (String.IsNullOrEmpty(descriptionText.Text))
+            {
                 rtn = true;
                 errorDescription.Visible = true;
             }
-            if (String.IsNullOrEmpty(cityText.Text)){
+            if (String.IsNullOrEmpty(cityText.Text))
+            {
                 rtn = true;
                 errorCity.Visible = true;
             }
-            if (String.IsNullOrEmpty(streetText.Text)){
+            if (String.IsNullOrEmpty(streetText.Text))
+            {
                 rtn = true;
                 errorStreet.Visible = true;
             }

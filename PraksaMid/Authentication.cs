@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace PraksaMid
 {
@@ -21,7 +18,8 @@ namespace PraksaMid
 
             var salt = GetPasswordSalt(connectionString, email);
 
-           if (salt != "") {
+            if (salt != "")
+            {
                 cmd.Parameters.Add(new SqlParameter("@PasswordHash", PasswordManager.HashPassword(password, salt)));
 
                 cmd.Parameters.Add("@ReturnValue", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -60,6 +58,6 @@ namespace PraksaMid
 }
 
 
-           
+
 
 

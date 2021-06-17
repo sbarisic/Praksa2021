@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PraksaMid;
+using System;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PraksaMid;
-using PraksaMid.Model;
-using PraksaMid.Works;
 
 namespace PraksaFront
 {
@@ -32,27 +27,32 @@ namespace PraksaFront
             UserWorkList.DataSource = Work.GetWorks(connectionString);
             UserWorkList.DataBind();
         }
+
         protected void edit_Command(object sender, CommandEventArgs e)
         {
             EditFrameUrl = "EditWork.aspx?workId=" + e.CommandArgument;
             EditModalPopupExtender.Show();
         }
+
         protected void delete_Command(object sender, CommandEventArgs e)
         {
             Work.DeleteWork(connectionString, Convert.ToInt32(e.CommandArgument));
             Response.Redirect("AdminWork.aspx");
         }
+
         protected void locButton_Click(object sender, EventArgs e)
         {
             ModalPopupExtender1.Show();
             Button btn = (Button)sender;
             url = urlStart + btn.Text + urlEnd;
         }
+
         protected void attendance_Command(object sender, CommandEventArgs e)
         {
             AttendanceFrameUrl = "Attendants.aspx?workId=" + e.CommandArgument;
             ModalPopupExtender3.Show();
         }
+
         protected void hdnBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminWork.aspx");

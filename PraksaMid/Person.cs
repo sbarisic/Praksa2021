@@ -3,11 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
 
-namespace PraksaMid.Person
+namespace PraksaMid
 {
     public static class Person
     {
@@ -24,7 +21,7 @@ namespace PraksaMid.Person
             };
             SqlDataReader dr = cmd.ExecuteReader();
 
-            if(dr != null)
+            if (dr != null)
             {
                 while (dr.Read())
                 {
@@ -35,10 +32,10 @@ namespace PraksaMid.Person
                         Oib = dr["OIB"].ToString(),
                         FirstName = dr["Ime"].ToString(),
                         LastName = dr["Prezime"].ToString(),
-                        Address = dr["Adresa"].ToString(),                        
-                        Email = dr["Epošta"].ToString(),                        
-                        Number = dr["Broj mobitela"].ToString()                        
-                };
+                        Address = dr["Adresa"].ToString(),
+                        Email = dr["Epošta"].ToString(),
+                        Number = dr["Broj mobitela"].ToString()
+                    };
                     users.Add(user);
                 }
             }
@@ -90,10 +87,10 @@ namespace PraksaMid.Person
                     cmd.Parameters.Add(new SqlParameter("@IDUser", user.Id));
                     cmd.Parameters.Add(new SqlParameter("@UniqueId", user.UniqueId));
                     cmd.Parameters.Add(new SqlParameter("@FirstName", user.FirstName));
-                    cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName ));
-                    cmd.Parameters.Add(new SqlParameter("@Adress", user.Address ));
-                    cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib ));
-                    cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole ));
+                    cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
+                    cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
+                    cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
+                    cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole));
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -111,7 +108,7 @@ namespace PraksaMid.Person
             PasswordManager.GenerateSaltHashPair(user.Password, out string hash, out string salt);
             try
             {
-                            
+
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertUser", con)

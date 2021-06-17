@@ -1,10 +1,6 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
-using PraksaMid.Works;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,7 +31,7 @@ namespace PraksaFront
             attendant.IdUser = 11; //GET LOGGED IN USER ID
             attendant.IdAttendance = 1;
             Attendant.CreateAttendant(connectionString, attendant);
-            
+
             System.Diagnostics.Debug.WriteLine("Dolazi na " + e.CommandArgument.ToString());
         }
         protected void no_Command(object sender, CommandEventArgs e)

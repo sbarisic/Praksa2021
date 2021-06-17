@@ -1,16 +1,12 @@
 ﻿using PraksaMid;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
-    
+
     public partial class AdminPermits : System.Web.UI.Page
     {
         protected string EditFrameUrl;

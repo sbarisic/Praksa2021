@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
-namespace PraksaMid.Permit
+namespace PraksaMid
 {
     public static class Permit
     {
@@ -19,7 +17,7 @@ namespace PraksaMid.Permit
                     SqlCommand cmd = new SqlCommand("insertPermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    DateTime date = DateTime.Parse(permit.ExpiryDate); 
+                    DateTime date = DateTime.Parse(permit.ExpiryDate);
 
                     cmd.Parameters.Add(new SqlParameter("@UserID", permit.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@PermitID", permit.IdPermit));
@@ -43,7 +41,7 @@ namespace PraksaMid.Permit
             List<PermitModel> permits = new List<PermitModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
-            
+
 
             SqlCommand cmd = new SqlCommand("getPermits", con)
             {
@@ -67,7 +65,7 @@ namespace PraksaMid.Permit
                         PermitNumber = dr["Broj dozvole"].ToString(),
                         IdPermit = Convert.ToInt32(dr["ID dozvole"]),
                         Id = Convert.ToInt32(dr["ID"]),
-                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d"),  
+                        ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d"),
                     };
 
                     permits.Add(permit);
