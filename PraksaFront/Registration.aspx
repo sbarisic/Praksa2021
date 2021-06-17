@@ -19,9 +19,9 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="card-header" style="border: 1px solid rgba(0,0,0,0.1); width:600px; margin:0 auto;">
             <h3>
-                <asp:Label ID="lblHeader" runat="server" Text="Registriraj se"></asp:Label></h3>
+                <asp:Label ID="lblHeader" runat="server" Text="Registriraj se" e ></asp:Label></h3>
         </div>
-        <div class="card-body" style="width:600px; margin:0 auto;">
+        <div class="card-body" style="width:670px; margin:0 auto;">
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
                     <table class="dataTable-table">
