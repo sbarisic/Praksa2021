@@ -24,6 +24,10 @@
     <form id="f1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
         <div>
+        <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+            <h3><asp:Label ID="lblHeader" runat="server" Text=""></asp:Label></h3>
+        </div>
+
             <div class="card-body">
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                     <div class="dataTable-container">

@@ -37,6 +37,7 @@ namespace PraksaFront
             dateText.Text = work.Date;
             timeText.Text = work.Time;
             locationText.Text = work.Location;
+            lblHeader.Text = "Uredi akciju za datum - " + work.Date;
             if(work.Obligation == "Obavezno")
                 obligationButton.SelectedValue = "1";
             else 
