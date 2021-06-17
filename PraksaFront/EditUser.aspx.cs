@@ -38,12 +38,10 @@ namespace PraksaFront
             PermitRepeater.DataSource = permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
-            ContactNumber number = new ContactNumber();
-            NumberRepeater.DataSource = number.GetContactNumbers(connectionString, userId);
+            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
             NumberRepeater.DataBind();
 
-            ContactEmail email = new ContactEmail();
-            EmailRepeater.DataSource = email.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
             GetRoles();

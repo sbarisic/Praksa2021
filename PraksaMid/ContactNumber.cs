@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,15 +8,11 @@ using System.Web;
 
 namespace PraksaMid
 {
-    public class ContactNumber
+    public static class ContactNumber
     {
-        public int Id { get; set; }
-        public string Number { get; set; }
-        public int IdUser { get; set; }
-
-        public List<ContactNumber> GetContactNumbers(string connectionString, int idUser)
+        public static List<ContactNumberModel> GetContactNumbers(string connectionString, int idUser)
         {
-            List<ContactNumber> contactNumbers= new List<ContactNumber>();
+            List<ContactNumberModel> contactNumbers= new List<ContactNumberModel>();
 
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -32,7 +29,7 @@ namespace PraksaMid
             {
                 while (dr.Read())
                 {
-                    ContactNumber contactNumber= new ContactNumber()
+                    ContactNumberModel contactNumber= new ContactNumberModel()
                     {
                         Id = Convert.ToInt32(dr["IDNumber"]),
                         Number = dr["Kontakt broj"].ToString()
@@ -44,14 +41,16 @@ namespace PraksaMid
             return contactNumbers;
         }
 
-        public void CreateContactNumber(string connectionString, ContactNumber contactNumber)
+        public static void CreateContactNumber(string connectionString, ContactNumberModel contactNumber)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertContactNumber", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertContactNumber", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IdUser", contactNumber.IdUser));
                     cmd.Parameters.Add(new SqlParameter("@Number", contactNumber.Number));
@@ -67,15 +66,16 @@ namespace PraksaMid
             }
         }
 
-        public void EditContactNumber(string connectionString, ContactNumber contactNumber)
+        public static void EditContactNumber(string connectionString, ContactNumberModel contactNumber)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updateContactNumber", con);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updateContactNumber", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd.Parameters.Add(new SqlParameter("@ID", contactNumber.Id));
                     cmd.Parameters.Add(new SqlParameter("@Number", contactNumber.Number));
 
@@ -89,14 +89,16 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public void DeleteContactNumber(string connectionString, int idNumber)
+        public static void DeleteContactNumber(string connectionString, int idNumber)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deleteContactNumber", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deleteContactNumber", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDNumber", idNumber));
 
