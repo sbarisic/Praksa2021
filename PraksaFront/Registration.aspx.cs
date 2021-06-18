@@ -41,15 +41,7 @@ namespace PraksaFront
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            errorPassword.Visible = false;
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtAdress.Text = "";
-            txtEmail.Text = "";
-            txtOib.Text = "";
-            txtPhoneNumber.Text = "";
-            txtLozinka.Text = "";
-            txtLozinka2.Text = "";
+            Response.Redirect("About.aspx");
         }
 
     }
