@@ -54,7 +54,7 @@
                         <tr>
                             <th>
                                 <asp:Label ID="Label6" runat="server" Text="OIB"></asp:Label></th>
-                            <td><asp:TextBox pattern=".{11}" ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki"></asp:TextBox>
+                            <td><asp:TextBox pattern=".{11}" ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki" onkeydown = "return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57  && isNaN(event.key))) && event.keyCode!=32);"> </asp:TextBox>
                         </td>
                         </tr>
                         <tr>
