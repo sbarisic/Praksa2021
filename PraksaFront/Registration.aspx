@@ -82,7 +82,7 @@
                         <tr>
                             <td colspan="2" style="text-align:center;">
                                 <asp:Button  ID="btnReg" runat="server" Text="Potvrdi" OnClick="btnReg_Click" />
-                                <asp:Button  ID="btnCancel" runat="server" Text="Odustani" OnClick="btnCancel_Click" /></td>
+                                <asp:Button  ID="btnCancel" UseSubmitBehavior="false" runat="server" Text="Odustani" OnClick="btnCancel_Click" /></td>
                         </tr>
                     </table>
                 </div>
