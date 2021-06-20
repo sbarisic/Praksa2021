@@ -49,12 +49,15 @@
                         <tr>
                             <th>
                                 <asp:Label ID="Label5" runat="server" Text="Kontakt broj"></asp:Label></th>
-                            <td><asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Kontakt broj..." required="required"></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Kontakt broj..." required="required"></asp:TextBox>
+                                <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
+                                                ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
+                            </td>
                         </tr>
                         <tr>
                             <th>
                                 <asp:Label ID="Label6" runat="server" Text="OIB"></asp:Label></th>
-                            <td><asp:TextBox pattern=".{11}" ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki"></asp:TextBox>
+                            <td><asp:TextBox pattern=".{11}" ID="txtOib" runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki" onkeydown = "return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57  && isNaN(event.key))) && event.keyCode!=32);"> </asp:TextBox>
                         </td>
                         </tr>
                         <tr>
@@ -79,7 +82,7 @@
                         <tr>
                             <td colspan="2" style="text-align:center;">
                                 <asp:Button  ID="btnReg" runat="server" Text="Potvrdi" OnClick="btnReg_Click" />
-                                <asp:Button  ID="btnCancel" runat="server" Text="Odustani" OnClick="btnCancel_Click" /></td>
+                                <asp:Button  ID="btnCancel" UseSubmitBehavior="false" runat="server" Text="Odustani" OnClick="btnCancel_Click" /></td>
                         </tr>
                     </table>
                 </div>
