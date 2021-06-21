@@ -1,8 +1,8 @@
-﻿using System;
+﻿using PraksaMid;
+using PraksaMid.Model;
+using System;
 using System.Collections.Generic;
 using System.Web.Configuration;
-using PraksaMid;
-using PraksaMid.Model;
 
 namespace PraksaFront
 {
@@ -15,10 +15,9 @@ namespace PraksaFront
         {
             Start();
             lbluname.Text = (string)Session["uname"];
-            if(lbluname.Text != "")
+            if (lbluname.Text != "")
             {
                 int id = Person.GetUserId(connectionString, lbluname.Text);
-                Console.WriteLine(id);
                 userRoles = Role.GetRoles(connectionString, id);
                 Show();
             }
@@ -26,9 +25,9 @@ namespace PraksaFront
 
         private void Show()
         {
-            foreach(RoleModel role in userRoles)
+            foreach (RoleModel role in userRoles)
             {
-                if(role.Name == "Admin")
+                if (role.Name == "Admin")
                 {
                     users.Visible = true;
                     work.Visible = true;
