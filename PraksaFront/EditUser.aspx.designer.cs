@@ -59,6 +59,7 @@ namespace PraksaFront
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
         protected global::AjaxControlToolkit.ModalPopupExtender emailPopupExtender;
+        protected global::AjaxControlToolkit.ModalPopupExtender numberPopupExtender;
 
         /// <summary>
         /// Panl2 control.

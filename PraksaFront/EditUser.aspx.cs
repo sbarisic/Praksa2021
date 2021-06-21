@@ -14,6 +14,7 @@ namespace PraksaFront
         protected int userId = 0;
         protected string permitUrl = "";
         protected string emailUrl = "";
+        protected string numberUrl = "";
         protected List<RoleModel> roleList = new List<RoleModel>(); 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -111,11 +112,24 @@ namespace PraksaFront
         }
         protected void BtnDeletePermit_command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("Users.aspx");
+            Permit.DeletePermit(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect(Request.RawUrl);
         }
+        protected void BtnDeleteEmail_command(object sender, CommandEventArgs e)
+        {
+            ContactEmail.DeleteEmail(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect(Request.RawUrl);
+        }
+
         protected void BtnDeleteRole_command(object sender, CommandEventArgs e)
         {
-            Response.Redirect("Users.aspx");
+            Role.DeleteRole(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect(Request.RawUrl);
+        }
+        protected void BtnDeletePhoneNumber_command(object sender, CommandEventArgs e)
+        {
+            ContactNumber.DeleteContactNumber(connectionString, Convert.ToInt32(e.CommandArgument));
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void hdnBtn_Click(object sender, EventArgs e)
@@ -128,7 +142,12 @@ namespace PraksaFront
             emailUrl = "EditUserEmail.aspx?userId=" + userId;
             emailPopupExtender.Show();
         }
-
+        protected void btnEditNumber_click(object sender, EventArgs e)
+        {
+            numberUrl = "EditUserNumber.aspx?userId=" + userId;
+            System.Diagnostics.Debug.WriteLine(emailUrl);
+            numberPopupExtender.Show();
+        }
         protected void LoadOwnedRoles()
         {
             if (roleList.Count != 0)

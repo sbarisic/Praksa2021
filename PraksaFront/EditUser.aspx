@@ -10,13 +10,13 @@
     <form id="form1" runat="server">
         <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:HiddenField ID="hdnField" runat="server" />        <asp:HiddenField ID="hdnField2" runat="server" />
+        <asp:HiddenField ID="hdnField" runat="server" />        <asp:HiddenField ID="hdnField2" runat="server" /><asp:HiddenField ID="hdnField3" runat="server" />
 
         <!--EDIT/ADD PERMIT-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
                 <iframe ID="permitFrame" src="" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
-            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+            <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
         </asp:Panel>
 
         <!--EDIT/ADD EMAIL-->
@@ -24,7 +24,15 @@
         TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
                 <iframe ID="emailFrame" src="<%= emailUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
-            <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
+            <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
+        </asp:Panel>
+
+        <!--EDIT/ADD NUMBER-->
+        <cc1:ModalPopupExtender BehaviorID="numberPopupExtender" ID="numberPopupExtender" runat="server" PopupControlID="Panl4" 
+        TargetControlID="hdnField3" CancelControlID="ButtonClose3" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl4" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe ID="numberFrame" src="<%= numberUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose3" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
         </asp:Panel>
 
         <div class="card-header">
@@ -89,7 +97,7 @@
                                         <ItemTemplate>
                                                 <asp:TextBox Text='<%# Eval("Email") %>' ID="txtEmail" runat="server"></asp:TextBox>
                                                 <asp:Button CssClass="workButton" ID="BtnDeleteEmail" runat="server" Text="x" 
-                                                OnClientClick="return confirm('Jeste li sigurni da želite obrisati email?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                                OnClientClick="return confirm('Jeste li sigurni da želite obrisati email?')" OnCommand="BtnDeleteEmail_command" CommandArgument='<%# Eval("Id") %>' /><br>
                                         </ItemTemplate>
                                     </asp:Repeater>
                             </th>
@@ -97,6 +105,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
+                                <asp:Button ID="btnEditNumber" runat="server" Text="Uredi" OnClick="btnEditNumber_click"></asp:Button>
                             </th>
                             <th>
                                 <asp:Repeater ID="NumberRepeater" runat="server">
@@ -105,7 +114,7 @@
                                             <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
                                                 ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
                                             <asp:Button CssClass="workButton" ID="BtnDeletePhoneNumber" runat="server" Text="x" 
-                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePhoneNumber_command" CommandArgument='<%# Eval("Id") %>' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </th>
@@ -121,7 +130,7 @@
                                     <ItemTemplate>
                                             <%# Eval("Name")%>
                                             <asp:Button CssClass="workButton" ID="BtnEditRole" runat="server" Text="x" 
-                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='' /><br>
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='<%# Eval("Id") %>' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </td>
