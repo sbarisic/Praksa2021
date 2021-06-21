@@ -22,11 +22,10 @@ namespace PraksaFront
             else if (rv == 1)
                 Response.Write("<script>alert('Korisnik još nije prihvaćen');</script>");
             else if (rv == 2)
-                Response.Write("<script>alert('Dobrodošli');</script>");
-
-            Session["uname"] = txtEmail.Text;
-            Response.Redirect("About.aspx");
-
+            {
+                Session["uname"] = txtEmail.Text;
+                Response.Redirect("About.aspx");
+            }
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
