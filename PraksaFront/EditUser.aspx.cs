@@ -151,7 +151,7 @@ namespace PraksaFront
         }
         protected void btnAddRole_click(object sender, EventArgs e)
         {
-            roleUrl = "About.aspx";
+            roleUrl = "EditUserRole.aspx?userId=" + userId;
             rolePopupExtender.Show();
         }
         protected void LoadOwnedRoles()

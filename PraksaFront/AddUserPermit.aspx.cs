@@ -108,7 +108,6 @@ namespace PraksaFront
             {
                 if (strPermit.Equals(prmt.IdPermit.ToString()))
                 {
-
                     HiddenField hdn = (HiddenField)item.FindControl("hdnField");
                     hdn.Value = prmt.Id.ToString();
                     return true;
