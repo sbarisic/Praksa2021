@@ -25,36 +25,15 @@ namespace PraksaFront
 
         protected void yes_Command(object sender, CommandEventArgs e)
         {
-            AttendantModel attendant = new AttendantModel();
-            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
-            attendant.IdInteres = 3;
-            attendant.IdUser = 11; //GET LOGGED IN USER ID
-            attendant.IdAttendance = 1;
-            Attendant.CreateAttendant(connectionString, attendant);
-
-            System.Diagnostics.Debug.WriteLine("Dolazi na " + e.CommandArgument.ToString());
+            Attendance(Convert.ToInt32(e.CommandArgument), 3);
         }
         protected void no_Command(object sender, CommandEventArgs e)
         {
-            AttendantModel attendant = new AttendantModel();
-            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
-            attendant.IdInteres = 1;
-            attendant.IdUser = 11; //GET LOGGED IN USER ID
-            attendant.IdAttendance = 1;
-            Attendant.CreateAttendant(connectionString, attendant);
-
-            System.Diagnostics.Debug.WriteLine("Ne dolazi na " + e.CommandArgument.ToString());
+            Attendance(Convert.ToInt32(e.CommandArgument), 1);
         }
         protected void maybe_Command(object sender, CommandEventArgs e)
         {
-            AttendantModel attendant = new AttendantModel();
-            attendant.IdJob = Convert.ToInt32(e.CommandArgument.ToString());
-            attendant.IdInteres = 2;
-            attendant.IdUser = 11; //GET LOGGED IN USER ID
-            attendant.IdAttendance = 1;
-            Attendant.CreateAttendant(connectionString, attendant);
-
-            System.Diagnostics.Debug.WriteLine("Mozda dolazi na " + e.CommandArgument.ToString());
+            Attendance(Convert.ToInt32(e.CommandArgument), 2);
         }
 
         protected void locButton_Click(object sender, EventArgs e)
@@ -62,6 +41,27 @@ namespace PraksaFront
             ModalPopupExtender1.Show();
             Button btn = (Button)sender;
             url = urlStart + btn.Text + urlEnd;
+        }
+
+        private void Attendance(int Idjob, int interes)
+        {
+            int id = Person.GetUserId(connectionString, (string)Session["uname"]);
+
+            AttendantModel attendant = new AttendantModel
+            {
+                IdJob = Convert.ToInt32(Idjob),
+                IdInteres = interes,
+                IdUser = id
+            };
+            
+            AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, id);
+            if (att.Id != 0)
+            {
+                attendant.IdAttendance = att.Id;
+                Attendant.EditAttendant(connectionString, attendant);
+            }
+            else 
+                Attendant.CreateAttendant(connectionString, attendant);
         }
 
     }
