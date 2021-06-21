@@ -14,10 +14,10 @@ namespace PraksaFront
         protected int userId = 0;
         protected string permitUrl = "";
         protected string emailUrl = "";
-        /*protected List<PermitModel> permitList = new List<PermitModel>(); */
+        protected List<RoleModel> roleList = new List<RoleModel>(); 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*permitList = Permit.GetPermits(connectionString, userId); */
+            roleList = Role.GetRoles(connectionString, userId); 
             if (Request.QueryString["userId"] != "")
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
             else
@@ -40,10 +40,10 @@ namespace PraksaFront
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
-            /*PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
-            PermitRepeater.DataBind();
+            RoleRepeater.DataSource = Role.GetRoles(connectionString, userId);
+            RoleRepeater.DataBind();
 
-            LoadOwnedPermits(); */
+            LoadOwnedRoles();
 
             PersonModel user = Person.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
@@ -61,37 +61,33 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-           /* foreach (RepeaterItem item in PermitRepeater.Items) //item = dozvola
+           foreach (RepeaterItem item in RoleRepeater.Items) //item = uloga
             {
-                var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                var checkbox = item.FindControl("roleCheckbox") as CheckBox;
                 var hdnId = item.FindControl("hdnId") as HiddenField;
-                TextBox txtDate = (TextBox)item.FindControl("txtDate");
-                TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
-                PermitModel permit = new PermitModel();
+                RoleModel role = new RoleModel();
 
                 if (checkbox.Checked) //ako je oznacena dozvola
                 {
-                    if (!checkPermit(hdnId.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
+                    if (!CheckRole(hdnId.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
                     {
-                        permit.IdUser = userId;
-                        permit.ExpiryDate = txtDate.Text;
-                        permit.IdPermit = Convert.ToInt32(hdnId.Value);
-                        permit.PermitNumber = txtNumber.Text;
-                        Permit.CreatePermit(connectionString, permit);
+                        role.IdUser = userId;
+                        role.IdName = Convert.ToInt32(hdnId.Value);
+                        Role.CreateRole(connectionString, role);
                     }
                 }
                 else
                 {
-                    if (checkDeletePermit(hdnId.Value, item)) // ako nije oznacena dozvola i user ju ima, makni ju
+                    if (CheckDeleteRole(hdnId.Value, item)) // ako nije oznacena uloga i user ju ima, makni ju
                     {
                         HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                        Permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
+                        Role.DeleteRole(connectionString, Convert.ToInt32(hdn.Value));
                     }
                 }
 
             }
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);*/
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
 
             PersonModel user = new PersonModel
             {
@@ -117,6 +113,10 @@ namespace PraksaFront
         {
             Response.Redirect("Users.aspx");
         }
+        protected void BtnDeleteRole_command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("Users.aspx");
+        }
 
         protected void hdnBtn_Click(object sender, EventArgs e)
         {
@@ -129,36 +129,24 @@ namespace PraksaFront
             emailPopupExtender.Show();
         }
 
-        /*protected void LoadOwnedPermits()
+        protected void LoadOwnedRoles()
         {
-            if (permitList.Count != 0)
+            if (roleList.Count != 0)
             {
-                int i = 0;
                 foreach (RepeaterItem item in PermitRepeater.Items)
                 {
-                    var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                    var checkbox = item.FindControl("roleCheckbox") as CheckBox;
                     var hdnId = item.FindControl("hdnId") as HiddenField;
-                    checkbox.Checked = checkPermit(hdnId.Value);
-                    TextBox txtDate = (TextBox)item.FindControl("txtDate");
-                    TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
-                    txtDate.Enabled = checkbox.Checked;
-                    txtNumber.Enabled = checkbox.Checked;
-
-                    if (checkPermit(hdnId.Value))
-                    {
-                        txtDate.Text = permitList[i].ExpiryDate;
-                        txtNumber.Text = permitList[i].PermitNumber;
-                        i++;
-                    }
+                    checkbox.Checked = CheckRole(hdnId.Value);
                 }
             }
         }
 
-        protected Boolean checkPermit(string strPermit)
+        protected Boolean CheckRole(string strRole)
         {
-            foreach (PermitModel prmt in permitList)
+            foreach (RoleModel role in roleList)
             {
-                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                if (strRole.Equals(role.IdName.ToString()))
                 {
                     return true;
                 }
@@ -166,30 +154,25 @@ namespace PraksaFront
             return false;
         }
 
-        protected Boolean checkDeletePermit(string strPermit, RepeaterItem item)
+        protected Boolean CheckDeleteRole(string strRole, RepeaterItem item)
         {
-            foreach (PermitModel prmt in permitList)
+            foreach (RoleModel role in roleList)
             {
-                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                if (strRole.Equals(role.IdName.ToString()))
                 {
 
                     HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                    hdn.Value = prmt.Id.ToString();
+                    hdn.Value = role.Id.ToString();
                     return true;
                 }
             }
             return false;
         }
 
-        protected void permitCheckbox_CheckedChanged(object sender, EventArgs e)
+        protected void RoleCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox chk = (CheckBox)sender;
             RepeaterItem item = (RepeaterItem)chk.NamingContainer;
-            TextBox txtDate = (TextBox)item.FindControl("txtDate");
-            TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
-
-            txtDate.Enabled = chk.Checked;
-            txtNumber.Enabled = chk.Checked;
-        }*/
+        }
     }
 }
