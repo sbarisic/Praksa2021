@@ -137,6 +137,7 @@
     </Content>
     <Content Include="content\css\radneAkcijeStyle.css" />
     <Content Include="EditUserNumber.aspx" />
+    <Content Include="EditUserRole.aspx" />
     <Content Include="EditWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
     <Content Include="RoleNames.aspx" />
@@ -285,6 +286,13 @@
     </Compile>
     <Compile Include="EditUserNumber.aspx.designer.cs">
       <DependentUpon>EditUserNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserRole.aspx.cs">
+      <DependentUpon>EditUserRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserRole.aspx.designer.cs">
+      <DependentUpon>EditUserRole.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditWork.aspx.cs">
       <DependentUpon>EditWork.aspx</DependentUpon>

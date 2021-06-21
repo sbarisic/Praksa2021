@@ -19,16 +19,16 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3">Udruga</a>
+        <a class="navbar-brand ps-3" style="color:#6bc277;">Bjelovarska Udruga</a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" style=" color:#6bc277;" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw" style="color:#6bc277;"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="Login.aspx">Prijava</a></li>
                     <li><a class="dropdown-item" href="Registration.aspx">Registriraj se</a></li>
@@ -42,21 +42,21 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading"></div>
-                        <a class="nav-link" href="About.aspx">
-                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                        <a class="nav-link" href="About.aspx" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-home" style="color:#6bc277;"></i></div>
                             O nama
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" runat="server" id ="work">
-                            <div class="sb-nav-link-icon"><i class="fas fa-handshake"></i></div>
+                        <a class="nav-link collapsed" style="color:#6bc277;" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" runat="server" id ="work">
+                            <div class="sb-nav-link-icon"><i class="fas fa-handshake" style="color:#6bc277;"></i></div>
                             Akcije
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="UserWork.aspx" runat="server" id ="userWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
-                                <a class="nav-link" href="UserCalendar.aspx" runat="server" id ="userCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>
-                                <a class="nav-link" href="AdminWork.aspx" runat="server" id ="adminWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
-                                <a class="nav-link" href="Calendar.aspx" runat="server" id ="adminCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>    
+                                <a class="nav-link" href="UserWork.aspx" runat="server" id ="userWork" style="color:#6bc277;"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
+                                <a class="nav-link" href="UserCalendar.aspx" runat="server" id ="userCalendar" style="color:#6bc277;"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>
+                                <a class="nav-link" href="AdminWork.aspx" runat="server" id ="adminWork" style="color:#6bc277;"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
+                                <a class="nav-link" href="Calendar.aspx" runat="server" id ="adminCalendar" style="color:#6bc277;"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>    
                             </nav>
                         </div>
                         
@@ -69,9 +69,9 @@
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
+                                        <a class="nav-link" href="login.html" style="color:#6bc277;">Login</a>
+                                        <a class="nav-link" href="register.html" style="color:#6bc277;">Register</a>
+                                        <a class="nav-link" href="password.html" style="color:#6bc277;">Forgot Password</a>
                                     </nav>
                                 </div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">Error
@@ -86,31 +86,31 @@
                                 </div>
                             </nav>
                         </div>
-                        <a class="nav-link" href="Users.aspx" id="users" runat="server">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        <a class="nav-link" href="Users.aspx" id="users" runat="server" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users" style="color:#6bc277;"></i></div>
                             Korisnici
                         </a>
-                        <a class="nav-link" href="AdminPermitNames.aspx" id="permits" runat="server">
-                            <div class="sb-nav-link-icon"><i class="fas fa-sticky-note"></i></div>
+                        <a class="nav-link" href="AdminPermitNames.aspx" id="permits" runat="server" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sticky-note" style="color:#6bc277;"></i></div>
                             Dozvole
                         </a>
-                        <a class="nav-link" href="RegistrationRequests.aspx" id="regReq" runat="server">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                        <a class="nav-link" href="RegistrationRequests.aspx" id="regReq" runat="server" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus" style="color:#6bc277;"></i></div>
                             Zahtjevi registracije
                         </a>
-                        <a class="nav-link" href="DismissedUsers.aspx" id="disUsers" runat="server">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user-minus"></i></div>
+                        <a class="nav-link" href="DismissedUsers.aspx" id="disUsers" runat="server" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-minus" style="color:#6bc277;"></i></div>
                             Zatvoreni korisnici
                         </a>
-                        <a class="nav-link" href="RoleNames.aspx" id="roles" runat="server">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                        <a class="nav-link" href="RoleNames.aspx" id="roles" runat="server" style="color:#6bc277;">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user" style="color:#6bc277;"></i></div>
                             Uloge
                         </a>
                         
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as :</div>
+                    <div class="small" >Logged in as :</div>
                     <asp:Label ID="lbluname" runat="server" Text="Label"></asp:Label>
 
                 </div>

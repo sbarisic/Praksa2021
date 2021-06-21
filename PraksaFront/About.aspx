@@ -49,7 +49,6 @@
                         <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
                     </div>
                     <br />
-                    <a style="background-color: #448d4e; border: 1px solid #26552d" class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
                 </div>
                 <div class="product-device box-shadow d-none d-md-block"></div>
                 <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
