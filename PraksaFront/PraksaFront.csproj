@@ -139,6 +139,7 @@
     <Content Include="EditUserNumber.aspx" />
     <Content Include="EditUserRole.aspx" />
     <Content Include="EditWork.aspx" />
+    <Content Include="PastWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
     <Content Include="RoleNames.aspx" />
     <Content Include="scripts\calendarscript.js" />
@@ -302,6 +303,13 @@
       <DependentUpon>EditWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\PasswordManager.cs" />
+    <Compile Include="PastWork.aspx.cs">
+      <DependentUpon>PastWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PastWork.aspx.designer.cs">
+      <DependentUpon>PastWork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
