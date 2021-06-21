@@ -94,6 +94,8 @@
   <ItemGroup>
     <Content Include="AboutUser.aspx" />
     <Content Include="AboutWork.aspx" />
+    <Content Include="AddUserEmail.aspx" />
+    <Content Include="EditUserEmail.aspx" />
     <Content Include="EditPermitName.aspx" />
     <Content Include="AddUserPermit.aspx" />
     <Content Include="AddWork.aspx" />
@@ -155,6 +157,20 @@
     </Compile>
     <Compile Include="AboutWork.aspx.designer.cs">
       <DependentUpon>AboutWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserEmail.aspx.cs">
+      <DependentUpon>AddUserEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUserEmail.aspx.designer.cs">
+      <DependentUpon>AddUserEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserEmail.aspx.cs">
+      <DependentUpon>EditUserEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserEmail.aspx.designer.cs">
+      <DependentUpon>EditUserEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditPermitName.aspx.cs">
       <DependentUpon>EditPermitName.aspx</DependentUpon>

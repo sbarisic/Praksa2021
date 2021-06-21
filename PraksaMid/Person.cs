@@ -68,7 +68,6 @@ namespace PraksaMid
                     user.LastName = dr["Prezime"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
-                    user.RoleName = dr["Uloga"].ToString();
                 }
             }
             return user;

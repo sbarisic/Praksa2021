@@ -25,7 +25,6 @@ namespace PraksaFront
 
         private void LoadData()
         {
-            System.Diagnostics.Debug.WriteLine("Getting permits for user id = " + userId);
             PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
             PermitRepeater.DataBind();
 
@@ -107,7 +106,6 @@ namespace PraksaFront
         {
             foreach (PermitModel prmt in permitList)
             {
-                System.Diagnostics.Debug.WriteLine(prmt.Id + " " + prmt.PermitName);
                 if (strPermit.Equals(prmt.IdPermit.ToString()))
                 {
 

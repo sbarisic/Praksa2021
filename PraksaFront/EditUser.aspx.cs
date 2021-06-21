@@ -13,9 +13,11 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int userId = 0;
         protected string permitUrl = "";
-
+        protected string emailUrl = "";
+        /*protected List<PermitModel> permitList = new List<PermitModel>(); */
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*permitList = Permit.GetPermits(connectionString, userId); */
             if (Request.QueryString["userId"] != "")
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
             else
@@ -38,7 +40,10 @@ namespace PraksaFront
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
-            GetRoles();
+            /*PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
+            PermitRepeater.DataBind();
+
+            LoadOwnedPermits(); */
 
             PersonModel user = Person.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
@@ -56,6 +61,38 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
+           /* foreach (RepeaterItem item in PermitRepeater.Items) //item = dozvola
+            {
+                var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                var hdnId = item.FindControl("hdnId") as HiddenField;
+                TextBox txtDate = (TextBox)item.FindControl("txtDate");
+                TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+                PermitModel permit = new PermitModel();
+
+                if (checkbox.Checked) //ako je oznacena dozvola
+                {
+                    if (!checkPermit(hdnId.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
+                    {
+                        permit.IdUser = userId;
+                        permit.ExpiryDate = txtDate.Text;
+                        permit.IdPermit = Convert.ToInt32(hdnId.Value);
+                        permit.PermitNumber = txtNumber.Text;
+                        Permit.CreatePermit(connectionString, permit);
+                    }
+                }
+                else
+                {
+                    if (checkDeletePermit(hdnId.Value, item)) // ako nije oznacena dozvola i user ju ima, makni ju
+                    {
+                        HiddenField hdn = (HiddenField)item.FindControl("hdnField");
+                        Permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
+                    }
+                }
+
+            }
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);*/
+
             PersonModel user = new PersonModel
             {
                 Id = userId,
@@ -86,24 +123,73 @@ namespace PraksaFront
             Response.Redirect(Request.RawUrl);
         }
 
-        protected void GetRoles()
+        protected void btnEditEmail_click(object sender, EventArgs e)
         {
-            List<RoleNameModel> allRoles = RoleName.GetRoleNames(connectionString);
-            PersonModel user = Person.GetUser(connectionString, userId);
-
-            foreach (RoleNameModel rl in allRoles)
-            {
-                CheckBox chk = new CheckBox();
-                chk.Text = rl.Name;
-
-                if (user.RoleName.Equals(rl.Name))
-                    chk.Checked = true;
-
-
-                roleRow.Controls.Add(chk);
-                roleRow.Controls.Add(new LiteralControl("<br>"));
-            }
-
+            emailUrl = "EditUserEmail.aspx?userId=" + userId;
+            emailPopupExtender.Show();
         }
+
+        /*protected void LoadOwnedPermits()
+        {
+            if (permitList.Count != 0)
+            {
+                int i = 0;
+                foreach (RepeaterItem item in PermitRepeater.Items)
+                {
+                    var checkbox = item.FindControl("permitCheckbox") as CheckBox;
+                    var hdnId = item.FindControl("hdnId") as HiddenField;
+                    checkbox.Checked = checkPermit(hdnId.Value);
+                    TextBox txtDate = (TextBox)item.FindControl("txtDate");
+                    TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+                    txtDate.Enabled = checkbox.Checked;
+                    txtNumber.Enabled = checkbox.Checked;
+
+                    if (checkPermit(hdnId.Value))
+                    {
+                        txtDate.Text = permitList[i].ExpiryDate;
+                        txtNumber.Text = permitList[i].PermitNumber;
+                        i++;
+                    }
+                }
+            }
+        }
+
+        protected Boolean checkPermit(string strPermit)
+        {
+            foreach (PermitModel prmt in permitList)
+            {
+                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        protected Boolean checkDeletePermit(string strPermit, RepeaterItem item)
+        {
+            foreach (PermitModel prmt in permitList)
+            {
+                if (strPermit.Equals(prmt.IdPermit.ToString()))
+                {
+
+                    HiddenField hdn = (HiddenField)item.FindControl("hdnField");
+                    hdn.Value = prmt.Id.ToString();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        protected void permitCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = (CheckBox)sender;
+            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
+            TextBox txtDate = (TextBox)item.FindControl("txtDate");
+            TextBox txtNumber = (TextBox)item.FindControl("txtNumber");
+
+            txtDate.Enabled = chk.Checked;
+            txtNumber.Enabled = chk.Checked;
+        }*/
     }
 }

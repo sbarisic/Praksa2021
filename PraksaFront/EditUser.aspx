@@ -10,11 +10,21 @@
     <form id="form1" runat="server">
         <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:HiddenField ID="hdnField" runat="server" />
+        <asp:HiddenField ID="hdnField" runat="server" />        <asp:HiddenField ID="hdnField2" runat="server" />
+
+        <!--EDIT/ADD PERMIT-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
                 <iframe ID="permitFrame" src="" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+        </asp:Panel>
+
+        <!--EDIT/ADD EMAIL-->
+        <cc1:ModalPopupExtender BehaviorID="emailPopupExtender" ID="emailPopupExtender" runat="server" PopupControlID="Panl3" 
+        TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe ID="emailFrame" src="<%= emailUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
         </asp:Panel>
 
         <div class="card-header">
@@ -72,6 +82,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
+                                <asp:Button ID="btnEditEmail" runat="server" Text="Uredi" OnClick="btnEditEmail_click"></asp:Button>
                             </th>
                             <th>
                                 <asp:Repeater ID="EmailRepeater" runat="server">
