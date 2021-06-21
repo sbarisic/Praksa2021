@@ -9,16 +9,36 @@
     <title></title>
     <link rel="stylesheet" href="content/css/home.css" />
     <style>
+.Background {
+    background-color: Black;
+    filter: opacity(90);
+    opacity: 0.8;
+}
+
+.Popup {
+    background-color: #FFFFFF;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 10px;
+    width: 350px;
+}
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
         <script>
-            function callParentWindowHideMethod() {
-                if (window.parent.hideEditModalPopup) {
-                    window.parent.hideEditModalPopup();
-                }
-            }
+    function callParentWindowHideMethod() {
+        if (window.parent.hideEditModalPopup) {
+            window.parent.hideEditModalPopup();
+        }
+    }
+    function hideEditModalPopup() {
+        $find("AddPopup").hide();
+        document.getElementById("hdnBtn").click();
+        return false;
+    }
         </script>
         <div class="card-body">
             <table class="dataTable-table table-striped">
@@ -36,12 +56,12 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <tr>
-                    <td>
+                    <td colspan="2" style="text-align:center;">
                         <asp:Button ID="PopupBtn" runat="server" Text="+" />
-                        <cc1:ModalPopupExtender ID="AddPopup" runat="server" PopupControlID="Panl2" TargetControlID="PopupBtn"
+                        <cc1:ModalPopupExtender BehaviorID="AddPopup" ID="AddPopup" runat="server" PopupControlID="Panl2" TargetControlID="PopupBtn"
                             CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
-                        <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-                            <iframe ID="addFrame" src="<%= addUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                        <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none" >
+                            <iframe ID="addFrame" src="<%= addUrl %>" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
                         </asp:Panel>
                     </td>

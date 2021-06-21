@@ -1,4 +1,5 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace PraksaFront
     {
         protected int userId = 0;
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
+        List<ContactEmailModel> emails = new List<ContactEmailModel>();
         protected string addUrl = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt16(Request.QueryString["userId"]);
             addUrl = "AddUserEmail.aspx?userId=" + userId.ToString();
+            emails = ContactEmail.GetContactEmails(connectionString, userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -32,6 +35,23 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            foreach(RepeaterItem item in EmailRepeater.Items)
+            {
+                TextBox txtEmail = (TextBox)item.FindControl("txtEmail");
+                if (!txtEmail.Text.Equals(emails[i].Email))
+                {
+                    emails[i].Email = txtEmail.Text;
+                    ContactEmail.EditEmail(connectionString, emails[i]);
+                }
+                i++;
+            }
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
+        }
+        protected void hdnBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
