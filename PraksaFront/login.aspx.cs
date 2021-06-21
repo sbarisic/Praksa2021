@@ -28,6 +28,10 @@ namespace PraksaFront
             Response.Redirect("About.aspx");
 
         }
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registration.aspx");
+        }
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("About.aspx");
