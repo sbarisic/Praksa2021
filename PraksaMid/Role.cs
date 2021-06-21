@@ -28,8 +28,9 @@ namespace PraksaMid
                 {
                     RoleModel role = new RoleModel()
                     {
-                        Id = Convert.ToInt32(dr["ID"]),
-                        Name = dr["Uloga"].ToString()
+                        Id = Convert.ToInt32(dr["ID Uloge"]),
+                        IdName = Convert.ToInt32(dr["ID Naziva Uloge"]),
+                        Name = dr["Naziv Uloga"].ToString()
                     };
 
                     roles.Add(role);
