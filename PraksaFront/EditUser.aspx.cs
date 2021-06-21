@@ -15,6 +15,7 @@ namespace PraksaFront
         protected string permitUrl = "";
         protected string emailUrl = "";
         protected string numberUrl = "";
+        protected string roleUrl = "";
         protected List<RoleModel> roleList = new List<RoleModel>(); 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -147,6 +148,11 @@ namespace PraksaFront
             numberUrl = "EditUserNumber.aspx?userId=" + userId;
             System.Diagnostics.Debug.WriteLine(emailUrl);
             numberPopupExtender.Show();
+        }
+        protected void btnAddRole_click(object sender, EventArgs e)
+        {
+            roleUrl = "About.aspx";
+            rolePopupExtender.Show();
         }
         protected void LoadOwnedRoles()
         {

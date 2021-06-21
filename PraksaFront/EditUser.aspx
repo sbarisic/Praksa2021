@@ -10,8 +10,8 @@
     <form id="form1" runat="server">
         <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:HiddenField ID="hdnField" runat="server" />        <asp:HiddenField ID="hdnField2" runat="server" /><asp:HiddenField ID="hdnField3" runat="server" />
-
+        <asp:HiddenField ID="hdnField" runat="server" /><asp:HiddenField ID="hdnField2" runat="server" /><asp:HiddenField ID="hdnField3" runat="server" />
+        <asp:HiddenField ID="hdnField4" runat="server" />
         <!--EDIT/ADD PERMIT-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
@@ -33,6 +33,14 @@
         <asp:Panel ID="Panl4" runat="server" CssClass="Popup" align="center" Style="display: none">
                 <iframe ID="numberFrame" src="<%= numberUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose3" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
+        </asp:Panel>
+
+        <!--EDIT/ADD ROLE-->
+        <cc1:ModalPopupExtender BehaviorID="rolePopupExtender" ID="rolePopupExtender" runat="server" PopupControlID="Panl5" 
+        TargetControlID="hdnField4" CancelControlID="ButtonClose4" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
+        <asp:Panel ID="Panl5" runat="server" CssClass="Popup" align="center" Style="display: none">
+                <iframe ID="numberFrame" src="<%= roleUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <asp:Button ID="ButtonClose4" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
         </asp:Panel>
 
         <div class="card-header">
@@ -122,8 +130,8 @@
                         <tr> 
                             <th width="150px">
                                <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label><br>
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
-                                onclientclick="return setPermitFrame()" ID="BtnAddRole" runat="server" Text="Dodaj" />
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Dodaj"
+                                 OnClick="btnAddRole_click" />
                             </th>
                             <td>
                             <asp:Repeater ID="RoleRepeater" runat="server">
@@ -171,6 +179,9 @@
     }
     function hideEditModalPopup() {
         $find("ModalPopupExtender1").hide();
+        $find("emailPopupExtender").hide();
+        $find("numberPopupExtender").hide();
+        $find("rolePopupExtender").hide();
         document.getElementById("hdnBtn").click();
         return false;
     }
