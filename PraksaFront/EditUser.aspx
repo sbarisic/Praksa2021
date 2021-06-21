@@ -98,7 +98,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
-                                <asp:Button ID="btnEditEmail" runat="server" Text="Uredi" OnClick="btnEditEmail_click"></asp:Button>
+                                <asp:Button ID="btnEditEmail" CssClass="workButton" runat="server" Text="Uredi" OnClick="btnEditEmail_click"></asp:Button>
                             </th>
                             <th>
                                 <asp:Repeater ID="EmailRepeater" runat="server">
@@ -113,7 +113,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
-                                <asp:Button ID="btnEditNumber" runat="server" Text="Uredi" OnClick="btnEditNumber_click"></asp:Button>
+                                <asp:Button ID="btnEditNumber" CssClass="workButton" runat="server" Text="Uredi" OnClick="btnEditNumber_click"></asp:Button>
                             </th>
                             <th>
                                 <asp:Repeater ID="NumberRepeater" runat="server">
@@ -129,8 +129,8 @@
                         </tr>
                         <tr> 
                             <th width="150px">
-                               <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label><br>
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Dodaj"
+                               <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label>
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Uredi"
                                  OnClick="btnAddRole_click" />
                             </th>
                             <td>
@@ -145,9 +145,9 @@
                         </tr>
                         <tr>
                             <th width="150px">
-                                <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label><br>
+                                <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
                                 <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
-                                onclientclick="return setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Dodaj" />
+                                onclientclick="return setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Uredi" />
                             </th>
                             <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">

@@ -18,7 +18,6 @@
             <asp:Button ID="Button2" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();" />
         </asp:Panel>
 
-
         <!-- DOLAZNOST POPUP-->
         <asp:HiddenField ID="hdnField2" runat="server" />
         <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="Panl3" TargetControlID="hdnField2" CancelControlID="ButtonClose2" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
