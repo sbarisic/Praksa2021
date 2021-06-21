@@ -97,6 +97,7 @@
     <Content Include="AddUserEmail.aspx" />
     <Content Include="AddUserNumber.aspx" />
     <Content Include="content\css\loginStyle.css" />
+    <Content Include="content\Img\bjelovarBlur.jpg" />
     <Content Include="content\Img\paviljon.jpg" />
     <Content Include="EditUserEmail.aspx" />
     <Content Include="EditPermitName.aspx" />

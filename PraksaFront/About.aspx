@@ -5,11 +5,11 @@
     <link href="content/css/about.css" rel="stylesheet" />
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content CssClass="bgColor" ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form1" runat="server">
 
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/img/bjelovar.jpg') no-repeat; background-size:100%;">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/img/bjelovarBlur.jpg') no-repeat; background-size:100%;">
         <div class="p-lg-5 mx-auto my-5">
             <div style="width:100%; height:77px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));">
             <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
@@ -17,7 +17,7 @@
                 </div>
             
             <br />
-            <a style="background-color:#383c44; border:1px solid #28242c" class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
+            <a style="background-color:#448d4e; border:1px solid #26552d" class="btn btn-lg btn-block btn-primary" href="#about">O Nama</a>
         </div>
         <div class="product-device box-shadow d-none d-md-block"></div>
         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>

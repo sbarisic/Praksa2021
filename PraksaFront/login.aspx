@@ -26,9 +26,12 @@
         .login-wrap h3{
             color:#448d4e!important;
         }
+        .fontGreen{
+            color:#448d4e!important;
+        }
     </style>
 </head>
-<body style="background: url(content/Img/paviljon.jpg); background-size: 100%;">
+   <body style="background: url(content/Img/paviljon.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
     <form runat="server">
         <section class="ftco-section">
             <div class="container">
@@ -41,19 +44,25 @@
                             <h3 class="text-center mb-4">Prijavite se</h3>
                             <div action="#" class="login-form">
                                 <div class="form-group">
-                                    <asp:TextBox ID="txtEmail" CssClass="form-control rounded-left" runat="server" Placeholder="Email..."></asp:TextBox>
+                                    <asp:Label ID="Email" CssClass="fontGreen" runat="server" Text="Email"></asp:Label>
+                                    <asp:TextBox ID="txtEmail" CssClass="form-control rounded-left" runat="server" Placeholder="Email..." required="required"></asp:TextBox>
                                 </div>
-                                <div class="form-group d-flex">
-                                    <asp:TextBox ID="txtPassword" CssClass="form-control rounded-left" runat="server" TextMode="Password" Placeholder="Lozinka..."></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:Label ID="Label1" CssClass="fontGreen" runat="server" Text="Lozinka"></asp:Label>
+                                    <asp:TextBox ID="txtPassword" CssClass="form-control rounded-left" runat="server" TextMode="Password" Placeholder="Lozinka..." required="required"></asp:TextBox>
                                     <asp:Label ID="lblErrorMessage" runat="server" Text="Pogrešan unos korisničkih podataka" ForeColor="Red"></asp:Label>
                                 </div>
                                 <div class="form-group d-flex">
                                     <asp:Button ID="btnLogin" CssClass="form-control btn btn-primary submit px-3" runat="server" Text="Prijava" OnClick="btnLogin_Click" />
                                     <br /><br />
                                 </div>
+                                <div class="form-group d-flex">
+                                <asp:Button  ID="btnCancel" CssClass="form-control btn btn-primary submit px-3" UseSubmitBehavior="false" runat="server" Text="Odustani" OnClick="btnCancel_Click" />
+                                    <br /><br />
+                                </div>
                                 <div class="form-group">
                                     <br />
-                                    <asp:Button ID="btnRegister" CssClass="form-control btn btn-primary submit px-3" runat="server" Text="Registracija" OnClick="btnRegister_Click" />
+                                    <asp:Button ID="btnRegister" CssClass="form-control btn btn-primary submit px-3" runat="server" Text="Registracija" OnClick="btnRegister_Click" UseSubmitBehavior="false" />
                                 </div>
                             </div>
                         </div>
