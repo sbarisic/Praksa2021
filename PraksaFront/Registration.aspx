@@ -49,7 +49,10 @@
                         <tr>
                             <th>
                                 <asp:Label ID="Label5" runat="server" Text="Kontakt broj"></asp:Label></th>
-                            <td><asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Kontakt broj..." required="required"></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Kontakt broj..." required="required"></asp:TextBox>
+                                <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
+                                                ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
+                            </td>
                         </tr>
                         <tr>
                             <th>

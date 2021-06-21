@@ -103,7 +103,7 @@
                                     <ItemTemplate>
                                             <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server"></asp:TextBox>
                                             <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
-                                                ValidChars="+ " TargetControlID="txtPhoneNumber" />
+                                                ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
                                             <asp:Button CssClass="workButton" ID="BtnDeletePhoneNumber" runat="server" Text="x" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
                                     </ItemTemplate>
