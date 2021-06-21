@@ -95,6 +95,7 @@
     <Content Include="AboutUser.aspx" />
     <Content Include="AboutWork.aspx" />
     <Content Include="AddUserEmail.aspx" />
+    <Content Include="AddUserNumber.aspx" />
     <Content Include="EditUserEmail.aspx" />
     <Content Include="EditPermitName.aspx" />
     <Content Include="AddUserPermit.aspx" />
@@ -131,6 +132,7 @@
       <BrowseToURL>~/AdminPermitNames.aspx</BrowseToURL>
     </Content>
     <Content Include="content\css\radneAkcijeStyle.css" />
+    <Content Include="EditUserNumber.aspx" />
     <Content Include="EditWork.aspx" />
     <Content Include="RegistrationRequests.aspx" />
     <Content Include="RoleNames.aspx" />
@@ -164,6 +166,13 @@
     </Compile>
     <Compile Include="AddUserEmail.aspx.designer.cs">
       <DependentUpon>AddUserEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserNumber.aspx.cs">
+      <DependentUpon>AddUserNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUserNumber.aspx.designer.cs">
+      <DependentUpon>AddUserNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUserEmail.aspx.cs">
       <DependentUpon>EditUserEmail.aspx</DependentUpon>
@@ -265,6 +274,13 @@
     </Compile>
     <Compile Include="AdminPermitNames.aspx.designer.cs">
       <DependentUpon>AdminPermitNames.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserNumber.aspx.cs">
+      <DependentUpon>EditUserNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserNumber.aspx.designer.cs">
+      <DependentUpon>EditUserNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditWork.aspx.cs">
       <DependentUpon>EditWork.aspx</DependentUpon>

@@ -25,7 +25,7 @@
                     <asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="<%= url%>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
-                        <asp:Button ID="Button2" runat="server" Text="Zatvori" />
+                        <asp:Button ID="Button2" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
                     </asp:Panel>
                     
                     <!-- ADDWORK POPUP-->
@@ -33,7 +33,7 @@
                     <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="AddWork.aspx" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
-                        <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
+                        <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
                     </asp:Panel>
 
                     <!-- EDITWORK POPUP-->
@@ -41,7 +41,7 @@
                     <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
                         <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
-                        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Odustani" />
+                        <asp:Button ID="ButtonCloseEdit" runat="server" Text="Odustani" OnClientClick="hideEditModalPopup();"/>
                     </asp:Panel>
 
                     <!-- DOLAZNOST POPUP-->
@@ -50,7 +50,7 @@
                     <asp:Panel ID="Panl3" runat="server" CssClass="Popup" align="center" Style="display: none">
                          <iframe src="<%= AttendanceFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
                         <br />
-                        <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" />
+                        <asp:Button ID="ButtonClose2" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
                     </asp:Panel>
                 
                     <!-- WORK TABLE-->

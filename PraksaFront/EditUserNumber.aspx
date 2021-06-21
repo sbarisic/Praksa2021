@@ -1,7 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserEmail.aspx.cs" Inherits="PraksaFront.EditUserEmail" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserNumber.aspx.cs" Inherits="PraksaFront.EditUserNumber" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,13 +39,14 @@
     }
         </script>
         <div class="card-body">
+TEST
             <table class="dataTable-table table-striped">
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <asp:Repeater ID="EmailRepeater" runat="server">
+                <asp:Repeater ID="NumberRepeater" runat="server">
                     <ItemTemplate>
                         <tr>
                             <td>
-                                <asp:TextBox ID="txtEmail" Text='<%# Eval("Email") %>' runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtNumber" Text='<%# Eval("Number") %>' runat="server"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:Button ID="btnDel" runat="server" Text="Ukloni" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("Id") %>'/>
