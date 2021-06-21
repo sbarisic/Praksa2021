@@ -68,6 +68,7 @@ namespace PraksaMid
                     user.LastName = dr["Prezime"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
+                    user.RoleName = dr["Uloga"].ToString();
                 }
             }
             return user;
@@ -293,6 +294,27 @@ namespace PraksaMid
             {
                 throw ex;
             }
+        }
+
+        public static int GetUserId(string connectionString, string userEmail)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+
+            SqlCommand cmd = new SqlCommand("getIdUser", con)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@Email", userEmail));
+            cmd.Parameters.Add("@IdUser", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            var id = Convert.ToInt32(cmd.Parameters["@IdUser"].Value);
+            con.Close();
+
+            return id;
         }
     }
 }

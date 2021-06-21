@@ -49,17 +49,17 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             O nama
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" runat="server" id ="work">
                             <div class="sb-nav-link-icon"><i class="fas fa-handshake"></i></div>
                             Akcije
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="UserWork.aspx"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija (USER)</a>
-                                <a class="nav-link" href="UserCalendar.aspx"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar (USER)</a>
-                                <a class="nav-link" href="AdminWork.aspx"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija (ADMIN)</a>
-                                <a class="nav-link" href="Calendar.aspx"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar (ADMIN)</a>    
+                                <a class="nav-link" href="UserWork.aspx" runat="server" id ="userWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
+                                <a class="nav-link" href="UserCalendar.aspx" runat="server" id ="userCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>
+                                <a class="nav-link" href="AdminWork.aspx" runat="server" id ="adminWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>Lista akcija</a>
+                                <a class="nav-link" href="Calendar.aspx" runat="server" id ="adminCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>Kalendar</a>    
                             </nav>
                         </div>
                         
@@ -89,23 +89,23 @@
                                 </div>
                             </nav>
                         </div>
-                        <a class="nav-link" href="Users.aspx">
+                        <a class="nav-link" href="Users.aspx" id="users" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Korisnici
                         </a>
-                        <a class="nav-link" href="AdminPermitNames.aspx">
+                        <a class="nav-link" href="AdminPermitNames.aspx" id="permits" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-sticky-note"></i></div>
                             Dozvole
                         </a>
-                        <a class="nav-link" href="RegistrationRequests.aspx">
+                        <a class="nav-link" href="RegistrationRequests.aspx" id="regReq" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                             Zahtjevi registracije
                         </a>
-                        <a class="nav-link" href="DismissedUsers.aspx">
+                        <a class="nav-link" href="DismissedUsers.aspx" id="disUsers" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user-minus"></i></div>
                             Zatvoreni korisnici
                         </a>
-                        <a class="nav-link" href="RoleNames.aspx">
+                        <a class="nav-link" href="RoleNames.aspx" id="roles" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Uloge
                         </a>
