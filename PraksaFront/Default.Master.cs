@@ -37,6 +37,10 @@ namespace PraksaFront
                     permits.Visible = true;
                     roles.Visible = true;
                     regReq.Visible = true;
+                    logout.Visible = true;
+                    login.Visible = false;
+                    register.Visible = false;
+
                     return;
                 }
             }
@@ -44,6 +48,10 @@ namespace PraksaFront
             work.Visible = true;
             userWork.Visible = true;
             userCalendar.Visible = true;
+            logout.Visible = true;
+            login.Visible = false;
+            register.Visible = false;
+
         }
 
         private void Start()
@@ -58,6 +66,9 @@ namespace PraksaFront
             permits.Visible = false;
             roles.Visible = false;
             regReq.Visible = false;
+            login.Visible = true;
+            register.Visible = true;
+            logout.Visible = false;
         }
     }
 }
