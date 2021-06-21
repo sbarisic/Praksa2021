@@ -112,9 +112,18 @@
                         </tr>
                         <tr> 
                             <th width="150px">
-                                <asp:Label ID="lblRole" runat="server" Text="Uloga"></asp:Label>
+                               <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label><br>
+                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
+                                onclientclick="return setPermitFrame()" ID="BtnAddRole" runat="server" Text="Dodaj" />
                             </th>
-                            <td ID="roleRow" runat="server">
+                            <td>
+                            <asp:Repeater ID="RoleRepeater" runat="server">
+                                    <ItemTemplate>
+                                            <%# Eval("Name")%>
+                                            <asp:Button CssClass="workButton" ID="BtnEditRole" runat="server" Text="x" 
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='' /><br>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </td>
                         </tr>
                         <tr>
@@ -139,30 +148,26 @@
                                 <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
                                 <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
                             </th>
-                        
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
         <script>
-            function setPermitFrame() {
-                var id = document.getElementById('<%= userIdField.ClientID %>').value;
-                document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + id;
-                $find('ModalPopupExtender1').show();
-                return false;
-            }
-    function hideEditModalPopup() {   
-                $find("ModalPopupExtender1").hide();
-                document.getElementById("hdnBtn").click();
-                return false;
-            }
+    function setPermitFrame() {
+        var id = document.getElementById('<%= userIdField.ClientID %>').value;
+        document.getElementById('permitFrame').src = "AddUserPermit.aspx?userId=" + id;
+        $find('ModalPopupExtender1').show();
+        return false;
+    }
+    function hideEditModalPopup() {
+        $find("ModalPopupExtender1").hide();
+        document.getElementById("hdnBtn").click();
+        return false;
+    }
 
         </script>
     </form>
 </asp:Content>
-
-
-
 
 

@@ -284,6 +284,7 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
+        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
 
         /// <summary>
         /// BtnSubmit control.
@@ -312,5 +313,6 @@ namespace PraksaFront
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCancel;
         protected global::System.Web.UI.WebControls.Button btnEditEmail;
+        protected global::System.Web.UI.WebControls.Button BtnEditRole;
     }
 }
