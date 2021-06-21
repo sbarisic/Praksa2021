@@ -56,7 +56,7 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <tr>
-                    <td colspan="2" style="text-align:center;">
+                    <td colspan="2">
                         <asp:Button ID="PopupBtn" runat="server" Text="+" />
                         <cc1:ModalPopupExtender BehaviorID="AddPopup" ID="AddPopup" runat="server" PopupControlID="Panl2" TargetControlID="PopupBtn"
                             CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
