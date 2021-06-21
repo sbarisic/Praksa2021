@@ -45,8 +45,8 @@
         <header>
             <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/img/bjelovarBlur.jpg') no-repeat; background-size: 100%; border-radius: 0 0 95% 95% / 10%;">
                 <div class="p-lg-5 mx-auto my-5">
-                    <div style="width: 100%; height: 77px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));">
-                        <h1 class="display-4 font-weight-normal">Bjelovarska Udruga</h1>
+                    <div style="width: 100%; height: 77px; background-image: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,.9), rgba(255,255,255,1),rgba(255,255,255,.9), rgba(255,255,255,0));">
+                        <h1 class="display-4 font-weight-normal" style="color:#448d4e; text-shadow: 1px 1px 2px #2c6333;">Bjelovarska Udruga</h1>
                     </div>
                     <br />
                 </div>
