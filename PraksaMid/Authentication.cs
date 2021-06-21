@@ -26,7 +26,7 @@ namespace PraksaMid
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                int returnValue = Convert.ToInt32(cmd.Parameters["@ReturnValue"].Value);
+                var returnValue = Convert.ToInt32(cmd.Parameters["@ReturnValue"].Value);
                 con.Close();
 
                 return returnValue;
