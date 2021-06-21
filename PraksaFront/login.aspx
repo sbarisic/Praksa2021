@@ -44,12 +44,12 @@
                             <h3 class="text-center mb-4">Prijavite se</h3>
                             <div action="#" class="login-form">
                                 <div class="form-group">
-                                    <asp:Label ID="Email" CssClass="fontGreen" runat="server" Text="Email"></asp:Label>
+                                    <asp:Label ID="Email" CssClass="fontGreen" runat="server" Text="E-pošta"></asp:Label>
                                     <asp:TextBox ID="txtEmail" CssClass="form-control rounded-left" runat="server" Placeholder="Email..." required="required"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <asp:Label ID="Label1" CssClass="fontGreen" runat="server" Text="Lozinka"></asp:Label>
-                                    <asp:TextBox ID="txtPassword" CssClass="form-control rounded-left" runat="server" TextMode="Password" Placeholder="Lozinka..." required="required"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" CssClass="form-control rounded-left" runat="server" TextMode="Password" Placeholder="Password..." required="required"></asp:TextBox>
                                     <asp:Label ID="lblErrorMessage" runat="server" Text="Pogrešan unos korisničkih podataka" ForeColor="Red"></asp:Label>
                                 </div>
                                 <div class="form-group d-flex">

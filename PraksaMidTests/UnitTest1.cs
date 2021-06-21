@@ -8,18 +8,18 @@ namespace PraksaMidTests
     [TestClass]
     public class UnitTest1
     {
-        var database;
+        
 
         [TestInitialize]
         public void Setup()
         {
-            database = database();
+            
         }
 
         [TestCleanup]
         public void Teardown()
         {
-            database = null;
+            
         }
 
         [TestMethod]
@@ -39,6 +39,138 @@ namespace PraksaMidTests
 
         [TestMethod]
         public void TestLoginIsNotSuccessful()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetAttendants()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetPasswordSalt()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetContactEmail()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetEmail()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetContactNumbers()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetStringToByteArray()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetByteArrayToString()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGenerateSalt()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestHashPassword()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestIsValidPassword()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetPermits()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetPermitNames()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetGetPermitName()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetUsers()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetUser()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetRegistartionsRequestUser()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetDismissedUsers()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetRoles()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetRoleNames()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetRoleName()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetWorks()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestGetWork()
         {
 
         }
