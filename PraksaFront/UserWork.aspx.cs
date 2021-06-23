@@ -47,19 +47,21 @@ namespace PraksaFront
 
         private void Attendance(int Idjob, int interes)
         {
-            int id = Person.GetUserId(connectionString, (string)Session["uname"]);
+            int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
 
             AttendantModel attendant = new AttendantModel
             {
                 IdJob = Convert.ToInt32(Idjob),
                 IdInteres = interes,
-                IdUser = id
+                IdUser = iduser,
+                IdAttendance = 1
             };
 
-            AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, id);
+            AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, iduser);
+
             if (att.Id != 0)
             {
-                attendant.IdAttendance = att.Id;
+                attendant.Id = att.Id;
                 Attendant.EditAttendant(connectionString, attendant);
             }
             else
