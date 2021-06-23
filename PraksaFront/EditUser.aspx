@@ -7,7 +7,7 @@
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
         <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:HiddenField ID="hdnField" runat="server" /><asp:HiddenField ID="hdnField2" runat="server" /><asp:HiddenField ID="hdnField3" runat="server" />
@@ -187,7 +187,7 @@
     }
 
         </script>
-    </form>
+    </div>
 </asp:Content>
 
 

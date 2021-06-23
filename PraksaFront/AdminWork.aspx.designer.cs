@@ -15,15 +15,6 @@ namespace PraksaFront
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -157,15 +148,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panl3;
-
-        /// <summary>
-        /// attendanceRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater attendanceRepeater;
 
         /// <summary>
         /// ButtonClose2 control.

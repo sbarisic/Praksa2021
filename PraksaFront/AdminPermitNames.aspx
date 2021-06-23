@@ -23,7 +23,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
         <script>
     function hideEditModalPopup() {
         $find("ModalPopupExtender1").hide();
@@ -83,5 +83,5 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </div>
 </asp:Content>

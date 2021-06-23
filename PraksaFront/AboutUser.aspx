@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="content/css/home.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
         <div class="card-header">
             <h1>
                 <asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
@@ -102,5 +102,5 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </asp:Content>

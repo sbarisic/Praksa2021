@@ -6,7 +6,7 @@
     <link href="content/css/home.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
         <script>
             function hideEditModalPopup() {
                 $find("ModalPopupExtender2").hide();
@@ -104,5 +104,5 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </div>
 </asp:Content>

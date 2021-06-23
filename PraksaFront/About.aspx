@@ -41,7 +41,7 @@
 
 <asp:Content CssClass="bgColor" ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form id="form1" runat="server">
+    <div>
         <header>
             <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/img/bjelovarBlur.jpg') no-repeat; background-size: 100%; border-radius: 0 0 95% 95% / 10%;">
                 <div class="p-lg-5 mx-auto my-5">
@@ -118,5 +118,5 @@ U rad udruge kao potpora uključuju se i lokalni mještani kako bi zajedničkim 
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </asp:Content>
