@@ -92,11 +92,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.aspx" />
     <Content Include="AboutUser.aspx" />
     <Content Include="AboutWork.aspx" />
     <Content Include="AddUserEmail.aspx" />
     <Content Include="AddUserNumber.aspx" />
     <Content Include="content\css\loginStyle.css" />
+    <Content Include="content\css\style.css" />
     <Content Include="content\Img\bjelovarBlur.jpg" />
     <Content Include="content\Img\bjHeader.jpg" />
     <Content Include="content\Img\paviljon.jpg" />
@@ -152,6 +154,13 @@
     <Content Include="Registration.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AboutUser.aspx.cs">
       <DependentUpon>AboutUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
