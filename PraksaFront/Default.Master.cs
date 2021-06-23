@@ -22,7 +22,7 @@ namespace PraksaFront
             {
                 int id = Person.GetUserId(connectionString, lnkuname.Text);
                 lnkuname.PostBackUrl = "EditUser.aspx?userId=" + id;
-                userRoles = Role.GetRoles(connectionString, id);
+                //
                 Show();
             }
         }
@@ -32,25 +32,22 @@ namespace PraksaFront
 
         private void Show()
         {
-            foreach (RoleModel role in userRoles)
+            if (Session["admin"].Equals("true"))
             {
-                if (role.Name == "Admin")
-                {
-                    users.Visible = true;
-                    work.Visible = true;
-                    adminCalendar.Visible = true;
-                    adminWork.Visible = true;
-                    disUsers.Visible = true;
-                    permits.Visible = true;
-                    roles.Visible = true;
-                    regReq.Visible = true;
-                    logout.Visible = true;
-                    login.Visible = false;
-                    register.Visible = false;
-                    pastWork.Visible = true;
+                users.Visible = true;
+                work.Visible = true;
+                adminCalendar.Visible = true;
+                adminWork.Visible = true;
+                disUsers.Visible = true;
+                permits.Visible = true;
+                roles.Visible = true;
+                regReq.Visible = true;
+                logout.Visible = true;
+                login.Visible = false;
+                register.Visible = false;
+                pastWork.Visible = true;
 
-                    return;
-                }
+                return;
             }
 
             work.Visible = true;

@@ -113,7 +113,7 @@ namespace PraksaMid
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("GetPermitName", con)
+            SqlCommand cmd = new SqlCommand("getPermitName", con)
             {
                 CommandType = CommandType.StoredProcedure
             };

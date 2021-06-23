@@ -18,8 +18,8 @@ namespace PraksaFront
         protected string roleUrl = "";
         protected List<RoleModel> roleList = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
-        {
-            roleList = Role.GetRoles(connectionString, userId);
+        {            
+            
             if (Request.QueryString["userId"] != "")
             {
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
@@ -27,6 +27,8 @@ namespace PraksaFront
             }
             else
                 Response.Redirect("Users.aspx");
+            roleList = Role.GetRoles(connectionString, userId);
+            EditRole();
             if (!IsPostBack)
             {
                 userIdField.Value = userId.ToString();
@@ -45,7 +47,7 @@ namespace PraksaFront
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
             EmailRepeater.DataBind();
 
-            RoleRepeater.DataSource = Role.GetRoles(connectionString, userId);
+            RoleRepeater.DataSource = roleList;
             RoleRepeater.DataBind();
 
             PersonModel user = Person.GetUser(connectionString, userId);
@@ -137,16 +139,20 @@ namespace PraksaFront
 
         private void EditRole()
         {
-            foreach (RoleModel role in Role.GetRoles(connectionString, userId))
+            if (Session["admin"].Equals("true"))
             {
-                if (role.Name != "Admin")
-                {
-                    RoleRepeater.Visible = false;
-                    lblRole.Visible = false;
-                    BtnAddRole.Visible = false;
-                }
+                RoleRepeater.Visible = true;
+                lblRole.Visible = true;
+                BtnAddRole.Visible = true;
 
             }
+            else
+            {
+                RoleRepeater.Visible = false;
+                lblRole.Visible = false;
+                BtnAddRole.Visible = false;
+            }
+
         }
     }
 }

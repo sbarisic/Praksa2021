@@ -4,7 +4,7 @@
    <head runat="server">
       <link rel="stylesheet" href="content/css/loginStyle.css" />
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <title>Prijava</title>
+      <title>Registracija</title>
       <style>
          body {
          font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
