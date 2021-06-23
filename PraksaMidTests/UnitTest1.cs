@@ -57,8 +57,15 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetAttendants()
         {
-            var result = Attendant.GetAttendants(connectionString, 1);
+            var result = Attendant.GetAttendants(connectionString, 7);
             Assert.IsTrue(result.Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGetAttendantsFailed()
+        {
+            var result = Attendant.GetAttendants(connectionString, 999);
+            Assert.AreEqual(0,result);
         }
 
         [TestMethod]
