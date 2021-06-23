@@ -8,10 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:Label ID="Label1" runat="server" Text="Logout successful."></asp:Label>
+    <div class="div1">
+        <asp:Label ID="Label1" runat="server" Text="Odjava uspješna!"></asp:Label>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/about.aspx">
-            You will redirect in 5 seconds. If you didnt, click here to redirect.</asp:HyperLink>
+            Preusmjeriti ćemo vas za 5 sekundi, ako ste govno nestrpljivo kliknite ovdje!.</asp:HyperLink>
     </div>
     </form>
 </body>
