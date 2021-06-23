@@ -1,5 +1,7 @@
 ﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
+using System.Collections.Generic;
 using System.Web.Configuration;
 
 namespace PraksaFront
@@ -24,6 +26,13 @@ namespace PraksaFront
             else if (rv == 2)
             {
                 Session["uname"] = txtEmail.Text;
+
+                List<RoleModel> roleList = Role.GetRoles(connectionString, Person.GetUserId(connectionString, txtEmail.Text));
+                foreach (RoleModel role in roleList)
+                {
+                    if (role.Name == "Admin")
+                        Session["admin"] = "true";
+                }
                 Response.Redirect("About.aspx");
             }
         }
