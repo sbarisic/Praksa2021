@@ -27,7 +27,7 @@
             <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                 <div class="dataTable-container">
                     <table class="dataTable-table table-striped">
-                <tr style="background-color:#93cff5;">
+                <tr style="background-color: #6bc277;">
                     <th width="200px"><asp:Label runat="server" Text="Radna Akcija"></asp:Label>
                     </th>
                     <th><asp:Label runat="server" Text="Opis"></asp:Label></th>
