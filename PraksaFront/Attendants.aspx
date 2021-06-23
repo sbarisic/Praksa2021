@@ -32,18 +32,33 @@
                                     <asp:Label runat="server" Text="Dolaznost"></asp:Label>
                                 </th>
                             </tr>
+
                             <asp:Repeater ID="attendanceRepeater" runat="server">
                                 <ItemTemplate>
                                     <tr>
-                                        <td><asp:Label runat="server" Text='<%# Eval ("UserFirstName")%>'></asp:Label></td>
-                                        <td><asp:Label runat="server" Text='<%# Eval ("UserLastName")%>'></asp:Label></td>
-                                        <td><asp:Label runat="server" Text='<%# Eval ("Interes")%>'></asp:Label></td>
-                                        <td><asp:Label runat="server" Text='<%# Eval ("SelectionTime")%>'></asp:Label></td>
-                                        <td><asp:Label runat="server" Text='<%# Eval ("Attendance")%>'></asp:Label> </td>
+                                        <td>
+                                            <asp:HiddenField ID="hdnUser" Value='<%# Eval ("IdUser")%>' runat="server" />
+                                            <asp:HiddenField ID="hdnInteres" Value='<%# Eval ("IdInteres")%>' runat="server" />
+                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval ("UserFirstName")%>'></asp:Label></td>
+                                        <td>
+                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval ("UserLastName")%>'></asp:Label></td>
+                                        <td>
+                                            <asp:Label ID="lblInteres" runat="server" Text='<%# Eval ("Interes")%>'></asp:Label></td>
+                                        <td>
+                                            <asp:Label ID="lblTime" runat="server" Text='<%# Eval ("SelectionTime")%>'></asp:Label></td>
+                                        <td>
+                                            <asp:Label ID="lblAttendance" runat="server" Text='<%# Eval ("Attendance")%>'></asp:Label>
+                                            <asp:RadioButtonList ID="AttendanceRadio" runat="server">
+                                                <asp:ListItem>Došao</asp:ListItem>
+                                                <asp:ListItem>Nije došao</asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
+
                         </table>
+                        <asp:Button ID="submitButton" OnClick="submitButton_Click" runat="server" Text="Button" />
                     </div>
                 </div>
             </div>
