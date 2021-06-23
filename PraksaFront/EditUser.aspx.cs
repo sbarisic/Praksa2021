@@ -49,8 +49,6 @@ namespace PraksaFront
             RoleRepeater.DataSource = Role.GetRoles(connectionString, userId);
             RoleRepeater.DataBind();
 
-            LoadOwnedRoles();
-
             PersonModel user = Person.GetUser(connectionString, userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
@@ -67,34 +65,6 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            foreach (RepeaterItem item in RoleRepeater.Items) //item = uloga
-            {
-                var checkbox = item.FindControl("roleCheckbox") as CheckBox;
-                var hdnId = item.FindControl("hdnId") as HiddenField;
-                RoleModel role = new RoleModel();
-
-                if (checkbox.Checked) //ako je oznacena dozvola
-                {
-                    if (!CheckRole(hdnId.Value)) // ako je oznacena dozvola i user nema tu dozvolu, dodaj ju
-                    {
-                        role.IdUser = userId;
-                        role.IdName = Convert.ToInt32(hdnId.Value);
-                        Role.CreateRole(connectionString, role);
-                    }
-                }
-                else
-                {
-                    if (CheckDeleteRole(hdnId.Value, item)) // ako nije oznacena uloga i user ju ima, makni ju
-                    {
-                        HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                        Role.DeleteRole(connectionString, Convert.ToInt32(hdn.Value));
-                    }
-                }
-
-            }
-
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
-
             PersonModel user = new PersonModel
             {
                 Id = userId,
@@ -108,6 +78,7 @@ namespace PraksaFront
 
             Person.EditUser(connectionString, user);
             Response.Redirect("Users.aspx");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
@@ -157,65 +128,6 @@ namespace PraksaFront
         {
             roleUrl = "EditUserRole.aspx?userId=" + userId;
             rolePopupExtender.Show();
-        }
-        protected void LoadOwnedRoles()
-        {
-            if (roleList.Count != 0)
-            {
-                foreach (RepeaterItem item in PermitRepeater.Items)
-                {
-                    var checkbox = item.FindControl("roleCheckbox") as CheckBox;
-                    var hdnId = item.FindControl("hdnId") as HiddenField;
-                    checkbox.Checked = CheckRole(hdnId.Value);
-                }
-            }
-        }
-
-        protected Boolean CheckRole(string strRole)
-        {
-            foreach (RoleModel role in roleList)
-            {
-                if (strRole.Equals(role.IdName.ToString()))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        protected Boolean CheckDeleteRole(string strRole, RepeaterItem item)
-        {
-            foreach (RoleModel role in roleList)
-            {
-                if (strRole.Equals(role.IdName.ToString()))
-                {
-
-                    HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                    hdn.Value = role.Id.ToString();
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        protected void RoleCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckBox chk = (CheckBox)sender;
-            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
-        }
-
-        private void EditRole()
-        {
-            int id = Person.GetUserId(connectionString, (string)Session["uname"]);
-            foreach (RoleModel role in Role.GetRoles(connectionString, id))
-            {
-                if (role.Name != "Admin")
-                {
-                    RoleRepeater.Visible = false;
-                    lblRole.Visible = false;
-                    BtnAddRole.Visible = false;
-                }
-            }
         }
     }
 }
