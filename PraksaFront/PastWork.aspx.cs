@@ -18,6 +18,8 @@ namespace PraksaFront
         protected string AttendanceFrameUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             if (!IsPostBack)
             {
                 LoadData();
@@ -26,7 +28,7 @@ namespace PraksaFront
 
         protected void LoadData()
         {
-            UserWorkList.DataSource = Work.GetWorks(connectionString); // <-- promijeniti u GetOld
+            UserWorkList.DataSource = Work.GetDoneWorks(connectionString);
             UserWorkList.DataBind();
         }
 
