@@ -89,7 +89,7 @@ namespace PraksaMid
                     cmd.Parameters.Add(new SqlParameter("@LastName", user.LastName));
                     cmd.Parameters.Add(new SqlParameter("@Adress", user.Address));
                     cmd.Parameters.Add(new SqlParameter("@OIB", user.Oib));
-                    cmd.Parameters.Add(new SqlParameter("@IdRole", user.IdRole));
+                    
 
                     con.Open();
                     cmd.ExecuteNonQuery();
