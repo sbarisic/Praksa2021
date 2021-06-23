@@ -96,6 +96,15 @@ namespace PraksaFront
         protected global::System.Web.UI.HtmlControls.HtmlAnchor adminCalendar;
 
         /// <summary>
+        /// pastWork control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor pastWork;
+
+        /// <summary>
         /// users control.
         /// </summary>
         /// <remarks>

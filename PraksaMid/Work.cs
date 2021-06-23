@@ -151,5 +151,40 @@ namespace PraksaMid
                 throw ex;
             }
         }
+
+        public static List<WorkModel> GetDoneWorks(string connectionString)
+        {
+            List<WorkModel> works = new List<WorkModel>();
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getDoneJobs", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    WorkModel work = new WorkModel
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Name = dr["Naziv akcije"].ToString(),
+                        Description = dr["Opis"].ToString(),
+                        Location = dr["Mjesto"].ToString(),
+                        Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d"),
+                        Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t"),
+                        Obligation = dr["Obaveznost"].ToString()
+                    };
+
+                    works.Add(work);
+
+                }
+            }
+            return works;
+        }
     }
 }
