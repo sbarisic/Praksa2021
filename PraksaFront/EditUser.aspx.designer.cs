@@ -15,15 +15,6 @@ namespace PraksaFront
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// hdnBtn control.
         /// </summary>
         /// <remarks>
@@ -51,6 +42,33 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.HiddenField hdnField;
 
         /// <summary>
+        /// hdnField2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnField2;
+
+        /// <summary>
+        /// hdnField3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnField3;
+
+        /// <summary>
+        /// hdnField4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnField4;
+
+        /// <summary>
         /// ModalPopupExtender1 control.
         /// </summary>
         /// <remarks>
@@ -58,9 +76,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
-        protected global::AjaxControlToolkit.ModalPopupExtender emailPopupExtender;
-        protected global::AjaxControlToolkit.ModalPopupExtender numberPopupExtender;
-        protected global::AjaxControlToolkit.ModalPopupExtender rolePopupExtender;
 
         /// <summary>
         /// Panl2 control.
@@ -79,6 +94,87 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonClose;
+
+        /// <summary>
+        /// emailPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender emailPopupExtender;
+
+        /// <summary>
+        /// Panl3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panl3;
+
+        /// <summary>
+        /// ButtonClose2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonClose2;
+
+        /// <summary>
+        /// numberPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender numberPopupExtender;
+
+        /// <summary>
+        /// Panl4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panl4;
+
+        /// <summary>
+        /// ButtonClose3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonClose3;
+
+        /// <summary>
+        /// rolePopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender rolePopupExtender;
+
+        /// <summary>
+        /// Panl5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panl5;
+
+        /// <summary>
+        /// ButtonClose4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonClose4;
 
         /// <summary>
         /// lblTitle control.
@@ -216,6 +312,15 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
+        /// btnEditEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditEmail;
+
+        /// <summary>
         /// EmailRepeater control.
         /// </summary>
         /// <remarks>
@@ -232,6 +337,15 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
+
+        /// <summary>
+        /// btnEditNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditNumber;
 
         /// <summary>
         /// NumberRepeater control.
@@ -252,13 +366,22 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Label lblRole;
 
         /// <summary>
-        /// roleRow control.
+        /// BtnAddRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell roleRow;
+        protected global::System.Web.UI.WebControls.Button BtnAddRole;
+
+        /// <summary>
+        /// RoleRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
 
         /// <summary>
         /// lblPermits control.
@@ -286,7 +409,6 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater PermitRepeater;
-        protected global::System.Web.UI.WebControls.Repeater RoleRepeater;
 
         /// <summary>
         /// BtnSubmit control.
@@ -314,7 +436,5 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCancel;
-        protected global::System.Web.UI.WebControls.Button btnEditEmail;
-        protected global::System.Web.UI.WebControls.Button BtnEditRole;
     }
 }

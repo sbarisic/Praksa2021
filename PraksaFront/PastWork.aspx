@@ -6,7 +6,7 @@
     <link href="content/css/home.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <div>
         <!-- LOKACIJA POPUP-->
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" Style="display: none;" OnClick="hdnBtn_Click" />
@@ -76,5 +76,5 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </asp:Content>

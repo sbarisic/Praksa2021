@@ -56,7 +56,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <body>
-      <form id="form1" runat="server">
+      <div>
          <asp:Label ID="jsonField" runat="server" Text='' Style="display: none"></asp:Label>
          <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
          <!--ADD WORK POPUP-->
@@ -82,7 +82,7 @@
          <input type="hidden" id="hdClient" runat="server" />
          
 <asp:Button runat="server" ID="hdnBtn" ClientIDMode="Static" Text="" style="display:none;" OnClick="hdnBtn_Click" />
-      </form>
+      </div>
       <script type="application/javascript">
          function addWork() {
              $find("ModalPopupExtender2").show();

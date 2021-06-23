@@ -15,15 +15,6 @@ namespace PraksaFront
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// jsonField control.
         /// </summary>
         /// <remarks>
@@ -58,7 +49,7 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender2;
-        protected global::AjaxControlToolkit.ModalPopupExtender EditModalPopupExtender;
+
         /// <summary>
         /// Panl2 control.
         /// </summary>
@@ -78,49 +69,49 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Button ButtonClose;
 
         /// <summary>
-        /// addEventName control.
+        /// hdnField2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addEventName;
+        protected global::System.Web.UI.WebControls.HiddenField hdnField2;
 
         /// <summary>
-        /// addEventDesc control.
+        /// lblEditID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addEventDesc;
+        protected global::System.Web.UI.WebControls.Label lblEditID;
 
         /// <summary>
-        /// addEventLoc control.
+        /// EditModalPopupExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addEventLoc;
+        protected global::AjaxControlToolkit.ModalPopupExtender EditModalPopupExtender;
 
         /// <summary>
-        /// addEventTime control.
+        /// EditPanl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addEventTime;
+        protected global::System.Web.UI.WebControls.Panel EditPanl;
 
         /// <summary>
-        /// addEventObligation control.
+        /// ButtonClose2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList addEventObligation;
+        protected global::System.Web.UI.WebControls.Button ButtonClose2;
 
         /// <summary>
         /// jsonDiv control.
@@ -139,5 +130,14 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdClient;
+
+        /// <summary>
+        /// hdnBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button hdnBtn;
     }
 }

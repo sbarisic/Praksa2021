@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form id="form1" runat="server">
+    <div>
         <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
             <h1>Zahtjevi registracije</h1>
         </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 
 
 </asp:Content>

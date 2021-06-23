@@ -14,10 +14,11 @@ namespace PraksaFront
         protected void Page_Load(object sender, EventArgs e)
         {
             Start();
-            lbluname.Text = (string)Session["uname"];
-            if (lbluname.Text != "")
+            lnkuname.Text = (string)Session["uname"];
+            if (lnkuname.Text != "")
             {
-                int id = Person.GetUserId(connectionString, lbluname.Text);
+                int id = Person.GetUserId(connectionString, lnkuname.Text);
+                lnkuname.PostBackUrl = "EditUser.aspx?userId=" + id;
                 userRoles = Role.GetRoles(connectionString, id);
                 Show();
             }
