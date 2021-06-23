@@ -29,7 +29,6 @@ namespace PraksaFront
                 Response.Redirect("Users.aspx");
             if (!IsPostBack)
             {
-                EditRole();
                 userIdField.Value = userId.ToString();
                 FillUserData();
             }
@@ -93,8 +92,14 @@ namespace PraksaFront
         }
         protected void BtnDeleteEmail_command(object sender, CommandEventArgs e)
         {
-            ContactEmail.DeleteEmail(connectionString, Convert.ToInt32(e.CommandArgument));
+            int status = ContactEmail.DeleteEmail(connectionString, Convert.ToInt32(e.CommandArgument));
+            System.Diagnostics.Debug.WriteLine(status + "<-- delete email status");
+            if (status == 1)
+            {
+                
+            }
             Response.Redirect(Request.RawUrl);
+
         }
 
         protected void BtnDeleteRole_command(object sender, CommandEventArgs e)

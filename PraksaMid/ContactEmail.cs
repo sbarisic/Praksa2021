@@ -87,7 +87,7 @@ namespace PraksaMid
             }
         }
 
-        public static void DeleteEmail(string connectionString, int idEmail)
+        public static int DeleteEmail(string connectionString, int idEmail)
         {
             try
             {
@@ -99,10 +99,13 @@ namespace PraksaMid
                     };
 
                     cmd.Parameters.Add(new SqlParameter("@IDEmail", idEmail));
+                    cmd.Parameters.Add("@ReturnValue", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     con.Open();
                     cmd.ExecuteNonQuery();
+                    int returnValue = Convert.ToInt32(cmd.Parameters["@ReturnValue"].Value);
                     con.Close();
+                    return returnValue;
                 }
             }
             catch (Exception ex)

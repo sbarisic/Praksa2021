@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="PraksaFront.EditUser" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Korisnik</title>
@@ -42,6 +41,7 @@
                 <iframe ID="numberFrame" src="<%= roleUrl %>" width="100%" height="500px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose4" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
         </asp:Panel>
+
 
         <div class="card-header">
             <h1><asp:Label ID="lblTitle" runat="server"></asp:Label></h1>
