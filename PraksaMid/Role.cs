@@ -73,8 +73,8 @@ namespace PraksaMid
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    cmd.Parameters.Add(new SqlParameter("@IdUser", role.IdUser));
-                    cmd.Parameters.Add(new SqlParameter("@Email", role.IdName));
+                    cmd.Parameters.Add(new SqlParameter("@IDuser", role.IdUser));
+                    cmd.Parameters.Add(new SqlParameter("@IDrole", role.IdName));
 
                     con.Open();
                     cmd.ExecuteNonQuery();

@@ -46,6 +46,7 @@
                         <tr>
                             <td>
                                 <asp:HiddenField ID="hdnField" Value='<%# Eval("Name") %>' runat="server" />
+                                <asp:HiddenField ID="hdnDelete" Value='' runat="server" />
                                 <asp:HiddenField ID="hdnId" Value='<%# Eval("Id") %>' runat="server" />
                                 <asp:CheckBox ID="roleChk" runat="server" Text='<%# Eval("Name")%>' AutoPostBack="true" /></td>
                         </tr>
