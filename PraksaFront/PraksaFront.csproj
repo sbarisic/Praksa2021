@@ -312,6 +312,7 @@
       <DependentUpon>EditWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\PasswordManager.cs" />
+    <Compile Include="Logic\SessionManager.cs" />
     <Compile Include="PastWork.aspx.cs">
       <DependentUpon>PastWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

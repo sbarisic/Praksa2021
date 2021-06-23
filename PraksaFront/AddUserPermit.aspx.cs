@@ -15,6 +15,8 @@ namespace PraksaFront
         protected List<PermitModel> permitList = new List<PermitModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
+
             userId = Convert.ToInt16(Request.QueryString["userId"]);
             permitList = Permit.GetPermits(connectionString, userId);
             if (!IsPostBack)

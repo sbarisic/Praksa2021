@@ -13,6 +13,8 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             _jsPostBackCall = ClientScript.GetPostBackEventReference(this, "RowClicked");
             if (!IsPostBack)
             {

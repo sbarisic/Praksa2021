@@ -12,7 +12,7 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Logic.SessionManager.See();
         }
 
         protected void AddButton_Click(object sender, EventArgs e)

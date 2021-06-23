@@ -1,9 +1,7 @@
-﻿using PraksaMid.Model;
-using PraksaMid;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +17,9 @@ namespace PraksaFront
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt16(Request.QueryString["userId"]);
+
+            Logic.SessionManager.Edit(userId);
+
             addUrl = "AddUserNumber.aspx?userId=" + userId.ToString();
             numbers = ContactNumber.GetContactNumbers(connectionString, userId);
             if (!IsPostBack)

@@ -16,16 +16,20 @@ namespace PraksaFront
         protected string emailUrl = "";
         protected string numberUrl = "";
         protected string roleUrl = "";
-        protected List<RoleModel> roleList = new List<RoleModel>(); 
+        protected List<RoleModel> roleList = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            roleList = Role.GetRoles(connectionString, userId); 
+            roleList = Role.GetRoles(connectionString, userId);
             if (Request.QueryString["userId"] != "")
+            {
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
+                Logic.SessionManager.Edit(userId);
+            }
             else
                 Response.Redirect("Users.aspx");
             if (!IsPostBack)
             {
+                EditRole();
                 userIdField.Value = userId.ToString();
                 FillUserData();
             }
@@ -63,7 +67,7 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-           foreach (RepeaterItem item in RoleRepeater.Items) //item = uloga
+            foreach (RepeaterItem item in RoleRepeater.Items) //item = uloga
             {
                 var checkbox = item.FindControl("roleCheckbox") as CheckBox;
                 var hdnId = item.FindControl("hdnId") as HiddenField;
@@ -198,6 +202,20 @@ namespace PraksaFront
         {
             CheckBox chk = (CheckBox)sender;
             RepeaterItem item = (RepeaterItem)chk.NamingContainer;
+        }
+
+        private void EditRole()
+        {
+            int id = Person.GetUserId(connectionString, (string)Session["uname"]);
+            foreach (RoleModel role in Role.GetRoles(connectionString, id))
+            {
+                if (role.Name != "Admin")
+                {
+                    RoleRepeater.Visible = false;
+                    lblRole.Visible = false;
+                    BtnAddRole.Visible = false;
+                }
+            }
         }
     }
 }

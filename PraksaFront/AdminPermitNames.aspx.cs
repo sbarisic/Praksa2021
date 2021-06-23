@@ -13,6 +13,8 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             if (!Page.IsPostBack)
             {
                 PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);

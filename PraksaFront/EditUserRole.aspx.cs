@@ -1,9 +1,7 @@
-﻿using System;
+﻿using PraksaMid;
 using PraksaMid.Model;
-using PraksaMid;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,6 +15,9 @@ namespace PraksaFront
         List<RoleModel> roles = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Logic.SessionManager.See();
+
             userId = Convert.ToInt16(Request.QueryString["userId"]);
             roles = Role.GetRoles(connectionString, userId);
             if (!IsPostBack)
@@ -48,7 +49,7 @@ namespace PraksaFront
         }
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            
+
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
