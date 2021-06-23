@@ -93,12 +93,15 @@ namespace PraksaFront
         protected void BtnDeleteEmail_command(object sender, CommandEventArgs e)
         {
             int status = ContactEmail.DeleteEmail(connectionString, Convert.ToInt32(e.CommandArgument));
-            System.Diagnostics.Debug.WriteLine(status + "<-- delete email status");
             if (status == 1)
             {
-                
+                Response.Write("<script>alert('Ne možete obrisati defaultni email.');</script>");
             }
-            Response.Redirect(Request.RawUrl);
+            else
+            {
+                Response.Redirect(Request.RawUrl);
+            }
+            
 
         }
 
