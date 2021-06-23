@@ -129,5 +129,19 @@ namespace PraksaFront
             roleUrl = "EditUserRole.aspx?userId=" + userId;
             rolePopupExtender.Show();
         }
+
+        private void EditRole()
+        {
+            foreach (RoleModel role in Role.GetRoles(connectionString, userId))
+            {
+                if (role.Name != "Admin")
+                {
+                    RoleRepeater.Visible = false;
+                    lblRole.Visible = false;
+                    BtnAddRole.Visible = false;
+                }
+
+            }
+        }
     }
 }
