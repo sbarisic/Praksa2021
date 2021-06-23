@@ -33,7 +33,7 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" id="login" runat="server" href="Login.aspx">Prijava</a></li>
                     <li><a class="dropdown-item" id="register" runat="server" href="Registration.aspx">Registriraj se</a></li>
-                    <li><a class="dropdown-item" id="logout" runat="server" href="Logout.aspx">Odjava</a></li>
+                    <li><a class="dropdown-item" id="logout" runat="server" href="Logout.aspx" >Odjava</a></li>
                     
                     
                         
@@ -117,9 +117,9 @@
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as :</div>
-                    <%--<asp:Label ID="lbluname" runat="server" Text="Label"></asp:Label>--%>
-                    <asp:LinkButton ID="lnkuname" runat="server" Text="Label"></asp:LinkButton>
+                    <div  class="small"></div>
+                    <asp:Label ID="loginas" runat="server" Text="Prijavljen kao:"></asp:Label>
+                    <asp:LinkButton ID="lnkuname" Font-Underline="false" style="color:#fff" runat="server" Text="Label"></asp:LinkButton>
                     
                 </div>
             </nav>
