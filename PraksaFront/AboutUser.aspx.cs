@@ -12,6 +12,7 @@ namespace PraksaFront
         protected int userId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
             if (Request.QueryString["userId"] != "")
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
             else

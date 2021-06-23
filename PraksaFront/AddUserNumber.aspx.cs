@@ -1,12 +1,8 @@
-﻿using PraksaMid.Model;
-using PraksaMid;
+﻿using PraksaMid;
+using PraksaMid.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
@@ -16,6 +12,7 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
             userId = Convert.ToInt16(Request.QueryString["userId"]);
         }
 

@@ -15,6 +15,8 @@ namespace PraksaFront
         protected string url;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
+
             if (Request.QueryString["workId"] != "")
                 workId = Convert.ToInt16(Request.QueryString["workId"]);
             else

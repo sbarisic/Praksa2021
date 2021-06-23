@@ -13,6 +13,8 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
+
             if (Request.QueryString["PermitNameID"] != "")
                 permitNameId = Convert.ToInt16(Request.QueryString["PermitNameID"]);
             else

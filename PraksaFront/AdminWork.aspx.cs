@@ -16,6 +16,8 @@ namespace PraksaFront
         protected string AttendanceFrameUrl;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             if (!Page.IsPostBack)
             {
                 GetWorks();

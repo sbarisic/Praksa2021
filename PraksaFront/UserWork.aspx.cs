@@ -16,6 +16,8 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
+
             if (!Page.IsPostBack)
             {
                 UserWorkList.DataSource = Work.GetWorks(connectionString);
@@ -53,14 +55,14 @@ namespace PraksaFront
                 IdInteres = interes,
                 IdUser = id
             };
-            
+
             AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, id);
             if (att.Id != 0)
             {
                 attendant.IdAttendance = att.Id;
                 Attendant.EditAttendant(connectionString, attendant);
             }
-            else 
+            else
                 Attendant.CreateAttendant(connectionString, attendant);
         }
 

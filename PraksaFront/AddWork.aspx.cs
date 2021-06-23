@@ -13,6 +13,8 @@ namespace PraksaFront
         string date = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             date = Request.QueryString["date"];
             System.Diagnostics.Debug.WriteLine(date);
             if (!IsPostBack)

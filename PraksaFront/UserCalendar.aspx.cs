@@ -12,6 +12,8 @@ namespace PraksaFront
         protected string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.All();
+
             if (!Page.IsPostBack)
             {
                 GetWork();

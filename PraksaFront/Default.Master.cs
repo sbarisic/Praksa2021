@@ -47,6 +47,7 @@ namespace PraksaFront
                     logout.Visible = true;
                     login.Visible = false;
                     register.Visible = false;
+                    pastWork.Visible = true;
 
                     return;
                 }
@@ -76,6 +77,7 @@ namespace PraksaFront
             login.Visible = true;
             register.Visible = true;
             logout.Visible = false;
+            pastWork.Visible = false;
         }
 
         

@@ -13,6 +13,8 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Logic.SessionManager.See();
+
             if (Request.QueryString["PermitNameID"] != "")
                 roleNameId = Convert.ToInt32(Request.QueryString["roleNameID"]);
             else

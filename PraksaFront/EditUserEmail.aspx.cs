@@ -2,8 +2,6 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +17,9 @@ namespace PraksaFront
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt16(Request.QueryString["userId"]);
+
+            Logic.SessionManager.Edit(userId);
+
             addUrl = "AddUserEmail.aspx?userId=" + userId.ToString();
             emails = ContactEmail.GetContactEmails(connectionString, userId);
             if (!IsPostBack)
@@ -36,7 +37,7 @@ namespace PraksaFront
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             int i = 0;
-            foreach(RepeaterItem item in EmailRepeater.Items)
+            foreach (RepeaterItem item in EmailRepeater.Items)
             {
                 TextBox txtEmail = (TextBox)item.FindControl("txtEmail");
                 if (!txtEmail.Text.Equals(emails[i].Email))
