@@ -17,15 +17,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <style>
         .nav a{
-            color:#6bc277!important;
-        }
 
+        }
+        .navItem{
+            color:#6bc277!important;
+            font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: small-caps;
+            font-weight: 200;
+            line-height: 26.4px;
+        }
     </style>
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" style="color:#6bc277!important;">Udruga</a>
+        <a class="navbar-brand ps-3 navItem" style="color:#6bc277!important; font-size:22px;">Bjelovarska Udruga</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars" style="color:#6bc277!important;"></i></button>
         <div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -54,22 +62,22 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading"></div>
-                        <a class="nav-link" href="About.aspx">
+                        <a class="nav-link navItem" href="About.aspx">
                             <div class="sb-nav-link-icon"><i class="fas fa-home" style="color:#6bc277!important;"></i></div>
-                            O nama
+                            o nama
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" runat="server" id ="work">
+                        <a class="nav-link collapsed navItem" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" runat="server" id ="work">
                             <div class="sb-nav-link-icon"><i class="fas fa-handshake" style="color:#6bc277!important;"></i></div>
-                            Akcije
+                            akcije
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="UserWork.aspx" runat="server" id ="userWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"style="color:#6bc277!important;"></i></div>Lista akcija</a>
-                                <a class="nav-link" href="UserCalendar.aspx" runat="server" id ="userCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>Kalendar</a>
-                                <a class="nav-link" href="AdminWork.aspx" runat="server" id ="adminWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"style="color:#6bc277!important;"></i></div>Lista akcija</a>
-                                <a class="nav-link" href="Calendar.aspx" runat="server" id ="adminCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>Kalendar</a>    
-                                <a class="nav-link" href="PastWork.aspx" runat="server" id ="pastWork"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>Prošle akcije</a>    
+                                <a class="nav-link navItem" href="UserWork.aspx" runat="server" id ="userWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"style="color:#6bc277!important;"></i></div>lista akcija</a>
+                                <a class="nav-link navItem" href="UserCalendar.aspx" runat="server" id ="userCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>kalendar</a>
+                                <a class="nav-link navItem" href="AdminWork.aspx" runat="server" id ="adminWork"><div class="sb-nav-link-icon"><i class="fas fa-list-alt"style="color:#6bc277!important;"></i></div>lista akcija</a>
+                                <a class="nav-link navItem" href="Calendar.aspx" runat="server" id ="adminCalendar"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>kalendar</a>    
+                                <a class="nav-link navItem" href="PastWork.aspx" runat="server" id ="pastWork"><div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"style="color:#6bc277!important;"></i></div>prošle akcije</a>    
                             </nav>
                         </div>
                         
@@ -99,25 +107,25 @@
                                 </div>
                             </nav>
                         </div>
-                        <a class="nav-link" href="Users.aspx" id="users" runat="server">
+                        <a class="nav-link navItem" href="Users.aspx" id="users" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-users" style="color:#6bc277!important;"></i></div>
-                            Korisnici
+                            korisnici
                         </a>
-                        <a class="nav-link" href="AdminPermitNames.aspx" id="permits" runat="server">
+                        <a class="nav-link navItem" href="AdminPermitNames.aspx" id="permits" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-sticky-note" style="color:#6bc277!important;"></i></div>
-                            Dozvole
+                            dozvole
                         </a>
-                        <a class="nav-link" href="RegistrationRequests.aspx" id="regReq" runat="server">
+                        <a class="nav-link navItem" href="RegistrationRequests.aspx" id="regReq" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user-plus" style="color:#6bc277!important;"></i></div>
-                            Zahtjevi registracije
+                            zahtjevi registracije
                         </a>
-                        <a class="nav-link" href="DismissedUsers.aspx" id="disUsers" runat="server">
+                        <a class="nav-link navItem" href="DismissedUsers.aspx" id="disUsers" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user-minus" style="color:#6bc277!important;"></i></div>
-                            Zatvoreni korisnici
+                            zatvoreni korisnici
                         </a>
-                        <a class="nav-link" href="RoleNames.aspx" id="roles" runat="server">
+                        <a class="nav-link navItem" href="RoleNames.aspx" id="roles" runat="server">
                             <div class="sb-nav-link-icon"><i class="fas fa-user" style="color:#6bc277!important;"></i></div>
-                            Uloge
+                            uloge
                         </a>
                         
                     </div>
