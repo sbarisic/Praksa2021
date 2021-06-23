@@ -12,7 +12,7 @@ namespace PraksaFront
         private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Logic.SessionManager.See();
+            Logic.SessionManager.All();
             userId = Convert.ToInt16(Request.QueryString["userId"]);
         }
 
