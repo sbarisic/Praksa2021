@@ -4,6 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <title>Dozvole</title>
     <style>
     .Popup {
         background-color: #FFFFFF;

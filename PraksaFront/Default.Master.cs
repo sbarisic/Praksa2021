@@ -46,6 +46,7 @@ namespace PraksaFront
                 login.Visible = false;
                 register.Visible = false;
                 pastWork.Visible = true;
+                loginas.Visible = true;
 
                 return;
             }

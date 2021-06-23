@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="content/css/radneAkcijeStyle.css" />
     <link rel="stylesheet" href="content/css/home.css" />
+    <title>Zahtjevi registracije</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

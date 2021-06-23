@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <title>Uloge</title>
     <style>
         .Popup {
             background-color: #FFFFFF;

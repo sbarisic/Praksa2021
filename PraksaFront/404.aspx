@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>404 HTML Template by Colorlib</title>
+    <title>404 error</title>
 
     <style id="" media="all">
         /* latin */

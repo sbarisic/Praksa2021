@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="EditUser.aspx.cs" Inherits="PraksaFront.EditUser" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Korisnik</title>
+    <title>Uredi korisnika</title>
     <link rel="stylesheet" href="content/css/home.css" />
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
 </asp:Content>
