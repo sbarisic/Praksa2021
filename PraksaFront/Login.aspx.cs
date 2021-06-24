@@ -38,6 +38,7 @@ namespace PraksaFront
                     }
                 }
                 Session["admin"] = "false";
+                Response.Redirect("About.aspx");
             }
         }
         protected void btnRegister_Click(object sender, EventArgs e)

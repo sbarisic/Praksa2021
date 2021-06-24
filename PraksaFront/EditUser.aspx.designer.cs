@@ -22,7 +22,7 @@ namespace PraksaFront
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button hdnBtn;
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl messagePopup;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorRole;
         protected global::System.Web.UI.HtmlControls.HtmlButton messageBtn;
 
         /// <summary>

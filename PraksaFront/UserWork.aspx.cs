@@ -20,22 +20,65 @@ namespace PraksaFront
 
             if (!Page.IsPostBack)
             {
-                UserWorkList.DataSource = Work.GetWorks(connectionString);
-                UserWorkList.DataBind();
+                LoadData();
+            }
+        }
+
+        void LoadData()
+        {
+            UserWorkList.DataSource = Work.GetWorks(connectionString);
+            UserWorkList.DataBind();
+            SelectAttendanceButton();
+        }
+
+        private void SelectAttendanceButton()
+        {
+            foreach(RepeaterItem item in UserWorkList.Items)
+            {
+                HiddenField hdn = (HiddenField)item.FindControl("hdnId");
+                Button yesButton = (Button)item.FindControl("yesButton");
+                Button noButton = (Button)item.FindControl("noButton");
+                Button maybeButton = (Button)item.FindControl("maybeButton");
+                int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
+                int workId = Convert.ToInt32(hdn.Value);
+                AttendantModel att = Attendant.GetAttendant(connectionString, workId, iduser);
+                System.Diagnostics.Debug.WriteLine("work id - " + workId + "Id user" + iduser + " || idInteres " + att.IdInteres);
+
+                switch (att.IdInteres)
+                {
+                    case 1:
+                        noButton.BackColor = System.Drawing.Color.LimeGreen;
+                        maybeButton.BackColor = System.Drawing.Color.White;
+                        yesButton.BackColor = System.Drawing.Color.White;
+                        break;
+                    case 2:
+                        maybeButton.BackColor = System.Drawing.Color.LimeGreen;
+                        noButton.BackColor = System.Drawing.Color.White;
+                        yesButton.BackColor = System.Drawing.Color.White;
+                        break;
+                    case 3:
+                        yesButton.BackColor = System.Drawing.Color.LimeGreen;
+                        maybeButton.BackColor = System.Drawing.Color.White;
+                        noButton.BackColor = System.Drawing.Color.White;
+                        break;
+                }
             }
         }
 
         protected void yes_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 3);
+            SelectAttendanceButton();
         }
         protected void no_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 1);
+            SelectAttendanceButton();
         }
         protected void maybe_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 2);
+            SelectAttendanceButton();
         }
 
         protected void locButton_Click(object sender, EventArgs e)

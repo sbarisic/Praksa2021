@@ -35,7 +35,7 @@
         <!-- EDITUSERPERMIT POPUP-->
         <cc1:ModalPopupExtender BehaviorID="EditModalPopupExtender" ID="EditModalPopupExtender" runat="server" PopupControlID="EditPanl" TargetControlID="hdnField" CancelControlID="ButtonCloseEdit" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
         <asp:Panel ID="EditPanl" runat="server" CssClass="Popup" align="center" Style="display: none">
-        <iframe src="<%= EditFrameUrl %>" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="<%= EditFrameUrl %>" width="100%" height="150px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
         <br />
         <asp:Button ID="ButtonCloseEdit" runat="server" Text="Odustani" />
                     </asp:Panel>
@@ -45,7 +45,7 @@
         <!-- CLOSEUSERPERMIT-->
         <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender1" ID="ModalPopupExtender1" runat="server" PopupControlID="Panl2" TargetControlID="hdnField" CancelControlID="ButtonClose" BackgroundCssClass="Background"></cc1:ModalPopupExtender>
         <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
-                <iframe src="AddPermitName.aspx" width="100%" height="200px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="AddPermitName.aspx" width="100%" height="150px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
             <asp:Button ID="ButtonClose" runat="server" Text="Zatvori" />
         </asp:Panel>
         <asp:Button runat="server" ID="btnSample" ClientIDMode="Static" Text="" style="display:none;" OnClick="btnSample_Click" />

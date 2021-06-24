@@ -201,7 +201,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button yesButton;
 
         /// <summary>
         /// Button2 control.
@@ -210,7 +210,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button noButton;
 
         /// <summary>
         /// Button3 control.
@@ -219,6 +219,6 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button maybeButton;
     }
 }

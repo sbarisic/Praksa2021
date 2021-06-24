@@ -49,6 +49,7 @@
                                     <td><asp:Label runat="server" Text='<%# Eval ("Description")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval ("Date")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval ("Time")%>'></asp:Label></td>
+                                    <asp:HiddenField id="hdnId" Value='<%# Eval ("ID")%>' runat="server"></asp:HiddenField>
                             <td>
                                 <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
                             <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>

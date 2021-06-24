@@ -100,6 +100,7 @@
     <Content Include="content\css\loginStyle.css" />
     <Content Include="content\css\style.css" />
     <Content Include="content\Img\bjelovarBlur.jpg" />
+    <Content Include="content\Img\bjelovarGradient.gif" />
     <Content Include="content\Img\bjHeader.jpg" />
     <Content Include="content\Img\paviljon.jpg" />
     <Content Include="EditUserEmail.aspx" />
@@ -320,9 +321,7 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Logic\SessionManager.cs" />
-
     <Compile Include="PastWork.aspx.cs">
       <DependentUpon>PastWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -38,6 +38,7 @@ namespace PraksaFront
 
         private void FillUserData()
         {
+            errorRole.Visible = false;
             PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
             PermitRepeater.DataBind();
 
@@ -66,20 +67,21 @@ namespace PraksaFront
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            PersonModel user = new PersonModel
-            {
-                Id = userId,
-                IdRole = 2,
-                UniqueId = txtJmbc.Text,
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Address = txtAdress.Text,
-                Oib = txtOib.Text,
-            };
 
-            Person.EditUser(connectionString, user);
-            Response.Redirect("Users.aspx");
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
+                PersonModel user = new PersonModel
+                {
+                    Id = userId,
+                    IdRole = 2,
+                    UniqueId = txtJmbc.Text,
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Address = txtAdress.Text,
+                    Oib = txtOib.Text,
+                };
+
+                Person.EditUser(connectionString, user);
+                Response.Redirect("Users.aspx");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
@@ -109,8 +111,15 @@ namespace PraksaFront
 
         protected void BtnDeleteRole_command(object sender, CommandEventArgs e)
         {
-            Role.DeleteRole(connectionString, Convert.ToInt32(e.CommandArgument));
-            Response.Redirect(Request.RawUrl);
+            if (RoleRepeater.Items.Count > 1)
+            {
+                Role.DeleteRole(connectionString, Convert.ToInt32(e.CommandArgument));
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+            {
+                errorRole.Visible = true;
+            }
         }
         protected void BtnDeletePhoneNumber_command(object sender, CommandEventArgs e)
         {

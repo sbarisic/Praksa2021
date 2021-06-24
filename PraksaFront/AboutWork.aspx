@@ -101,9 +101,12 @@
                                 <asp:Label ID="Label12" runat="server" Text="Prisutnost"></asp:Label>
                             </th>
                             <td>
-                                <asp:Button ID="Button1" runat="server" Text="Dolazim" />
-                                <asp:Button ID="Button2" runat="server" Text="Ne dolazim" />
-                                <asp:Button ID="Button3" runat="server" Text="Mozda dolazim" />
+                                <asp:Button ID="yesButton" CssClass="workButton" runat="server" Text="Dolazim"
+                                    OnCommand="yes_Command" />
+                                <asp:Button ID="noButton" CssClass="workButton" runat="server" Text="Ne dolazim"
+                                    OnCommand="no_Command" />
+                                <asp:Button ID="maybeButton" CssClass="workButton" runat="server" Text="Mozda dolazim"
+                                    OnCommand="maybe_Command" />
                             </td>
                         </tr>
                     </table>
