@@ -36,9 +36,9 @@ namespace PraksaFront
             foreach(RepeaterItem item in UserWorkList.Items)
             {
                 HiddenField hdn = (HiddenField)item.FindControl("hdnId");
-                Button yesButton = (Button)item.FindControl("yesButton");
-                Button noButton = (Button)item.FindControl("noButton");
-                Button maybeButton = (Button)item.FindControl("maybeButton");
+                LinkButton yesButton = (LinkButton)item.FindControl("yesButton");
+                LinkButton noButton = (LinkButton)item.FindControl("noButton");
+                LinkButton maybeButton = (LinkButton)item.FindControl("maybeButton");
                 int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
                 int workId = Convert.ToInt32(hdn.Value);
                 AttendantModel att = Attendant.GetAttendant(connectionString, workId, iduser);
@@ -47,19 +47,19 @@ namespace PraksaFront
                 switch (att.IdInteres)
                 {
                     case 1:
-                        noButton.BackColor = System.Drawing.Color.LimeGreen;
-                        maybeButton.BackColor = System.Drawing.Color.White;
-                        yesButton.BackColor = System.Drawing.Color.White;
+                        noButton.BackColor = System.Drawing.Color.FromArgb(41, 194, 61);
+                        maybeButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
+                        yesButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
                         break;
                     case 2:
-                        maybeButton.BackColor = System.Drawing.Color.LimeGreen;
-                        noButton.BackColor = System.Drawing.Color.White;
-                        yesButton.BackColor = System.Drawing.Color.White;
+                        maybeButton.BackColor = System.Drawing.Color.FromArgb(41, 194, 61);
+                        noButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
+                        yesButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
                         break;
                     case 3:
-                        yesButton.BackColor = System.Drawing.Color.LimeGreen;
-                        maybeButton.BackColor = System.Drawing.Color.White;
-                        noButton.BackColor = System.Drawing.Color.White;
+                        yesButton.BackColor = System.Drawing.Color.FromArgb(41, 194, 61);
+                        maybeButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
+                        noButton.BackColor = System.Drawing.Color.FromArgb(68, 141, 78);
                         break;
                 }
             }
@@ -92,24 +92,23 @@ namespace PraksaFront
         {
             int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
 
-            AttendantModel att = Attendant.GetAttendantId(connectionString, idjob, iduser);
+            AttendantModel attendant = new AttendantModel
+            {
+                IdJob = idjob,
+                IdInteres = interes,
+                IdUser = iduser,
+                IdAttendance = 1
+            };
+
+            AttendantModel att = Attendant.GetAttendant(connectionString, idjob, iduser);
 
             if (att.Id != 0)
             {
-                att = Attendant.GetAttendant(connectionString, idjob, iduser);
-                att.IdInteres = interes;
-                Attendant.EditAttendant(connectionString, att);
+                attendant.Id = att.Id;
+                Attendant.EditAttendant(connectionString, attendant);
             }
             else
-            {
-                AttendantModel attendant = new AttendantModel
-                {
-                    IdJob = Convert.ToInt32(idjob),
-                    IdInteres = interes,
-                    IdUser = iduser
-                };
                 Attendant.CreateAttendant(connectionString, attendant);
-            }
         }
 
     }

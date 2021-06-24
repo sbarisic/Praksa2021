@@ -68,9 +68,9 @@
                                         <ItemTemplate>
                                             <tr>
                                                 <td><%# Eval("name")%></td>
-                                                <td>
-                                                    <asp:Button ID="btnEdit" CssClass="workButton" runat="server" Text="Uredi" OnCommand="BtnEdit_Command" CommandArgument='<%# Eval ("Id")%>' />
-                                                    <asp:Button CssClass="workButton" ID="BtnDelete" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDelete_Command" CommandArgument='<%# Eval("Id") %>' />
+                                                <td style="padding:20px 10px; width:190px;">
+                                                    <asp:LinkButton ID="btnEdit" CssClass="workButton" runat="server" Text="Uredi" OnCommand="BtnEdit_Command" CommandArgument='<%# Eval ("Id")%>' />
+                                                    <asp:LinkButton CssClass="workButton" ID="BtnDelete" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDelete_Command" CommandArgument='<%# Eval("Id") %>' />
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
@@ -81,8 +81,8 @@
                     </div>
                 </td>
                 <td>
-                    <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Dodaj ulogu" />
+                    <div style="padding:20px 10px; width:150px;">
+                        <asp:LinkButton CssClass="workButton" ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Dodaj ulogu" />
                     </div>
                 </td>
             </tr>

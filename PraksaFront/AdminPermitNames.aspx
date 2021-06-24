@@ -67,8 +67,8 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("name")%></td>
-                                    <td><asp:Button ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("Id")%>' />
-                                        <asp:Button CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("Id") %>'/></td>
+                                    <td style="padding:20px 10px; width:190px;"><asp:LinkButton ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("Id")%>' />
+                                        <asp:LinkButton CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("Id") %>'/></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -78,8 +78,8 @@
         </div>
                 </td>
                 <td>
-                    <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu"/>
+                    <div style="padding:20px 10px; width:180px;">
+                        <asp:LinkButton CssClass="workButton" ID="addPermitBtn" OnClick="addPermitBtn_Click" runat="server" Text="Dodaj dozvolu"/>
                     </div>
                 </td>
             </tr>

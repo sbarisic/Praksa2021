@@ -5,6 +5,7 @@
     <link href="content/css/radneAkcijeStyle.css" rel="stylesheet" />
     <link href="content/css/home.css" rel="stylesheet" />
     <title>Radne akcije</title>
+     <script src="https://kit.fontawesome.com/b40024ebd6.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
@@ -28,7 +29,7 @@
                         <br />
                         <asp:Button ID="Button2" runat="server" Text="Zatvori" OnClientClick="hideEditModalPopup();"/>
                     </asp:Panel>
-                    
+
                     <!-- ADDWORK POPUP-->
                     <cc1:ModalPopupExtender BehaviorID="ModalPopupExtender2" ID="ModalPopupExtender2" runat="server" PopupControlID="Panl2" TargetControlID="addWorkButton" CancelControlID="ButtonClose" BackgroundCssClass="Background"> </cc1:ModalPopupExtender>
                     <asp:Panel ID="Panl2" runat="server" CssClass="Popup" align="center" Style="display: none">
@@ -69,7 +70,7 @@
                                         <th><asp:Label runat="server" Text="Vrijeme"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Lokacija"></asp:Label></th>
                                         <th><asp:Label runat="server" Text="Obveznost"></asp:Label></th>
-                                        <th></th><th></th>
+                                        <th width="200px;"></th><th width="140px"></th>
                                     </tr>
                                     <asp:Repeater ID="UserWorkList" runat="server">
                                         <ItemTemplate>
@@ -79,15 +80,15 @@
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Date")%>'></asp:Label></td>
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Time")%>'></asp:Label></td>
                                                 <td>
-                                                    <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
+                                                    <asp:LinkButton CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
                                                 </td>
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
-                                                <td>
-                                                    <asp:Button ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
-                                                    <asp:Button ID="deleteButton" CssClass="workButton" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" runat="server" Text="Zatvori" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                <td style="padding:20px 10px;">
+                                                    <asp:LinkButton ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                    <asp:LinkButton ID="deleteButton" CssClass="workButton" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" runat="server" Text="Zatvori" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                 </td>
-                                                <td>
-                                                    <asp:Button ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                <td style="padding:20px 10px;">
+                                                    <asp:LinkButton ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
@@ -99,8 +100,8 @@
                 </td>
 
                 <td>
-                    <div style="padding: 20px;">
-                        <asp:Button CssClass="workButton" ID="addWorkButton" runat="server" Text="Dodaj akciju" />
+                    <div style="padding: 10px; width:180px;">
+                        <asp:LinkButton CssClass="workButton" ID="addWorkButton" runat="server" Text="Dodaj akciju" />
                     </div>
                 </td>
             </tr>

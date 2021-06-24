@@ -62,9 +62,9 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("Number")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("Uniqueid")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
-                                    <td>
-                                        <asp:Button CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
-                                        <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
+                                    <td style="padding:20px 10px; width:190px;">
+                                        <asp:LinkButton CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
+                                        <asp:LinkButton CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
                                     </td>
                                 </tr>
                             </ItemTemplate>

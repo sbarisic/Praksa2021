@@ -62,8 +62,8 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
                                     <td><asp:Label runat="server" Text='<%# Eval("Dismissed")%>'></asp:Label></td>
 
-                                    <td>
-                                        <asp:Button CssClass="workButton" ID="ActivateBtn" runat="server" Text="Aktiviraj" OnCommand="ActivateBtn_Command" CommandArgument='<%# Eval("id") %>' />
+                                    <td style="padding:20px 10px; width:150px;">
+                                        <asp:LinkButton CssClass="workButton" ID="ActivateBtn" runat="server" Text="Aktiviraj" OnCommand="ActivateBtn_Command" CommandArgument='<%# Eval("id") %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>

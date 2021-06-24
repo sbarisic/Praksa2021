@@ -67,8 +67,8 @@
                                     </td>
                                     <td>
                                         <asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
-                                    <td>
-                                        <asp:Button ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                    <td style="padding:20px 10px; width:150px;">
+                                        <asp:LinkButton ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
