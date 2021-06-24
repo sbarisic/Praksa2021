@@ -64,6 +64,22 @@ namespace PraksaMidTests
         }
 
         [TestMethod]
+        public void TestGetPasswordSalt()
+        {
+            var ExpectedPasswordSalt =  "60BCC43AF6549BE3E00BA05AA5AE7E6E";
+            var result = Authentication.GetPasswordSalt("user1@gmail.com");
+            Assert.AreEqual(ExpectedPasswordSalt, result);
+        }
+
+        [TestMethod]
+        public void TestGetPasswordSaltWrongEmail()
+        {
+            var ExpectedPasswordSalt = "60BCC43AF6549BE3E00BA05AA5AE7E6E";
+            var result = Authentication.GetPasswordSalt("FakeEmail@gmail.com");
+            Assert.AreNotEqual(ExpectedPasswordSalt, result);
+        }
+
+        [TestMethod]
         public void TestGetAttendants()
         {
             var result = Attendant.GetAttendants(7);
@@ -197,7 +213,32 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count==0);
         }
 
-       
+        [TestMethod]
+        public void TestGetPermitNames()
+        {
+            var result = PermitName.GetPermitNames();
+            Assert.IsTrue(result.Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGetPermitName()
+        {
+            var ExpectedPermitName = "Vozačka Dozvola B Kategorije";
+            var result = PermitName.GetPermitName(1);
+            Assert.AreEqual(ExpectedPermitName, result.Name);
+        }
+
+        [TestMethod]
+        public void TestGetPermitNameFail()
+        {
+            var ExpectedPermitName = "Vozačka Dozvola B Kategorije";
+            var result = PermitName.GetPermitName(fakeID);
+            Assert.AreNotEqual(ExpectedPermitName, result.Name);
+        }
+
+
+
+
 
         [TestMethod]
         public void TestGetUsers()
@@ -206,12 +247,7 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        //[TestMethod]
-        //public void TestGetUsersFailed()
-        //{
-        //    var result = Person.GetUsers();
-        //    Assert.IsTrue(result.Count == 0);
-        //}
+        
 
         [TestMethod]
         public void TestGetUser()
@@ -249,11 +285,13 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        //public void TestGetDismissedUsersFailed()
-        //{
-        //    var result = Person.GetDismissedUsers();
-        //    Assert.IsTrue(result.Count > 0);
-        //}
+        [TestMethod]
+        public void TestGetUserId()
+        {
+            int ExpectedUserId = 29; 
+            var result = Person.GetUserId("user1@gmail.com");
+            Assert.AreEqual(ExpectedUserId, result);
+        }
 
         [TestMethod]
         public void TestGetRoles()
@@ -278,13 +316,6 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        //[TestMethod]
-        //public void TestGetRoleNamesFailed()
-        //{
-        //    var result = RoleName.GetRoleNames();
-        //    Assert.IsTrue(result.Count > 0);
-        //}
-
         [TestMethod]
         public void TestGetRoleName()
         {
@@ -307,16 +338,6 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        //[TestMethod]
-
-        //public void TestGetWorksFailed()
-        //{
-        //    var result = Work.GetWorks();
-        //    Assert.IsTrue(result.Count > 0);
-        //}
-
-
-
         [TestMethod]
         public void TestGetWork()
         {
@@ -328,9 +349,16 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetWorkFailed()
         {
-            var expectedworkname = "FakeWorkName";
-            var result = Work.GetWork( 7);
+            var expectedworkname = "Kupanje u bazenu";
+            var result = Work.GetWork( fakeID);
             Assert.AreNotEqual(result.Name, expectedworkname);
+        }
+
+        [TestMethod]
+        public void TestGetDoneWorks()
+        {
+            var result = Work.GetDoneWorks();
+            Assert.IsTrue(result.Count > 0);
         }
     }
 }
