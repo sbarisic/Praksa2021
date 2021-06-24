@@ -146,7 +146,7 @@ U rad udruge kao potpora uključuju se i lokalni mještani kako bi zajedničkim 
                         <p class="lead">Upravni odbor čine predsjednik, tajnik, blagajnik, predsjednik nadzornong odbora, ostali izabrani članovi.</p>
                         <hr style="color: #448d4e; opacity: 1;" />
                         <h5 style="font-size: 30px" class="display-6">Gdje se nalazimo?</h5>
-                        <div id="map">
+                        <div id="map" style="height:450px;">
                             <script
                                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOeCxm3eXhda8M0-c9GrPn1QWL3h5h45I&callback=initMap&libraries=&v=weekly"
                                 async></script>
