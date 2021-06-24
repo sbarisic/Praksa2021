@@ -3,8 +3,6 @@ using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
 using System.Web.Configuration;
-using System.Web;
-using System.Web.Security;
 
 namespace PraksaFront
 {
@@ -15,7 +13,7 @@ namespace PraksaFront
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             Start();
             lnkuname.Text = (string)Session["uname"];
             if (lnkuname.Text != "")
@@ -25,9 +23,6 @@ namespace PraksaFront
                 Show();
             }
         }
-
-        
-
 
         private void Show()
         {
@@ -78,11 +73,5 @@ namespace PraksaFront
             pastWork.Visible = false;
             loginas.Visible = false;
         }
-
-        
-
-
-
-
     }
 }

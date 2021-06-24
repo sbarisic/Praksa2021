@@ -33,12 +33,11 @@ namespace PraksaFront
                     if (role.Name == "Admin")
                     {
                         Session["admin"] = "true";
-                        break;
+                        Response.Redirect("About.aspx");
+                        return;
                     }
-                    else
-                        Session["admin"] = "false";
                 }
-                Response.Redirect("About.aspx");
+                Session["admin"] = "false";
             }
         }
         protected void btnRegister_Click(object sender, EventArgs e)
