@@ -106,7 +106,6 @@ namespace PraksaFront
         {
             int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
             AttendantModel att = Attendant.GetAttendant(connectionString, workId, iduser);
-            System.Diagnostics.Debug.WriteLine("work id - " + workId + "Id user" + iduser + " || idInteres " + att.IdInteres);
 
             switch (att.IdInteres)
             {
