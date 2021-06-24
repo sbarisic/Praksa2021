@@ -3,14 +3,14 @@
     //Do not use this object, it is used just as a go between between javascript and asp.net
     public class ImproperCalendarEvent
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Start { get; set; }
-        public string End { get; set; }
-        public string Location { get; set; }
-        public string Obligation { get; set; }
-        public string Time { get; set; }
-        public bool AllDay { get; set; }
+        public int id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public string start { get; set; }
+        public string end { get; set; }
+        public string location { get; set; }
+        public string obligation { get; set; }
+        public string time { get; set; }
+        public bool allDay { get; set; }
     }
 }
