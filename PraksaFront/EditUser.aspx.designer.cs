@@ -320,7 +320,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditEmail;
+        protected global::System.Web.UI.WebControls.LinkButton btnEditEmail;
 
         /// <summary>
         /// EmailRepeater control.
@@ -347,7 +347,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditNumber;
+        protected global::System.Web.UI.WebControls.LinkButton btnEditNumber;
 
         /// <summary>
         /// NumberRepeater control.
@@ -374,7 +374,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddRole;
+        protected global::System.Web.UI.WebControls.LinkButton BtnAddRole;
 
         /// <summary>
         /// RoleRepeater control.
@@ -401,7 +401,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddPermit;
+        protected global::System.Web.UI.WebControls.LinkButton BtnAddPermit;
 
         /// <summary>
         /// PermitRepeater control.
@@ -419,7 +419,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSubmit;
+        protected global::System.Web.UI.WebControls.LinkButton BtnSubmit;
 
         /// <summary>
         /// deleteButton control.
@@ -428,7 +428,7 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button deleteButton;
+        protected global::System.Web.UI.WebControls.LinkButton deleteButton;
 
         /// <summary>
         /// BtnCancel control.
@@ -437,6 +437,6 @@ namespace PraksaFront
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCancel;
+        protected global::System.Web.UI.WebControls.LinkButton BtnCancel;
     }
 }

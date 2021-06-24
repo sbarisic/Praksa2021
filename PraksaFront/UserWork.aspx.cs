@@ -37,7 +37,7 @@ namespace PraksaFront
                 LinkButton yesButton = (LinkButton)item.FindControl("yesButton");
                 LinkButton noButton = (LinkButton)item.FindControl("noButton");
                 LinkButton maybeButton = (LinkButton)item.FindControl("maybeButton");
-                int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
+                int iduser = Person.GetUserId((string)Session["uname"]);
                 int workId = Convert.ToInt32(hdn.Value);
                 AttendantModel att = Attendant.GetAttendant(workId, iduser);
                 System.Diagnostics.Debug.WriteLine("work id - " + workId + "Id user" + iduser + " || idInteres " + att.IdInteres);
@@ -98,15 +98,15 @@ namespace PraksaFront
                 IdAttendance = 1
             };
 
-            AttendantModel att = Attendant.GetAttendant(connectionString, idjob, iduser);
+            AttendantModel att = Attendant.GetAttendant(idjob, iduser);
 
             if (att.Id != 0)
             {
                 attendant.Id = att.Id;
-                Attendant.EditAttendant(connectionString, attendant);
+                Attendant.EditAttendant(attendant);
             }
             else
-                Attendant.CreateAttendant(connectionString, attendant);
+                Attendant.CreateAttendant(attendant);
         }
 
     }

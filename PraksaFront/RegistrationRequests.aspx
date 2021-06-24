@@ -48,7 +48,7 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("address")%>'></asp:Label></td>
                                     <td style="padding:20px 10px; width:210px;">
                                         <asp:LinkButton CssClass="workButton" OnCommand="AcceptBtn_Command" CommandArgument='<%# Eval("id")%>' ID="AcceptBtn" runat="server" Text="Prihvati" OnClientClick="return confirm('Jeste li sigurni da želite prihvatiti registraciju?')" />
-                                        <asp:LinkButton CssClass="workButton" OnCommand="DeleteBtn_Command" CommandArgument='<%# Eval("id")%>' ID="DeleteBtn" runat="server" Text="Odbij" OnClientClick="return confirm('Jeste li sigurni da želite odbiti registraciju?')" />
+                                        <asp:LinkButton CssClass="closeButton" OnCommand="DeleteBtn_Command" CommandArgument='<%# Eval("id")%>' ID="DeleteBtn" runat="server" Text="Odbij" OnClientClick="return confirm('Jeste li sigurni da želite odbiti registraciju?')" />
                                     </td>
                                 </tr>
                             </ItemTemplate>

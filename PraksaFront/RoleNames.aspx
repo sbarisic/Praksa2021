@@ -70,7 +70,7 @@
                                                 <td><%# Eval("name")%></td>
                                                 <td style="padding:20px 10px; width:190px;">
                                                     <asp:LinkButton ID="btnEdit" CssClass="workButton" runat="server" Text="Uredi" OnCommand="BtnEdit_Command" CommandArgument='<%# Eval ("Id")%>' />
-                                                    <asp:LinkButton CssClass="workButton" ID="BtnDelete" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDelete_Command" CommandArgument='<%# Eval("Id") %>' />
+                                                    <asp:LinkButton CssClass="closeButton" ID="BtnDelete" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDelete_Command" CommandArgument='<%# Eval("Id") %>' />
                                                 </td>
                                             </tr>
                                         </ItemTemplate>

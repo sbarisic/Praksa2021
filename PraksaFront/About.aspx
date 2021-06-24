@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>O Nama</title>
     <link href="content/css/about.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <style>
         body {
             padding: 0px;
@@ -14,14 +17,33 @@
             line-height: 26.4px;
         }
 
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
         header {
             font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
             font-size: 24px;
             font-style: normal;
-            font-variant: small-caps;
             font-weight: 400;
             line-height: 26.4px;
+            background: url("content/Img/bjelovarBlur.jpg");
+            text-align: center;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 85% 85% / 30%;
         }
+
+            header .overlay {
+                font-family: 'Staatliches', cursive;
+                width: 100%;
+                height: 100%;
+                padding: 50px;
+                color: #FFF;
+            }
 
         .bjLista ul {
             list-style: none; /* Remove default bullets */
@@ -36,6 +58,19 @@
                 width: 1em; /* Also needed for space (tweak if needed) */
                 margin-left: -1em; /* Also needed for space (tweak if needed) */
             }
+
+        .naslov {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%,-50%);
+            text-transform: uppercase;
+            font-family: verdana;
+            font-size: 60px;
+            font-weight: 700;
+            color: #2c6333;
+            text-shadow: 1px 1px 1px #2c6333, 1px 2px 1px #2c6333, 1px 3px 1px #2c6333, 1px 4px 1px #2c6333, 1px 5px 1px #2c6333, 1px 6px 1px #2c6333, 1px 7px 1px #2c6333, 1px 8px 1px #2c6333, 1px 18px 6px rgba(16,16,16,0.4), 1px 22px 10px rgba(16,16,16,0.2), 1px 25px 35px rgba(16,16,16,0.2), 1px 30px 60px rgba(16,16,16,0.4);
+        }
     </style>
 </asp:Content>
 
@@ -43,15 +78,17 @@
 
     <div>
         <header>
-            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background: url('content/img/bjelovarBlur.jpg') no-repeat; background-size: 100%; border-radius: 0 0 95% 95% / 10%;">
-                <div class="p-lg-5 mx-auto my-5">
-                    <div style="width: 100%; height: 77px; background-image: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,.9), rgba(255,255,255,1),rgba(255,255,255,.9), rgba(255,255,255,0));">
-                        <h1 class="display-4 font-weight-normal" style="color:#448d4e; text-shadow: 1px 1px 2px #2c6333;">Bjelovarska Udruga</h1>
+            <div class="overlay">
+                <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+                    <div class="p-lg-5 mx-auto my-5">
+                        <div>
+                            <h1 class="naslov" style="font-size: 75px; color: #6acc6a; margin-top: -50px;">Bjelovarska Udruga</h1>
+                        </div>
+                        <br />
                     </div>
-                    <br />
+                    <div class="product-device box-shadow d-none d-md-block"></div>
+                    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
                 </div>
-                <div class="product-device box-shadow d-none d-md-block"></div>
-                <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
             </div>
         </header>
         <div class="container bjLista" id="about">

@@ -64,7 +64,7 @@
                                     <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
                                     <td style="padding:20px 10px; width:190px;">
                                         <asp:LinkButton CssClass="workButton" ID="editButton" runat="server" Text="Uredi" OnCommand="editButton_Command" CommandArgument='<%# Eval("id") %>' />
-                                        <asp:LinkButton CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
+                                        <asp:LinkButton CssClass="closeButton" ID="deleteButton" runat="server" Text="Zatvori" OnCommand="deleteButton_Command" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" CommandArgument='<%# Eval("id") %>'/>
                                     </td>
                                 </tr>
                             </ItemTemplate>

@@ -99,7 +99,11 @@
     <Content Include="AddUserNumber.aspx" />
     <Content Include="content\css\loginStyle.css" />
     <Content Include="content\css\style.css" />
+    <Content Include="content\css\tableStyle.css" />
+    <Content Include="content\Img\bjelovarBlur2.jpg" />
+    <Content Include="content\Img\bjelovarBlurred.jpg" />
     <Content Include="content\Img\bjelovarBlur.jpg" />
+    <Content Include="content\Img\bjelovarGradient.gif" />
     <Content Include="content\Img\bjHeader.jpg" />
     <Content Include="content\Img\paviljon.jpg" />
     <Content Include="EditUserEmail.aspx" />

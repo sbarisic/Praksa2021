@@ -68,7 +68,7 @@
                                 <tr>
                                     <td><%# Eval("name")%></td>
                                     <td style="padding:20px 10px; width:190px;"><asp:LinkButton ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("Id")%>' />
-                                        <asp:LinkButton CssClass="workButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("Id") %>'/></td>
+                                        <asp:LinkButton CssClass="closeButton" ID="DeleteWorkBtn" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="deletePermitNameBtn_Command" CommandArgument='<%# Eval("Id") %>'/></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

@@ -98,13 +98,13 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblEmail" runat="server" Text="E-mail"></asp:Label>
-                                <asp:Button ID="btnEditEmail" CssClass="workButton" runat="server" Text="Uredi" OnClick="btnEditEmail_click"></asp:Button>
+                                <asp:LinkButton ID="btnEditEmail" style="color:white; font-weight:normal;" CssClass="editButton" runat="server" Text="Uredi" OnClick="btnEditEmail_click"></asp:LinkButton>
                             </th>
                             <th>
                                 <asp:Repeater ID="EmailRepeater" runat="server">
                                         <ItemTemplate>
                                                 <asp:TextBox Text='<%# Eval("Email") %>' ID="txtEmail" runat="server"></asp:TextBox>
-                                                <asp:Button CssClass="workButton" ID="BtnDeleteEmail" runat="server" Text="x" 
+                                                <asp:LinkButton style="color:white; font-weight:normal;" CssClass="deleteButton" ID="BtnDeleteEmail" runat="server" Text="Obriši" 
                                                 OnClientClick="return confirm('Jeste li sigurni da želite obrisati email?')" OnCommand="BtnDeleteEmail_command" CommandArgument='<%# Eval("Id") %>' /><br>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -113,7 +113,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPhoneNumber" runat="server" Text="Kontakt broj"></asp:Label>
-                                <asp:Button ID="btnEditNumber" CssClass="workButton" runat="server" Text="Uredi" OnClick="btnEditNumber_click"></asp:Button>
+                                <asp:LinkButton ID="btnEditNumber" style="color:white; font-weight:normal;" CssClass="editButton" runat="server" Text="Uredi" OnClick="btnEditNumber_click"></asp:LinkButton>
                             </th>
                             <th>
                                 <asp:Repeater ID="NumberRepeater" runat="server">
@@ -121,7 +121,7 @@
                                             <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server" required="required"></asp:TextBox>
                                             <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
                                                 ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
-                                            <asp:Button CssClass="workButton" ID="BtnDeletePhoneNumber" runat="server" Text="x" 
+                                            <asp:LinkButton style="color:white; font-weight:normal;" CssClass="deleteButton" ID="BtnDeletePhoneNumber" runat="server" Text="Obriši" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati broj telefona?')" OnCommand="BtnDeletePhoneNumber_command" CommandArgument='<%# Eval("Id") %>' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -130,14 +130,14 @@
                         <tr> 
                             <th width="150px">
                                <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label>
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Uredi"
+                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal; display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Uredi"
                                  OnClick="btnAddRole_click" />
                             </th>
                             <td>
                             <asp:Repeater ID="RoleRepeater" runat="server">
                                     <ItemTemplate>
                                             <%# Eval("Name")%>
-                                            <asp:Button CssClass="workButton" ID="BtnEditRole" runat="server" Text="x" 
+                                            <asp:LinkButton CssClass="deleteButton" ID="BtnEditRole" runat="server" Text="Obriši" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='<%# Eval("Id") %>' />
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -149,14 +149,14 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" 
+                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal; display: inline-block; text-align: center; margin-right: 10px;" 
                                 onclientclick="return setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Uredi" />
                             </th>
                             <td>
                                 <asp:Repeater ID="PermitRepeater" runat="server">
                                     <ItemTemplate>
                                             <%# Eval("PermitName")%> <%# Eval("ExpiryDate")%> <%# Eval("PermitNumber")%>
-                                            <asp:Button CssClass="workButton" ID="BtnEditPermit" runat="server" Text="x" 
+                                            <asp:LinkButton CssClass="deleteButton" ID="BtnEditPermit" runat="server" Text="Obriši" 
                                             OnClientClick="return confirm('Jeste li sigurni da želite obrisati dozvolu?')" OnCommand="BtnDeletePermit_command" CommandArgument='' /><br>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -164,9 +164,9 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
-                                <asp:Button CssClass="workButton" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
-                                <asp:Button CssClass="workButton" Style="display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
+                                <asp:LinkButton CssClass="workButton" Style="color:white;display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
+                                <asp:LinkButton CssClass="closeButton" Style="color:white;" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
+                                <asp:LinkButton CssClass="workButton" Style="color:white;display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
                             </th>
                         </tr>
                     </table>

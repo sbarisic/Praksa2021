@@ -85,7 +85,7 @@
                                                 <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
                                                 <td style="padding:20px 10px;">
                                                     <asp:LinkButton ID="editButton" CssClass="workButton" runat="server" Text="Uredi" OnCommand="edit_Command" CommandArgument='<%# Eval ("ID")%>' />
-                                                    <asp:LinkButton ID="deleteButton" CssClass="workButton" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" runat="server" Text="Zatvori" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
+                                                    <asp:LinkButton ID="deleteButton" CssClass="closeButton" OnClientClick="return confirm('Jeste li sigurni da želite obrisati radnu akciju?')" runat="server" Text="Zatvori" OnCommand="delete_Command" CommandArgument='<%# Eval ("ID")%>' />
                                                 </td>
                                                 <td style="padding:20px 10px;">
                                                     <asp:LinkButton ID="attendanceButton" CssClass="workButton" runat="server" Text="Dolaznost" OnCommand="attendance_Command" CommandArgument='<%# Eval ("ID")%>' />
