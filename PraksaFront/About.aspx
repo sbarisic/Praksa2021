@@ -83,6 +83,7 @@
                     <div class="p-lg-5 mx-auto my-5">
                         <div>
                             <h1 class="naslov" style="font-size: 75px; color: #6acc6a; margin-top: -50px;">Bjelovarska Udruga</h1>
+                            <hr style="border-top:5px solid white; opacity:1; margin-top:-40px;" />
                         </div>
                         <br />
                     </div>
