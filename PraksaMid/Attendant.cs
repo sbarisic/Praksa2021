@@ -14,7 +14,6 @@ namespace PraksaMid
 
             SqlConnection con = new SqlConnection(Constants.connectionString);
 
-
             SqlCommand cmd = new SqlCommand("getAttendants", con)
             {
                 CommandType = CommandType.StoredProcedure
