@@ -39,7 +39,7 @@ namespace PraksaFront
                     Name = workText.Text,
                     Description = descriptionText.Text,
                     Date = dateText.Text.ToString(),
-                    Time = timeText.Text.ToString(),
+                    Time = timeText.Text,
                     Location = cityText.Text + ", " + streetText.Text,
                     Obligation = obligationButton.SelectedValue
                 };

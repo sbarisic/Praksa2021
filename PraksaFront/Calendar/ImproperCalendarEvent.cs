@@ -10,6 +10,7 @@
         public string end { get; set; }
         public string location { get; set; }
         public string obligation { get; set; }
+        public string time { get; set; }
         public bool allDay { get; set; }
     }
 }
