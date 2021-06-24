@@ -1,14 +1,12 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
     public partial class AboutWork : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int workId = 0;
         static string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
         static string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
@@ -30,7 +28,7 @@ namespace PraksaFront
         private void FillWorkData()
         {
             WorkModel work = new WorkModel();
-            work = Work.GetWork(connectionString, workId);
+            work = Work.GetWork(workId);
             workText.Text = work.Name;
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;
@@ -62,7 +60,7 @@ namespace PraksaFront
 
         private void Attendance(int Idjob, int interes)
         {
-            int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
+            int iduser = Person.GetUserId((string)Session["uname"]);
 
             AttendantModel attendant = new AttendantModel
             {
@@ -72,15 +70,15 @@ namespace PraksaFront
                 IdAttendance = 1
             };
 
-            AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, iduser);
+            AttendantModel att = Attendant.GetAttendant(Idjob, iduser);
 
             if (att.Id != 0)
             {
                 attendant.Id = att.Id;
-                Attendant.EditAttendant(connectionString, attendant);
+                Attendant.EditAttendant(attendant);
             }
             else
-                Attendant.CreateAttendant(connectionString, attendant);
+                Attendant.CreateAttendant(attendant);
 
             switch (interes)
             {
@@ -104,8 +102,8 @@ namespace PraksaFront
 
         void SelectAttendanceButton()
         {
-            int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
-            AttendantModel att = Attendant.GetAttendant(connectionString, workId, iduser);
+            int iduser = Person.GetUserId((string)Session["uname"]);
+            AttendantModel att = Attendant.GetAttendant(workId, iduser);
 
             switch (att.IdInteres)
             {

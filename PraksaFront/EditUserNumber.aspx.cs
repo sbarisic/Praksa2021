@@ -2,7 +2,6 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,7 +10,6 @@ namespace PraksaFront
     public partial class EditUserNumber : System.Web.UI.Page
     {
         protected int userId = 0;
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         List<ContactNumberModel> numbers = new List<ContactNumberModel>();
         protected string addUrl = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +19,7 @@ namespace PraksaFront
             Logic.SessionManager.Edit(userId);
 
             addUrl = "AddUserNumber.aspx?userId=" + userId.ToString();
-            numbers = ContactNumber.GetContactNumbers(connectionString, userId);
+            numbers = ContactNumber.GetContactNumbers(userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -30,7 +28,7 @@ namespace PraksaFront
 
         protected void LoadData()
         {
-            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
+            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(userId);
             NumberRepeater.DataBind();
         }
 
@@ -43,7 +41,7 @@ namespace PraksaFront
                 if (!txtNumber.Text.Equals(numbers[i].Number))
                 {
                     numbers[i].Number = txtNumber.Text;
-                    ContactNumber.EditContactNumber(connectionString, numbers[i]);
+                    ContactNumber.EditContactNumber(numbers[i]);
                 }
                 i++;
             }
@@ -58,7 +56,7 @@ namespace PraksaFront
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            ContactNumber.DeleteContactNumber(connectionString, Convert.ToInt32(e.CommandArgument));
+            ContactNumber.DeleteContactNumber(Convert.ToInt32(e.CommandArgument));
             Response.Redirect(Request.RawUrl);
         }
     }

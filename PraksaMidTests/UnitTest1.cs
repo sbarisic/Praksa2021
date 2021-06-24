@@ -10,8 +10,8 @@ namespace PraksaMidTests
     [TestClass]
     public class UnitTest
     {
-        String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
-        int fakeID = 66666;
+        readonly String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
+        readonly int fakeID = 66666;
 
         [TestInitialize]
         public void Setup()
@@ -57,6 +57,13 @@ namespace PraksaMidTests
         }
 
         [TestMethod]
+        public void TestLoginIsNotSuccessfulWrongUserAndPassword()
+        {
+            var result = Authentication.LogIn(connectionString, "wrong_user@gmail.com", "wrong_password");
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
         public void TestGetAttendants()
         {
             var result = Attendant.GetAttendants(connectionString, 7);
@@ -97,6 +104,22 @@ namespace PraksaMidTests
         }
 
         [TestMethod]
+        public void TestGetEmailFailedWrongUserId()
+        {
+            var result = ContactEmail.GetEmail(connectionString, fakeID, 36);
+            var expectedemail = "user1@gmail.com";
+            Assert.AreNotEqual(expectedemail, result.Email);
+        }
+
+        [TestMethod]
+        public void TestGetEmailFailedWrongEmailId()
+        {
+            var result = ContactEmail.GetEmail(connectionString, 36, fakeID);
+            var expectedemail = "user1@gmail.com";
+            Assert.AreNotEqual(expectedemail, result.Email);
+        }
+
+        [TestMethod]
         public void TestGetContactNumbers()
         {
             var result = ContactNumber.GetContactNumbers(connectionString, 29);
@@ -134,12 +157,27 @@ namespace PraksaMidTests
             var result = Person.GetUsers(connectionString);
             Assert.IsTrue(result.Count > 0);
         }
-      
+
+        //[TestMethod]
+        //public void TestGetUsersFailed()
+        //{
+        //    var result = Person.GetUsers(connectionString);
+        //    Assert.IsTrue(result.Count == 0);
+        //}
+
         [TestMethod]
         public void TestGetUser()
         {
-            var model = new ContactEmailModel();
-            model.Email = "user1@gmail.com";
+            var expecteduseradress = "Štitno Područje, 1B";
+            var result = Person.GetUser(connectionString, 29);
+            Assert.AreEqual(expecteduseradress, result.Address);
+        }
+
+        [TestMethod]
+        public void TestGetUserFailed()
+        {
+            var result = Person.GetUser(connectionString, fakeID);
+            Assert.AreEqual(0,result.Id);
 
         }
 
@@ -150,12 +188,24 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
+        public void TestGetRegistartionsRequestUserFailed()
+        {
+            var result = Person.GetRegistartionsRequestUser(connectionString);
+            Assert.IsTrue(result.Count == 0);
+        }
+
         [TestMethod]
         public void TestGetDismissedUsers()
         {
             var result = Person.GetDismissedUsers(connectionString);
             Assert.IsTrue(result.Count > 0);
         }
+
+        //public void TestGetDismissedUsersFailed()
+        //{
+        //    var result = Person.GetDismissedUsers(connectionString);
+        //    Assert.IsTrue(result.Count > 0);
+        //}
 
         [TestMethod]
         public void TestGetRoles()
@@ -176,13 +226,30 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetRoleNames()
         {
-
+            var result = RoleName.GetRoleNames(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
+
+        //[TestMethod]
+        //public void TestGetRoleNamesFailed()
+        //{
+        //    var result = RoleName.GetRoleNames(connectionString);
+        //    Assert.IsTrue(result.Count > 0);
+        //}
 
         [TestMethod]
         public void TestGetRoleName()
         {
+            var expectedrolename = "Admin";
+            var result = RoleName.GetRoleName(connectionString,1);
+            Assert.AreEqual(expectedrolename, result.Name);
+        }
 
+        public void TestGetRoleNameFailed()
+        {
+            var expectedrolename = "FakeRoleName";
+            var result = RoleName.GetRoleName(connectionString, 1);
+            Assert.AreNotEqual(expectedrolename, result.Name);
         }
 
         [TestMethod]
@@ -192,12 +259,30 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        
+        //[TestMethod]
+
+        //public void TestGetWorksFailed()
+        //{
+        //    var result = Work.GetWorks(connectionString);
+        //    Assert.IsTrue(result.Count > 0);
+        //}
+
+
 
         [TestMethod]
         public void TestGetWork()
         {
-            
+            var expectedworkname = "Kupanje u bazenu";
+            var result = Work.GetWork(connectionString, 7);
+            Assert.AreEqual(result.Name, expectedworkname);
+        }
+
+        [TestMethod]
+        public void TestGetWorkFailed()
+        {
+            var expectedworkname = "FakeWorkName";
+            var result = Work.GetWork(connectionString, 7);
+            Assert.AreNotEqual(result.Name, expectedworkname);
         }
     }
 }

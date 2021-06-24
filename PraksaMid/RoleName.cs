@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class RoleName
     {
-        public static List<RoleNameModel> GetRoleNames(string connectionString)
+        public static List<RoleNameModel> GetRoleNames()
         {
             List<RoleNameModel> roles = new List<RoleNameModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getRoleNames", con)
@@ -37,11 +37,11 @@ namespace PraksaMid
             return roles;
         }
 
-        public static void DeleteRoleName(string connectionString, int idRoleName)
+        public static void DeleteRoleName(int idRoleName)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteRoleName", con)
                     {
@@ -60,11 +60,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void CreateRoleName(string connectionString, RoleNameModel role)
+        public static void CreateRoleName(RoleNameModel role)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertRoleName", con)
                     {
@@ -83,11 +83,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void EditRoleName(string connectionString, RoleNameModel role)
+        public static void EditRoleName(RoleNameModel role)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateRoleName", con)
                     {
@@ -106,9 +106,9 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static RoleNameModel GetRoleName(string connectionString, int idRoleName)
+        public static RoleNameModel GetRoleName(int idRoleName)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getRoleName", con)

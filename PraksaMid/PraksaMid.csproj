@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Attendant.cs" />
     <Compile Include="Authentication.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ContactNumber.cs" />
     <Compile Include="ContactEmail.cs" />
     <Compile Include="Model\AttendantModel.cs" />

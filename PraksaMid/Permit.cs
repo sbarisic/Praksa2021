@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class Permit
     {
-        public static void CreatePermit(string connectionString, PermitModel permit)
+        public static void CreatePermit(PermitModel permit)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertPermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -36,11 +36,11 @@ namespace PraksaMid
             }
         }
 
-        public static List<PermitModel> GetPermits(string connectionString, int idUser)
+        public static List<PermitModel> GetPermits(int idUser)
         {
             List<PermitModel> permits = new List<PermitModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
 
             SqlCommand cmd = new SqlCommand("getPermits", con)
@@ -74,11 +74,11 @@ namespace PraksaMid
             return permits;
         }
 
-        public static void DeletePermit(string connectionString, int IdPermit)
+        public static void DeletePermit(int IdPermit)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deletePermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -96,11 +96,11 @@ namespace PraksaMid
             }
         }
 
-        public static void EditPermit(string connectionString, PermitModel permit)
+        public static void EditPermit(PermitModel permit)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updatePermit", con);
                     cmd.CommandType = CommandType.StoredProcedure;

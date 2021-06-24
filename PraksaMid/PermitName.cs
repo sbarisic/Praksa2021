@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class PermitName
     {
-        public static void CreatePermitName(string connectionString, PermitNameModel permitName)
+        public static void CreatePermitName(PermitNameModel permitName)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertPermitName", con)
                     {
@@ -32,11 +32,11 @@ namespace PraksaMid
             }
         }
 
-        public static List<PermitNameModel> GetPermitNames(string connectionString)
+        public static List<PermitNameModel> GetPermitNames()
         {
             List<PermitNameModel> permitNames = new List<PermitNameModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getPermitNames", con)
@@ -61,11 +61,11 @@ namespace PraksaMid
             return permitNames;
         }
 
-        public static void DeletePermitName(string connectionString, int permitNameId)
+        public static void DeletePermitName(int permitNameId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deletePermitName", con)
                     {
@@ -84,11 +84,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void EditPermitName(string connectionString, PermitNameModel permitName)
+        public static void EditPermitName(PermitNameModel permitName)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updatePermitName", con)
                     {
@@ -108,9 +108,9 @@ namespace PraksaMid
             }
         }
 
-        public static PermitNameModel GetPermitName(string connectionString, int idPermitName)
+        public static PermitNameModel GetPermitName(int idPermitName)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getPermitName", con)

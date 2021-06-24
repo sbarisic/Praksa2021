@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class Person
     {
-        public static List<PersonModel> GetUsers(string connectionString)
+        public static List<PersonModel> GetUsers()
         {
             List<PersonModel> users = new List<PersonModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getAcceptedUsers", con)
@@ -42,9 +42,9 @@ namespace PraksaMid
             return users;
         }
 
-        public static PersonModel GetUser(string connectionString, int idUser)
+        public static PersonModel GetUser(int idUser)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
             SqlCommand cmd = new SqlCommand("getUser", con)
             {
@@ -73,11 +73,11 @@ namespace PraksaMid
             return user;
         }
 
-        public static void EditUser(string connectionString, PersonModel user)
+        public static void EditUser(PersonModel user)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateUser", con)
                     {
@@ -101,13 +101,13 @@ namespace PraksaMid
             }
         }
 
-        public static void CreateUser(string connectionString, PersonModel user)
+        public static void CreateUser(PersonModel user)
         {
             PasswordManager.GenerateSaltHashPair(user.Password, out string hash, out string salt);
             try
             {
 
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertUser", con)
                     {
@@ -134,11 +134,11 @@ namespace PraksaMid
             }
         }
 
-        public static void DeleteUser(string connectionString, int userId)
+        public static void DeleteUser(int userId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteUser", con)
                     {
@@ -158,11 +158,11 @@ namespace PraksaMid
             }
         }
 
-        public static List<PersonModel> GetRegistartionsRequestUser(string connectionString)
+        public static List<PersonModel> GetRegistartionsRequestUser()
         {
             List<PersonModel> users = new List<PersonModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getUnacceptedUsers", con)
@@ -191,11 +191,11 @@ namespace PraksaMid
             return users;
         }
 
-        public static void VerificateUser(string connectionString, int userId)
+        public static void VerificateUser(int userId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("verificateUser", con)
                     {
@@ -214,11 +214,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void RejectUser(string connectionString, int userId)
+        public static void RejectUser(int userId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("rejectUser", con)
                     {
@@ -237,11 +237,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static List<PersonModel> GetDismissedUsers(string connectionString)
+        public static List<PersonModel> GetDismissedUsers()
         {
             List<PersonModel> users = new List<PersonModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getDismissedUsers", con)
@@ -270,11 +270,11 @@ namespace PraksaMid
             }
             return users;
         }
-        public static void ActivateUser(string connectionString, int userId)
+        public static void ActivateUser(int userId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("activateUser", con)
                     {
@@ -294,9 +294,9 @@ namespace PraksaMid
             }
         }
 
-        public static int GetUserId(string connectionString, string userEmail)
+        public static int GetUserId(string userEmail)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
             SqlCommand cmd = new SqlCommand("getIdUser", con)
             {

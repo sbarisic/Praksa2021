@@ -2,7 +2,6 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,14 +10,13 @@ namespace PraksaFront
     public partial class AddUserPermit : System.Web.UI.Page
     {
         protected int userId = 0;
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected List<PermitModel> permitList = new List<PermitModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
             Logic.SessionManager.All();
 
             userId = Convert.ToInt16(Request.QueryString["userId"]);
-            permitList = Permit.GetPermits(connectionString, userId);
+            permitList = Permit.GetPermits(userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -27,7 +25,7 @@ namespace PraksaFront
 
         private void LoadData()
         {
-            PermitRepeater.DataSource = PermitName.GetPermitNames(connectionString);
+            PermitRepeater.DataSource = PermitName.GetPermitNames();
             PermitRepeater.DataBind();
 
             LoadOwnedPermits();
@@ -76,7 +74,7 @@ namespace PraksaFront
                         permit.ExpiryDate = txtDate.Text;
                         permit.IdPermit = Convert.ToInt32(hdnId.Value);
                         permit.PermitNumber = txtNumber.Text;
-                        Permit.CreatePermit(connectionString, permit);
+                        Permit.CreatePermit(permit);
                     }
                 }
                 else
@@ -84,7 +82,7 @@ namespace PraksaFront
                     if (checkDeletePermit(hdnId.Value, item)) // ako nije oznacena dozvola i user ju ima, makni ju
                     {
                         HiddenField hdn = (HiddenField)item.FindControl("hdnField");
-                        Permit.DeletePermit(connectionString, Convert.ToInt32(hdn.Value));
+                        Permit.DeletePermit(Convert.ToInt32(hdn.Value));
                     }
                 }
 

@@ -2,15 +2,12 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 
 namespace PraksaFront
 {
 
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             lblErrorMessage.Visible = false;
@@ -18,7 +15,7 @@ namespace PraksaFront
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            int rv = Authentication.LogIn(connectionString, txtEmail.Text, txtPassword.Text);
+            int rv = Authentication.LogIn(txtEmail.Text, txtPassword.Text);
             if (rv == 0)
                 Response.Write("<script>alert('Email ili loznika nisu ispravni');</script>");
             else if (rv == 1)
@@ -27,7 +24,7 @@ namespace PraksaFront
             {
                 Session["uname"] = txtEmail.Text;
 
-                List<RoleModel> roleList = Role.GetRoles(connectionString, Person.GetUserId(connectionString, txtEmail.Text));
+                List<RoleModel> roleList = Role.GetRoles(Person.GetUserId(txtEmail.Text));
                 foreach (RoleModel role in roleList)
                 {
                     if (role.Name == "Admin")

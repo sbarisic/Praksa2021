@@ -2,14 +2,12 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 using System.Web.UI;
 
 namespace PraksaFront
 {
     public partial class UserCalendar : System.Web.UI.Page
     {
-        protected string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             Logic.SessionManager.All();
@@ -23,7 +21,7 @@ namespace PraksaFront
         protected void GetWork()
         {
             List<int> idList = new List<int>();
-            List<WorkModel> workList = Work.GetWorks(connectionString);
+            List<WorkModel> workList = Work.GetWorks();
             List<ImproperCalendarEvent> tasksList = new List<ImproperCalendarEvent>();
             //Generate JSON serializable events
 

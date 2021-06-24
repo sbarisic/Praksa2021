@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class Attendant
     {
-        public static List<AttendantModel> GetAttendants(string connectionString, int idJob)
+        public static List<AttendantModel> GetAttendants(int idJob)
         {
             List<AttendantModel> attendants = new List<AttendantModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
 
             SqlCommand cmd = new SqlCommand("getAttendants", con)
@@ -45,11 +45,11 @@ namespace PraksaMid
             return attendants;
         }
 
-        public static void CreateAttendant(string connectionString, AttendantModel attendant)
+        public static void CreateAttendant(AttendantModel attendant)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertAttendant", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -68,11 +68,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void EditAttendant(string connectionString, AttendantModel attendant)
+        public static void EditAttendant(AttendantModel attendant)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateAttendant", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -93,9 +93,9 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static AttendantModel GetAttendant(string connectionString, int idJob, int idUser)
+        public static AttendantModel GetAttendant(int idJob, int idUser)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
 
             SqlCommand cmd = new SqlCommand("getAttendant", con)
@@ -122,10 +122,10 @@ namespace PraksaMid
                 }
             }
             return attendant;
-        } 
-        public static AttendantModel GetAttendantId(string connectionString, int idJob, int idUser)
+        }
+        public static AttendantModel GetAttendantId(int idJob, int idUser)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
 
             SqlCommand cmd = new SqlCommand("getAttendantID", con)

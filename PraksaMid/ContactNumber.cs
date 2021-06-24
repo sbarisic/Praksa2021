@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class ContactNumber
     {
-        public static List<ContactNumberModel> GetContactNumbers(string connectionString, int idUser)
+        public static List<ContactNumberModel> GetContactNumbers(int idUser)
         {
             List<ContactNumberModel> contactNumbers = new List<ContactNumberModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getContactNumbers", con)
@@ -39,11 +39,11 @@ namespace PraksaMid
             return contactNumbers;
         }
 
-        public static void CreateContactNumber(string connectionString, ContactNumberModel contactNumber)
+        public static void CreateContactNumber(ContactNumberModel contactNumber)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertContactNumber", con)
                     {
@@ -64,11 +64,11 @@ namespace PraksaMid
             }
         }
 
-        public static void EditContactNumber(string connectionString, ContactNumberModel contactNumber)
+        public static void EditContactNumber(ContactNumberModel contactNumber)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateContactNumber", con)
                     {
@@ -87,11 +87,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void DeleteContactNumber(string connectionString, int idNumber)
+        public static void DeleteContactNumber(int idNumber)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteContactNumber", con)
                     {

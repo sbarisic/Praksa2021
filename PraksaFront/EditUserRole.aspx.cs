@@ -2,7 +2,6 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,7 +10,6 @@ namespace PraksaFront
     public partial class EditUserRole : System.Web.UI.Page
     {
         protected int userId = 0;
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         List<RoleModel> roles = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +18,7 @@ namespace PraksaFront
 
             userId = Convert.ToInt16(Request.QueryString["userId"]);
             System.Diagnostics.Debug.WriteLine(userId);
-            roles = Role.GetRoles(connectionString, userId);
+            roles = Role.GetRoles(userId);
             if (!IsPostBack)
             {
                 LoadData();
@@ -29,7 +27,7 @@ namespace PraksaFront
 
         protected void LoadData()
         {
-            RoleRepeater.DataSource = RoleName.GetRoleNames(connectionString);
+            RoleRepeater.DataSource = RoleName.GetRoleNames();
             RoleRepeater.DataBind();
 
             LoadOwnedRoles();
@@ -66,7 +64,7 @@ namespace PraksaFront
                         role.IdName = Convert.ToInt32(hdnId.Value);
                         role.Name = hdnField.Value;
 
-                        Role.CreateRole(connectionString, role);
+                        Role.CreateRole(role);
                     }
                 }
                 else
@@ -74,7 +72,7 @@ namespace PraksaFront
                     if (checkDeletePermit(hdnId.Value, item) && numOfRoles() > 1) // ako nije oznacena dozvola i user ju ima, makni ju
                     {
                         HiddenField hdn = (HiddenField)item.FindControl("hdnDelete");
-                        Role.DeleteRole(connectionString, Convert.ToInt32(hdn.Value));
+                        Role.DeleteRole(Convert.ToInt32(hdn.Value));
                     }
                 }
 
@@ -123,7 +121,7 @@ namespace PraksaFront
         protected int numOfRoles()
         {
             int res = 0;
-            foreach(RepeaterItem item in RoleRepeater.Items)
+            foreach (RepeaterItem item in RoleRepeater.Items)
             {
                 var checkbox = item.FindControl("roleChk") as CheckBox;
                 if (checkbox.Checked)

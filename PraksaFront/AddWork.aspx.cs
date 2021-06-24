@@ -1,7 +1,6 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,7 +8,6 @@ namespace PraksaFront
 {
     public partial class AddWork : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         string date = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,7 +42,7 @@ namespace PraksaFront
                     Obligation = obligationButton.SelectedValue
                 };
 
-                Work.CreateWork(connectionString, work);
+                Work.CreateWork(work);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
             }
         }

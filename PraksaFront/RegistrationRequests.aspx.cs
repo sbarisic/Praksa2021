@@ -1,14 +1,12 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
     public partial class RegistrationRequests : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             Logic.SessionManager.See();
@@ -21,23 +19,23 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            UserRepeater.DataSource = Person.GetRegistartionsRequestUser(connectionString);
+            UserRepeater.DataSource = Person.GetRegistartionsRequestUser();
             UserRepeater.DataBind();
         }
 
         protected void AcceptBtn_Command(object sender, CommandEventArgs e)
         {
             int userId = Convert.ToInt16(e.CommandArgument);
-            PersonModel user = Person.GetUser(connectionString, userId);
+            PersonModel user = Person.GetUser(userId);
             user.Accepted = true;
-            Person.VerificateUser(connectionString, userId);
+            Person.VerificateUser(userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
 
         protected void DeleteBtn_Command(object sender, CommandEventArgs e)
         {
             int userId = Convert.ToInt16(e.CommandArgument);
-            Person.RejectUser(connectionString, userId);
+            Person.RejectUser(userId);
             Response.Redirect("RegistrationRequests.aspx");
         }
     }

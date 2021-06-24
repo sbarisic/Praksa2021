@@ -1,14 +1,11 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
-using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
     public partial class Registration : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void btnReg_Click(object sender, EventArgs e)
         {
             if (txtLozinka.Text.Length < 8)
@@ -31,7 +28,7 @@ namespace PraksaFront
                         Number = txtPhoneNumber.Text,
                     };
 
-                    Person.CreateUser(connectionString, user);
+                    Person.CreateUser(user);
                     Response.Redirect("About.aspx");
                 }
                 else

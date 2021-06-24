@@ -1,14 +1,12 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 
 namespace PraksaFront
 {
     public partial class EditPermit : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int permitNameId = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +25,7 @@ namespace PraksaFront
 
         private void FillPermitNamesData()
         {
-            PermitNameModel permitName = PermitName.GetPermitName(connectionString, permitNameId);
+            PermitNameModel permitName = PermitName.GetPermitName(permitNameId);
             permitNameText.Text = permitName.Name;
         }
 
@@ -39,7 +37,7 @@ namespace PraksaFront
                 Name = permitNameText.Text
             };
 
-            PermitName.EditPermitName(connectionString, permit);
+            PermitName.EditPermitName(permit);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 
