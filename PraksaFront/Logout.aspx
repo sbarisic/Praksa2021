@@ -39,7 +39,7 @@
                 <h1 style="width:170px; color:#6bc277;">:)</h1>
             </div>
             <h2>Uspješna odjava</h2>
-            <p>Uspješno ste se odjavili. Preusmjeriti ćemo vas za 5 sekundi, ako ste govno nestrpljivo kliknite na gumb "U redu".</p>
+            <p>Uspješno ste se odjavili. Preusmjeriti ćemo vas za 5 sekundi, ako ne budete automatski preusmjereni pritisnite na gumb "U redu".</p>
             <a href="About.aspx">u redu</a>
         </div>
     </div>

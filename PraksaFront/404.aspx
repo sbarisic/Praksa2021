@@ -40,7 +40,7 @@
                 <h1 style="width:170px; color:#6bc277;">:(</h1>
             </div>
             <h2>404 - Stranica nije pronađena</h2>
-            <p>Stranica koju tražite možda je uklonjena, privremeno nedostupna ili nemate pravo dostupa.</p>
+            <p>Stranica koju tražite možda je uklonjena, privremeno nedostupna ili nemate pravo pristupa.</p>
             <a href="About.aspx">nazad</a>
         </div>
     </div>
