@@ -49,8 +49,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertJob", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertJob", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     string dateStr = work.Date + " " + work.Time;
                     DateTime date = DateTime.Parse(dateStr);
@@ -108,8 +110,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deleteJob", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deleteJob", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDjob", workId));
 
@@ -129,8 +133,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updateJob", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updateJob", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     string dateStr = work.Date + " " + work.Time;
                     DateTime date = DateTime.Parse(dateStr);
