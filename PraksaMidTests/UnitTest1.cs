@@ -10,8 +10,8 @@ namespace PraksaMidTests
     [TestClass]
     public class UnitTest
     {
-        String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
-        int fakeID = 66666;
+        readonly String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
+        readonly int fakeID = 66666;
 
         [TestInitialize]
         public void Setup()
@@ -138,8 +138,18 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetUser()
         {
-            var model = new ContactEmailModel();
-            model.Email = "user1@gmail.com";
+            var expecteduseradress = "Štitno Područje, 1B";
+            var result = Person.GetUser(connectionString, 29);
+            Assert.AreEqual(expecteduseradress, result.Address);
+
+        }
+
+        [TestMethod]
+        public void TestGetUserFailed()
+        {
+            var expecteduseradress = "lažna adresa";
+            var result = Person.GetUser(connectionString, 29);
+            Assert.AreNotEqual(expecteduseradress, result.Address);
 
         }
 
@@ -176,12 +186,17 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetRoleNames()
         {
-
+            var result = RoleName.GetRoleNames(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
         public void TestGetRoleName()
         {
+            var expectedrolename = "Admin";
+            var result = RoleName.GetRoleName(connectionString,1);
+            Assert.AreEqual(expectedrolename, result.Name);
+
 
         }
 
@@ -197,7 +212,9 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetWork()
         {
-            
+            var expectedworkname = "Kupanje u bazenu";
+            var result = Work.GetWork(connectionString, 7);
+            Assert.AreEqual(result.Name, expectedworkname);
         }
     }
 }
