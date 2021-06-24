@@ -1,14 +1,12 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI.WebControls;
 
 namespace PraksaFront
 {
     public partial class AboutUser : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int userId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,17 +22,17 @@ namespace PraksaFront
         }
         private void FillUserData()
         {
-            PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataSource = Permit.GetPermits(userId);
             PermitRepeater.DataBind();
 
-            PhoneNumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
+            PhoneNumberRepeater.DataSource = ContactNumber.GetContactNumbers(userId);
             PhoneNumberRepeater.DataBind();
 
-            EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataSource = ContactEmail.GetContactEmails(userId);
             EmailRepeater.DataBind();
 
             PersonModel user = new PersonModel();
-            user = Person.GetUser(connectionString, userId);
+            user = Person.GetUser(userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
@@ -49,7 +47,7 @@ namespace PraksaFront
         }
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            Person.DeleteUser(connectionString, userId);
+            Person.DeleteUser(userId);
             Response.Redirect("Users.aspx");
         }
 

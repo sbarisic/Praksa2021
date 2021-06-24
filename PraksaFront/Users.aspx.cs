@@ -1,6 +1,5 @@
 ﻿using PraksaMid;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -8,7 +7,6 @@ namespace PraksaFront
 {
     public partial class Users : System.Web.UI.Page, IPostBackEventHandler
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected String _jsPostBackCall;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +22,7 @@ namespace PraksaFront
 
         private void GetUsers()
         {
-            UserRepeater.DataSource = Person.GetUsers(connectionString);
+            UserRepeater.DataSource = Person.GetUsers();
             UserRepeater.DataBind();
         }
 
@@ -37,7 +35,7 @@ namespace PraksaFront
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            Person.DeleteUser(connectionString, Convert.ToInt16(e.CommandArgument));
+            Person.DeleteUser(Convert.ToInt16(e.CommandArgument));
             Response.Redirect("Users.aspx");
         }
 

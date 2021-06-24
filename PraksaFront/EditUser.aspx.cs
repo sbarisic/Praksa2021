@@ -2,7 +2,6 @@
 using PraksaMid.Model;
 using System;
 using System.Collections.Generic;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,7 +9,6 @@ namespace PraksaFront
 {
     public partial class EditUser : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int userId = 0;
         protected string permitUrl = "";
         protected string emailUrl = "";
@@ -18,8 +16,8 @@ namespace PraksaFront
         protected string roleUrl = "";
         protected List<RoleModel> roleList = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            
+        {
+
             if (Request.QueryString["userId"] != "")
             {
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
@@ -27,7 +25,7 @@ namespace PraksaFront
             }
             else
                 Response.Redirect("Users.aspx");
-            roleList = Role.GetRoles(connectionString, userId);
+            roleList = Role.GetRoles(userId);
             EditRole();
             if (!IsPostBack)
             {
@@ -39,19 +37,19 @@ namespace PraksaFront
         private void FillUserData()
         {
             errorRole.Visible = false;
-            PermitRepeater.DataSource = Permit.GetPermits(connectionString, userId);
+            PermitRepeater.DataSource = Permit.GetPermits(userId);
             PermitRepeater.DataBind();
 
-            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(connectionString, userId);
+            NumberRepeater.DataSource = ContactNumber.GetContactNumbers(userId);
             NumberRepeater.DataBind();
 
-            EmailRepeater.DataSource = ContactEmail.GetContactEmails(connectionString, userId);
+            EmailRepeater.DataSource = ContactEmail.GetContactEmails(userId);
             EmailRepeater.DataBind();
 
             RoleRepeater.DataSource = roleList;
             RoleRepeater.DataBind();
 
-            PersonModel user = Person.GetUser(connectionString, userId);
+            PersonModel user = Person.GetUser(userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;
@@ -68,35 +66,35 @@ namespace PraksaFront
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-                PersonModel user = new PersonModel
-                {
-                    Id = userId,
-                    IdRole = 2,
-                    UniqueId = txtJmbc.Text,
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Address = txtAdress.Text,
-                    Oib = txtOib.Text,
-                };
+            PersonModel user = new PersonModel
+            {
+                Id = userId,
+                IdRole = 2,
+                UniqueId = txtJmbc.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Address = txtAdress.Text,
+                Oib = txtOib.Text,
+            };
 
-                Person.EditUser(connectionString, user);
-                Response.Redirect("Users.aspx");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
+            Person.EditUser(user);
+            Response.Redirect("Users.aspx");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            Person.DeleteUser(connectionString, userId);
+            Person.DeleteUser(userId);
             Response.Redirect("Users.aspx");
         }
         protected void BtnDeletePermit_command(object sender, CommandEventArgs e)
         {
-            Permit.DeletePermit(connectionString, Convert.ToInt32(e.CommandArgument));
+            Permit.DeletePermit(Convert.ToInt32(e.CommandArgument));
             Response.Redirect(Request.RawUrl);
         }
         protected void BtnDeleteEmail_command(object sender, CommandEventArgs e)
         {
-            int status = ContactEmail.DeleteEmail(connectionString, Convert.ToInt32(e.CommandArgument));
+            int status = ContactEmail.DeleteEmail(Convert.ToInt32(e.CommandArgument));
             if (status == 1)
             {
                 Response.Write("<script>alert('Ne možete obrisati defaultni email.');</script>");
@@ -105,7 +103,7 @@ namespace PraksaFront
             {
                 Response.Redirect(Request.RawUrl);
             }
-            
+
 
         }
 
@@ -113,7 +111,7 @@ namespace PraksaFront
         {
             if (RoleRepeater.Items.Count > 1)
             {
-                Role.DeleteRole(connectionString, Convert.ToInt32(e.CommandArgument));
+                Role.DeleteRole(Convert.ToInt32(e.CommandArgument));
                 Response.Redirect(Request.RawUrl);
             }
             else
@@ -123,7 +121,7 @@ namespace PraksaFront
         }
         protected void BtnDeletePhoneNumber_command(object sender, CommandEventArgs e)
         {
-            ContactNumber.DeleteContactNumber(connectionString, Convert.ToInt32(e.CommandArgument));
+            ContactNumber.DeleteContactNumber(Convert.ToInt32(e.CommandArgument));
             Response.Redirect(Request.RawUrl);
         }
 

@@ -1,7 +1,6 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 
 namespace PraksaFront
@@ -9,7 +8,6 @@ namespace PraksaFront
     public partial class AddUserEmail : System.Web.UI.Page
     {
         protected int userId = 0;
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             Logic.SessionManager.All();
@@ -23,7 +21,7 @@ namespace PraksaFront
                 IdUser = userId,
                 Email = txtEmail.Text
             };
-            ContactEmail.CreateEmail(connectionString, email);
+            ContactEmail.CreateEmail(email);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
     }

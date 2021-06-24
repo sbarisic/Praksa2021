@@ -1,6 +1,5 @@
 ﻿using PraksaMid;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -8,7 +7,6 @@ namespace PraksaFront
 {
     public partial class AdminWork : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         static string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
         static string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
         protected string url;
@@ -26,7 +24,7 @@ namespace PraksaFront
 
         private void GetWorks()
         {
-            UserWorkList.DataSource = Work.GetWorks(connectionString);
+            UserWorkList.DataSource = Work.GetWorks();
             UserWorkList.DataBind();
         }
 
@@ -38,7 +36,7 @@ namespace PraksaFront
 
         protected void delete_Command(object sender, CommandEventArgs e)
         {
-            Work.DeleteWork(connectionString, Convert.ToInt32(e.CommandArgument));
+            Work.DeleteWork(Convert.ToInt32(e.CommandArgument));
             Response.Redirect("AdminWork.aspx");
         }
 

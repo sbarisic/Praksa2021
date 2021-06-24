@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class Work
     {
-        public static List<WorkModel> GetWorks(string connectionString)
+        public static List<WorkModel> GetWorks()
         {
             List<WorkModel> works = new List<WorkModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getJobs", con)
@@ -43,11 +43,11 @@ namespace PraksaMid
             return works;
         }
 
-        public static void CreateWork(string connectionString, WorkModel work)
+        public static void CreateWork(WorkModel work)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertJob", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -72,9 +72,9 @@ namespace PraksaMid
             }
         }
 
-        public static WorkModel GetWork(string connectionString, int workId)
+        public static WorkModel GetWork(int workId)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getJob", con)
@@ -102,11 +102,11 @@ namespace PraksaMid
             return work;
         }
 
-        public static void DeleteWork(string connectionString, int workId)
+        public static void DeleteWork(int workId)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteJob", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -123,11 +123,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void EditWork(string connectionString, WorkModel work)
+        public static void EditWork(WorkModel work)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateJob", con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -152,11 +152,11 @@ namespace PraksaMid
             }
         }
 
-        public static List<WorkModel> GetDoneWorks(string connectionString)
+        public static List<WorkModel> GetDoneWorks()
         {
             List<WorkModel> works = new List<WorkModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getDoneJobs", con)

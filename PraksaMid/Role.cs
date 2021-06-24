@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class Role
     {
-        public static List<RoleModel> GetRoles(string connectionString, int idUser)
+        public static List<RoleModel> GetRoles(int idUser)
         {
             List<RoleModel> roles = new List<RoleModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getRoles", con)
@@ -39,11 +39,11 @@ namespace PraksaMid
             return roles;
         }
 
-        public static void DeleteRole(string connectionString, int idRole)
+        public static void DeleteRole(int idRole)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteRole", con)
                     {
@@ -62,11 +62,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void CreateRole(string connectionString, RoleModel role)
+        public static void CreateRole(RoleModel role)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertRole", con)
                     {
@@ -86,11 +86,11 @@ namespace PraksaMid
                 throw ex;
             }
         }
-        public static void EditRole(string connectionString, RoleModel role)
+        public static void EditRole(RoleModel role)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateRole", con)
                     {

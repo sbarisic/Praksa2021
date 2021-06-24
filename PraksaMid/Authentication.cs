@@ -6,9 +6,9 @@ namespace PraksaMid
 {
     public static class Authentication
     {
-        public static int LogIn(string connectionString, string email, string password)
+        public static int LogIn(string email, string password)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
             SqlCommand cmd = new SqlCommand("login", con)
             {
@@ -16,7 +16,7 @@ namespace PraksaMid
             };
             cmd.Parameters.Add(new SqlParameter("@Email", email));
 
-            var salt = GetPasswordSalt(connectionString, email);
+            var salt = GetPasswordSalt(email);
 
             if (salt != "")
             {
@@ -35,9 +35,9 @@ namespace PraksaMid
             return 0;
         }
 
-        public static string GetPasswordSalt(string connectionString, string email)
+        public static string GetPasswordSalt(string email)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
 
             SqlCommand cmd = new SqlCommand("getPasswordSalt", con)
             {

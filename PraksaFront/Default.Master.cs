@@ -1,16 +1,10 @@
 ﻿using PraksaMid;
-using PraksaMid.Model;
 using System;
-using System.Collections.Generic;
-using System.Web.Configuration;
 
 namespace PraksaFront
 {
     public partial class Default : System.Web.UI.MasterPage
     {
-        protected string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
-        List<RoleModel> userRoles = new List<RoleModel>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,7 +12,7 @@ namespace PraksaFront
             lnkuname.Text = (string)Session["uname"];
             if (lnkuname.Text != "")
             {
-                int id = Person.GetUserId(connectionString, lnkuname.Text);
+                int id = Person.GetUserId(lnkuname.Text);
                 lnkuname.PostBackUrl = "EditUser.aspx?userId=" + id;
                 Show();
             }

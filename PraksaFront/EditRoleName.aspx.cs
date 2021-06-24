@@ -1,14 +1,12 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 
 namespace PraksaFront
 {
     public partial class EditRoleName : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int roleNameId = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +25,7 @@ namespace PraksaFront
 
         private void FillPermitNamesData()
         {
-            RoleNameModel roleName = RoleName.GetRoleName(connectionString, roleNameId);
+            RoleNameModel roleName = RoleName.GetRoleName(roleNameId);
             txtRoleName.Text = roleName.Name;
         }
 
@@ -39,7 +37,7 @@ namespace PraksaFront
                 Name = txtRoleName.Text
             };
 
-            RoleName.EditRoleName(connectionString, roleName);
+            RoleName.EditRoleName(roleName);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
     }

@@ -8,11 +8,11 @@ namespace PraksaMid
 {
     public static class ContactEmail
     {
-        public static List<ContactEmailModel> GetContactEmails(string connectionString, int idUser)
+        public static List<ContactEmailModel> GetContactEmails(int idUser)
         {
             List<ContactEmailModel> contactEmails = new List<ContactEmailModel>();
 
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getEmails", con)
@@ -38,11 +38,11 @@ namespace PraksaMid
             return contactEmails;
         }
 
-        public static void CreateEmail(string connectionString, ContactEmailModel email)
+        public static void CreateEmail(ContactEmailModel email)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("insertEmail", con)
                     {
@@ -63,11 +63,11 @@ namespace PraksaMid
             }
         }
 
-        public static void EditEmail(string connectionString, ContactEmailModel email)
+        public static void EditEmail(ContactEmailModel email)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("updateEmail", con)
                     {
@@ -87,11 +87,11 @@ namespace PraksaMid
             }
         }
 
-        public static int DeleteEmail(string connectionString, int idEmail)
+        public static int DeleteEmail(int idEmail)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("deleteEmail", con)
                     {
@@ -114,9 +114,9 @@ namespace PraksaMid
             }
         }
 
-        public static ContactEmailModel GetEmail(string connectionString, int idUser, int idEmail)
+        public static ContactEmailModel GetEmail(int idUser, int idEmail)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            SqlConnection con = new SqlConnection(Constants.connectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand("getEmail", con)

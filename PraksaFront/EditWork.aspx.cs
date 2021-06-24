@@ -1,7 +1,6 @@
 ﻿using PraksaMid;
 using PraksaMid.Model;
 using System;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,7 +8,6 @@ namespace PraksaFront
 {
     public partial class EditWork : System.Web.UI.Page
     {
-        private string connectionString = WebConfigurationManager.ConnectionStrings["Praksa2021"].ConnectionString;
         protected int workId = 0;
         protected string AttendanceFrameUrl;
 
@@ -29,7 +27,7 @@ namespace PraksaFront
 
         private void FillWorkData()
         {
-            WorkModel work = Work.GetWork(connectionString, workId);
+            WorkModel work = Work.GetWork(workId);
             workText.Text = work.Name;
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;
@@ -55,12 +53,12 @@ namespace PraksaFront
                 Obligation = obligationButton.SelectedValue
             };
 
-            Work.EditWork(connectionString, work);
+            Work.EditWork(work);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
         protected void delete_Command(object sender, CommandEventArgs e)
         {
-            Work.DeleteWork(connectionString, workId);
+            Work.DeleteWork(workId);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "hidePopup", "callParentWindowHideMethod();", true);
         }
 
