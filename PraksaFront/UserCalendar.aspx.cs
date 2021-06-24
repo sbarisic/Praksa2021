@@ -31,14 +31,14 @@ namespace PraksaFront
 
                 tasksList.Add(new ImproperCalendarEvent
                 {
-                    Id = wrk.Id,
-                    Title = wrk.Name,
-                    Start = tempDate.ToString("yyyy-MM-dd"),
-                    End = tempDate.ToString("yyyy-MM-dd"),
-                    Description = wrk.Description,
-                    Location = wrk.Location,
-                    Obligation = wrk.Obligation,
-                    AllDay = true,
+                    id = wrk.Id,
+                    title = wrk.Name,
+                    start = tempDate.ToString("yyyy-MM-dd"),
+                    end = tempDate.ToString("yyyy-MM-dd"),
+                    description = wrk.Description,
+                    location = wrk.Location,
+                    obligation = wrk.Obligation,
+                    allDay = true,
                 });
                 idList.Add(wrk.Id);
             }
