@@ -11,6 +11,7 @@ namespace PraksaMidTests
     public class UnitTest
     {
         String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
+        int fakeID = 66666;
 
         [TestInitialize]
         public void Setup()
@@ -65,7 +66,8 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetAttendantsFailed()
         {
-            
+            var result = Attendant.GetAttendants(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
         }
 
        
@@ -73,13 +75,25 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetContactEmail()
         {
-           
+            var result = ContactEmail.GetContactEmails(connectionString, 29);
+            Assert.IsTrue(result.Count > 0);
+
+        }
+
+        [TestMethod]
+        public void TestGetContactEmailFailed()
+        {
+            var result = ContactEmail.GetContactEmails(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
+
         }
 
         [TestMethod]
         public void TestGetEmail()
         {
-         
+            var result = ContactEmail.GetEmail(connectionString, 29 , 36);
+            var expectedemail = "user1@gmail.com";
+            Assert.AreEqual(expectedemail, result.Email);
         }
 
         [TestMethod]
@@ -89,7 +103,14 @@ namespace PraksaMidTests
             Assert.IsTrue(result.Count > 0);
         }
 
-        
+        [TestMethod]
+        public void TestGetContactNumbersFailed()
+        {
+            var result = ContactNumber.GetContactNumbers(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
+        }
+
+
 
         [TestMethod]
         public void TestGetPermits()
@@ -101,7 +122,7 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetPermitsFailed()
         {
-            var result = Permit.GetPermits(connectionString, 6666);
+            var result = Permit.GetPermits(connectionString, fakeID);
             Assert.IsTrue(result.Count==0);
         }
 
@@ -125,7 +146,8 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetRegistartionsRequestUser()
         {
-
+            var result = Person.GetRegistartionsRequestUser(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
@@ -141,6 +163,15 @@ namespace PraksaMidTests
             var result = Role.GetRoles(connectionString,29);
             Assert.IsTrue(result.Count > 0);
         }
+
+        [TestMethod]
+        public void TestGetRolesFailed()
+        {
+            var result = Role.GetRoles(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
+        }
+
+
 
         [TestMethod]
         public void TestGetRoleNames()
@@ -160,6 +191,8 @@ namespace PraksaMidTests
             var result = Work.GetWorks(connectionString);
             Assert.IsTrue(result.Count > 0);
         }
+
+        
 
         [TestMethod]
         public void TestGetWork()
