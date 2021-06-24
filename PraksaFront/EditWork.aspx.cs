@@ -43,13 +43,14 @@ namespace PraksaFront
         }
         protected void Submit_Command(object sender, CommandEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(timeText.Text);
             WorkModel work = new WorkModel
             {
                 Id = workId,
                 Name = workText.Text,
                 Description = descriptionText.Text,
                 Date = dateText.Text.ToString(),
-                Time = timeText.Text.ToString(),
+                Time = timeText.Text,
                 Location = locationText.Text,
                 Obligation = obligationButton.SelectedValue
             };

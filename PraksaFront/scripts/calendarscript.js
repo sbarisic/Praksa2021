@@ -30,6 +30,7 @@ function addSuccess(addResult) {
                 start: addStartDate,
                 end: addEndDate,
                 id: addResult,
+                time: $("#addTime").val(),
                 description: $("#addEventDesc").val(),
                 allDay: globalAllDay
             },

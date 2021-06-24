@@ -38,11 +38,12 @@ namespace PraksaFront
                     title = wrk.Name,
                     start = tempDate.ToString("yyyy-MM-dd"),
                     end = tempDate.ToString("yyyy-MM-dd"),
+                    time = wrk.Time,
                     description = wrk.Description,
                     location = wrk.Location,
                     obligation = wrk.Obligation,
                     allDay = true,
-                });
+                }) ;
                 idList.Add(wrk.Id);
             }
 
