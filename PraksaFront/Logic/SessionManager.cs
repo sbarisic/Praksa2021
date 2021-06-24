@@ -18,16 +18,8 @@ namespace PraksaFront.Logic
             }
             else
             {
-                int id = Person.GetUserId(connectionString, (string)HttpContext.Current.Session["uname"]);
-                List<RoleModel> userRoles = Role.GetRoles(connectionString, id);
-
-                foreach (RoleModel role in userRoles)
-                {
-                    if (role.Name != "Admin")
-                    {
-                        HttpContext.Current.Response.Redirect("404.aspx");
-                    }
-                }
+                if (!HttpContext.Current.Session["admin"].Equals("true"))
+                    HttpContext.Current.Response.Redirect("404.aspx");
             }
         }
 
@@ -39,7 +31,6 @@ namespace PraksaFront.Logic
             }
             else
             {
-
                 List<RoleModel> userRoles = Role.GetRoles(connectionString, Person.GetUserId(connectionString, (string)HttpContext.Current.Session["uname"]));
 
                 foreach (RoleModel role in userRoles)

@@ -31,9 +31,13 @@ namespace PraksaFront
                 foreach (RoleModel role in roleList)
                 {
                     if (role.Name == "Admin")
+                    {
                         Session["admin"] = "true";
+                        Response.Redirect("About.aspx");
+                        return;
+                    }
                 }
-                Response.Redirect("About.aspx");
+                Session["admin"] = "false";
             }
         }
         protected void btnRegister_Click(object sender, EventArgs e)
