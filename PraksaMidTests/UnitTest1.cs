@@ -11,6 +11,7 @@ namespace PraksaMidTests
     public class UnitTest
     {
         String connectionString = "Data Source=167.86.127.239;Initial Catalog=Praksa2021;User ID=SerengetiUser;Password=Serengeti12345678910";
+        int fakeID = 66666;
 
         [TestInitialize]
         public void Setup()
@@ -43,7 +44,8 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestLoginIsNotSuccessfulWrongUser()
         {
-            var result = Authentication.LogIn(connectionString, "wrong_user@gmail.com", "useruser");
+            var expectedresult= "wrong_user@gmail.com";
+            var result = Authentication.LogIn(connectionString,expectedresult , "useruser");
             Assert.AreEqual(0, result);
         }
 
@@ -64,111 +66,112 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetAttendantsFailed()
         {
-            var result = Attendant.GetAttendants(connectionString, 999);
-            Assert.AreEqual(0,result);
+            var result = Attendant.GetAttendants(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
         }
 
-        [TestMethod]
-        public void TestGetPasswordSalt()
-        {
-
-        }
+       
 
         [TestMethod]
         public void TestGetContactEmail()
         {
+            var result = ContactEmail.GetContactEmails(connectionString, 29);
+            Assert.IsTrue(result.Count > 0);
+
+        }
+
+        [TestMethod]
+        public void TestGetContactEmailFailed()
+        {
+            var result = ContactEmail.GetContactEmails(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
 
         }
 
         [TestMethod]
         public void TestGetEmail()
         {
-
+            var result = ContactEmail.GetEmail(connectionString, 29 , 36);
+            var expectedemail = "user1@gmail.com";
+            Assert.AreEqual(expectedemail, result.Email);
         }
 
         [TestMethod]
         public void TestGetContactNumbers()
         {
-
+            var result = ContactNumber.GetContactNumbers(connectionString, 29);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
-        public void TestGetStringToByteArray()
+        public void TestGetContactNumbersFailed()
         {
-
+            var result = ContactNumber.GetContactNumbers(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
         }
 
-        [TestMethod]
-        public void TestGetByteArrayToString()
-        {
 
-        }
-
-        [TestMethod]
-        public void TestGenerateSalt()
-        {
-
-        }
-
-        [TestMethod]
-        public void TestHashPassword()
-        {
-
-        }
-
-        [TestMethod]
-        public void TestIsValidPassword()
-        {
-
-        }
 
         [TestMethod]
         public void TestGetPermits()
         {
-
+            var result = Permit.GetPermits(connectionString, 29);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
-        public void TestGetPermitNames()
+        public void TestGetPermitsFailed()
         {
-
+            var result = Permit.GetPermits(connectionString, fakeID);
+            Assert.IsTrue(result.Count==0);
         }
 
-        [TestMethod]
-        public void TestGetGetPermitName()
-        {
-
-        }
+       
 
         [TestMethod]
         public void TestGetUsers()
         {
-
+            var result = Person.GetUsers(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
-
+      
         [TestMethod]
         public void TestGetUser()
         {
+            var model = new ContactEmailModel();
+            model.Email = "user1@gmail.com";
 
         }
 
         [TestMethod]
         public void TestGetRegistartionsRequestUser()
         {
-
+            var result = Person.GetRegistartionsRequestUser(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
         public void TestGetDismissedUsers()
         {
-
+            var result = Person.GetDismissedUsers(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
 
         [TestMethod]
         public void TestGetRoles()
         {
-
+            var result = Role.GetRoles(connectionString,29);
+            Assert.IsTrue(result.Count > 0);
         }
+
+        [TestMethod]
+        public void TestGetRolesFailed()
+        {
+            var result = Role.GetRoles(connectionString, fakeID);
+            Assert.IsTrue(result.Count == 0);
+        }
+
+
 
         [TestMethod]
         public void TestGetRoleNames()
@@ -185,13 +188,16 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetWorks()
         {
-
+            var result = Work.GetWorks(connectionString);
+            Assert.IsTrue(result.Count > 0);
         }
+
+        
 
         [TestMethod]
         public void TestGetWork()
         {
-
+            
         }
     }
 }

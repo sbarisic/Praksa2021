@@ -52,15 +52,10 @@ namespace PraksaFront
             {
                 RadioButtonList radioList = (RadioButtonList)itm.FindControl("AttendanceRadio");
                 HiddenField hdnUser = (HiddenField)itm.FindControl("hdnUser");
-                HiddenField hdnInteres = (HiddenField)itm.FindControl("hdnInteres");
-                System.Diagnostics.Debug.WriteLine("USER ID = " + hdnUser.Value + " || USER INTERES = " + hdnInteres.Value);
-                AttendantModel attendant = new AttendantModel
-                {
-                    IdJob = workId,
-                    IdInteres = Convert.ToInt32(hdnInteres.Value),
-                    IdUser = Convert.ToInt32(hdnUser.Value),
-                    IdAttendance = Convert.ToInt32(radioList.SelectedIndex)
-                };
+                System.Diagnostics.Debug.WriteLine("USER ID = " + hdnUser.Value);
+
+                AttendantModel attendant = Attendant.GetAttendant(connectionString, workId, Convert.ToInt32(hdnUser.Value));
+                attendant.IdAttendance = Convert.ToInt32(radioList.SelectedValue);
 
                 Attendant.EditAttendant(connectionString, attendant);
                 System.Diagnostics.Debug.WriteLine(radioList.SelectedValue);

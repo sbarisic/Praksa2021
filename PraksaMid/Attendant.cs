@@ -32,6 +32,7 @@ namespace PraksaMid
                     AttendantModel attendant = new AttendantModel
                     {
                         UserFirstName = dr["Ime"].ToString(),
+                        IdUser = Convert.ToInt32(dr["ID Korisnika"]),
                         UserLastName = dr["Prezime"].ToString(),
                         Job = dr["Naziv posla"].ToString(),
                         Interes = dr["Interes"].ToString(),
@@ -94,8 +95,6 @@ namespace PraksaMid
         }
         public static AttendantModel GetAttendant(string connectionString, int idJob, int idUser)
         {
-            List<AttendantModel> attendants = new List<AttendantModel>();
-
             SqlConnection con = new SqlConnection(connectionString);
 
 
@@ -114,7 +113,39 @@ namespace PraksaMid
             if (dr != null)
             {
                 while (dr.Read())
+                {
                     attendant.Id = Convert.ToInt32(dr["ID"].ToString());
+                    attendant.IdAttendance = Convert.ToInt32(dr["ID Dolaznosti"].ToString());
+                    attendant.IdInteres = Convert.ToInt32(dr["ID Interesa"].ToString());
+                    attendant.IdJob = Convert.ToInt32(dr["ID Posla"].ToString());
+                    attendant.IdUser = Convert.ToInt32(dr["ID Korisnika"].ToString());
+                }
+            }
+            return attendant;
+        } 
+        public static AttendantModel GetAttendantId(string connectionString, int idJob, int idUser)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+
+
+            SqlCommand cmd = new SqlCommand("getAttendantID", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@IDjob", idJob));
+            cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
+
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            AttendantModel attendant = new AttendantModel();
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    attendant.Id = Convert.ToInt32(dr["ID"].ToString());
+                }
             }
             return attendant;
         }

@@ -32,7 +32,7 @@ namespace PraksaFront
 
         protected void BtnDelete_Command(object sender, CommandEventArgs e)
         {
-            RoleName.DeleteRole(connectionString, Convert.ToInt32(e.CommandArgument));
+            RoleName.DeleteRoleName(connectionString, Convert.ToInt32(e.CommandArgument));
             Response.Redirect("RoleNames.aspx");
         }
         protected void BtnEdit_Command(object sender, CommandEventArgs e)

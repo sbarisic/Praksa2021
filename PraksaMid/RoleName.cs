@@ -37,7 +37,7 @@ namespace PraksaMid
             return roles;
         }
 
-        public static void DeleteRole(string connectionString, int idRoleName)
+        public static void DeleteRoleName(string connectionString, int idRoleName)
         {
             try
             {
