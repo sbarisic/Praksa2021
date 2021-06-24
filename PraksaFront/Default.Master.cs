@@ -22,7 +22,6 @@ namespace PraksaFront
             {
                 int id = Person.GetUserId(connectionString, lnkuname.Text);
                 lnkuname.PostBackUrl = "EditUser.aspx?userId=" + id;
-                //
                 Show();
             }
         }
