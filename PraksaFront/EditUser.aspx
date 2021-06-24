@@ -56,7 +56,7 @@
                                 <asp:Label ID="lblJmbc" runat="server" Text="Jedinstveni matični broj člana"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtJmbc" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtJmbc" runat="server" required="required"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="JmbcFilter" runat="server" FilterType="Numbers"
                                     TargetControlID="txtJmbc" />
                             </th>
@@ -66,7 +66,7 @@
                                 <asp:Label ID="lblFirstName" runat="server" Text="Ime"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFirstName" runat="server" required="required"></asp:TextBox>
                             </th>
                         </tr>
                         <tr>
@@ -74,7 +74,7 @@
                                 <asp:Label ID="lblLastName" runat="server" Text="Prezime"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtLastName" runat="server" required="required"></asp:TextBox>
                             </th>
                         </tr>
                         <tr>
@@ -82,7 +82,7 @@
                                 <asp:Label ID="lblAdress" runat="server" Text="Adresa"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtAdress" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtAdress" runat="server" required="required"></asp:TextBox>
                             </th>
                         </tr>
                         <tr>
@@ -118,7 +118,7 @@
                             <th>
                                 <asp:Repeater ID="NumberRepeater" runat="server">
                                     <ItemTemplate>
-                                            <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                                            <asp:TextBox Text='<%# Eval("Number") %>' ID="txtPhoneNumber" runat="server" required="required"></asp:TextBox>
                                             <cc1:FilteredTextBoxExtender ID="PhoneFilter" runat="server" FilterType="Numbers, Custom"
                                                 ValidChars="+/-()[]{}" TargetControlID="txtPhoneNumber" />
                                             <asp:Button CssClass="workButton" ID="BtnDeletePhoneNumber" runat="server" Text="x" 
@@ -138,9 +138,12 @@
                                     <ItemTemplate>
                                             <%# Eval("Name")%>
                                             <asp:Button CssClass="workButton" ID="BtnEditRole" runat="server" Text="x" 
-                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='<%# Eval("Id") %>' /><br>
+                                            OnClientClick="return confirm('Jeste li sigurni da želite obrisati ulogu?')" OnCommand="BtnDeleteRole_command" CommandArgument='<%# Eval("Id") %>' />
                                     </ItemTemplate>
                                 </asp:Repeater>
+                                <div Visible="false" id="errorRole" runat="server" class="alert alert-danger" style="width:330px; display:block; padding:8px;">
+                                    <strong>Greška!</strong> Korisnik mora imati barem jednu ulogu!
+                                </div>
                             </td>
                         </tr>
                         <tr>

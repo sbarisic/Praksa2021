@@ -28,14 +28,20 @@ namespace PraksaFront
         protected void yes_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 3);
+            Button btn = (Button)sender;
+            btn.BackColor = System.Drawing.Color.Green;
         }
         protected void no_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 1);
+            Button btn = (Button)sender;
+            btn.BackColor = System.Drawing.Color.Green;
         }
         protected void maybe_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(e.CommandArgument), 2);
+            Button btn = (Button)sender;
+            btn.BackColor = System.Drawing.Color.Green;
         }
 
         protected void locButton_Click(object sender, EventArgs e)
