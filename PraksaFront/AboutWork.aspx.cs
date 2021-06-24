@@ -50,17 +50,14 @@ namespace PraksaFront
         protected void yes_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(workId), 3);
-            SelectAttendanceButton();
         }
         protected void no_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(workId), 1);
-            SelectAttendanceButton();
         }
         protected void maybe_Command(object sender, CommandEventArgs e)
         {
             Attendance(Convert.ToInt32(workId), 2);
-            SelectAttendanceButton();
         }
 
         private void Attendance(int Idjob, int interes)
@@ -115,12 +112,18 @@ namespace PraksaFront
             {
                 case 1:
                     noButton.BackColor = System.Drawing.Color.LimeGreen;
+                    maybeButton.BackColor = System.Drawing.Color.White;
+                    yesButton.BackColor = System.Drawing.Color.White;
                     break;
                 case 2:
                     maybeButton.BackColor = System.Drawing.Color.LimeGreen;
+                    noButton.BackColor = System.Drawing.Color.White;
+                    yesButton.BackColor = System.Drawing.Color.White;
                     break;
                 case 3:
                     yesButton.BackColor = System.Drawing.Color.LimeGreen;
+                    maybeButton.BackColor = System.Drawing.Color.White;
+                    noButton.BackColor = System.Drawing.Color.White;
                     break;
             }
         }
