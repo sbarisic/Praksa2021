@@ -49,8 +49,8 @@
                                         <td>
                                             <asp:Label ID="lblAttendance" runat="server" Text='<%# Eval ("Attendance")%>'></asp:Label>
                                             <asp:RadioButtonList ID="AttendanceRadio" runat="server">
-                                                <asp:ListItem>Došao</asp:ListItem>
-                                                <asp:ListItem>Nije došao</asp:ListItem>
+                                                <asp:ListItem Value="2">Došao</asp:ListItem>
+                                                <asp:ListItem Value="3">Nije došao</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </td>
                                     </tr>

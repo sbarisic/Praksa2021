@@ -45,27 +45,28 @@ namespace PraksaFront
             url = urlStart + btn.Text + urlEnd;
         }
 
-        private void Attendance(int Idjob, int interes)
+        private void Attendance(int idjob, int interes)
         {
             int iduser = Person.GetUserId(connectionString, (string)Session["uname"]);
 
-            AttendantModel attendant = new AttendantModel
-            {
-                IdJob = Convert.ToInt32(Idjob),
-                IdInteres = interes,
-                IdUser = iduser,
-                IdAttendance = 1
-            };
-
-            AttendantModel att = Attendant.GetAttendant(connectionString, Idjob, iduser);
+            AttendantModel att = Attendant.GetAttendantId(connectionString, idjob, iduser);
 
             if (att.Id != 0)
             {
-                attendant.Id = att.Id;
-                Attendant.EditAttendant(connectionString, attendant);
+                att = Attendant.GetAttendant(connectionString, idjob, iduser);
+                att.IdInteres = interes;
+                Attendant.EditAttendant(connectionString, att);
             }
             else
+            {
+                AttendantModel attendant = new AttendantModel
+                {
+                    IdJob = Convert.ToInt32(idjob),
+                    IdInteres = interes,
+                    IdUser = iduser
+                };
                 Attendant.CreateAttendant(connectionString, attendant);
+            }
         }
 
     }
