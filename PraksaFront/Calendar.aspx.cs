@@ -27,8 +27,7 @@ namespace PraksaFront
 
             foreach (WorkModel wrk in workList)
             {
-                DateTime tempDate = new DateTime();
-                tempDate = Convert.ToDateTime(wrk.Date);
+                DateTime tempDate = Convert.ToDateTime(wrk.Date);
 
                 tasksList.Add(new ImproperCalendarEvent
                 {

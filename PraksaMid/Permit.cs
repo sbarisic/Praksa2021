@@ -14,8 +14,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertPermit", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertPermit", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     DateTime date = DateTime.Parse(permit.ExpiryDate);
 
@@ -80,8 +82,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("deletePermit", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("deletePermit", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDpermit", IdPermit));
 
@@ -102,8 +106,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updatePermit", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updatePermit", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     DateTime date = DateTime.Parse(permit.ExpiryDate);
                     cmd.Parameters.Add(new SqlParameter("@ID", permit.Id));

@@ -8,8 +8,8 @@ namespace PraksaFront
     public partial class AboutWork : System.Web.UI.Page
     {
         protected int workId = 0;
-        static string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
-        static string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
+        static readonly string urlStart = "https://www.google.com/maps/embed/v1/place?q=";
+        static readonly string urlEnd = "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
         protected string url;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +27,7 @@ namespace PraksaFront
 
         private void FillWorkData()
         {
-            WorkModel work = new WorkModel();
-            work = Work.GetWork(workId);
+            WorkModel work = Work.GetWork(workId);
             workText.Text = work.Name;
             descriptionText.Text = work.Description;
             dateText.Text = work.Date;

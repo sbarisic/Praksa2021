@@ -31,8 +31,7 @@ namespace PraksaFront
             EmailRepeater.DataSource = ContactEmail.GetContactEmails(userId);
             EmailRepeater.DataBind();
 
-            PersonModel user = new PersonModel();
-            user = Person.GetUser(userId);
+            PersonModel user = Person.GetUser(userId);
             txtJmbc.Text = user.UniqueId;
             txtFirstName.Text = user.FirstName;
             txtLastName.Text = user.LastName;

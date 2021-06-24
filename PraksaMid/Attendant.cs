@@ -51,8 +51,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("insertAttendant", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("insertAttendant", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@IDjob", attendant.IdJob));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
@@ -74,8 +76,10 @@ namespace PraksaMid
             {
                 using (SqlConnection con = new SqlConnection(Constants.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("updateAttendant", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("updateAttendant", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
                     cmd.Parameters.Add(new SqlParameter("@ID", attendant.Id));
                     cmd.Parameters.Add(new SqlParameter("@IDuser", attendant.IdUser));
