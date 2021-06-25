@@ -360,5 +360,7 @@ namespace PraksaMidTests
             var result = Work.GetDoneWorks();
             Assert.IsTrue(result.Count > 0);
         }
+
+       
     }
 }
