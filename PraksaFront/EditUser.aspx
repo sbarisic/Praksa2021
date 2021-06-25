@@ -130,7 +130,7 @@
                         <tr> 
                             <th width="150px">
                                <asp:Label ID="lblRole" runat="server" Text="Uloge"></asp:Label>
-                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal; display: inline-block; text-align: center; margin-right: 10px;" ID="BtnAddRole" runat="server" Text="Uredi"
+                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal;" ID="BtnAddRole" runat="server" Text="Uredi"
                                  OnClick="btnAddRole_click" />
                             </th>
                             <td>
@@ -149,7 +149,7 @@
                         <tr>
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
-                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal; display: inline-block; text-align: center; margin-right: 10px;" 
+                                <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal;" 
                                 onclientclick="return setPermitFrame()" ID="BtnAddPermit" runat="server" Text="Uredi" />
                             </th>
                             <td>
@@ -165,7 +165,7 @@
                         <tr>
                             <th colspan="2">
                                 <asp:LinkButton CssClass="workButton" Style="color:white;display: inline-block; text-align: center; margin-right: 10px;" ID="BtnSubmit" runat="server" Text="Potvrdi" OnClick="BtnSubmit_Click" />
-                                <asp:LinkButton CssClass="closeButton" Style="color:white;" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
+                                <asp:LinkButton CssClass="closeButton" Style="color:white;display:inline-block" ID="deleteButton" runat="server" Text="Zatvori" OnClientClick="return confirm('Jeste li sigurni da želite obrisati korisnika?')" OnCommand="deleteButton_Command" CommandArgument='' />
                                 <asp:LinkButton CssClass="workButton" Style="color:white;display: inline-block; text-align: center; margin-left: 10px;" ID="BtnCancel" runat="server" Text="Odustani" OnClick="BtnCancel_Click" />
                             </th>
                         </tr>

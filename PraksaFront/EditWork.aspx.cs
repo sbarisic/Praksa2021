@@ -64,7 +64,7 @@ namespace PraksaFront
 
         protected void attendance_Command(object sender, CommandEventArgs e)
         {
-            AttendanceFrameUrl = "Attendants.aspx?workId=" + workId;
+            AttendanceFrameUrl = "AttendanceInterest.aspx?workId=" + workId;
             ModalPopupExtender3.Show();
         }
     }
