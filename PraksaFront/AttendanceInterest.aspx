@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Attendants.aspx.cs" Inherits="PraksaFront.Attendants" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttendanceInterest.aspx.cs" Inherits="PraksaFront.AttendanceInterest" %>
 
 <!DOCTYPE html>
 
@@ -28,9 +28,6 @@
                                 <th>
                                     <asp:Label runat="server" Text="Vrijeme Odabira"></asp:Label>
                                 </th>
-                                <th>
-                                    <asp:Label runat="server" Text="Dolaznost"></asp:Label>
-                                </th>
                             </tr>
 
                             <asp:Repeater ID="attendanceRepeater" runat="server">
@@ -46,19 +43,9 @@
                                             <asp:Label ID="lblInteres" runat="server" Text='<%# Eval ("Interes")%>'></asp:Label></td>
                                         <td>
                                             <asp:Label ID="lblTime" runat="server" Text='<%# Eval ("SelectionTime")%>'></asp:Label></td>
-                                        <td>
-                                            <asp:Label ID="lblAttendance" runat="server" Text='<%# Eval ("Attendance")%>'></asp:Label>
-                                            <asp:RadioButtonList ID="AttendanceRadio" runat="server">
-                                                <asp:ListItem Value="2">Došao</asp:ListItem>
-                                                <asp:ListItem Value="3">Nije došao</asp:ListItem>
-                                            </asp:RadioButtonList>
-                                        </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <tr>
-                                <td colspan="5" style="text-align:center"><asp:Button ID="submitButton" OnClick="submitButton_Click" runat="server" Text="Potvrdi" /></td>
-                            </tr>
                         </table>
                         
                     </div>

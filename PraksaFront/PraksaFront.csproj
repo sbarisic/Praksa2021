@@ -97,6 +97,7 @@
     <Content Include="AboutWork.aspx" />
     <Content Include="AddUserEmail.aspx" />
     <Content Include="AddUserNumber.aspx" />
+    <Content Include="AttendanceInterest.aspx" />
     <Content Include="content\css\loginStyle.css" />
     <Content Include="content\css\style.css" />
     <Content Include="content\css\tableStyle.css" />
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="AddUserNumber.aspx.designer.cs">
       <DependentUpon>AddUserNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceInterest.aspx.cs">
+      <DependentUpon>AttendanceInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttendanceInterest.aspx.designer.cs">
+      <DependentUpon>AttendanceInterest.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUserEmail.aspx.cs">
       <DependentUpon>EditUserEmail.aspx</DependentUpon>
