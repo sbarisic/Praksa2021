@@ -53,14 +53,14 @@
                         <asp:HiddenField id="hiddenId" value="" runat="server"></asp:HiddenField>
                         <asp:Repeater ID="UserRepeater" runat="server">
                             <ItemTemplate>
-                                <tr onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;" style="cursor:pointer">
-                                    <td><asp:Label runat="server" Text='<%# Eval("FirstName")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("LastName")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Email")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Address")%>'></asp:Label>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Number")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
-                                    <td><asp:Label runat="server" Text='<%# Eval("Dismissed")%>'></asp:Label></td>
+                                <tr style="cursor:pointer">
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("FirstName")%>'></asp:Label></td>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("LastName")%>'></asp:Label></td>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("Email")%>'></asp:Label></td>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("Address")%>'></asp:Label>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("Number")%>'></asp:Label></td>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("OIB")%>'></asp:Label></td>
+                                    <td onclick="updateId(<%# Eval("id") %>);<%# _jsPostBackCall %>;"><asp:Label runat="server" Text='<%# Eval("Dismissed")%>'></asp:Label></td>
 
                                     <td style="padding:20px 10px; width:150px;">
                                         <asp:LinkButton CssClass="workButton" ID="ActivateBtn" runat="server" Text="Aktiviraj" OnCommand="ActivateBtn_Command" CommandArgument='<%# Eval("id") %>' />
