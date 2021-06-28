@@ -19,5 +19,9 @@ namespace PraksaFrontMVC.Data
         public DbSet<PraksaFrontMVC.Models.Attendant> Attendant { get; set; }
 
         public DbSet<PraksaFrontMVC.Models.Role> RoleModel { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.RoleName> RoleName { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.Person> Person { get; set; }
     }
 }
