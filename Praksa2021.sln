@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraksaMid", "PraksaMid\Prak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraksaMidTests", "PraksaMidTests\PraksaMidTests.csproj", "{5100A5F5-53F3-4BE0-BFFB-A988E4DD8EED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraksaFrontMVC", "PraksaFrontMVC\PraksaFrontMVC.csproj", "{81F8890E-4D5E-40C7-926D-9AB916EFC7B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraksaFrontMVC", "PraksaFrontMVC\PraksaFrontMVC.csproj", "{BF221294-4788-4AF9-9A71-6AB0C14AAA5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{5100A5F5-53F3-4BE0-BFFB-A988E4DD8EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5100A5F5-53F3-4BE0-BFFB-A988E4DD8EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5100A5F5-53F3-4BE0-BFFB-A988E4DD8EED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81F8890E-4D5E-40C7-926D-9AB916EFC7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81F8890E-4D5E-40C7-926D-9AB916EFC7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81F8890E-4D5E-40C7-926D-9AB916EFC7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81F8890E-4D5E-40C7-926D-9AB916EFC7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF221294-4788-4AF9-9A71-6AB0C14AAA5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF221294-4788-4AF9-9A71-6AB0C14AAA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF221294-4788-4AF9-9A71-6AB0C14AAA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF221294-4788-4AF9-9A71-6AB0C14AAA5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
