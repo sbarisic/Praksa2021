@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Content\**" />
+    <Content Remove="Content\**" />
+    <EmbeddedResource Remove="Content\**" />
+    <None Remove="Content\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\home.css" />
   </ItemGroup>
 
@@ -19,10 +26,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\css\" />
   </ItemGroup>
 
 </Project>
