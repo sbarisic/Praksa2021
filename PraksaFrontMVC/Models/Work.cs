@@ -14,6 +14,6 @@ namespace PraksaFrontMVC.Models
         public string Description { get; set; }
         public string Location { get; set; }
         public string Obligation { get; set; }
-        public Attendant Attendant { get; set; }
+        public int IdAttendant { get; set; }
     }
 }
