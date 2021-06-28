@@ -15,5 +15,7 @@ namespace PraksaFrontMVC.Data
         }
 
         public DbSet<PraksaFrontMVC.Models.Work> Work { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.Attendant> Attendant { get; set; }
     }
 }

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PraksaFrontMVC.Models.Attendant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdInteres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAttendance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectionTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdJob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdInteres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAttendance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendance)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

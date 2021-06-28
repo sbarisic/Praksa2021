@@ -1,0 +1,79 @@
+﻿@model PraksaFrontMVC.Models.Attendant
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Attendant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IdJob" class="control-label"></label>
+                <input asp-for="IdJob" class="form-control" />
+                <span asp-validation-for="IdJob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <input asp-for="IdUser" class="form-control" />
+                <span asp-validation-for="IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdInteres" class="control-label"></label>
+                <input asp-for="IdInteres" class="form-control" />
+                <span asp-validation-for="IdInteres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAttendance" class="control-label"></label>
+                <input asp-for="IdAttendance" class="form-control" />
+                <span asp-validation-for="IdAttendance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectionTime" class="control-label"></label>
+                <input asp-for="SelectionTime" class="form-control" />
+                <span asp-validation-for="SelectionTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserFirstName" class="control-label"></label>
+                <input asp-for="UserFirstName" class="form-control" />
+                <span asp-validation-for="UserFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserLastName" class="control-label"></label>
+                <input asp-for="UserLastName" class="form-control" />
+                <span asp-validation-for="UserLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job" class="control-label"></label>
+                <input asp-for="Job" class="form-control" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interes" class="control-label"></label>
+                <input asp-for="Interes" class="form-control" />
+                <span asp-validation-for="Interes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendance" class="control-label"></label>
+                <input asp-for="Attendance" class="form-control" />
+                <span asp-validation-for="Attendance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
