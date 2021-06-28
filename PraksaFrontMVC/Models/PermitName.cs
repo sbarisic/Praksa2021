@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PraksaFrontMVC.Models
 {
-    public class RoleName
+    public class PermitName
     {
         public int Id { get; set; }
         public string Name { get; set; }
