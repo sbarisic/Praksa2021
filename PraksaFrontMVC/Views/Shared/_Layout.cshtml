@@ -54,7 +54,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link navItem" href="About.aspx">
+                            <a class="nav-link navItem" href="@Url.Action("Index", "Home")">
                                 <div class="sb-nav-link-icon"><i class="fas fa-home" style="color:#6bc277!important;"></i></div>
                                 o nama
                             </a>
@@ -101,11 +101,11 @@
                                     </div>
                                 </nav>
                             </div>
-                            <a class="nav-link navItem" href="Users.aspx" id="users" runat="server">
+                            <a class="nav-link navItem" href="@Url.Action("Index", "People")" id="users" runat="server">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users" style="color:#6bc277!important;"></i></div>
                                 korisnici
                             </a>
-                            <a class="nav-link navItem" href="AdminPermitNames.aspx" id="permits" runat="server">
+                            <a class="nav-link navItem" href="@Url.Action("Index", "PermitNames")" id="permits" runat="server">
                                 <div class="sb-nav-link-icon"><i class="fas fa-sticky-note" style="color:#6bc277!important;"></i></div>
                                 dozvole
                             </a>
@@ -117,7 +117,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-minus" style="color:#6bc277!important;"></i></div>
                                 zatvoreni korisnici
                             </a>
-                            <a class="nav-link navItem" href="RoleNames.aspx" id="roles" runat="server">
+                            <a class="nav-link navItem" href="@Url.Action("Index", "Roles")" id="roles" runat="server">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user" style="color:#6bc277!important;"></i></div>
                                 uloge
                             </a>
@@ -136,6 +136,7 @@
                 <div class="container-fluid" style="width:100%!important;">
                     <main role="main" style="width:100%!important;">
                         @RenderBody()
+                        @RenderSection("Scripts", required: false)
                     </main>
                 </div>
                 <footer class="py-4 bg-light mt-auto">
