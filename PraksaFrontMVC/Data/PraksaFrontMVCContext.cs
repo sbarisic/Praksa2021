@@ -23,5 +23,9 @@ namespace PraksaFrontMVC.Data
         public DbSet<PraksaFrontMVC.Models.Role> Role { get; set; }
 
         public DbSet<PraksaFrontMVC.Models.Attendant> Attendant { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.Work> Work { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.ContactEmail> ContactEmail { get; set; }
     }
 }
