@@ -15,5 +15,7 @@ namespace PraksaFrontMVC.Data
         }
 
         public DbSet<PraksaFrontMVC.Models.PermitName> PermitName { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.RoleName> RoleName { get; set; }
     }
 }
