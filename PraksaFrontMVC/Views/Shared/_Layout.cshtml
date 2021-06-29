@@ -34,9 +34,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw" style="color:#6bc277!important;"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" id="login" runat="server" href="Login.aspx">Prijava</a></li>
-                    <li><a class="dropdown-item" id="register" runat="server" href="Registration.aspx">Registriraj se</a></li>
-                    <li><a class="dropdown-item" id="logout" runat="server" href="Logout.aspx">Odjava</a></li>
+                    <li><a class="dropdown-item" id="login" runat="server" href="@Url.Action("Index", "Login")">Prijava</a></li>
+                    <li><a class="dropdown-item" id="register" runat="server" href="@Url.Action("Index", "Registration")">Registriraj se</a></li>
+                    <li><a class="dropdown-item" id="logout" runat="server" href="@Url.Action("Index", "Logout")">Odjava</a></li>
 
 
 
