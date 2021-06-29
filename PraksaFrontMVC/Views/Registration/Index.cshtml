@@ -1,0 +1,107 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<head >
+    <link rel="stylesheet" href="~/css/loginStyle.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Registracija</title>
+    <style>
+        body {
+            font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: small-caps;
+            font-weight: 700;
+            line-height: 26.4px;
+        }
+
+        .btn.btn-primary {
+            background: #448d4e !important;
+            border: 1px solid #448d4e !important;
+            color: #fff !important;
+        }
+
+        .login-wrap .icon {
+            background: #448d4e !important;
+        }
+
+        .login-wrap h3 {
+            color: #448d4e !important;
+        }
+
+        .fontGreen {
+            color: #448d4e !important;
+        }
+    </style>
+</head>
+<body style="background: url(../../img/paviljon.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <form>
+        <asp:ScriptManager ID="ScriptManager1" ></asp:ScriptManager>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-user-o"></span>
+                            </div>
+                            <h3 class="text-center mb-4">Registracija</h3>
+                            <div action="#" class="login-form">
+                                <div class="form-group">
+                                    <Label class="fontGreen">Ime</Label>
+                                    <input class="form-control rounded-left" id="txtFirstName" type="text" placeholder="Ime..." required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">Prezime</label>
+                                    <input type="text" ID="txtLastName" class="form-control rounded-left"  placeholder="Prezime..." required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">Adresa</label>
+                                    <input type="text" ID="txtAdress" class="form-control rounded-left"  placeholder="Adresa..." required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">E-pošta</label>
+                                    <input type="text" ID="txtEmail" class="form-control rounded-left"  placeholder="Email..." required="required" TextMode="Email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">Kontakt broj</label>
+                                    <input type="text" ID="txtPhoneNumber" class="form-control rounded-left"  placeholder="Kontakt broj..." required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">OIB</label>
+                                    <input type="text" pattern=".{11}" class="form-control rounded-left" ID="txtOib"  placeholder="OIB..." required="required" title="Polje mora imati 11 znamenki"
+                                                 onkeydown="return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57  && isNaN(event.key))) && event.keyCode!=32);"> 
+                                </div>
+                                <div class="form-group">
+                                    <label class="fontGreen">Lozinka</label>
+                                    <input type="text" ID="txtLozinka" class="form-control rounded-left"  placeholder="Lozinka..." TextMode="Password">
+                                    <div id="errorPassword"  class="alert alert-danger alert-dismissible" style="display:none; width: 300px; position:absolute; padding: 8px;">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>&times;</a>
+                                        <strong>Greška!</strong> Lozinka mora imati barem 8 znakova.
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <input type="text" ID="txtLozinka2" class="form-control rounded-left"  placeholder="Ponovite lozinku..." TextMode="Password"/>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <input type="button" ID="btnReg" class="form-control btn btn-primary submit px-3" value="Potvrdi" />
+                                    <br /><br />
+                                </div>
+                                <div class="form-group">
+                                    <br />
+                                    <a href="@Url.Action("Index", "Home")">
+                                        <input type="button" ID="btnCancel" class="form-control btn btn-primary submit px-3" value="Odustani" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
