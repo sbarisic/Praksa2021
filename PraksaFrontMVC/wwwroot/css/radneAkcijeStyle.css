@@ -1,0 +1,230 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+body {
+    background-color:white;
+}
+
+.Background {
+    background-color: Black;
+    filter: opacity(90);
+    opacity: 0.8;
+}
+
+.Popup {
+    background-color: #FFFFFF;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 10px;
+    width: 850px;
+}
+
+.locationButton {
+    border: none;
+    background: none;
+    color: blue;
+}
+
+.workButton {
+    font-family: Hack, monospace;
+    background: #448d4e;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 12px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    text-decoration: none;
+}
+
+    .workButton::after {
+        content: ">";
+        color:white;
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 24%;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    .workButton:hover {
+        text-decoration: none;
+        color:white;
+        background: #3a7041;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #5a9061;
+        padding: 12px 22px 12px 12px;
+    }
+    .workButton:hover::after {
+        opacity: 1;
+        transition: all 0.5s;
+    }
+
+.closeButton {
+    font-family: Hack, monospace;
+    background: #448d4e;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 12px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    text-decoration: none;
+}
+
+    .closeButton::after {
+        content: "x";
+        color: white;
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 24%;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    .closeButton:hover {
+        text-decoration: none;
+        color: white;
+        background: #3a7041;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #5a9061;
+        padding: 12px 22px 12px 12px;
+    }
+
+        .closeButton:hover::after {
+            opacity: 1;
+            transition: all 0.5s;
+        }
+
+.editButton {
+    font-family: Hack, monospace;
+    background: #448d4e;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 6px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    text-decoration: none;
+}
+
+    .editButton::after {
+        content: ">";
+        color: white!important;
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 14%;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    .editButton:hover {
+        text-decoration: none;
+        color: white;
+        background: #3a7041;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #5a9061;
+        padding: 6px 16px 6px 6px;
+    }
+
+        .editButton:hover::after {
+            opacity: 1;
+            transition: all 0.5s;
+        }
+
+.deleteButton {
+    font-family: Hack, monospace;
+    background: #448d4e;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 6px;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    text-decoration: none;
+}
+
+    .deleteButton::after {
+        content: "x";
+        color: white !important;
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 14%;
+        right: 5%;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    .deleteButton:hover {
+        text-decoration: none;
+        color: white;
+        background: #3a7041;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #5a9061;
+        padding: 6px 16px 6px 6px;
+    }
+
+        .deleteButton:hover::after {
+            opacity: 1;
+            transition: all 0.5s;
+        }
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 50px auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border-right: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }

@@ -3,69 +3,83 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<head>
+    <link href="~/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <title>Radne akcije</title>
+</head>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 style="font-variant: small-caps;">Radne akcije</h1>
+</div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <br />
+    <a class="workButton" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Obligation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdAttendant)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Obligation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAttendant)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card-body">
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+        <div class="dataTable-container">
+            <table class="dataTable-table table-striped">
+                <thead>
+                    <tr style="background-color: #6bc277;">
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Location)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Obligation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdAttendant)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Obligation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdAttendant)
+                            </td>
+                            <td style="padding:20px 10px;">
+                                <a class="workButton" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="workButton" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a class="workButton" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
