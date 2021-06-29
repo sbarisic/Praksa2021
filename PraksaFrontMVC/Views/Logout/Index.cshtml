@@ -1,18 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="logout.aspx.cs" Inherits="logout" %>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Odjava</title>
-
-    <style id="" media="all">
+    <meta http-equiv="refresh" content="5; url=@Url.Action("Index", "Home")">
+    <style>
         /* latin */
-        @font-face {
+        @@font-face {
             font-family: 'Raleway';
             font-style: normal;
             font-weight: 700;
@@ -20,7 +18,7 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
         /* latin */
-        @font-face {
+        @@font-face {
             font-family: 'Passion One';
             font-style: normal;
             font-weight: 900;
@@ -29,7 +27,7 @@
         }
     </style>
 
-    <link type="text/css" rel="stylesheet" href="content/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/style.css" />
 
 </head>
 <body>
@@ -40,7 +38,7 @@
             </div>
             <h2>Uspješna odjava</h2>
             <p>Uspješno ste se odjavili. Preusmjeriti ćemo vas za 5 sekundi, ako ne budete automatski preusmjereni pritisnite na gumb "U redu".</p>
-            <a href="About.aspx">u redu</a>
+            <a href=@Url.Action("Index", "Home")>u redu</a>
         </div>
     </div>
 
@@ -54,4 +52,3 @@
     </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"663b9b444cb7fc75","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.5.2","si":10}'></script>
 </body>
-</html>
