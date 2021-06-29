@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PraksaFrontMVC.Data;
 using PraksaFrontMVC.Models;
+using System.Data.SqlClient;
+using System.Data;
+using Microsoft.Data.SqlClient;
+
 
 namespace PraksaFrontMVC.Controllers
 {
@@ -19,10 +22,49 @@ namespace PraksaFrontMVC.Controllers
             _context = context;
         }
 
+
+        //Custom Methods
+        public List<Work> GetWorks()
+        {
+            List<Work> works = new List<Work>();
+
+            SqlConnection con = new SqlConnection("Server = 167.86.127.239; Database = Praksa2021; User Id = SerengetiUser; Password = Serengeti12345678910;");
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getJobs", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    Work work = new Work
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Name = dr["Naziv akcije"].ToString(),
+                        Description = dr["Opis"].ToString(),
+                        Location = dr["Mjesto"].ToString(),
+                        Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d"),
+                        Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t"),
+                        Obligation = dr["Obaveznost"].ToString()
+                    };
+
+                    works.Add(work);
+
+                }
+            }
+            return works;
+
+        }
+
+
         // GET: Works
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Work.ToListAsync());
+            return View(GetWorks());
         }
 
         // GET: Works/Details/5
