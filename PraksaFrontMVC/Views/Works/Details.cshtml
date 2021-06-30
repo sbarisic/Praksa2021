@@ -14,11 +14,10 @@
 </div>
 
 <div class="create-wrap">
+    <hr />
     <div>
-        <h4>Work</h4>
-        <hr />
         <dl class="row">
-            <dt class="col-sm-2 fontGreen" style="border-right:2px solid gray;">
+            <dt class="col-sm-2 fontGreen">
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
             <dd class="col-sm-10">
@@ -54,16 +53,10 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Obligation)
             </dd>
-            <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.IdAttendant):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.IdAttendant)
-            </dd>
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Uredi</a> <br /><br />
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
 </div>
