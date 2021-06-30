@@ -36,8 +36,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var work = await _context.Work
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var work = await WorkData.GetWork((int)id);
             if (work == null)
             {
                 return NotFound();
@@ -100,7 +99,7 @@ namespace PraksaFrontMVC.Controllers
             {
                 try
                 {
-                    _context.Update(work);
+                    WorkData.EditWork(work);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -127,7 +126,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var work = await WorkData.DeleteWork((int)id);
+            var work = await WorkData.GetWork((int)id);
 
             if (work == null)
             {
@@ -142,8 +141,8 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var work = await _context.Work.FindAsync(id);
-            _context.Work.Remove(work);
+            var work = await WorkData.GetWork((int)id);
+            WorkData.DeleteWork(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

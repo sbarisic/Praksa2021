@@ -77,6 +77,67 @@ namespace PraksaFrontMVC.Data
             }
         }
 
+        public static Task<Work> GetWork(int workId)
+        {
+            SqlConnection con = ConnectionString.ConStr();
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getJob", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDjob", workId));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            Work work = new Work();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    work.Name = dr["Naziv akcije"].ToString();
+                    work.Description = dr["Opis"].ToString();
+                    work.Location = dr["Mjesto"].ToString();
+                    work.Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d");
+                    work.Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t");
+                    work.Obligation = dr["Obaveznost"].ToString();
+
+                }
+            }
+            return Task.FromResult(work);
+        }
+
+        public static void EditWork(Work work)
+        {
+            try
+            {
+                using (SqlConnection con = ConnectionString.ConStr())
+                {
+                    SqlCommand cmd = new SqlCommand("updateJob", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    string dateStr = work.Date + " " + work.Time;
+                    DateTime date = DateTime.Parse(dateStr);
+                    cmd.Parameters.Add(new SqlParameter("@ID", work.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Name", work.Name));
+                    cmd.Parameters.Add(new SqlParameter("@Date", date));
+                    cmd.Parameters.Add(new SqlParameter("@Location", work.Location));
+                    cmd.Parameters.Add(new SqlParameter("@Description", work.Description));
+                    cmd.Parameters.Add(new SqlParameter("@Obligation", Convert.ToInt32(work.Obligation)));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static void DeleteWork(int workId)
         {
             try
