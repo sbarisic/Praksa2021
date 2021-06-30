@@ -54,7 +54,7 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Name")] RoleName roleName)
+        public async Task<IActionResult> Create([Bind("Name")] RoleName roleName)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var roleName = await _context.RoleName.FindAsync(id);
+            var roleName = await RoleNameData.GetRoleName((int)id);
             RoleNameData.DeleteRoleName(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
