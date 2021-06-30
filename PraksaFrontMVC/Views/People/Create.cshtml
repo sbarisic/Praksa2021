@@ -4,75 +4,69 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
-<h4>Person</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UniqueId" class="control-label"></label>
-                <input asp-for="UniqueId" class="form-control" />
-                <span asp-validation-for="UniqueId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Oib" class="control-label"></label>
-                <input asp-for="Oib" class="form-control" />
-                <span asp-validation-for="Oib" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Accepted" /> @Html.DisplayNameFor(model => model.Accepted)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Dismissed" class="control-label"></label>
-                <input asp-for="Dismissed" class="form-control" />
-                <span asp-validation-for="Dismissed" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Number" class="control-label"></label>
-                <input asp-for="Number" class="form-control" />
-                <span asp-validation-for="Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 class="create-header">Novi korisnik</h1>
+</div>
+
+<div class="create-wrap">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="UniqueId" class="control-label fontGreen"></label>
+                    <input asp-for="UniqueId" class="form-control rounded-left" placeholder="JMBAC..."/>
+                    <span asp-validation-for="UniqueId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label fontGreen"></label>
+                    <input asp-for="FirstName" class="form-control rounded-left" placeholder="Ime..."/>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label fontGreen"></label>
+                    <input asp-for="LastName" class="form-control rounded-left" placeholder="Prezime..." />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label fontGreen"></label>
+                    <input asp-for="Address" class="form-control rounded-left" placeholder="Adresa..." />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Oib" class="control-label fontGreen"></label>
+                    <input asp-for="Oib" class="form-control rounded-left" placeholder="OIB..." />
+                    <span asp-validation-for="Oib" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label fontGreen"></label>
+                    <input asp-for="Email" class="form-control rounded-left"  placeholder="Email..."/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Number" class="control-label fontGreen"></label>
+                    <input asp-for="Number" class="form-control rounded-left" placeholder="Kontakt broj..." />
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" style="font-variant:small-caps" formmethod="post" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Nazad na listu</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</div>
