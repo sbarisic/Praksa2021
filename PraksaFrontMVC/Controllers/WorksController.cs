@@ -22,49 +22,10 @@ namespace PraksaFrontMVC.Controllers
             _context = context;
         }
 
-
-        //Custom Methods
-        public List<Work> GetWorks()
-        {
-            List<Work> works = new List<Work>();
-
-            SqlConnection con = new SqlConnection("Server = 167.86.127.239; Database = Praksa2021; User Id = SerengetiUser; Password = Serengeti12345678910;");
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("getJobs", con)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    Work work = new Work
-                    {
-                        Id = Convert.ToInt32(dr["ID"]),
-                        Name = dr["Naziv akcije"].ToString(),
-                        Description = dr["Opis"].ToString(),
-                        Location = dr["Mjesto"].ToString(),
-                        Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d"),
-                        Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t"),
-                        Obligation = dr["Obaveznost"].ToString()
-                    };
-
-                    works.Add(work);
-
-                }
-            }
-            return works;
-
-        }
-
-
         // GET: Works
         public async Task<IActionResult> Index()
         {
-            return View(GetWorks());
+            return View(await WorkData.GetWorks());
         }
 
         // GET: Works/Details/5
@@ -96,11 +57,11 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Date,Time,Description,Location,Obligation,IdAttendant")] Work work)
+        public async Task<IActionResult> Create([Bind("Id,Name,Date,Time,Description,Location,Obligation")] Work work)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(work);
+                WorkData.CreateWork(work);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -166,8 +127,8 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var work = await _context.Work
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var work = await WorkData.DeleteWork((int)id);
+
             if (work == null)
             {
                 return NotFound();
