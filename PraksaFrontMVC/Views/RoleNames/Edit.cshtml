@@ -10,28 +10,6 @@
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
 
-<<<<<<< HEAD
-=======
-<h4>RoleName</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" formmethod="post"/>
-            </div>
-        </form>
-    </div>
-</div>
->>>>>>> ead2ca9ed6a598cafedda17e7f56d2ccbaedc50a
-
 <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
     <h1 class="create-header">Uredi ulogu</h1>
 </div>
@@ -49,7 +27,7 @@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" style="font-variant:small-caps" value="Save" class="btn btn-primary" />
+                    <input type="submit" style="font-variant:small-caps" value="Save" class="btn btn-primary" formmethod="post"/>
                 </div>
             </form>
         </div>

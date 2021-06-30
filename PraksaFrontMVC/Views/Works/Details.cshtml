@@ -3,58 +3,67 @@
 @{
     ViewData["Title"] = "Details";
 }
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
-<h1>Details</h1>
-
-<div>
-    <h4>Work</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Time)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Time)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Obligation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Obligation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdAttendant)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdAttendant)
-        </dd>
-    </dl>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 class="create-header">Detalji</h1>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="create-wrap">
+    <div>
+        <h4>Work</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2 fontGreen" style="border-right:2px solid gray;">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.Date):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.Time):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.Description):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.Obligation):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Obligation)
+            </dd>
+            <dt class="col-sm-2 fontGreen">
+                @Html.DisplayNameFor(model => model.IdAttendant):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IdAttendant)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
