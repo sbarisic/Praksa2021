@@ -63,5 +63,52 @@ namespace PraksaFrontMVC.Data
             }
             return Task.FromResult(roleName);
         }
+
+        public static void CreateRoleName(RoleName role)
+        {
+            try
+            {
+                using (SqlConnection con = ConnectionString.ConStr())
+                {
+                    SqlCommand cmd = new SqlCommand("insertRoleName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.Add(new SqlParameter("@RoleName", role.Name));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EditRoleName(RoleName role)
+        {
+            try
+            {
+                using (SqlConnection con = ConnectionString.ConStr())
+                {
+                    SqlCommand cmd = new SqlCommand("updateRoleName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@IDrole", role.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Name", role.Name));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
