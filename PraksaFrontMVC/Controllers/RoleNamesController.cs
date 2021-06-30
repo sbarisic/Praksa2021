@@ -32,9 +32,9 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
+            
+            var roleName = await RoleNameData.GetRoleName((int)id); 
 
-            var roleName = await _context.RoleName
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (roleName == null)
             {
                 return NotFound();
