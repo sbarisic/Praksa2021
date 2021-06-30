@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PraksaFrontMVC.Data;
 using PraksaFrontMVC.Models;
 
-namespace PraksaFrontMVC.Controllers
+namespace PraksaFrontMVC
 {
     public class PeopleController : Controller
     {
@@ -22,7 +22,7 @@ namespace PraksaFrontMVC.Controllers
         // GET: People
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Person.ToListAsync());
+            return View(await PeopleData.GetUsers());
         }
 
         // GET: People/Details/5
@@ -33,8 +33,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var person = await PeopleData.GetUser((int)id);
             if (person == null)
             {
                 return NotFound();
@@ -54,7 +53,7 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed")] Person person)
+        public async Task<IActionResult> Create([Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed,Email,Number")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +72,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Person.FindAsync(id);
+            var person = await PeopleData.GetUser((int)id);
             if (person == null)
             {
                 return NotFound();
@@ -86,7 +85,7 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed,Email,Number")] Person person)
         {
             if (id != person.Id)
             {
@@ -102,14 +101,7 @@ namespace PraksaFrontMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonExists(person.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }

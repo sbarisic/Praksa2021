@@ -16,5 +16,7 @@ namespace PraksaFrontMVC.Models
         public bool Accepted { get; set; }
         public string Password { get; set; }
         public DateTime Dismissed { get; set; }
+        public string Email { get; set; }
+        public string Number { get; set; }
     }
 }
