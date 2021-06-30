@@ -22,7 +22,7 @@ namespace PraksaFrontMVC.Controllers
         // GET: RoleNames
         public async Task<IActionResult> Index()
         {
-            return View(await _context.RoleName.ToListAsync());
+            return View(await RoleNameData.GetRoleNames());
         }
 
         // GET: RoleNames/Details/5
