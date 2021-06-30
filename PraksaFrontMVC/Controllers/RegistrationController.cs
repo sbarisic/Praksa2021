@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PraksaFrontMVC.Controllers
 {
-    public class Logout : Controller
+    public class RegistrationController : Controller
     {
         public IActionResult Index()
         {
