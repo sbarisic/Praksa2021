@@ -25,6 +25,12 @@ namespace PraksaFrontMVC
             return View(await PeopleData.GetUsers());
         }
 
+        // GET: Registration Requests
+        public async Task<IActionResult> RegistrationRequest()
+        {
+            return View(await PeopleData.GetRegistartionsRequestUser());
+        }
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,7 +63,7 @@ namespace PraksaFrontMVC
         {
             if (ModelState.IsValid)
             {
-                _context.Add(person);
+                PeopleData.CreateUser(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -116,8 +122,7 @@ namespace PraksaFrontMVC
                 return NotFound();
             }
 
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var person = await PeopleData.GetUser((int)id);
             if (person == null)
             {
                 return NotFound();
@@ -131,8 +136,8 @@ namespace PraksaFrontMVC
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var person = await _context.Person.FindAsync(id);
-            _context.Person.Remove(person);
+            var person = await PeopleData.GetUser((int)id);
+            PeopleData.DeleteUser(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
