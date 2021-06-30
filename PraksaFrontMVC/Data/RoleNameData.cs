@@ -66,72 +66,48 @@ namespace PraksaFrontMVC.Data
 
         public static void CreateRoleName(RoleName role)
         {
-            try
-            {
-                using (SqlConnection con = ConnectionString.ConStr())
-                {
-                    SqlCommand cmd = new SqlCommand("insertRoleName", con)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
 
-                    cmd.Parameters.Add(new SqlParameter("@RoleName", role.Name));
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("insertRoleName", con)
             {
-                throw ex;
-            }
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.Add(new SqlParameter("@RoleName", role.Name));
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
         public static void EditRoleName(RoleName role)
         {
-            try
-            {
-                using (SqlConnection con = ConnectionString.ConStr())
-                {
-                    SqlCommand cmd = new SqlCommand("updateRoleName", con)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd.Parameters.Add(new SqlParameter("@IDrole", role.Id));
-                    cmd.Parameters.Add(new SqlParameter("@Name", role.Name));
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("updateRoleName", con)
             {
-                throw ex;
-            }
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDrole", role.Id));
+            cmd.Parameters.Add(new SqlParameter("@Name", role.Name));
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
         }
         public static void DeleteRoleName(int idRoleName)
         {
-            try
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("deleteRoleName", con)
             {
-                using (SqlConnection con = ConnectionString.ConStr())
-                {
-                    SqlCommand cmd = new SqlCommand("deleteRoleName", con)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                CommandType = CommandType.StoredProcedure
+            };
 
-                    cmd.Parameters.Add(new SqlParameter("@IDrole", idRoleName));
+            cmd.Parameters.Add(new SqlParameter("@IDrole", idRoleName));
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

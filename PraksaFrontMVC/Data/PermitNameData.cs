@@ -11,29 +11,27 @@ namespace PraksaFrontMVC.Data
     {
         public static void CreatePermitName(PermitName permitName)
         {
-            using (SqlConnection con = ConnectionString.ConStr())
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("insertPermitName", con)
             {
-                SqlCommand cmd = new SqlCommand("insertPermitName", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+                CommandType = CommandType.StoredProcedure
+            };
 
-                cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
+            cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public static Task<List<PermitName>> GetPermitNames()
         {
-            List<PermitName> permitNames = new List<PermitName>();
+            List<PermitName> permitNames = new();
 
             SqlConnection con = ConnectionString.ConStr();
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("getPermitNames", con)
+            SqlCommand cmd = new("getPermitNames", con)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -43,7 +41,7 @@ namespace PraksaFrontMVC.Data
             {
                 while (dr.Read())
                 {
-                    PermitName permitNameModel = new PermitName()
+                    PermitName permitNameModel = new()
                     {
                         Id = Convert.ToInt32(dr["Id"]),
                         Name = dr["Naziv dozvole"].ToString()
@@ -57,37 +55,32 @@ namespace PraksaFrontMVC.Data
 
         public static void DeletePermitName(int permitNameId)
         {
-            using (SqlConnection con = ConnectionString.ConStr())
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("deletePermitName", con)
             {
-                SqlCommand cmd = new SqlCommand("deletePermitName", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+                CommandType = CommandType.StoredProcedure
+            };
 
-                cmd.Parameters.Add(new SqlParameter("@IDpermit", permitNameId));
+            cmd.Parameters.Add(new SqlParameter("@IDpermit", permitNameId));
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public static void EditPermitName(PermitName permitName)
         {
-
-            using (SqlConnection con = ConnectionString.ConStr())
+            using SqlConnection con = ConnectionString.ConStr();
+            SqlCommand cmd = new("updatePermitName", con)
             {
-                SqlCommand cmd = new SqlCommand("updatePermitName", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("@IDpermit", permitName.Id));
-                cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDpermit", permitName.Id));
+            cmd.Parameters.Add(new SqlParameter("@Name", permitName.Name));
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public static Task<PermitName> GetPermitName(int idPermitName)
@@ -95,14 +88,14 @@ namespace PraksaFrontMVC.Data
             SqlConnection con = ConnectionString.ConStr();
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("getPermitName", con)
+            SqlCommand cmd = new("getPermitName", con)
             {
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.Add(new SqlParameter("@IDPermitName", idPermitName));
 
             SqlDataReader dr = cmd.ExecuteReader();
-            PermitName permitName = new PermitName();
+            PermitName permitName = new();
 
             if (dr != null)
             {
