@@ -22,7 +22,7 @@ namespace PraksaFrontMVC.Controllers
         // GET: PermitNames
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PermitName.ToListAsync());
+            return View(await PermitNameData.GetPermitNames());
         }
 
         // GET: PermitNames/Details/5
@@ -33,8 +33,8 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var permitName = await _context.PermitName
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var permitName = await PermitNameData.GetPermitName((int)id);
+
             if (permitName == null)
             {
                 return NotFound();
@@ -58,7 +58,7 @@ namespace PraksaFrontMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(permitName);
+                PermitNameData.CreatePermitName(permitName);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -73,7 +73,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var permitName = await _context.PermitName.FindAsync(id);
+            var permitName = await PermitNameData.GetPermitName((int)id);
             if (permitName == null)
             {
                 return NotFound();
@@ -97,19 +97,12 @@ namespace PraksaFrontMVC.Controllers
             {
                 try
                 {
-                    _context.Update(permitName);
+                    PermitNameData.EditPermitName(permitName);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PermitNameExists(permitName.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                   throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -124,8 +117,8 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var permitName = await _context.PermitName
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var permitName = await PermitNameData.GetPermitName((int)id);
+
             if (permitName == null)
             {
                 return NotFound();
@@ -139,15 +132,9 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var permitName = await _context.PermitName.FindAsync(id);
-            _context.PermitName.Remove(permitName);
+            PermitNameData.DeletePermitName(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool PermitNameExists(int id)
-        {
-            return _context.PermitName.Any(e => e.Id == id);
         }
     }
 }
