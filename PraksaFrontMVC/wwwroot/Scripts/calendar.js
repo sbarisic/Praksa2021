@@ -14,9 +14,9 @@ $('#calendar').fullCalendar({
     height: 'parent',
     header: {
         left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        center: 'title'
     },
+    locale: 'hr',
     eventRender(event, $el) {
         $el.qtip({
             content: {
