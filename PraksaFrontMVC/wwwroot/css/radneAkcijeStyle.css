@@ -25,7 +25,8 @@ body {
 }
 
 .workButton {
-    font-family: Hack, monospace;
+    font-variant:small-caps;
+    font-weight:500;
     background: #448d4e;
     color: #ffffff;
     cursor: pointer;
@@ -66,7 +67,8 @@ body {
     }
 
 .closeButton {
-    font-family: Hack, monospace;
+    font-variant: small-caps;
+    font-weight: 500;
     background: #448d4e;
     color: #ffffff;
     cursor: pointer;
