@@ -142,6 +142,31 @@ namespace PraksaFrontMVC
             return RedirectToAction(nameof(Index));
         }
 
+
+        // POST: People/Accept
+        [HttpPost, ActionName("Accept")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Accept(int id)
+        {
+            var person = await PeopleData.GetUser((int)id);
+            PeopleData.VerificateUser(id);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // POST: People/Reject
+        [HttpPost, ActionName("Reject")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reject(int id)
+        {
+            var person = await PeopleData.GetUser((int)id);
+            PeopleData.RejectUser(id);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(RegistrationRequest));
+        }
+
+
+
         private bool PersonExists(int id)
         {
             return _context.Person.Any(e => e.Id == id);

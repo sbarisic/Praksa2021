@@ -43,33 +43,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FirstName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.LastName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Address)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Oib)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Number)
-                            </td>
-
-                            <td style="padding:20px 10px; width:250px;">
-                                <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Accept" asp-route-id="@item.Id">Prihvati</a></div>
-                                <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id">Odbij</a></div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Oib)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td style="padding:20px 10px; width:250px;">
+                            <form asp-action="Accept" style="width:70px; display: inline;">
+                                <input type="submit" value="Prihvati" class="workButton" style="font-variant:small-caps" formmethod="post" />
+                            </form>
+                        </td>
+                    </tr>
                     }
-                </tbody>
                 </tbody>
             </table>
         </div>
