@@ -110,5 +110,28 @@ namespace PraksaFrontMVC.Data
                 throw ex;
             }
         }
+        public static void DeleteRoleName(int idRoleName)
+        {
+            try
+            {
+                using (SqlConnection con = ConnectionString.ConStr())
+                {
+                    SqlCommand cmd = new SqlCommand("deleteRoleName", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.Add(new SqlParameter("@IDrole", idRoleName));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
