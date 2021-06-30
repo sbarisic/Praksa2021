@@ -33,8 +33,8 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var roleName = await _context.RoleName
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var roleName = await RoleNameData.GetRoleName((int)id);
+
             if (roleName == null)
             {
                 return NotFound();
@@ -54,11 +54,11 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] RoleName roleName)
+        public async Task<IActionResult> Create([Bind("Name")] RoleName roleName)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(roleName);
+                RoleNameData.CreateRoleName(roleName);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -73,7 +73,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var roleName = await _context.RoleName.FindAsync(id);
+            var roleName = await RoleNameData.GetRoleName((int)id);
             if (roleName == null)
             {
                 return NotFound();
@@ -97,19 +97,12 @@ namespace PraksaFrontMVC.Controllers
             {
                 try
                 {
-                    _context.Update(roleName);
+                    RoleNameData.EditRoleName(roleName);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoleNameExists(roleName.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -124,8 +117,8 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var roleName = await _context.RoleName
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var roleName = await RoleNameData.GetRoleName((int)id);
+
             if (roleName == null)
             {
                 return NotFound();
@@ -139,15 +132,10 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var roleName = await _context.RoleName.FindAsync(id);
-            _context.RoleName.Remove(roleName);
+            var roleName = await RoleNameData.GetRoleName((int)id);
+            RoleNameData.DeleteRoleName(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool RoleNameExists(int id)
-        {
-            return _context.RoleName.Any(e => e.Id == id);
         }
     }
 }
