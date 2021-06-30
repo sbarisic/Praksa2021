@@ -161,5 +161,40 @@ namespace PraksaFrontMVC.Data
                 throw ex;
             }
         }
+
+        public static Task<List<Work>> GetDoneWorks()
+        {
+            List<Work> works = new();
+
+            SqlConnection con = ConnectionString.ConStr();
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("getDoneJobs", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    Work work = new Work
+                    {
+                        Id = Convert.ToInt32(dr["ID"]),
+                        Name = dr["Naziv akcije"].ToString(),
+                        Description = dr["Opis"].ToString(),
+                        Location = dr["Mjesto"].ToString(),
+                        Date = DateTime.Parse(dr["Datum"].ToString()).ToString("d"),
+                        Time = DateTime.Parse(dr["Datum"].ToString()).ToString("t"),
+                        Obligation = dr["Obaveznost"].ToString()
+                    };
+
+                    works.Add(work);
+
+                }
+            }
+            return Task.FromResult(works);
+        }
     }
 }

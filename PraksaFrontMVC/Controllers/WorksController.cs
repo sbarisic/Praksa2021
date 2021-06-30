@@ -75,7 +75,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            var work = await _context.Work.FindAsync(id);
+            var work = await WorkData.GetWork((int)id);
             if (work == null)
             {
                 return NotFound();
@@ -104,14 +104,7 @@ namespace PraksaFrontMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WorkExists(work.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
