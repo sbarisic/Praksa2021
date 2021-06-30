@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\home.css" />
+    <None Include="wwwroot\Scripts\calendar.js" />
   </ItemGroup>
 
   <ItemGroup>
