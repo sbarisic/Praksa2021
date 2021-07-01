@@ -9,14 +9,15 @@ const fpEndTime = flatpickr("#EndTime", {
     dateFormat: "m/d/Y h:i K"
 });
 
+var nevent = testF();
+
 $('#calendar').fullCalendar({
     defaultView: 'month',
     height: 'parent',
     header: {
         left: 'prev,next today',
-        center: 'title'
+        center: 'title',
     },
-    locale: 'hr',
     eventRender(event, $el) {
         $el.qtip({
             content: {
@@ -39,7 +40,7 @@ $('#calendar').fullCalendar({
             }
         });
     },
-    events: '/Calendar/GetCalendarEvents',
+    events: nevent,
     eventClick: updateEvent,
     selectable: true,
     select: addEvent

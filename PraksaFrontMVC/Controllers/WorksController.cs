@@ -9,7 +9,8 @@ using PraksaFrontMVC.Models;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Data.SqlClient;
-
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace PraksaFrontMVC.Controllers
 {
@@ -27,6 +28,33 @@ namespace PraksaFrontMVC.Controllers
         {
             return View(await WorkData.GetWorks());
         }
+
+        public async Task<IActionResult> Calendar()
+        {
+            List<Work> list = Task.Run(() => WorkData.GetWorks()).Result;
+            List<Event> events = new List<Event>();
+            foreach (var w in list)
+            {
+                Event e = new Event
+                {
+                    EventId = w.Id,
+                    Title = w.Name,
+                    Description = w.Description,
+                    Start = w.Date,
+                    End = w.Date,
+                    AllDay = false
+                };
+                events.Add(e);
+                System.Diagnostics.Debug.WriteLine(e.Start);
+            }
+            var j = Json(events);
+            var s = JsonConvert.SerializeObject(events);
+            System.Diagnostics.Debug.WriteLine(s);
+            ViewBag.Events = s;
+
+            return View(await WorkData.GetWorks());
+        }
+
 
         // GET: Works/Details/5
         public async Task<IActionResult> Details(int? id)
