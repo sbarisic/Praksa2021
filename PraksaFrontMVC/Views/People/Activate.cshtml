@@ -1,7 +1,7 @@
 ﻿@model PraksaFrontMVC.Models.Person
 
 @{
-    ViewData["Title"] = "Reject";
+    ViewData["Title"] = "Activate";
 }
 
 <head>
@@ -11,10 +11,10 @@
 </head>
 
 <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
-    <h1 class="create-header">Odbij</h1>
+    <h1 class="create-header">Aktiviraj</h1>
 </div>
 
-<h3>Jeste li sigurni da želite odbiti ovog korisnika?</h3>
+<h3>Jeste li sigurni da želite aktivirati ovog korisnika?</h3>
 <div class="create-wrap">
     <hr />
     <dl class="row">
@@ -50,10 +50,10 @@
         </dd>
     </dl>
 </div>
-<form asp-action="Reject">
+<form asp-action="Activate">
     <input type="hidden" asp-for="Id" /><br />
-    <input type="submit" value="Odbij" class="btn btn-danger" style="font-variant:small-caps" formmethod="post" /> |
-    <a class="btn btn-primary" asp-action="RegistrationRequest">
+    <input type="submit" value="Aktiviraj" class="btn btn-primary" style="font-variant:small-caps" formmethod="post" /> |
+    <a class="btn btn-primary" asp-action="DismissedUsers">
         Nazad na listu
     </a>
 </form>
