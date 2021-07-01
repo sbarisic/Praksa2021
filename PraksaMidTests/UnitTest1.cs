@@ -341,15 +341,15 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetWork()
         {
-            var expectedworkname = "Kupanje u bazenu";
-            var result = Work.GetWork( 7);
+            var expectedworkname = "novaradnaakcija";
+            var result = Work.GetWork(15);
             Assert.AreEqual(result.Name, expectedworkname);
         }
 
         [TestMethod]
         public void TestGetWorkFailed()
         {
-            var expectedworkname = "Kupanje u bazenu";
+            var expectedworkname = "novaradnaakcija";
             var result = Work.GetWork( fakeID);
             Assert.AreNotEqual(result.Name, expectedworkname);
         }
