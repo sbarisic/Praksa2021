@@ -29,5 +29,7 @@ namespace PraksaFrontMVC.Data
         public DbSet<PraksaFrontMVC.Models.ContactEmail> ContactEmail { get; set; }
 
         public DbSet<PraksaFrontMVC.Models.ContactNumber> ContactNumber { get; set; }
+
+        public DbSet<PraksaFrontMVC.Models.Permit> Permit { get; set; }
     }
 }

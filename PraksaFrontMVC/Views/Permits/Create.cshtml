@@ -1,0 +1,63 @@
+﻿@model PraksaFrontMVC.Models.Permit
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Permit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <input asp-for="IdUser" class="form-control" />
+                <span asp-validation-for="IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPermit" class="control-label"></label>
+                <input asp-for="IdPermit" class="form-control" />
+                <span asp-validation-for="IdPermit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpiryDate" class="control-label"></label>
+                <input asp-for="ExpiryDate" class="form-control" />
+                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PermitName" class="control-label"></label>
+                <input asp-for="PermitName" class="form-control" />
+                <span asp-validation-for="PermitName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PermitNumber" class="control-label"></label>
+                <input asp-for="PermitNumber" class="form-control" />
+                <span asp-validation-for="PermitNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
