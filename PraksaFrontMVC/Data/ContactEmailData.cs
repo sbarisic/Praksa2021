@@ -30,7 +30,8 @@ namespace PraksaFrontMVC.Data
                     ContactEmail contactEmail = new ContactEmail()
                     {
                         Id = Convert.ToInt32(dr["IDEmail"]),
-                        Email = dr["Epošta"].ToString()
+                        Email = dr["Epošta"].ToString(),
+                        IdUser = Convert.ToInt32(dr["IDUser"])
                     };
 
                     contactEmails.Add(contactEmail);
@@ -135,6 +136,7 @@ namespace PraksaFrontMVC.Data
                 {
                     email.Email = dr["Epošta"].ToString();
                     email.Id = Convert.ToInt32(dr["IDEmail"]);
+                    email.IdUser = Convert.ToInt32(dr["IDUser"]);
                 }
             }
             return Task.FromResult(email);

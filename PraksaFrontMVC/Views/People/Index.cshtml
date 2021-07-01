@@ -68,6 +68,7 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
+                            <div style="width: 70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-controller="ContactEmails" asp-action="Index" asp-route-id="@item.Id">Edit Emails</a></div>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Number)

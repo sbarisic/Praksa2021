@@ -13,39 +13,40 @@ namespace PraksaFrontMVC.Controllers
     public class ContactEmailsController : Controller
     {
         private readonly PraksaFrontMVCContext _context;
-
         public ContactEmailsController(PraksaFrontMVCContext context)
         {
             _context = context;
         }
 
         // GET: ContactEmails
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.ContactEmail.ToListAsync());
+            ViewBag.userId = id;
+            return View(await ContactEmailData.GetContactEmails((int)id));
         }
 
         // GET: ContactEmails/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? userId)
         {
-            if (id == null)
+            System.Diagnostics.Debug.WriteLine(userId);
+            if (id == null && userId == null)
             {
                 return NotFound();
             }
 
-            var contactEmail = await _context.ContactEmail
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var contactEmail = await ContactEmailData.GetEmail((int)userId, (int)id);
             if (contactEmail == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(contactEmail);
         }
 
         // GET: ContactEmails/Create
-        public IActionResult Create()
+        public IActionResult Create(int? userId)
         {
+            ViewBag.userId = userId;
             return View();
         }
 
@@ -58,26 +59,27 @@ namespace PraksaFrontMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(contactEmail);
+                ContactEmailData.CreateEmail(contactEmail);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
             return View(contactEmail);
         }
 
         // GET: ContactEmails/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var contactEmail = await _context.ContactEmail.FindAsync(id);
+            var contactEmail = await ContactEmailData.GetEmail((int)userId, (int)id);
             if (contactEmail == null)
             {
                 return NotFound();
             }
+            ViewBag.userId = userId;
             return View(contactEmail);
         }
 
@@ -97,40 +99,32 @@ namespace PraksaFrontMVC.Controllers
             {
                 try
                 {
-                    _context.Update(contactEmail);
+                    ContactEmailData.EditEmail(contactEmail);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContactEmailExists(contactEmail.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
             return View(contactEmail);
         }
 
         // GET: ContactEmails/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var contactEmail = await _context.ContactEmail
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var contactEmail = await ContactEmailData.GetEmail((int)userId, (int)id);
             if (contactEmail == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(contactEmail);
         }
 
@@ -139,10 +133,10 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contactEmail = await _context.ContactEmail.FindAsync(id);
-            _context.ContactEmail.Remove(contactEmail);
+            var contactEmail = await ContactEmailData.GetEmail(ViewBag.userId, id);
+            await ContactEmailData.DeleteEmail(id);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
         }
 
         private bool ContactEmailExists(int id)
