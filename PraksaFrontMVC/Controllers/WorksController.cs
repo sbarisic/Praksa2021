@@ -28,12 +28,6 @@ namespace PraksaFrontMVC.Controllers
             return View(await WorkData.GetWorks());
         }
 
-        [HttpGet]
-        public ViewResult LocationPopup(string location)
-        {
-            return View(location);
-        }
-
         // GET: Works/Details/5
         public async Task<IActionResult> Details(int? id)
         {
