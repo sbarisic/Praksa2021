@@ -48,6 +48,40 @@ namespace PraksaFrontMVC
             return View(person);
         }
 
+        public async Task<IActionResult> Accept(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var person = await PeopleData.GetUser((int)id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return View(person);
+        }
+
+        public async Task<IActionResult> Reject(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var person = await PeopleData.GetUser((int)id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return View(person);
+        }
+
+
+
         // GET: People/Create
         public IActionResult Create()
         {

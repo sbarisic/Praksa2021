@@ -62,9 +62,8 @@
                             @Html.DisplayFor(modelItem => item.Number)
                         </td>
                         <td style="padding:20px 10px; width:250px;">
-                            <form asp-action="Accept" style="width:70px; display: inline;">
-                                <input type="submit" value="Prihvati" class="workButton" style="font-variant:small-caps" formmethod="post" />
-                            </form>
+                            <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Accept" asp-route-id="@item.Id">Prihvati</a></div>
+                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Reject" asp-route-id="@item.Id">Reject</a></div>
                         </td>
                     </tr>
                     }
