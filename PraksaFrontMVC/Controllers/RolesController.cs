@@ -25,24 +25,6 @@ namespace PraksaFrontMVC
             return View(await _context.Role.ToListAsync());
         }
 
-        // GET: Roles/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var role = await _context.Role
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (role == null)
-            {
-                return NotFound();
-            }
-
-            return View(role);
-        }
-
         // GET: Roles/Create
         public IActionResult Create()
         {
@@ -58,7 +40,7 @@ namespace PraksaFrontMVC
         {
             if (ModelState.IsValid)
             {
-                _context.Add(role);
+               RoleData.CreateRole(role);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -139,8 +121,7 @@ namespace PraksaFrontMVC
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var role = await _context.Role.FindAsync(id);
-            _context.Role.Remove(role);
+            RoleData.DeleteRole((int)id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

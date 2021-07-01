@@ -1,0 +1,123 @@
+﻿@model IEnumerable<PraksaFrontMVC.Models.Work>
+
+@{
+    ViewData["Title"] = "DismissedWorks";
+}
+<head>
+    <link href="~/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+</head>
+
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 style="font-variant: small-caps;">Prošle radne akcije</h1>
+</div>
+
+<div class="card-body">
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+        <div class="dataTable-container">
+            <table class="dataTable-table table-striped">
+                <thead>
+                    <tr style="background-color: #6bc277;">
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Location)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Obligation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdAttendant)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                <button id="btnShowModal" type="button"
+                                        class="locationButton">
+                                    @Html.DisplayFor(modelItem => item.Location)
+                                </button>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Obligation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdAttendant)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="modal fade" tabindex="-1" id="locationModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="font-variant: small-caps;">Lokacija</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <iframe id="frameLocation" src="" width="100%" height="490px" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" id="btnHideModal" class="closeButton">
+                                Zatvori
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+</script>
+<script src="~/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnShowModal").click(function () {
+                var loc = document.getElementById('btnShowModal').innerHTML;
+                document.getElementById('frameLocation').src = "https://www.google.com/maps/embed/v1/place?q=" + loc + "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
+                $("#locationModal").modal('show');
+            });
+
+            $("#btnHideModal").click(function () {
+                $("#locationModal").modal('hide');
+            });
+        });
+</script> 
