@@ -29,7 +29,6 @@ namespace PraksaFrontMVC.Controllers
             return View(await WorkData.GetWorks());
         }
 
-        public async Task<IActionResult> Calendar()
         // Get: Done Works
         public async Task<IActionResult> DismissedWorks()
         {
