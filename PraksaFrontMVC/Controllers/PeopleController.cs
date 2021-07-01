@@ -31,6 +31,12 @@ namespace PraksaFrontMVC
             return View(await PeopleData.GetRegistartionsRequestUser());
         }
 
+        // GET: Dismissed Users 
+        public async Task<IActionResult> DismissedUsers()
+        {
+            return View(await PeopleData.GetDismissedUsers());
+        }
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -49,6 +55,22 @@ namespace PraksaFrontMVC
         }
 
         public async Task<IActionResult> Accept(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var person = await PeopleData.GetUser((int)id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return View(person);
+        }
+
+        public async Task<IActionResult> Activate(int? id)
         {
             if (id == null)
             {
@@ -199,6 +221,16 @@ namespace PraksaFrontMVC
             return RedirectToAction(nameof(RegistrationRequest));
         }
 
+        // POST: People/V
+        [HttpPost, ActionName("Activate")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Activate(int id)
+        {
+            var person = await PeopleData.GetUser((int)id);
+            PeopleData.ActivateUser(id);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(DismissedUsers));
+        }
 
 
         private bool PersonExists(int id)
