@@ -28,6 +28,12 @@ namespace PraksaFrontMVC.Controllers
             return View(await WorkData.GetWorks());
         }
 
+        // Get: Done Works
+        public async Task<IActionResult> DismissedWorks()
+        {
+            return View(await WorkData.GetDoneWorks());
+        }
+
         // GET: Works/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,6 +50,7 @@ namespace PraksaFrontMVC.Controllers
 
             return View(work);
         }
+
 
         // GET: Works/Create
         public IActionResult Create()
