@@ -1,11 +1,16 @@
-﻿@*
+﻿@model PraksaFrontMVC.Models.Person
+
+@{
+    ViewData["Title"] = "Create";
+}
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     Layout = null;
 }
 
-<head >
+<head>
     <link rel="stylesheet" href="~/css/loginStyle.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Registracija</title>
@@ -39,8 +44,8 @@
     </style>
 </head>
 <body style="background: url(../../img/paviljon.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
-    <form>
-        <asp:ScriptManager ID="ScriptManager1" ></asp:ScriptManager>
+    <form asp-action="Create">
+        <asp:ScriptManager ID="ScriptManager1"></asp:ScriptManager>
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -51,44 +56,50 @@
                             </div>
                             <h3 class="text-center mb-4">Registracija</h3>
                             <div action="#" class="login-form">
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <Label class="fontGreen">Ime</Label>
-                                    <input class="form-control rounded-left" id="txtFirstName" type="text" placeholder="Ime..." required="required"/>
+                                    <label asp-for="FirstName" class="control-label fontGreen"></label>
+                                    <input asp-for="FirstName" class="form-control rounded-left" placeholder="Ime..." />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">Prezime</label>
-                                    <input type="text" ID="txtLastName" class="form-control rounded-left"  placeholder="Prezime..." required="required"/>
+                                    <label asp-for="LastName" class="control-label fontGreen"></label>
+                                    <input asp-for="LastName" class="form-control rounded-left" placeholder="Prezime..." />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">Adresa</label>
-                                    <input type="text" ID="txtAdress" class="form-control rounded-left"  placeholder="Adresa..." required="required"/>
+                                    <label asp-for="Address" class="control-label fontGreen"></label>
+                                    <input asp-for="Address" class="form-control rounded-left" placeholder="Adresa..." />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">E-pošta</label>
-                                    <input type="text" ID="txtEmail" class="form-control rounded-left"  placeholder="Email..." required="required"/>
+                                    <label asp-for="Oib" class="control-label fontGreen"></label>
+                                    <input asp-for="Oib" class="form-control rounded-left" placeholder="OIB..." />
+                                    <span asp-validation-for="Oib" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">Kontakt broj</label>
-                                    <input type="text" ID="txtPhoneNumber" class="form-control rounded-left"  placeholder="Kontakt broj..." required="required"/>
+                                    <label asp-for="Email" class="control-label fontGreen"></label>
+                                    <input asp-for="Email" class="form-control rounded-left" placeholder="Email..." />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">OIB</label>
-                                    <input type="text" pattern=".{11}" class="form-control rounded-left" ID="txtOib"  placeholder="OIB..." required="required" title="Polje mora imati 11 znamenki"
-                                                 onkeypress="return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57  && isNaN(event.key))) && event.keyCode!=32);"> 
+                                    <label asp-for="Number" class="control-label fontGreen"></label>
+                                    <input asp-for="Number" class="form-control rounded-left" placeholder="Kontakt broj..." />
+                                    <span asp-validation-for="Number" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="fontGreen">Lozinka</label>
-                                    <input type="password" ID="txtLozinka" class="form-control rounded-left"  placeholder="Lozinka...">
-                                    <div id="errorPassword"  class="alert alert-danger alert-dismissible" style="display:none; width: 300px; position:absolute; padding: 8px;">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>&times;</a>
-                                        <strong>Greška!</strong> Lozinka mora imati barem 8 znakova.
-                                    </div>
+                                    <label asp-for="Password" class="control-label fontGreen"></label>
+                                    <input asp-for="Password" type="password" class="form-control rounded-left" placeholder="Lozinka..." />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="control-label fontGreen"></label>
+                                    <input asp-for="Password" type="password" class="form-control rounded-left" placeholder="Ponovi lozinku..." />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex">
-                                    <input type="password" ID="txtLozinka2" class="form-control rounded-left"  placeholder="Ponovite lozinku..."/>
-                                </div>
-                                <div class="form-group d-flex">
-                                    <input type="button" ID="btnReg" class="form-control btn btn-primary submit px-3" value="Potvrdi" />
+                                    <input type="submit" formmethod="post" class="form-control btn btn-primary submit px-3" value="Potvrdi" />
                                     <br /><br />
                                 </div>
                                 <div class="form-group">
