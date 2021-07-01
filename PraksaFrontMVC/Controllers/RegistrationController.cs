@@ -38,7 +38,7 @@ namespace PraksaFrontMVC.Controllers
 
                 PeopleData.CreateUser(person);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(HomeController.Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(person);
         }
