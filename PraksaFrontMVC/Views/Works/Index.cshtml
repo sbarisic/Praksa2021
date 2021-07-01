@@ -64,8 +64,7 @@
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                <button id="btnShowModal" type="button"
-                                        class="locationButton">
+                                <button id="btnShowModal" onclick="loadFrame('@Html.DisplayFor(modelItem => item.Location)')" type="button" class="locationButton">
                                     @Html.DisplayFor(modelItem => item.Location)
                                 </button>
                             </td>
@@ -117,16 +116,14 @@
 <script src="~/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+    function loadFrame(loc) {
+        document.getElementById('frameLocation').src = "https://www.google.com/maps/embed/v1/place?q=" + loc + "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
+        $("#locationModal").modal('show');
+    }
 
-        $(document).ready(function () {
-            $("#btnShowModal").click(function () {
-                var loc = document.getElementById('btnShowModal').innerHTML;
-                document.getElementById('frameLocation').src = "https://www.google.com/maps/embed/v1/place?q=" + loc + "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
-                $("#locationModal").modal('show');
-            });
-
-            $("#btnHideModal").click(function () {
-                $("#locationModal").modal('hide');
-            });
+    $(document).ready(function () {
+        $("#btnHideModal").click(function () {
+            $("#locationModal").modal('hide');
         });
+    });
 </script> 
