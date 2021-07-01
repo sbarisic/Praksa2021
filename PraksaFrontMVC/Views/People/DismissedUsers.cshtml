@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PraksaFrontMVC.Models.Person>
 
 @{
-    ViewData["Title"] = "RegistrationRequest";
+    ViewData["Title"] = "DismissedUsers";
 }
 <head>
     <link href="~/css/radneAkcijeStyle.css" rel="stylesheet" />
@@ -9,7 +9,7 @@
 </head>
 
 <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
-    <h1 style="font-variant: small-caps;">Zahtjevi registracije</h1>
+    <h1 style="font-variant: small-caps;">Zatvoreni korisnici</h1>
 </div>
 
 <div class="card-body">
@@ -42,30 +42,29 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Address)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Oib)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Number)
-                        </td>
-                        <td style="padding:20px 10px; width:250px;">
-                            <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Accept" asp-route-id="@item.Id">Prihvati</a></div>
-                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Reject" asp-route-id="@item.Id">Reject</a></div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Oib)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                            <td style="padding:20px 10px; width:250px;">
+                                <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Activate" asp-route-id="@item.Id">Aktiviraj</a></div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

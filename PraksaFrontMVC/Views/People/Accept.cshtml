@@ -1,0 +1,58 @@
+﻿@model PraksaFrontMVC.Models.Person
+
+@{
+    ViewData["Title"] = "Accept";
+}
+
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 class="create-header">Prihvati</h1>
+</div>
+
+<h3>Jeste li sigurni da želite prihvatiti ovog korisnika?</h3>
+<div class="create-wrap">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 fontGreen">
+            @Html.DisplayNameFor(model => model.UniqueId)
+        </dt>
+        <dd class="col-sm-10 normal-variant">
+            @Html.DisplayFor(model => model.UniqueId)
+        </dd>
+        <dt class="col-sm-2 fontGreen">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10 normal-variant">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2 fontGreen">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10 normal-variant">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2 fontGreen">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10 normal-variant">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2 fontGreen">
+            @Html.DisplayNameFor(model => model.Oib)
+        </dt>
+        <dd class="col-sm-10 normal-variant">
+            @Html.DisplayFor(model => model.Oib)
+        </dd>
+    </dl>
+</div>
+<form asp-action="Accept">
+    <input type="hidden" asp-for="Id" /><br />
+    <input type="submit" value="Prihvati" class="btn btn-primary" style="font-variant:small-caps" formmethod="post" /> |
+    <a class="btn btn-primary" asp-action="RegistrationRequest">Nazad na listu
+    </a>
+</form>
