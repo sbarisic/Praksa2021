@@ -20,32 +20,33 @@ namespace PraksaFrontMVC.Controllers
         }
 
         // GET: ContactNumbers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.ContactNumber.ToListAsync());
+            ViewBag.userId = id;
+            return View(await ContactNumberData.GetContactNumbers((int)id));
         }
 
         // GET: ContactNumbers/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var contactNumber = await _context.ContactNumber
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var contactNumber = await ContactNumberData.GetContactNumber((int)userId, (int)id);
             if (contactNumber == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(contactNumber);
         }
 
         // GET: ContactNumbers/Create
-        public IActionResult Create()
+        public IActionResult Create(int? userId)
         {
+            ViewBag.userId = userId;
             return View();
         }
 
@@ -58,26 +59,27 @@ namespace PraksaFrontMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(contactNumber);
+                ContactNumberData.CreateContactNumber(contactNumber);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
             }
             return View(contactNumber);
         }
 
         // GET: ContactNumbers/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var contactNumber = await _context.ContactNumber.FindAsync(id);
+            var contactNumber = await ContactNumberData.GetContactNumber((int)userId, (int)id);
             if (contactNumber == null)
             {
                 return NotFound();
             }
+            ViewBag.userId = userId;
             return View(contactNumber);
         }
 
@@ -97,7 +99,7 @@ namespace PraksaFrontMVC.Controllers
             {
                 try
                 {
-                    _context.Update(contactNumber);
+                    ContactNumberData.EditContactNumber(contactNumber);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -111,26 +113,25 @@ namespace PraksaFrontMVC.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
             }
             return View(contactNumber);
         }
 
         // GET: ContactNumbers/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var contactNumber = await _context.ContactNumber
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var contactNumber = await ContactNumberData.GetContactNumber((int)userId, (int)id);
             if (contactNumber == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(contactNumber);
         }
 
@@ -142,7 +143,7 @@ namespace PraksaFrontMVC.Controllers
             var contactNumber = await _context.ContactNumber.FindAsync(id);
             _context.ContactNumber.Remove(contactNumber);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
         }
 
         private bool ContactNumberExists(int id)

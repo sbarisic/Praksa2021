@@ -32,7 +32,8 @@ namespace PraksaFrontMVC.Data
                     ContactNumber contactNumber = new()
                     {
                         Id = Convert.ToInt32(dr["IDNumber"]),
-                        Number = dr["Kontakt broj"].ToString()
+                        Number = dr["Kontakt broj"].ToString(),
+                        IdUser = Convert.ToInt32(dr["IDUser"])
                     };
 
                     contactNumbers.Add(contactNumber);
@@ -111,6 +112,32 @@ namespace PraksaFrontMVC.Data
             {
                 throw ex;
             }
+        }
+
+        public static Task<ContactNumber> GetContactNumber(int idUser, int idNumber)
+        {
+            SqlConnection con = ConnectionString.ConStr();
+            con.Open();
+
+            SqlCommand cmd = new("getContactNumber", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
+            cmd.Parameters.Add(new SqlParameter("@IDNumber", idNumber));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            ContactNumber number = new();
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    number.Number = dr["Kontakt broj"].ToString();
+                    number.Id = Convert.ToInt32(dr["IDNumber"]);
+                    number.IdUser = Convert.ToInt32(dr["IDUser"]);
+                }
+            }
+            return Task.FromResult(number);
         }
     }
 }
