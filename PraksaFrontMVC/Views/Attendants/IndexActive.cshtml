@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PraksaFrontMVC.Models.Attendant>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "IndexActive";
 }
 
 <head>
@@ -29,9 +29,6 @@
                             Interes
                         </th>
                         <th>
-                            Dolaznost
-                        </th>
-                        <th>
                             Vrijeme Odabira
                         </th>
                     </tr>
@@ -48,9 +45,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Interes)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Attendance)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.SelectionTime)

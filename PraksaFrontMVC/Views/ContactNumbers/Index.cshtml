@@ -14,7 +14,8 @@
 </div>
 
 <p>
-    <a asp-action="Create" asp-route-userId="@ViewBag.userId">Create New</a>
+    <br />
+    <a class="workButton" style="font-variant:small-caps" asp-action="Create" asp-route-userId="@ViewBag.userId">Create New</a>
 </p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -42,9 +43,8 @@
                                 @Html.DisplayFor(modelItem => item.IdUser)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Delete</a>
+                                <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Edit</a></div>
+                                <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Delete</a></div>
                             </td>
                         </tr>
                     }

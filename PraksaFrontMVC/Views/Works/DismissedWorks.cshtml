@@ -20,58 +20,57 @@
                 <thead>
                     <tr style="background-color: #6bc277;">
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Radna Akcija
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Date)
+                            Opis
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Time)
+                            Datum
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Description)
+                            Vrijeme
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Location)
+                            Lokacija
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Obligation)
+                            Obveznost
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdAttendant)
                         </th>
-                        <th></th>
+                        <th>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Date)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Time)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                <button id="btnShowModal" type="button"
-                                        class="locationButton">
-                                    @Html.DisplayFor(modelItem => item.Location)
-                                </button>
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Obligation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdAttendant)
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            <button id="btnShowModal" onclick="loadFrame('@Html.DisplayFor(modelItem => item.Location)')" type="button" class="locationButton">
+                                @Html.DisplayFor(modelItem => item.Location)
+                            </button>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Obligation)
+                        </td>
+                        <td>
+                            <div style="width: 60px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-controller="Attendants" asp-action="Index" asp-route-id="@item.Id">Dolaznost</a></div>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
