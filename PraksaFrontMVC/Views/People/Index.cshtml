@@ -66,15 +66,15 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Oib)
                         </td>
-                        <td>
+                        <td style="width:300px;">
                             @Html.DisplayFor(modelItem => item.Email)
                             <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="ContactEmails" asp-action="Index" asp-route-id="@item.Id">Uredi</a></div>
                         </td>
-                        <td>
+                        <td style="width:200px;">
                             @Html.DisplayFor(modelItem => item.Number)
                             <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="ContactNumbers" asp-action="Index" asp-route-id="@item.Id">Uredi</a></div>
                         </td>
-                        <td style="padding:20px 10px; width:250px;">
+                        <td style="padding:20px 10px; width:300px;">
                             <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Uredi</a></div>
                             <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Details" asp-route-id="@item.Id">Detalji</a></div>
                             <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id">Zatvori</a></div>
