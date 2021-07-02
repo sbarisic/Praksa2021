@@ -26,9 +26,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Email)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.IdUser)
-                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -38,9 +35,6 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdUser)
                             </td>
                             <td style="width:250px;">
                                 <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id" asp-route-userid="@item.IdUser">Edit</a></div>
