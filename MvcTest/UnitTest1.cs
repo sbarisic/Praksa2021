@@ -115,10 +115,38 @@ namespace MvcTest
         }
 
         [Fact]
-        public void TestGetContactEmailFailed()
+        public void TestGetEmail()
         {
-            var list = Task.Run(() => ContactEmailData.GetContactEmails((fakeID))).Result;
-            Assert.True(list.Count == 0);
+            var list = Task.Run(() => ContactEmailData.GetEmail(29, 36)).Result;
+            var expectedemail = "user1@gmail.com";
+            Assert.Equal(expectedemail, list.Email);
+
+        }
+
+        [Fact]
+        public void TestGetEmailFailedWrongUserId()
+        {
+            var list = Task.Run(() => ContactEmailData.GetEmail(fakeID, 36)).Result;
+            var expectedemail = "user1@gmail.com";
+            Assert.NotEqual(expectedemail, list.Email);
+
+        }
+
+        [Fact]
+        public void TestGetEmailFailedWrongEmailId()
+        {
+            var list = Task.Run(() => ContactEmailData.GetEmail(29, fakeID)).Result;
+            var expectedemail = "user1@gmail.com";
+            Assert.NotEqual(expectedemail, list.Email);
+
+        }
+
+        [Fact]
+        public void TestGetEmailFailedWrongUserIdWrongEmailId()
+        {
+            var list = Task.Run(() => ContactEmailData.GetEmail(fakeID, fakeID)).Result;
+            var expectedemail = "user1@gmail.com";
+            Assert.NotEqual(expectedemail, list.Email);
 
         }
     }
