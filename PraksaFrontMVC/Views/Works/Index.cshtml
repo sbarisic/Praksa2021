@@ -72,7 +72,7 @@
                                 @Html.DisplayFor(modelItem => item.Obligation)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdAttendant)
+                                <div style="width: 70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-controller="Attendants" asp-action="Index" asp-route-id="@item.Id">Prikaži dolaznike</a></div>
                             </td>
                             <td style="padding:20px 10px; width:250px;">
                                 <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
