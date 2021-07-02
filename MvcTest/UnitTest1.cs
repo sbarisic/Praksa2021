@@ -138,7 +138,6 @@ namespace MvcTest
             var list = Task.Run(() => ContactEmailData.GetEmail(29, fakeID)).Result;
             var expectedemail = "user1@gmail.com";
             Assert.NotEqual(expectedemail, list.Email);
-
         }
 
         [Fact]
@@ -162,6 +161,32 @@ namespace MvcTest
         {
             var list = Task.Run(() => ContactNumberData.GetContactNumbers(fakeID)).Result;
             Assert.True(list.Count == 0);
+        }
+
+        [Fact]
+        public void TestGetUsers()
+        {
+            var list = Task.Run(() => PeopleData.GetUsers()).Result;
+            Assert.True(list.Count > 0);
+        }
+
+
+
+        [Fact]
+        public void TestGetUser()
+        {
+            var expecteduseradress = "Štitno Podruèje, 1C";
+            var list = Task.Run(() => PeopleData.GetUser(29)).Result;
+            Assert.Equal(expecteduseradress, list.Address);
+        }
+
+        [Fact]
+        public void TestGetUserFailed()
+        {
+            var expecteduseradress = "Štitno Podruèje, 1C";
+            var list = Task.Run(() => PeopleData.GetUser(fakeID)).Result;
+            Assert.NotEqual(expecteduseradress, list.Address);
+
         }
     }
 }
