@@ -13,7 +13,7 @@
 
 <p>
     <br />
-    <a class="workButton" style="font-variant:small-caps" asp-action="Create">Create New</a>
+    <a class="workButton" style="font-variant:small-caps" asp-action="Create">Stvori Ulogu</a>
 </p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -22,7 +22,7 @@
                 <thead>
                     <tr style="background-color: #6bc277;">
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Ime
                         </th>
                         <th></th>
                     </tr>
@@ -35,9 +35,9 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td style="padding:20px 10px; width:250px;">
-                            <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
-                            <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Details" asp-route-id="@item.Id">Details</a></div>
-                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id">Delete</a></div>
+                            <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Uredi</a></div>
+                            <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Details" asp-route-id="@item.Id">Detalji</a></div>
+                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id">Izbriši</a></div>
                         </td>
                     </tr>
                     }

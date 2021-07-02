@@ -15,7 +15,7 @@
 </div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Stvori Ulogu</a>
 </p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -24,13 +24,13 @@
                 <thead>
                     <tr style="background-color: #6bc277;">
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Ime Uloge
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdRole)
+                            ID Uloge
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdUser)
+                            ID Korisnika
                         </th>
                         <th></th>
                     </tr>
@@ -49,9 +49,9 @@
                                 @Html.DisplayFor(modelItem => item.IdUser)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Ibriši</a>
                             </td>
                         </tr>
                     }

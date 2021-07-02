@@ -7,31 +7,31 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Stvori Dozvolu</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdUser)
+                Id Korisnika
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPermit)
+                Id Dozvole
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpiryDate)
+                Datum Isteka
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                Ime
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                Prezime
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PermitName)
+                Naziv Dozvole
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PermitNumber)
+                Broj Dozvole
             </th>
             <th></th>
         </tr>
@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.PermitNumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Izbriši</a>
             </td>
         </tr>
 }
