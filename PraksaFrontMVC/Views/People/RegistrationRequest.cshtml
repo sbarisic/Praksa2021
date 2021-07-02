@@ -19,22 +19,22 @@
                 <thead>
                     <tr style="background-color: #6bc277;">
                         <th>
-                            @Html.DisplayNameFor(model => model.FirstName)
+                            Ime
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.LastName)
+                            Prezime
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                            Adresa
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Oib)
+                            Oib
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            E-pošta
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Number)
+                            Kontakt broj
                         </th>
                         <th></th>
                     </tr>
@@ -63,7 +63,7 @@
                         </td>
                         <td style="padding:20px 10px; width:250px;">
                             <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Accept" asp-route-id="@item.Id">Prihvati</a></div>
-                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Reject" asp-route-id="@item.Id">Reject</a></div>
+                            <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Reject" asp-route-id="@item.Id">Odbij</a></div>
                         </td>
                     </tr>
                     }
