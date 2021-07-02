@@ -115,7 +115,7 @@ namespace PraksaFrontMVC
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed,Email,Number")] Person person)
+        public async Task<IActionResult> Create([Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -150,7 +150,7 @@ namespace PraksaFrontMVC
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UniqueId,FirstName,LastName,Address,Oib,Accepted,Password,Dismissed,Email,Number")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UniqueId,FirstName,LastName,Address,Oib")] Person person)
         {
             if (id != person.Id)
             {
@@ -161,7 +161,7 @@ namespace PraksaFrontMVC
             {
                 try
                 {
-                    _context.Update(person);
+                    PeopleData.EditUser(person);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
