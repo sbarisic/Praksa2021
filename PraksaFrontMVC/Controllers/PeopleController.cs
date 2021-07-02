@@ -139,6 +139,9 @@ namespace PraksaFrontMVC
             {
                 return NotFound();
             }
+            ViewBag.userId = id;
+            ViewBag.email = person.Email;
+            ViewBag.number = person.Number;
             return View(person);
         }
 
