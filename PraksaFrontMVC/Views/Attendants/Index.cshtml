@@ -20,36 +20,42 @@
                 <thead>
                     <tr style="background-color: #6bc277;">
                         <th>
-                            @Html.DisplayNameFor(model => model.IdUser)
+                            Ime
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdInteres)
+                            Prezime
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdAttendance)
+                            Interes
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.SelectionTime)
+                            Dolaznost
+                        </th>
+                        <th>
+                            Vrijeme Odabira
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdUser)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdInteres)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdAttendance)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SelectionTime)
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserFirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserLastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Interes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Attendance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SelectionTime)
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
