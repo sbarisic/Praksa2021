@@ -131,9 +131,9 @@ namespace PraksaFrontMVC.Controllers
         // POST: ContactEmails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int userId, int id)
         {
-            var contactEmail = await ContactEmailData.GetEmail(ViewBag.userId, id);
+            var contactEmail = await ContactEmailData.GetEmail(userId, id);
             await ContactEmailData.DeleteEmail(id);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
