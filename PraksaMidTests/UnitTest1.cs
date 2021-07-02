@@ -117,29 +117,29 @@ namespace PraksaMidTests
             Assert.AreNotEqual(expectedIdAttendance, result.IdAttendance);
         }
 
-        //[TestMethod]
-        //public void TestGetAttendantId()
-        //{
-        //    int expectedIdAttendance = 2;
-        //    var result = Attendant.GetAttendantId(connectionString, 7, 29);
-        //    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
-        //}
+        ////[TestMethod]
+        ////public void TestGetAttendantId()
+        ////{
+        ////    int expectedIdAttendance = 2;
+        ////    var result = Attendant.GetAttendantId(connectionString, 7, 29);
+        ////    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
+        ////}
 
-        //[TestMethod]
-        //public void TestGetAttendantIdWrongJobId()
-        //{
-        //    int expectedIdAttendance = 2;
-        //    var result = Attendant.GetAttendantId(connectionString, fakeID, 29);
-        //    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
-        //}
+        ////[TestMethod]
+        ////public void TestGetAttendantIdWrongJobId()
+        ////{
+        ////    int expectedIdAttendance = 2;
+        ////    var result = Attendant.GetAttendantId(connectionString, fakeID, 29);
+        ////    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
+        ////}
 
-        //[TestMethod]
-        //public void TestGetAttendantIdWrongUserId()
-        //{
-        //    int expectedIdAttendance = 2;
-        //    var result = Attendant.GetAttendantId(connectionString, 7, fakeID);
-        //    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
-        //}
+        ////[TestMethod]
+        ////public void TestGetAttendantIdWrongUserId()
+        ////{
+        ////    int expectedIdAttendance = 2;
+        ////    var result = Attendant.GetAttendantId(connectionString, 7, fakeID);
+        ////    Assert.AreEqual(expectedIdAttendance, result.IdAttendance);
+        ////}
 
 
 
