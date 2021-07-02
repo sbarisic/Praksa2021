@@ -69,6 +69,7 @@ namespace PraksaFrontMVC.Data
                         IdPermit = Convert.ToInt32(dr["ID dozvole"]),
                         Id = Convert.ToInt32(dr["ID"]),
                         ExpiryDate = DateTime.Parse(dr["Datum isteka"].ToString()).ToString("d"),
+                        IdUser = Convert.ToInt32(dr["ID korisnika"])
                     };
 
                     permits.Add(permit);
@@ -128,6 +129,34 @@ namespace PraksaFrontMVC.Data
             {
                 throw ex;
             }
+        }
+
+        public static Task<Permit> GetPermit(int idUser, int idPermit)
+        {
+            SqlConnection con = ConnectionString.ConStr();
+            con.Open();
+
+            SqlCommand cmd = new("getPermit", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@IDuser", idUser));
+            cmd.Parameters.Add(new SqlParameter("@IDPermit", idPermit));
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            Permit permit = new();
+            if (dr != null)
+            {
+                while (dr.Read())
+                {
+                    permit.PermitName = dr["Dozvola"].ToString();
+                    permit.ExpiryDate = dr["Datum isteka"].ToString();
+                    permit.Id = idPermit;
+                    permit.PermitNumber = dr["Broj dozvole"].ToString();
+                    permit.IdUser = idUser;
+                }
+            }
+            return Task.FromResult(permit);
         }
     }
 }

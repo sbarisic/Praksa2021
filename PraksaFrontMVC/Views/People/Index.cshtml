@@ -13,10 +13,6 @@
     <h1 style="font-variant: small-caps;">Korisnici</h1>
 </div>
 
-<p>
-    <br />
-    <a class="workButton" style="font-variant:small-caps" asp-action="Create">Create new</a>
-</p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
         <div class="dataTable-container">
@@ -43,6 +39,9 @@
                         </th>
                         <th>
                             Kontakt broj
+                        </th>
+                        <th>
+                            Dozvole
                         </th>
                         <th></th>
                     </tr>
@@ -73,6 +72,9 @@
                         <td style="width:200px;">
                             @Html.DisplayFor(modelItem => item.Number)
                             <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="ContactNumbers" asp-action="Index" asp-route-id="@item.Id">uredi</a></div>
+                        </td>
+                        <td style="width:90px;">
+                            <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="Permits" asp-action="Index" asp-route-id="@item.Id">dozvole</a></div>
                         </td>
                         <td style="padding:20px 10px; width:300px;">
                             <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Uredi</a></div>

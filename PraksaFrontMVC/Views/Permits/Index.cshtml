@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Stvori Dozvolu</a>
+    <a asp-action="Create" asp-route-userId ="@ViewBag.userId">Stvori Dozvolu</a>
 </p>
 <table class="table">
     <thead>
@@ -61,11 +61,14 @@
                 @Html.DisplayFor(modelItem => item.PermitNumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Izbriši</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" asp-route-userId="@item.IdUser">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" asp-route-userId="@item.IdUser">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-userId="@item.IdUser">Izbriši</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<div>
+    <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-controller="People" asp-action="Index">Nazad</a></div>
+</div>

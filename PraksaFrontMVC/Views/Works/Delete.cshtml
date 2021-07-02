@@ -19,37 +19,37 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Name):
+            Naziv akcije
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Date):
+            Datum
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Date)
         </dd>
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Time):
+            Vrijeme
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Time)
         </dd>
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Description):
+            Opis
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Location):
+            Lokacija
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Location)
         </dd>
         <dt class="col-sm-2 fontGreen">
-            @Html.DisplayNameFor(model => model.Obligation):
+            Obveznost
         </dt>
         <dd class="col-sm-10 normal-variant">
             @Html.DisplayFor(model => model.Obligation)
@@ -58,7 +58,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" /><br />
-        <input type="submit" value="Delete" class="btn btn-danger" style="font-variant:small-caps" formmethod="post" /> |
-        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+        <input type="submit" value="Izbriši" class="btn btn-danger" style="font-variant:small-caps" formmethod="post" /> |
+        <a class="btn btn-primary" asp-action="AdminIndex">Nazad na Listu</a>
     </form>
 </div>

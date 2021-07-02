@@ -18,37 +18,37 @@
     <div>
         <dl class="row">
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Name)
+                Nazvi Akcije
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Name)
             </dd>
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Date):
+                Datum
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Date)
             </dd>
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Time):
+                Vrijeme
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Time)
             </dd>
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Description):
+                Opis
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Description)
             </dd>
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Location):
+                Lokacija
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Location)
             </dd>
             <dt class="col-sm-2 fontGreen">
-                @Html.DisplayNameFor(model => model.Obligation):
+                Obveznost
             </dt>
             <dd class="col-sm-10 normal-variant">
                 @Html.DisplayFor(model => model.Obligation)
@@ -57,6 +57,6 @@
     </div>
     <div>
         <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Uredi</a> <br /><br />
-        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+        <a class="btn btn-primary" asp-action="AdminIndex">Nazad na Listu</a>
     </div>
 </div>

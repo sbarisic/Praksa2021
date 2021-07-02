@@ -20,32 +20,33 @@ namespace PraksaFrontMVC
         }
 
         // GET: Permits
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.Permit.ToListAsync());
+            ViewBag.userId = id;
+            return View(await PermitData.GetPermits((int)id));
         }
 
         // GET: Permits/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var permit = await _context.Permit
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var permit = await PermitData.GetPermit((int)userId, (int)id);
             if (permit == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(permit);
         }
 
         // GET: Permits/Create
-        public IActionResult Create()
+        public IActionResult Create(int? userId)
         {
+            ViewBag.userId = userId;
             return View();
         }
 
@@ -58,26 +59,27 @@ namespace PraksaFrontMVC
         {
             if (ModelState.IsValid)
             {
-                _context.Add(permit);
+                PermitData.CreatePermit(permit);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
             }
             return View(permit);
         }
 
         // GET: Permits/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var permit = await _context.Permit.FindAsync(id);
+            var permit = await PermitData.GetPermit((int)userId, (int)id);
             if (permit == null)
             {
                 return NotFound();
             }
+            ViewBag.userId = userId;
             return View(permit);
         }
 
@@ -97,7 +99,7 @@ namespace PraksaFrontMVC
             {
                 try
                 {
-                    _context.Update(permit);
+                    PermitData.EditPermit(permit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -111,38 +113,37 @@ namespace PraksaFrontMVC
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
             }
             return View(permit);
         }
 
         // GET: Permits/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? userId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var permit = await _context.Permit
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var permit = await PermitData.GetPermit((int)userId, (int)id);
             if (permit == null)
             {
                 return NotFound();
             }
-
+            ViewBag.userId = userId;
             return View(permit);
         }
 
         // POST: Permits/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int userId)
         {
-            var permit = await _context.Permit.FindAsync(id);
-            _context.Permit.Remove(permit);
+            var permit = await PermitData.GetPermit((int)userId, (int)id);
+            PermitData.DeletePermit(id);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
         }
 
         private bool PermitExists(int id)

@@ -12,9 +12,9 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" style="display:none;">
                 <label asp-for="IdUser" class="control-label"></label>
-                <input asp-for="IdUser" class="form-control" />
+                <input asp-for="IdUser" value="@ViewBag.userId" class="form-control" />
                 <span asp-validation-for="IdUser" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,7 +55,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="workButton" style="font-variant:small-caps" asp-controller="Permits" asp-action="Index" asp-route-id="@ViewBag.userId">Nazad</a>
 </div>
 
 @section Scripts {
