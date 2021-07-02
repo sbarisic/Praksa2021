@@ -29,6 +29,18 @@ namespace PraksaFrontMVC.Controllers
             return View(await WorkData.GetWorks());
         }
 
+        // GET: Works
+        public async Task<IActionResult> AdminIndex()
+        {
+            return View(await WorkData.GetWorks());
+        }
+
+        // GET: Works
+        public async Task<IActionResult> UserIndex()
+        {
+            return View(await WorkData.GetWorks());
+        }
+
         // Get: Done Works
         public async Task<IActionResult> DismissedWorks()
         {

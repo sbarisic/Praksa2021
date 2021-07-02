@@ -13,10 +13,7 @@
     <h1 style="font-variant: small-caps;">Radne akcije</h1>
 </div>
 
-<p>
-    <br />
-    <a class="workButton" style="font-variant:small-caps" asp-action="Create">Create new</a>
-</p>
+
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
         <div class="dataTable-container">
@@ -41,9 +38,8 @@
                         <th>
                             Obveznost
                         </th>
-                        <th>                
-                        </th>
                         <th>
+                            Interes
                         </th>
                     </tr>
                 </thead>
@@ -72,12 +68,7 @@
                                 @Html.DisplayFor(modelItem => item.Obligation)
                             </td>
                             <td>
-                                <div style="width: 60px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-controller="Attendants" asp-action="IndexActive" asp-route-id="@item.Id">Dolaznost</a></div>
-                            </td>
-                            <td style="padding:20px 10px; width:250px;">
-                                <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
-                                <div style="width:70px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-action="Details" asp-route-id="@item.Id">Details</a></div>
-                                <div style="width: 70px; display: inline;"><a class="closeButton" style="font-variant:small-caps" asp-action="Delete" asp-route-id="@item.Id">Delete</a></div>
+                                <div style="width: 60px; display: inline;"><a class="workButton" style="font-variant:small-caps" asp-controller="Attendants" asp-action="Interes" asp-route-id="@item.Id">Unesi Interes</a></div>
                             </td>
                         </tr>
                     }
