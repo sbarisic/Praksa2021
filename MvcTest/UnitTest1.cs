@@ -149,5 +149,19 @@ namespace MvcTest
             Assert.NotEqual(expectedemail, list.Email);
 
         }
+
+        [Fact]
+        public void TestGetContactNumbers()
+        {
+            var list = Task.Run(() => ContactNumberData.GetContactNumbers(29)).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetContactNumbersFailed()
+        {
+            var list = Task.Run(() => ContactNumberData.GetContactNumbers(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
     }
 }
