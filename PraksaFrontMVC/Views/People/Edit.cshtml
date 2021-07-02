@@ -48,13 +48,13 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label fontGreen"></label>
-                    <input asp-for="Email" class="form-control rounded-left" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <label class="normal-variant" style="font-weight:normal!important;">@ViewBag.email</label>
+                    <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="ContactEmails" asp-action="Index" asp-route-id="@ViewBag.userId">Uredi</a></div>
                 </div>
                 <div class="form-group">
                     <label asp-for="Number" class="control-label fontGreen"></label>
-                    <input asp-for="Number" class="form-control rounded-left" />
-                    <span asp-validation-for="Number" class="text-danger"></span>
+                    <label class="normal-variant" style="font-weight:normal!important;">@ViewBag.number</label>
+                    <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="ContactNumbers" asp-action="Index" asp-route-id="@ViewBag.userId">Uredi</a></div>
                 </div>
                 <div class="form-group">
                     <input type="submit" style="font-variant:small-caps" value="Save" class="btn btn-primary" formmethod="post" />

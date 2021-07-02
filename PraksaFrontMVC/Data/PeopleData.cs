@@ -72,6 +72,8 @@ namespace PraksaFrontMVC.Data
                     user.LastName = dr["Prezime"].ToString();
                     user.Address = dr["Adresa"].ToString();
                     user.Oib = dr["OIB"].ToString();
+                    user.Email = dr["Epošta"].ToString();
+                    user.Number = dr["Broj mobitela"].ToString();
                 }
             }
             return Task.FromResult(user);
