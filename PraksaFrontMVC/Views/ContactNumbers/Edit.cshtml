@@ -4,36 +4,45 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
-<h4>ContactNumber</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Number" class="control-label"></label>
-                <input asp-for="Number" class="form-control" />
-                <span asp-validation-for="Number" class="text-danger"></span>
-            </div>
-            <div class="form-group" style="display:none;">
-                <label asp-for="IdUser" class="control-label"></label>
-                <input asp-for="IdUser" value="@ViewBag.userId" class="form-control" />
-                <span asp-validation-for="IdUser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 class="create-header">Uredi</h1>
+</div>
+
+<div class="create-wrap">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Number" class="control-label fontGreen"></label>
+                    <input asp-for="Number" class="form-control rounded-left" />
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label asp-for="IdUser" class="control-label"></label>
+                    <input asp-for="IdUser" value="@ViewBag.userId" class="form-control" />
+                    <span asp-validation-for="IdUser" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" style="font-variant:small-caps" value="Save" class="btn btn-primary" formmethod="post" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a class="workButton" style="font-variant:small-caps" asp-controller="ContactNumbers" asp-action="Index" asp-route-id="@ViewBag.userId">Nazad na popis</a>
-</div>
+    <div>
+        <a class="workButton" style="font-variant:small-caps" asp-controller="ContactNumbers" asp-action="Index" asp-route-id="@ViewBag.userId">Nazad na popis</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</div>
