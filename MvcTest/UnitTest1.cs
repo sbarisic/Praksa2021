@@ -3,19 +3,28 @@ using Xunit;
 using PraksaFrontMVC;
 using PraksaFrontMVC.Controllers;
 using PraksaFrontMVC.Data;
+using System.Threading.Tasks;
 
 namespace MvcTest
 {
     public class UnitTest1
     {
         readonly int fakeID = 66666;
-        //[Fact]
-        //public void GetAttendants()
-        //{
-        //    var result = AttendantData.GetAttendants(7);
+        [Fact]
+        public void GetAttendants()
+        {
+            
+            var  list = Task.Run(() => AttendantData.GetAttendants(7)).Result;
+            Assert.True(list.Count > 0);
+        }
 
+        [Fact]
+        public void GetAttendantsWrongJobId()
+        {
 
-        //}
+            var list = Task.Run(() => AttendantData.GetAttendants(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
 
         [Fact]
         public void GetAttendant()
@@ -32,6 +41,7 @@ namespace MvcTest
         {
             int expectedIDAttendance = 2;
             var result = AttendantData.GetAttendant(fakeID, 29);
+            
             Assert.NotEqual(expectedIDAttendance, result.IdAttendance);
         }
 
