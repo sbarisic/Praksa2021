@@ -138,10 +138,10 @@ namespace PraksaFrontMVC.Controllers
         // POST: ContactNumbers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int userId, int id)
         {
-            var contactNumber = await _context.ContactNumber.FindAsync(id);
-            _context.ContactNumber.Remove(contactNumber);
+            var contactNumber = await ContactNumberData.GetContactNumber(userId, id);
+            ContactNumberData.DeleteContactNumber(id);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
         }
