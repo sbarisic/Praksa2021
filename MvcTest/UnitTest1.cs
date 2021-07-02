@@ -105,5 +105,21 @@ namespace MvcTest
             var result = Authentication.GetPasswordSalt("user1@gmail.com");
             Assert.NotEqual(ExpectedPasswordSalt, result);
         }
+
+        [Fact]
+        public void TestGetContactEmail()
+        {
+            var list = Task.Run(() => ContactEmailData.GetContactEmails(29)).Result;
+            Assert.True(list.Count > 0);
+
+        }
+
+        [Fact]
+        public void TestGetContactEmailFailed()
+        {
+            var list = Task.Run(() => ContactEmailData.GetContactEmails((fakeID))).Result;
+            Assert.True(list.Count == 0);
+
+        }
     }
 }
