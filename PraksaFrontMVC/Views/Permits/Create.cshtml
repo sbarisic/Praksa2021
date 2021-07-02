@@ -1,56 +1,40 @@
-﻿@model PraksaFrontMVC.Models.Permit
+﻿@model IEnumerable<PraksaFrontMVC.Models.PermitName>
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>@ViewBag.userName - Dodavanje dozvole</h1>
 
 <h4>Permit</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group" style="display:none;">
-                <label asp-for="IdUser" class="control-label"></label>
-                <input asp-for="IdUser" value="@ViewBag.userId" class="form-control" />
-                <span asp-validation-for="IdUser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdPermit" class="control-label"></label>
-                <input asp-for="IdPermit" class="form-control" />
-                <span asp-validation-for="IdPermit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ExpiryDate" class="control-label"></label>
-                <input asp-for="ExpiryDate" class="form-control" />
-                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PermitName" class="control-label"></label>
-                <input asp-for="PermitName" class="form-control" />
-                <span asp-validation-for="PermitName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PermitNumber" class="control-label"></label>
-                <input asp-for="PermitNumber" class="form-control" />
-                <span asp-validation-for="PermitNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="card-body">
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
+        <div class="dataTable-container">
+            <table class="dataTable-table table-striped">
+                <thead>
+                    <tr style="background-color: #6bc277;">
+                        <th>
+                            Naziv Dozvole
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td style="padding:20px 10px; width:250px;">
+                                <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Add" asp-route-permitId="@item.Id" asp-route-userId="@ViewBag.userId">Dodaj</a></div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

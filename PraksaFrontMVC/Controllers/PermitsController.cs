@@ -22,7 +22,9 @@ namespace PraksaFrontMVC
         // GET: Permits
         public async Task<IActionResult> Index(int? id)
         {
+            var person = await PeopleData.GetUser((int)id);
             ViewBag.userId = id;
+            ViewBag.userName = person.FirstName + " " + person.LastName;
             return View(await PermitData.GetPermits((int)id));
         }
 
@@ -43,11 +45,37 @@ namespace PraksaFrontMVC
             return View(permit);
         }
 
-        // GET: Permits/Create
-        public IActionResult Create(int? userId)
+        public async Task<IActionResult> Add(int? userId, int? permitId)
         {
+            var permit = await PermitNameData.GetPermitName((int)permitId);
+            var person = await PeopleData.GetUser((int)userId);
+            ViewBag.userName = person.FirstName + " " + person.LastName;
             ViewBag.userId = userId;
+            ViewBag.permitId = permitId;
+            ViewBag.permitName = permit.Name;
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add([Bind("Id,IdUser,IdPermit,ExpiryDate,FirstName,LastName,PermitName,PermitNumber")] Permit permit)
+        {
+            if (ModelState.IsValid)
+            {
+                PermitData.CreatePermit(permit);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
+            }
+            return View(permit);
+        }
+
+        // GET: Permits/Create
+        public async Task<IActionResult> Create(int? userId)
+        {
+            var person = await PeopleData.GetUser((int)userId);
+            ViewBag.userName = person.FirstName + " " + person.LastName;
+            ViewBag.userId = userId;
+            return View(await PermitNameData.GetPermitNames());
         }
 
         // POST: Permits/Create

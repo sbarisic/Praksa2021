@@ -1,0 +1,37 @@
+﻿@model PraksaFrontMVC.Models.Permit
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 style="font-variant: small-caps;">Dodavanje dozvole - @ViewBag.permitName</h1>
+</div>
+<div class="create-wrap">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Ime korisnika: </label>
+                    <label class="control-label normal-variant">@ViewBag.userName</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label fontGreen">Datum isteka dozvole</label>
+                    <input asp-for="ExpiryDate" type="date" class="form-control rounded-left" placeholder="Datum isteka dozvole..." />
+                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label fontGreen">Broj dozvole</label>
+                    <input asp-for="PermitNumber" type="number" class="form-control rounded-left" placeholder="Broj dozvole..." />
+                    <span asp-validation-for="PermitNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" style="font-variant:small-caps;" value="Stvori" class="btn btn-primary" formmethod="post" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
