@@ -188,5 +188,22 @@ namespace MvcTest
             Assert.NotEqual(expecteduseradress, list.Address);
 
         }
+
+        [Fact]
+        public void TestGetDismissedUsers()
+        {
+            var list = Task.Run(() => PeopleData.GetDismissedUsers()).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetUserId()
+        {
+            int ExpectedUserId = 29;
+            var result = PeopleData.GetUserId("user1@gmail.com");
+            Assert.Equal(ExpectedUserId, result);
+        }
+
+       
     }
 }
