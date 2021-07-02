@@ -25,6 +25,12 @@ namespace PraksaFrontMVC.Controllers
             return View(await AttendantData.GetAttendants((int)id));
         }
 
+        // GET: Attendants
+        public async Task<IActionResult> IndexActive(int? id)
+        {
+            return View(await AttendantData.GetAttendants((int)id));
+        }
+
         // GET: Attendants/Details/5
         public async Task<IActionResult> Details(int? id)
         {
