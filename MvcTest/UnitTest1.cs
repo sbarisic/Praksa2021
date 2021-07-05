@@ -204,6 +204,20 @@ namespace MvcTest
             Assert.Equal(ExpectedUserId, result);
         }
 
-       
+        [Fact]
+        public void TestGetPermits()
+        {
+            var list = Task.Run(() => PermitData.GetPermits(29)).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetPermitsFailed()
+        {
+            var list = Task.Run(() => PermitData.GetPermits(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
+
+
     }
 }
