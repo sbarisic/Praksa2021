@@ -3,10 +3,15 @@
 @{
     ViewData["Title"] = "Create";
 }
+<head>
+    <link href="~/css/radneAkcijeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
-<h1>@ViewBag.userName - Dodavanje dozvole</h1>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 style="font-variant: small-caps;">@ViewBag.userName - Dodavanje dozvole</h1>
+</div>
 
-<h4>Permit</h4>
 <hr />
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">

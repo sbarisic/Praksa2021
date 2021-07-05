@@ -154,6 +154,7 @@ namespace PraksaFrontMVC.Data
                     permit.Id = idPermit;
                     permit.PermitNumber = dr["Broj dozvole"].ToString();
                     permit.IdUser = idUser;
+                    permit.IdPermit = Convert.ToInt32(dr["ID dozvole"]);
                 }
             }
             return Task.FromResult(permit);

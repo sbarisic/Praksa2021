@@ -3,62 +3,56 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
-<h1>Edit</h1>
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 class="create-header">Uredi</h1>
+</div>
 
-<h4>Permit</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="IdUser" class="control-label"></label>
-                <input asp-for="IdUser" class="form-control" />
-                <span asp-validation-for="IdUser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdPermit" class="control-label"></label>
-                <input asp-for="IdPermit" class="form-control" />
-                <span asp-validation-for="IdPermit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ExpiryDate" class="control-label"></label>
-                <input asp-for="ExpiryDate" class="form-control" />
-                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PermitName" class="control-label"></label>
-                <input asp-for="PermitName" class="form-control" />
-                <span asp-validation-for="PermitName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PermitNumber" class="control-label"></label>
-                <input asp-for="PermitNumber" class="form-control" />
-                <span asp-validation-for="PermitNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<h4>@ViewBag.permitName - @ViewBag.userName</h4>
+<div class="create-wrap">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group" style="display:none;">
+                    <label asp-for="IdUser" class="control-label fontGreen"></label>
+                    <input asp-for="IdUser" class="form-control rounded-left" />
+                    <span asp-validation-for="IdUser" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label asp-for="IdPermit" class="control-label fontGreen"></label>
+                    <input asp-for="IdPermit" class="form-control rounded-left" />
+                    <span asp-validation-for="IdPermit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExpiryDate" class="control-label fontGreen"></label>
+                    <input asp-for="ExpiryDate" type="date" class="form-control rounded-left" />
+                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PermitNumber" class="control-label fontGreen"></label>
+                    <input asp-for="PermitNumber" class="form-control rounded-left" />
+                    <span asp-validation-for="PermitNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" style="font-variant:small-caps" formmethod="post" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a class="workButton" style="font-variant:small-caps" asp-controller="Permits" asp-action="Index" asp-route-id="@ViewBag.userId">Nazad</a>
-</div>
+    <div>
+        <a class="btn btn-primary" style="font-variant:small-caps" asp-controller="Permits" asp-action="Index" asp-route-id="@ViewBag.userId">Nazad</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</div>
