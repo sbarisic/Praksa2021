@@ -204,6 +204,57 @@ namespace MvcTest
             Assert.Equal(ExpectedUserId, result);
         }
 
-       
+        [Fact]
+        public void TestGetPermits()
+        {
+            var list = Task.Run(() => PermitData.GetPermits(29)).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetPermitsFailed()
+        {
+            var list = Task.Run(() => PermitData.GetPermits(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
+
+        [Fact]
+        public void TestGetPermitName()
+        {
+            var ExpectedPermitName = "Vozaèka Dozvola B Kategorije";
+            var list = Task.Run(() => PermitNameData.GetPermitName(1)).Result;
+            Assert.Equal(ExpectedPermitName, list.Name);
+        }
+
+        [Fact]
+        public void TestGetPermitNameFailed()
+        {
+            var ExpectedPermitName = "Vozaèka Dozvola B Kategorije";
+            var list = Task.Run(() => PermitNameData.GetPermitName(fakeID)).Result;
+            Assert.NotEqual(ExpectedPermitName, list.Name);
+        }
+
+        [Fact]
+        public void TestGetPermitNames()
+        {
+            var list = Task.Run(() => PermitNameData.GetPermitNames()).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetRoles()
+        {
+            var list = Task.Run(() => RoleData.GetRoles(29)).Result;       
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetRolesFailed()
+        {
+            var list = Task.Run(() => RoleData.GetRoles(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
+
+
     }
 }
