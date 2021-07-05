@@ -278,6 +278,36 @@ namespace MvcTest
             Assert.NotEqual(expectedrolename, result.Name);
         }
 
+        [Fact]
+        public void TestGetWorks()
+        {
+            var result = Task.Run(() => WorkData.GetWorks()).Result;
+            Assert.True(result.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetWork()
+        {
+            var expectedworkname = "novaradnaakcija";
+            var result = Task.Run(() => WorkData.GetWork(15)).Result;
+            Assert.Equal(result.Name, expectedworkname);
+        }
+
+        [Fact]
+        public void TestGetWorkFailedWrongId()
+        {
+            var expectedworkname = "novaradnaakcija";
+            var result = Task.Run(() => WorkData.GetWork(fakeID)).Result;
+            Assert.NotEqual(result.Name, expectedworkname);
+        }
+
+        [Fact]
+        public void TestGetDoneWorks()
+        {
+            var result = Task.Run(() => WorkData.GetDoneWorks()).Result;
+            Assert.True(result.Count > 0);
+        }
+
 
     }
 }
