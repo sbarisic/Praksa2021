@@ -241,6 +241,20 @@ namespace MvcTest
             Assert.True(list.Count > 0);
         }
 
+        [Fact]
+        public void TestGetRoles()
+        {
+            var list = Task.Run(() => RoleData.GetRoles(29)).Result;       
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetRolesFailed()
+        {
+            var list = Task.Run(() => RoleData.GetRoles(fakeID)).Result;
+            Assert.True(list.Count == 0);
+        }
+
 
     }
 }
