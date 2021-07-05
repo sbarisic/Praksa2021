@@ -255,6 +255,29 @@ namespace MvcTest
             Assert.True(list.Count == 0);
         }
 
+        [Fact]
+        public void TestGetRoleNames()
+        {
+            var list = Task.Run(() => RoleNameData.GetRoleNames()).Result;
+            Assert.True(list.Count > 0);
+        }
+
+        [Fact]
+        public void TestGetRoleName()
+        {
+            var expectedrolename = "Admin";
+            var result = Task.Run(() => RoleNameData.GetRoleName(1)).Result;
+            Assert.Equal(expectedrolename, result.Name);
+        }
+
+        [Fact]
+        public void TestGetRoleNameFailedWrongUserId()
+        {
+            var expectedrolename = "FakeRoleName";
+            var result = Task.Run(() => RoleNameData.GetRoleName(fakeID)).Result;
+            Assert.NotEqual(expectedrolename, result.Name);
+        }
+
 
     }
 }
