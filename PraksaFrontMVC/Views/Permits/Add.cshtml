@@ -4,6 +4,11 @@
 *@
 @{
 }
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
 
 <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
     <h1 style="font-variant: small-caps;">Dodavanje dozvole - @ViewBag.permitName</h1>
@@ -15,7 +20,7 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label class="control-label">Ime korisnika: </label>
+                    <label class="control-label fontGreen">Ime korisnika: </label>
                     <label class="control-label normal-variant">@ViewBag.userName</label>
                 </div>
                 <div class="form-group">
@@ -28,8 +33,10 @@
                     <input asp-for="PermitNumber" type="number" class="form-control rounded-left" placeholder="Broj dozvole..." />
                     <span asp-validation-for="PermitNumber" class="text-danger"></span>
                 </div>
+                <input asp-for="IdUser" value="@ViewBag.userId" style="display:none;"/>
+                <input asp-for="IdPermit" value="@ViewBag.permitId" style="display:none;"/>
                 <div class="form-group">
-                    <input type="submit" style="font-variant:small-caps;" value="Stvori" class="btn btn-primary" formmethod="post" />
+                    <input type="submit" style="font-variant:small-caps;" value="Dodaj" class="workButton" formmethod="post" />
                 </div>
             </form>
         </div>

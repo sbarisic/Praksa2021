@@ -107,7 +107,10 @@ namespace PraksaFrontMVC
             {
                 return NotFound();
             }
+            var user = await PeopleData.GetUser((int)userId);
             ViewBag.userId = userId;
+            ViewBag.permitName = permit.PermitName;
+            ViewBag.userName = user.FirstName + " " + user.LastName;
             return View(permit);
         }
 
@@ -159,7 +162,9 @@ namespace PraksaFrontMVC
             {
                 return NotFound();
             }
+            var user = await PeopleData.GetUser((int)userId);
             ViewBag.userId = userId;
+            ViewBag.userName = user.FirstName + " " + user.LastName;
             return View(permit);
         }
 
