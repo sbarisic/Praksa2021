@@ -104,7 +104,7 @@ namespace PraksaFrontMVC.Controllers
             {
                 WorkData.CreateWork(work);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Work");
             }
             return View(work);
         }
@@ -185,6 +185,13 @@ namespace PraksaFrontMVC.Controllers
         private bool WorkExists(int id)
         {
             return _context.Work.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Popup(int? id)
+        {
+            System.Diagnostics.Debug.WriteLine("id je --- " + id);
+            var work = await WorkData.GetWork((int)id);
+            return PartialView("Popup", work);
         }
     }
 }

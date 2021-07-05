@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -155,5 +156,100 @@ namespace PraksaFrontMVC.Controllers
         {
             return _context.Attendant.Any(e => e.Id == id);
         }
+
+        // POST: People/Accept
+        [HttpPost, ActionName("Coming")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Coming(int? id)
+        {
+            var email = HttpContext.Session.GetString("uname");
+            var userId = PeopleData.GetUserId(email);
+            System.Diagnostics.Debug.WriteLine(userId);
+            Attendant att = new Attendant
+            {
+                IdJob = (int)id,
+                IdInteres = 3,
+                IdUser = Convert.ToInt32(userId),
+                IdAttendance = 1
+            };
+
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+
+            if (tempAtt.Id != 0)
+            {
+                att.Id = tempAtt.Id;
+                AttendantData.EditAttendant(att);
+            }
+            else
+            {
+                AttendantData.CreateAttendant(att);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("UserIndex", "Works");
+        }
+
+        [HttpPost, ActionName("NotComing")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> NotComing(int? id)
+        {
+            var email = HttpContext.Session.GetString("uname");
+            var userId = PeopleData.GetUserId(email);
+            System.Diagnostics.Debug.WriteLine(userId);
+            Attendant att = new Attendant
+            {
+                IdJob = (int)id,
+                IdInteres = 1,
+                IdUser = Convert.ToInt32(userId),
+                IdAttendance = 1
+            };
+
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+
+            if (tempAtt.Id != 0)
+            {
+                att.Id = tempAtt.Id;
+                AttendantData.EditAttendant(att);
+            }
+            else
+            {
+                AttendantData.CreateAttendant(att);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("UserIndex", "Works");
+        }
+
+        [HttpPost, ActionName("MaybeComing")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MaybeComing(int? id)
+        {
+            var email = HttpContext.Session.GetString("uname");
+            var userId = PeopleData.GetUserId(email);
+            System.Diagnostics.Debug.WriteLine(userId);
+            Attendant att = new Attendant
+            {
+                IdJob = (int)id,
+                IdInteres = 2,
+                IdUser = Convert.ToInt32(userId),
+                IdAttendance = 1
+            };
+
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+
+            if (tempAtt.Id != 0)
+            {
+                att.Id = tempAtt.Id;
+                AttendantData.EditAttendant(att);
+            }
+            else
+            {
+                AttendantData.CreateAttendant(att);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("UserIndex", "Works");
+        }
     }
+
 }

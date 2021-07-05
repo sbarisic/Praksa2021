@@ -68,12 +68,41 @@
                                 @Html.DisplayFor(modelItem => item.Obligation)
                             </td>
                             <td>
-                                <div style="width: 60px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="Attendants" asp-action="Interes" asp-route-id="@item.Id">Unesi interes</a></div>
+                                <button id="btnShowModal" onclick="loadInterest('@Url.Action("Popup", "Works", new { id=item.Id })')" type="button" class="locationButton">
+                                    Unesi interes
+                                </button>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
+
+            <button id="btnShowModal2" onclick="loadInterest()" type="button" class="locationButton">
+                test
+            </button>
+
+            <div class="modal fade" tabindex="-1" id="interestModal"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="font-variant: small-caps;">Interes</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <input type="hidden" value=0 name="hdnField" id="hdnField" />
+                                <div class="form-group" id="interestBody">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" id="btnHideModal2" class="closeButton">
+                                Zatvori
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="modal fade" tabindex="-1" id="locationModal"
                  data-keyboard="false" data-backdrop="static">
@@ -97,6 +126,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -104,6 +134,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="~/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
@@ -112,9 +143,18 @@
         $("#locationModal").modal('show');
     }
 
+    function loadInterest(url) {
+        $('#interestBody').load(url);
+        $("#interestModal").modal('show');
+    }
+
     $(document).ready(function () {
         $("#btnHideModal").click(function () {
             $("#locationModal").modal('hide');
         });
+        $("#btnHideModal2").click(function () {
+            $("#interestModal").modal('hide');
+        });
     });
+
 </script> 
