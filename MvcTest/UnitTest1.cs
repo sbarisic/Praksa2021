@@ -218,6 +218,29 @@ namespace MvcTest
             Assert.True(list.Count == 0);
         }
 
+        [Fact]
+        public void TestGetPermitName()
+        {
+            var ExpectedPermitName = "Vozaèka Dozvola B Kategorije";
+            var list = Task.Run(() => PermitNameData.GetPermitName(1)).Result;
+            Assert.Equal(ExpectedPermitName, list.Name);
+        }
+
+        [Fact]
+        public void TestGetPermitNameFailed()
+        {
+            var ExpectedPermitName = "Vozaèka Dozvola B Kategorije";
+            var list = Task.Run(() => PermitNameData.GetPermitName(fakeID)).Result;
+            Assert.NotEqual(ExpectedPermitName, list.Name);
+        }
+
+        [Fact]
+        public void TestGetPermitNames()
+        {
+            var list = Task.Run(() => PermitNameData.GetPermitNames()).Result;
+            Assert.True(list.Count > 0);
+        }
+
 
     }
 }
