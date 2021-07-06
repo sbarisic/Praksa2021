@@ -1,12 +1,12 @@
 ﻿let currentEvent;
-const formatDate = date => date === null ? '' : moment(date).format("MM/DD/YYYY h:mm A");
+const formatDate = date => date === null ? '' : moment(date).format("DD-MM-YYYY h:mm A");
 const fpStartTime = flatpickr("#StartTime", {
     enableTime: true,
-    dateFormat: "m/d/Y h:i K"
+    dateFormat: "d-m-Y h:i K"
 });
 const fpEndTime = flatpickr("#EndTime", {
     enableTime: true,
-    dateFormat: "m/d/Y h:i K"
+    dateFormat: "d-m-Y h:i K"
 });
 
 $('#calendar').fullCalendar({
@@ -60,7 +60,7 @@ function updateEvent(event, element) {
 
 function addEvent(start, end) {
     //$('#eventForm')[0].reset();
-    start = moment(start).format('DD.MM.YYYY');
+    start = moment(start).format('YYYY-MM-DD');
     //$('#popupContent').load('AddPopup/' + start);
 
     loadAddPopup(start);

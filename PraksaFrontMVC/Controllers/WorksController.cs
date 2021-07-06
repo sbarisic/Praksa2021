@@ -54,7 +54,7 @@ namespace PraksaFrontMVC.Controllers
             var j = Json(events);
             var s = JsonConvert.SerializeObject(events);
             ViewBag.Events = s;
-
+            System.Diagnostics.Debug.WriteLine(s);
             return j;
         }
 
@@ -111,9 +111,27 @@ namespace PraksaFrontMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                System.Diagnostics.Debug.WriteLine(work.Date);
                 WorkData.CreateWork(work);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Work");
+                return RedirectToAction("AdminIndex", "Works");
+            }
+            return View(work);
+        }
+
+        // POST: Works/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CalendarAdd([Bind("Id,Name,Date,Time,Description,Location,Obligation")] Work work)
+        {
+            if (ModelState.IsValid)
+            {
+                System.Diagnostics.Debug.WriteLine(work.Date);
+                WorkData.CreateWork(work);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Calendar", "Works");
             }
             return View(work);
         }
@@ -157,7 +175,7 @@ namespace PraksaFrontMVC.Controllers
                 {
                     throw;
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("AdminIndex", "Works");
             }
             return View(work);
         }
@@ -188,7 +206,7 @@ namespace PraksaFrontMVC.Controllers
             var work = await WorkData.GetWork((int)id);
             WorkData.DeleteWork(id);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("AdminIndex", "Works");
         }
 
         private bool WorkExists(int id)
@@ -210,8 +228,8 @@ namespace PraksaFrontMVC.Controllers
 
         public  ActionResult AddPopup(string date)
         {
-            System.Diagnostics.Debug.WriteLine(date);
-            ViewBag.date = date;
+            DateTime dt = new DateTime(2021, 07, 09);
+            ViewBag.date = dt;
             return PartialView("AddPopup");
         }
     }

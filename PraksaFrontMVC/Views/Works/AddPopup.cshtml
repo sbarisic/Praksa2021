@@ -17,7 +17,7 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Create">
+            <form asp-action="CalendarAdd">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group" style="width:500px;">
                     <label asp-for="Name" class="control-label fontGreen"></label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group" style="width:500px;">
                     <label asp-for="Date" class="control-label fontGreen"></label>
-                    <input asp-for="Date" disabled="disabled" class="form-control rounded-left" value="@ViewBag.date" placeholder="Datum..." />
+                    <input asp-for="Date" type="date" class="form-control rounded-left" value="@ViewBag.date" placeholder="Datum..." />
                     <span asp-validation-for="Date" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="width:500px;">
