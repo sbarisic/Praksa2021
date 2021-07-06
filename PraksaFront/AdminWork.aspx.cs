@@ -43,7 +43,7 @@ namespace PraksaFront
         protected void locButton_Click(object sender, EventArgs e)
         {
             ModalPopupExtender1.Show();
-            Button btn = (Button)sender;
+            LinkButton btn = (LinkButton)sender;
             url = urlStart + btn.Text + urlEnd;
         }
 
