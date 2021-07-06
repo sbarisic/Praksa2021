@@ -29,20 +29,12 @@ namespace PraksaFrontMVC.Controllers
             return View(await WorkData.GetWorks());
         }
 
-        // GET: Works
-        public async Task<IActionResult> AdminIndex()
+        public ActionResult Calendar()
         {
-            return View(await WorkData.GetWorks());
+            return View();
         }
 
-        // GET: Works
-        public async Task<IActionResult> UserIndex()
-        {
-            return View(await WorkData.GetWorks());
-        }
-
-        // Get: Done Works
-        public async Task<IActionResult> DismissedWorks()
+        public ActionResult GetCalendarEvents()
         {
             List<Work> list = Task.Run(() => WorkData.GetWorks()).Result;
             List<Event> events = new List<Event>();
@@ -58,13 +50,30 @@ namespace PraksaFrontMVC.Controllers
                     AllDay = false
                 };
                 events.Add(e);
-                System.Diagnostics.Debug.WriteLine(e.Start);
             }
             var j = Json(events);
             var s = JsonConvert.SerializeObject(events);
-            System.Diagnostics.Debug.WriteLine(s);
             ViewBag.Events = s;
 
+            return j;
+        }
+
+
+        // GET: Works
+        public async Task<IActionResult> AdminIndex()
+        {
+            return View(await WorkData.GetWorks());
+        }
+
+        // GET: Works
+        public async Task<IActionResult> UserIndex()
+        {
+            return View(await WorkData.GetWorks());
+        }
+
+        // Get: Done Works
+        public async Task<IActionResult> DismissedWorks()
+        {
             return View(await WorkData.GetWorks());
         }
 
@@ -189,9 +198,21 @@ namespace PraksaFrontMVC.Controllers
 
         public async Task<IActionResult> Popup(int? id)
         {
-            System.Diagnostics.Debug.WriteLine("id je --- " + id);
             var work = await WorkData.GetWork((int)id);
             return PartialView("Popup", work);
+        }
+
+        public async Task<IActionResult> EditPopup(int? id)
+        {
+            var work = await WorkData.GetWork((int)id);
+            return PartialView("EditPopup", work);
+        }
+
+        public  ActionResult AddPopup(string date)
+        {
+            System.Diagnostics.Debug.WriteLine(date);
+            ViewBag.date = date;
+            return PartialView("AddPopup");
         }
     }
 }

@@ -9,8 +9,6 @@ const fpEndTime = flatpickr("#EndTime", {
     dateFormat: "m/d/Y h:i K"
 });
 
-var nevent = testF();
-
 $('#calendar').fullCalendar({
     defaultView: 'month',
     height: 'parent',
@@ -40,7 +38,7 @@ $('#calendar').fullCalendar({
             }
         });
     },
-    events: nevent,
+    events: '/Works/GetCalendarEvents',
     eventClick: updateEvent,
     selectable: true,
     select: addEvent
@@ -55,44 +53,17 @@ function updateEvent(event, element) {
 
     if ($(this).data("qtip")) $(this).qtip("hide");
 
-    $('#eventModalLabel').html('Edit Event');
-    $('#eventModalSave').html('Update Event');
-    $('#EventTitle').val(event.title);
-    $('#Description').val(event.description);
-    $('#isNewEvent').val(false);
+    $('#popupContent').load('EditPopup/15');
+    $("#popupModal").modal('show');
 
-    const start = formatDate(event.start);
-    const end = formatDate(event.end);
-
-    fpStartTime.setDate(start);
-    fpEndTime.setDate(end);
-
-    $('#StartTime').val(start);
-    $('#EndTime').val(end);
-
-    if (event.allDay) {
-        $('#AllDay').prop('checked', 'checked');
-    } else {
-        $('#AllDay')[0].checked = false;
-    }
-
-    $('#eventModal').modal('show');
 }
 
 function addEvent(start, end) {
     //$('#eventForm')[0].reset();
+    start = moment(start).format('DD.MM.YYYY');
+    //$('#popupContent').load('AddPopup/' + start);
 
-    $('#eventModalLabel').html('Add Event');
-    $('#eventModalSave').html('Create Event');
-    $('#isNewEvent').val(true);
-
-    start = formatDate(start);
-    end = formatDate(end);
-
-    /**fpStartTime.setDate(start);
-    fpEndTime.setDate(end);**/
-
-    $('#eventModal').modal('show');
+    loadAddPopup(start);
 }
 
 /**

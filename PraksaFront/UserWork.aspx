@@ -53,7 +53,7 @@
                             <td>
                                 <asp:Button CssClass="locationButton" ID="Button1" runat="server" Text='<%# Eval ("Location")%>' OnClick="locButton_Click" />
                             <td><asp:Label runat="server" Text='<%# Eval ("Obligation")%>'></asp:Label></td>
-                            <td style="padding:20px 10px;">
+                            <td style="padding:20px 10px; width:400px;">
                                 <asp:LinkButton ID="yesButton" CssClass="workButton" runat="server" Text="Dolazim"
                                     OnCommand="yes_Command" CommandArgument='<%# Eval ("ID")%>' />
                                 <asp:LinkButton ID="noButton" CssClass="workButton" runat="server" Text="Ne dolazim"
