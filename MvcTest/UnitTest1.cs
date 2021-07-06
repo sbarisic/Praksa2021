@@ -288,7 +288,7 @@ namespace MvcTest
         [Fact]
         public void TestGetWork()
         {
-            var expectedworkname = "novaradnaakcija";
+            var expectedworkname = "Nova";
             var result = Task.Run(() => WorkData.GetWork(15)).Result;
             Assert.Equal(result.Name, expectedworkname);
         }

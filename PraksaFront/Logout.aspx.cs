@@ -1,12 +1,19 @@
-﻿using System;
+﻿using PraksaMid;
+using PraksaMid.Model;
+using System;
+using System.Collections.Generic;
 
-public partial class logout : System.Web.UI.Page
+
+namespace PraksaFront
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Logout : System.Web.UI.Page
     {
-        Session.Abandon();
-        Session.Clear();
-        Session.RemoveAll();
-        Response.AppendHeader("Refresh", "5;url=about.aspx");
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            Response.AppendHeader("Refresh", "5;url=about.aspx");
+        }
     }
 }

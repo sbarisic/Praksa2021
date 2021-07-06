@@ -316,7 +316,7 @@ namespace PraksaMidTests
         [TestMethod]
         public void TestGetWork()
         {
-            var expectedworkname = "novaradnaakcija";
+            var expectedworkname = "Nova";
             var result = Work.GetWork(15);
             Assert.AreEqual(result.Name, expectedworkname);
         }
