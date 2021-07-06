@@ -24,6 +24,7 @@ namespace PraksaFront
         protected global::System.Web.UI.WebControls.Button hdnBtn;
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorRole;
         protected global::System.Web.UI.HtmlControls.HtmlButton messageBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow permitRow;
 
         /// <summary>
         /// ScriptManager1 control.

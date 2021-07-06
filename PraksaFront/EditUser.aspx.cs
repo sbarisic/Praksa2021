@@ -17,8 +17,14 @@ namespace PraksaFront
         protected List<RoleModel> roleList = new List<RoleModel>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"].Equals("false"))
+            {
+                txtJmbc.Enabled = false;
+                permitRow.Visible = false;
+                deleteButton.Visible = false;
+            }
 
-            if (Request.QueryString["userId"] != "")
+                if (Request.QueryString["userId"] != "")
             {
                 userId = Convert.ToInt16(Request.QueryString["userId"]);
                 Logic.SessionManager.Edit(userId);

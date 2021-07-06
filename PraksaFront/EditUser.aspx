@@ -90,7 +90,7 @@
                                 <asp:Label ID="lblOib"  runat="server" Text="OIB"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="txtOib" pattern=".{11}"  runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki"></asp:TextBox>
+                                <asp:TextBox ID="txtOib" pattern=".{11}"  runat="server" placeholder="Unesite Oib :" required="required" title="Polje mora imati 11 znamenki" onkeydown = "return (!((event.keyCode>=65 && event.keyCode <= 95) || event.keyCode >= 106 || (event.keyCode >= 48 && event.keyCode <= 57  && isNaN(event.key))) && event.keyCode!=32);"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="OibFilter" runat="server" FilterType="Numbers"
                                     TargetControlID="txtOib" />
                             </th>
@@ -146,7 +146,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr runat="server" id="permitRow">
                             <th width="150px">
                                 <asp:Label ID="lblPermits" runat="server" Text="Dozvole"></asp:Label>
                                 <asp:LinkButton CssClass="editButton" Style="color:white; font-weight:normal;" 
