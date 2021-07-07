@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PraksaFrontMVC.Data;
 using PraksaFrontMVC.Models;
@@ -18,7 +19,10 @@ namespace PraksaFrontMVC.Controllers
         // GET: PermitNames
         public async Task<IActionResult> Index()
         {
-            return View(await PermitNameData.GetPermitNames());
+            if (HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await PermitNameData.GetPermitNames());
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         // GET: PermitNames/Details/5

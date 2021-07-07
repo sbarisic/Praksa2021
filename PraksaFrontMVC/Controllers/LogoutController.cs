@@ -10,6 +10,8 @@ namespace PraksaFrontMVC.Controllers
     {
         public IActionResult Index()
         {
+            HttpContext.Session.Clear();
+            
             return View();
         }
     }

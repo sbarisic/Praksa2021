@@ -34,9 +34,10 @@ namespace PraksaFrontMVC.Controllers
                 System.Diagnostics.Debug.WriteLine("Korisnik nije prihvaćen");
             else if (rv == 2)
             {
+                int userId = PeopleData.GetUserId(person.Email);
                 HttpContext.Session.SetString("uname", person.Email);
-
-                List<Role> roleList = await RoleData.GetRoles(PeopleData.GetUserId(person.Email));
+                HttpContext.Session.SetInt32("uid", userId);
+                List <Role> roleList = await RoleData.GetRoles(PeopleData.GetUserId(person.Email));
                 foreach (Role role in roleList)
                 {
                     if (role.Name == "Admin")
