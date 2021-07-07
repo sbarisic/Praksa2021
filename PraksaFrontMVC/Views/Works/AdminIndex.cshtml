@@ -2,11 +2,11 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
     <link href="~/css/radneAkcijeStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/home.css" />
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 </head>
 
 <div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
@@ -108,22 +108,20 @@
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function loadFrame(loc) {
+            document.getElementById('frameLocation').src = "https://www.google.com/maps/embed/v1/place?q=" + loc + "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
+            $("#locationModal").modal('show');
+        }
+
+        $(document).ready(function () {
+            $("#btnHideModal").click(function () {
+                $("#locationModal").modal('hide');
+            });
+        });
+    </script>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-
-</script>
-<script src="~/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    function loadFrame(loc) {
-        document.getElementById('frameLocation').src = "https://www.google.com/maps/embed/v1/place?q=" + loc + "&key=AIzaSyC6FB2tRFJv8tK0k7t-KzY5GLsxFehcWeM";
-        $("#locationModal").modal('show');
-    }
-
-    $(document).ready(function () {
-        $("#btnHideModal").click(function () {
-            $("#locationModal").modal('hide');
-        });
-    });
-</script> 
