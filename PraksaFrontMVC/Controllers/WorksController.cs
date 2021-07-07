@@ -161,8 +161,13 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Date,Time,Description,Location,Obligation,IdAttendant")] Work work)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Date,Time,Description,Location,Obligation")] Work work)
         {
+            if (work.Obligation.Equals("Obavezno"))
+                work.Obligation = "1";
+            else
+                work.Obligation = "0";
+
             if (id != work.Id)
             {
                 return NotFound();

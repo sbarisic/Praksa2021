@@ -52,8 +52,7 @@ function updateEvent(event, element) {
     currentEvent = event;
 
     if ($(this).data("qtip")) $(this).qtip("hide");
-
-    $('#popupContent').load('EditPopup/15');
+    $('#popupContent').load('EditPopup/' + event.eventId);
     $("#popupModal").modal('show');
 
 }
