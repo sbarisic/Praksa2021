@@ -161,7 +161,7 @@ namespace PraksaFrontMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Date,Time,Description,Location,Obligation")] Work work)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Date,Time,Description,Location,Obligation")] Work work, int? isCalendar)
         {
             if (work.Obligation.Equals("Obavezno"))
                 work.Obligation = "1";
@@ -184,7 +184,10 @@ namespace PraksaFrontMVC.Controllers
                 {
                     throw;
                 }
-                return RedirectToAction("AdminIndex", "Works");
+                if((int)isCalendar == 0)
+                    return RedirectToAction("AdminIndex", "Works");
+                else
+                    return RedirectToAction("Calendar", "Works");
             }
             return View(work);
         }
