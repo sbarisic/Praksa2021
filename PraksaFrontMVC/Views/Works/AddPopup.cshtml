@@ -34,7 +34,7 @@
                     <input asp-for="Location" class="form-control rounded-left" placeholder="Lokacija..." />
                     <span asp-validation-for="Location" class="text-danger"></span>
                 </div>
-                <div class="form-group" style="width:500px;">
+                <div class="form-group" style="width:500px; display:none">
                     <label asp-for="Date" class="control-label fontGreen"></label>
                     <input asp-for="Date" type="date" class="form-control rounded-left" value="@ViewBag.date" placeholder="Datum..." />
                     <span asp-validation-for="Date" class="text-danger"></span>

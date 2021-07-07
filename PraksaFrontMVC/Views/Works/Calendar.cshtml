@@ -1,5 +1,4 @@
-﻿
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -24,8 +23,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width:800px!important; margin-left:-150px;">
             <div class="modal-header">
-                <h4 class="modal-title" id="eventModalLabel">Event</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" id="btnHideModal2" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form id="eventForm">
@@ -33,22 +31,17 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="deleteEvent">Delete</button>
+            <div class="modal-footer justify-content-center">
                 <div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="eventModalSave">Save Changes</button>
+                    <button type="button" id="btnHideModal" class="closeButton">
+                        Zatvori
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function loadAddPopup(start) {
-        $('#popupContent').load('@Url.Action("AddPopup", "Works")?date=' + start);
-        $("#popupModal").modal('show');
-    }
-</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -61,3 +54,17 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="~/Scripts/calendar.js"></script>
 <script src="~/js/calendar.js" asp-append-version="true"></script>
+<script>
+    function loadAddPopup(start) {
+        $('#popupContent').load('@Url.Action("AddPopup", "Works")?date=' + start);
+        $("#popupModal").modal('show');
+    }
+    $(document).ready(function () {
+        $("#btnHideModal").click(function () {
+            $("#popupModal").modal('hide');
+        });
+        $("#btnHideModal2").click(function () {
+            $("#popupModal").modal('hide');
+        });
+    });
+</script>

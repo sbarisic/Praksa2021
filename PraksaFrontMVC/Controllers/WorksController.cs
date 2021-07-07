@@ -38,14 +38,18 @@ namespace PraksaFrontMVC.Controllers
         {
             List<Work> list = Task.Run(() => WorkData.GetWorks()).Result;
             List<Event> events = new List<Event>();
+            
             foreach (var w in list)
             {
+                DateTime date;
+                DateTime.TryParseExact(w.Date, "dd.M.yyyy.", null, System.Globalization.DateTimeStyles.None, out date);
+
                 Event e = new Event
                 {
                     EventId = w.Id,
                     Title = w.Name,
                     Description = w.Description,
-                    Start = w.Date,
+                    Start = date.ToString("yyyy-MM-dd"),
                     End = w.Date,
                     AllDay = false
                 };
@@ -228,8 +232,7 @@ namespace PraksaFrontMVC.Controllers
 
         public  ActionResult AddPopup(string date)
         {
-            DateTime dt = new DateTime(2021, 07, 09);
-            ViewBag.date = dt;
+            ViewBag.date = date;
             return PartialView("AddPopup");
         }
     }

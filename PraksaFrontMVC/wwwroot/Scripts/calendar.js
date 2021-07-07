@@ -1,5 +1,5 @@
 ﻿let currentEvent;
-const formatDate = date => date === null ? '' : moment(date).format("DD-MM-YYYY h:mm A");
+const formatDate = date => date === null ? '' : moment(date).format("DD-MM-YYYY");
 const fpStartTime = flatpickr("#StartTime", {
     enableTime: true,
     dateFormat: "d-m-Y h:i K"
