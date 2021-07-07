@@ -173,7 +173,7 @@ namespace PraksaFrontMVC.Controllers
                 IdAttendance = 1
             };
 
-            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, userId);
 
             if (tempAtt.Id != 0)
             {
@@ -204,7 +204,7 @@ namespace PraksaFrontMVC.Controllers
                 IdAttendance = 1
             };
 
-            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, userId);
 
             if (tempAtt.Id != 0)
             {
@@ -235,7 +235,7 @@ namespace PraksaFrontMVC.Controllers
                 IdAttendance = 1
             };
 
-            Attendant tempAtt = AttendantData.GetAttendant((int)id, 33);
+            Attendant tempAtt = AttendantData.GetAttendant((int)id, userId);
 
             if (tempAtt.Id != 0)
             {
