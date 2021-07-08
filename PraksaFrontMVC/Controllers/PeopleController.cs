@@ -180,7 +180,7 @@ namespace PraksaFrontMVC
             ViewBag.email = person.Email;
             ViewBag.number = person.Number;
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == id))
                 return View(person);
             else
                 return RedirectToAction("ErrorPage", "Home");
