@@ -35,6 +35,10 @@ namespace PraksaFrontMVC.Controllers
             return View();
         }
 
+        public ActionResult UserCalendar()
+        {
+            return View();
+        }
         public ActionResult GetCalendarEvents()
         {
             List<Work> list = Task.Run(() => WorkData.GetWorks()).Result;
@@ -227,11 +231,12 @@ namespace PraksaFrontMVC.Controllers
             return _context.Work.Any(e => e.Id == id);
         }
 
-        public async Task<IActionResult> Popup(int? id)
+        public async Task<IActionResult> Popup(int? id, int? isCalendar)
         {
             var work = await WorkData.GetWork((int)id);
             int userId = (int)HttpContext.Session.GetInt32("uid");
             var att = AttendantData.GetAttendant((int)id, userId);
+            ViewBag.isCalendar = isCalendar;
 
             switch (att.IdInteres)
             {

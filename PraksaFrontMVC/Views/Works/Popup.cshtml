@@ -53,15 +53,15 @@
             </dd>
         </dl>
     </div>
-    <form asp-controller="Attendants" asp-action="Coming">
+    <form asp-controller="Attendants" asp-action="Coming" asp-route-isCalendar="@ViewBag.isCalendar">
         <input type="hidden" asp-for="Id" /><br />
         <input type="submit" value="Dolazim" class="btn btn-primary" style="font-variant:small-caps; background-color:@ViewBag.yesColor!important" formmethod="post" />
     </form>
-    <form asp-controller="Attendants" asp-action="NotComing">
-        <input type="hidden" asp-for="Id" /><br />
+    <form asp-controller="Attendants" asp-action="NotComing" asp-route-isCalendar="@ViewBag.isCalendar">
+        <input type="hidden" asp-for="Id"  /><br />
         <input type="submit" value="Ne dolazim" class="btn btn-primary" style="font-variant:small-caps; background-color:@ViewBag.noColor!important" formmethod="post" />
     </form>
-    <form asp-controller="Attendants" asp-action="MaybeComing">
+    <form asp-controller="Attendants" asp-action="MaybeComing" asp-route-isCalendar="@ViewBag.isCalendar">
         <input type="hidden" asp-for="Id" /><br />
         <input type="submit" value="Možda dolazim" class="btn btn-primary" style="font-variant:small-caps; background-color:@ViewBag.maybeColor!important" formmethod="post" />
     </form>

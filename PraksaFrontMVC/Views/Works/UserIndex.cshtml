@@ -68,7 +68,7 @@
                                 @Html.DisplayFor(modelItem => item.Obligation)
                             </td>
                             <td>
-                                <button id="btnShowModal" onclick="loadInterest('@Url.Action("Popup", "Works", new { id=item.Id })')" type="button" class="locationButton">
+                                <button id="btnShowModal" onclick="loadInterest('@Url.Action("Popup", "Works", new { id=item.Id, isCalendar=0 })')" type="button" class="locationButton">
                                     Unesi interes
                                 </button>
                             </td>

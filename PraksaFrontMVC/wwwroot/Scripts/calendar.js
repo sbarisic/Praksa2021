@@ -52,9 +52,13 @@ function updateEvent(event, element) {
     currentEvent = event;
 
     if ($(this).data("qtip")) $(this).qtip("hide");
-    $('#popupContent').load('EditPopup/' + event.eventId);
-    $("#popupModal").modal('show');
+    var isUser = $('#hdnIsUser').val();
+    if (isUser == 1)
+        $('#popupContent').load('Popup/' + event.eventId + '?isCalendar=' + 1);
+    else
+        $('#popupContent').load('EditPopup/' + event.eventId);
 
+    $("#popupModal").modal('show');
 }
 
 function addEvent(start, end) {

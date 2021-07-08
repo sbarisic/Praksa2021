@@ -160,7 +160,7 @@ namespace PraksaFrontMVC.Controllers
         // POST: People/Accept
         [HttpPost, ActionName("Coming")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Coming(int? id)
+        public async Task<IActionResult> Coming(int? id, int? isCalendar)
         {
             var email = HttpContext.Session.GetString("uname");
             var userId = PeopleData.GetUserId(email);
@@ -186,12 +186,15 @@ namespace PraksaFrontMVC.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("UserIndex", "Works");
+            if((int)isCalendar == 1)
+                return RedirectToAction("UserCalendar", "Works");
+            else
+                return RedirectToAction("UserIndex", "Works");
         }
 
         [HttpPost, ActionName("NotComing")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> NotComing(int? id)
+        public async Task<IActionResult> NotComing(int? id, int? isCalendar)
         {
             var email = HttpContext.Session.GetString("uname");
             var userId = PeopleData.GetUserId(email);
@@ -217,12 +220,15 @@ namespace PraksaFrontMVC.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("UserIndex", "Works");
+            if ((int)isCalendar == 1)
+                return RedirectToAction("UserCalendar", "Works");
+            else
+                return RedirectToAction("UserIndex", "Works");
         }
 
         [HttpPost, ActionName("MaybeComing")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> MaybeComing(int? id)
+        public async Task<IActionResult> MaybeComing(int? id, int? isCalendar)
         {
             var email = HttpContext.Session.GetString("uname");
             var userId = PeopleData.GetUserId(email);
@@ -248,7 +254,10 @@ namespace PraksaFrontMVC.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("UserIndex", "Works");
+            if ((int)isCalendar == 1)
+                return RedirectToAction("UserCalendar", "Works");
+            else
+                return RedirectToAction("UserIndex", "Works");
         }
     }
 

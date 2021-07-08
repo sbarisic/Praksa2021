@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-<input id="hdnIsUser" value="0" type="hidden" />
+<input id="hdnIsUser" value="1" type="hidden" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -56,8 +56,7 @@
 <script src="~/js/calendar.js" asp-append-version="true"></script>
 <script>
     function loadAddPopup(start) {
-        $('#popupContent').load('@Url.Action("AddPopup", "Works")?date=' + start);
-        $("#popupModal").modal('show');
+
     }
     $(document).ready(function () {
         $("#btnHideModal").click(function () {
