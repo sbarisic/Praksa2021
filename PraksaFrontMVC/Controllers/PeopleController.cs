@@ -213,7 +213,7 @@ namespace PraksaFrontMVC
                 return RedirectToAction(nameof(Index));
             }
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == person.Id))
                 return View(person);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -234,7 +234,7 @@ namespace PraksaFrontMVC
                 return NotFound();
             }
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == id))
                 return View(person);
             else
                 return RedirectToAction("ErrorPage", "Home");

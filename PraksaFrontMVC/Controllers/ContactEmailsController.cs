@@ -23,7 +23,7 @@ namespace PraksaFrontMVC.Controllers
         public async Task<IActionResult> Index(int? id)
         {
             ViewBag.userId = id;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == id))
                 return View(await ContactEmailData.GetContactEmails((int)id));
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -46,7 +46,7 @@ namespace PraksaFrontMVC.Controllers
             }
             ViewBag.userId = userId;
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactEmail);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -58,7 +58,7 @@ namespace PraksaFrontMVC.Controllers
         {
             ViewBag.userId = userId;
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View();
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -79,7 +79,7 @@ namespace PraksaFrontMVC.Controllers
                 return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == contactEmail.IdUser))
                 return View(contactEmail);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -101,7 +101,7 @@ namespace PraksaFrontMVC.Controllers
             }
             ViewBag.userId = userId;
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactEmail);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -134,7 +134,7 @@ namespace PraksaFrontMVC.Controllers
                 return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
 
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == contactEmail.IdUser))
                 return View(contactEmail);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -155,7 +155,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactEmail);
             else
                 return RedirectToAction("ErrorPage", "Home");
