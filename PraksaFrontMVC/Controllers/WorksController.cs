@@ -11,6 +11,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Text.Json;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace PraksaFrontMVC.Controllers
 {
@@ -229,6 +230,28 @@ namespace PraksaFrontMVC.Controllers
         public async Task<IActionResult> Popup(int? id)
         {
             var work = await WorkData.GetWork((int)id);
+            int userId = (int)HttpContext.Session.GetInt32("uid");
+            var att = AttendantData.GetAttendant((int)id, userId);
+
+            switch (att.IdInteres)
+            {
+                case 1:
+                    ViewBag.noColor = "#32a852";
+                    ViewBag.yesColor = "#badbc3";
+                    ViewBag.maybeColor = "#badbc3";
+                    break;
+                case 2:
+                    ViewBag.noColor = "#badbc3";
+                    ViewBag.yesColor = "#badbc3";
+                    ViewBag.maybeColor = "#32a852";
+                    break;
+                case 3:
+                    ViewBag.noColor = "#badbc3";
+                    ViewBag.yesColor = "#32a852";
+                    ViewBag.maybeColor = "#badbc3";
+                    break;
+            }
+
             return PartialView("Popup", work);
         }
 

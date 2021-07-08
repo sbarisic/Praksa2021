@@ -38,12 +38,13 @@ namespace PraksaFrontMVC.Controllers
                 HttpContext.Session.SetString("uname", person.Email);
                 HttpContext.Session.SetInt32("uid", userId);
                 List <Role> roleList = await RoleData.GetRoles(PeopleData.GetUserId(person.Email));
+
                 foreach (Role role in roleList)
                 {
                     if (role.Name == "Admin")
                     {
                         HttpContext.Session.SetString("admin", "true");
-
+                        
                         return RedirectToAction("Index", "Home");
                     }
                 }

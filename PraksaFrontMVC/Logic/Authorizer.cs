@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,6 @@ namespace PraksaFrontMVC.Logic
 {
     public class Authorizer : AuthorizeAttribute
     {
-
 
     }
 }
