@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<PraksaFrontMVC.Models.ContactEmail>
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,7 +16,7 @@
 
 <p>
     <br />
-    <a class="workButton" style="font-variant:small-caps" asp-action="Create" asp-route-userId ="@ViewBag.userId">Create New</a>
+    <a class="workButton" style="font-variant:small-caps" asp-action="Create" asp-route-userId="@ViewBag.userId">Create New</a>
 </p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -47,6 +48,9 @@
         </div>
     </div>
 </div>
-<div>
-    <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-controller="People" asp-action="Index">Nazad</a></div>
-</div>
+@if (HttpContextAccessor.HttpContext.Session.GetString("admin").Equals("true"))
+{
+    <div>
+        <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-controller="People" asp-action="Index">Nazad</a></div>
+    </div>
+}

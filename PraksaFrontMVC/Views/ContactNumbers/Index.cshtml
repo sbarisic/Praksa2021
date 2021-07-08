@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<PraksaFrontMVC.Models.ContactNumber>
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Index";
 }
@@ -48,5 +49,11 @@
     </div>
 </div>
 <div>
-    <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-controller="People" asp-action="Index">Nazad</a></div>
+    @if (HttpContextAccessor.HttpContext.Session.GetString("admin").Equals("true"))
+    {
+        <div>
+            <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-controller="People" asp-action="Index">Nazad</a></div>
+        </div>
+    }
+
 </div>
