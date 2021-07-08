@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PraksaFrontMVC.Data;
 using PraksaFrontMVC.Models;
@@ -18,7 +19,11 @@ namespace PraksaFrontMVC.Controllers
         // GET: RoleNames
         public async Task<IActionResult> Index()
         {
-            return View(await RoleNameData.GetRoleNames());
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await RoleNameData.GetRoleNames());
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: RoleNames/Details/5
@@ -36,13 +41,21 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(roleName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(roleName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: RoleNames/Create
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: RoleNames/Create
@@ -58,7 +71,11 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(roleName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(roleName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: RoleNames/Edit/5
@@ -74,7 +91,11 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
-            return View(roleName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(roleName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: RoleNames/Edit/5
@@ -102,7 +123,11 @@ namespace PraksaFrontMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(roleName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(roleName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: RoleNames/Delete/5
@@ -120,7 +145,11 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(roleName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(roleName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: RoleNames/Delete/5

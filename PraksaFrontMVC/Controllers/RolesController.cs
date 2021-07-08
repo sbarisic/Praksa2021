@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,13 +23,21 @@ namespace PraksaFrontMVC
         // GET: Roles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Role.ToListAsync());
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await _context.Role.ToListAsync());
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Roles/Create
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Roles/Create
@@ -44,7 +53,11 @@ namespace PraksaFrontMVC
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(role);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(role);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Roles/Edit/5
@@ -60,7 +73,11 @@ namespace PraksaFrontMVC
             {
                 return NotFound();
             }
-            return View(role);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(role);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Roles/Edit/5
@@ -95,7 +112,11 @@ namespace PraksaFrontMVC
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(role);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(role);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Roles/Delete/5
@@ -112,8 +133,11 @@ namespace PraksaFrontMVC
             {
                 return NotFound();
             }
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(role);
+            else
+                return RedirectToAction("ErrorPage", "Home");
 
-            return View(role);
         }
 
         // POST: Roles/Delete/5

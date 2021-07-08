@@ -19,10 +19,10 @@ namespace PraksaFrontMVC.Controllers
         // GET: PermitNames
         public async Task<IActionResult> Index()
         {
-            if (HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
                 return View(await PermitNameData.GetPermitNames());
             else
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // GET: PermitNames/Details/5
@@ -40,13 +40,21 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(permitName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permitName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: PermitNames/Create
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: PermitNames/Create
@@ -62,7 +70,11 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(permitName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permitName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: PermitNames/Edit/5
@@ -78,7 +90,11 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
-            return View(permitName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permitName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: PermitNames/Edit/5
@@ -106,7 +122,11 @@ namespace PraksaFrontMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(permitName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permitName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: PermitNames/Delete/5
@@ -124,7 +144,11 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(permitName);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permitName);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: PermitNames/Delete/5

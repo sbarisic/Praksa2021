@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,11 @@ namespace PraksaFrontMVC.Controllers
         public async Task<IActionResult> Index(int? id)
         {
             ViewBag.userId = id;
-            return View(await ContactEmailData.GetContactEmails((int)id));
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await ContactEmailData.GetContactEmails((int)id));
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: ContactEmails/Details/5
@@ -40,14 +45,24 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            return View(contactEmail);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(contactEmail);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: ContactEmails/Create
         public IActionResult Create(int? userId)
         {
             ViewBag.userId = userId;
-            return View();
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: ContactEmails/Create
@@ -63,7 +78,12 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
-            return View(contactEmail);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(contactEmail);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: ContactEmails/Edit/5
@@ -80,7 +100,12 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            return View(contactEmail);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(contactEmail);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: ContactEmails/Edit/5
@@ -108,7 +133,12 @@ namespace PraksaFrontMVC.Controllers
                 }
                 return RedirectToAction("Index", "ContactEmails", new { @id = contactEmail.IdUser });
             }
-            return View(contactEmail);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(contactEmail);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: ContactEmails/Delete/5
@@ -125,7 +155,12 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            return View(contactEmail);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(contactEmail);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
+
         }
 
         // POST: ContactEmails/Delete/5

@@ -22,13 +22,21 @@ namespace PraksaFrontMVC.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            return View(await AttendantData.GetAttendants((int)id));
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await AttendantData.GetAttendants((int)id));
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Attendants
         public async Task<IActionResult> IndexActive(int? id)
         {
-            return View(await AttendantData.GetAttendants((int)id));
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await AttendantData.GetAttendants((int)id));
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Attendants/Details/5
@@ -46,13 +54,21 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(attendant);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(attendant);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Attendants/Create
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Attendants/Create
@@ -68,7 +84,11 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(attendant);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(attendant);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Attendants/Edit/5
@@ -84,7 +104,11 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
-            return View(attendant);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(attendant);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Attendants/Edit/5
@@ -119,7 +143,11 @@ namespace PraksaFrontMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(attendant);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(attendant);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Attendants/Delete/5
@@ -136,8 +164,11 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(attendant);
+            else
+                return RedirectToAction("ErrorPage", "Home");
 
-            return View(attendant);
         }
 
         // POST: Attendants/Delete/5

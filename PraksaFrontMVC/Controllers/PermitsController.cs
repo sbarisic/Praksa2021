@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +26,12 @@ namespace PraksaFrontMVC
             var person = await PeopleData.GetUser((int)id);
             ViewBag.userId = id;
             ViewBag.userName = person.FirstName + " " + person.LastName;
-            return View(await PermitData.GetPermits((int)id));
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await PermitData.GetPermits((int)id));
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Permits/Details/5
@@ -42,7 +48,12 @@ namespace PraksaFrontMVC
                 return NotFound();
             }
             ViewBag.userId = userId;
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         public async Task<IActionResult> Add(int? userId, int? permitId)
@@ -53,7 +64,12 @@ namespace PraksaFrontMVC
             ViewBag.userId = userId;
             ViewBag.permitId = permitId;
             ViewBag.permitName = permit.Name;
-            return View();
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         [HttpPost]
@@ -66,7 +82,12 @@ namespace PraksaFrontMVC
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
             }
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Permits/Create
@@ -75,7 +96,12 @@ namespace PraksaFrontMVC
             var person = await PeopleData.GetUser((int)userId);
             ViewBag.userName = person.FirstName + " " + person.LastName;
             ViewBag.userId = userId;
-            return View(await PermitNameData.GetPermitNames());
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await PermitNameData.GetPermitNames());
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Permits/Create
@@ -91,7 +117,12 @@ namespace PraksaFrontMVC
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
             }
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Permits/Edit/5
@@ -111,7 +142,12 @@ namespace PraksaFrontMVC
             ViewBag.userId = userId;
             ViewBag.permitName = permit.PermitName;
             ViewBag.userName = user.FirstName + " " + user.LastName;
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Permits/Edit/5
@@ -146,7 +182,12 @@ namespace PraksaFrontMVC
                 }
                 return RedirectToAction("Index", "Permits", new { @id = permit.IdUser });
             }
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // GET: Permits/Delete/5
@@ -165,7 +206,12 @@ namespace PraksaFrontMVC
             var user = await PeopleData.GetUser((int)userId);
             ViewBag.userId = userId;
             ViewBag.userName = user.FirstName + " " + user.LastName;
-            return View(permit);
+
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(permit);
+            else
+                return RedirectToAction("ErrorPage", "Home");
+
         }
 
         // POST: Permits/Delete/5
