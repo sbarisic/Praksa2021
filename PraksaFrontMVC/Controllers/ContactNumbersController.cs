@@ -24,7 +24,7 @@ namespace PraksaFrontMVC.Controllers
         public async Task<IActionResult> Index(int? id)
         {
             ViewBag.userId = id;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == id))
                 return View(await ContactNumberData.GetContactNumbers((int)id));
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -45,7 +45,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactNumber);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -56,7 +56,7 @@ namespace PraksaFrontMVC.Controllers
         public IActionResult Create(int? userId)
         {
             ViewBag.userId = userId;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View();
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -76,7 +76,7 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
             }
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == contactNumber.IdUser))
                 return View(contactNumber);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -97,7 +97,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactNumber);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -136,7 +136,7 @@ namespace PraksaFrontMVC.Controllers
                 }
                 return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
             }
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == contactNumber.IdUser))
                 return View(contactNumber);
             else
                 return RedirectToAction("ErrorPage", "Home");
@@ -157,7 +157,7 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
             ViewBag.userId = userId;
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+            if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == userId))
                 return View(contactNumber);
             else
                 return RedirectToAction("ErrorPage", "Home");
