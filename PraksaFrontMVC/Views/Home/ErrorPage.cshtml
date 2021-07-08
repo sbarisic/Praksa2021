@@ -1,19 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="404.aspx.cs" Inherits="PraksaFront._404" %>
+﻿@{
+    Layout = null;
+}
 
-<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>404 error</title>
+    <title>Odjava</title>
 
     <style id="" media="all">
         /* latin */
-        @font-face {
+        @@font-face {
             font-family: 'Raleway';
             font-style: normal;
             font-weight: 700;
@@ -21,7 +21,7 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
         /* latin */
-        @font-face {
+        @@font-face {
             font-family: 'Passion One';
             font-style: normal;
             font-weight: 900;
@@ -30,7 +30,7 @@
         }
     </style>
 
-    <link type="text/css" rel="stylesheet" href="content/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/notFound.css" />
 
 </head>
 <body>
@@ -41,7 +41,7 @@
             </div>
             <h2>404 - Stranica nije pronađena</h2>
             <p>Stranica koju tražite možda je uklonjena, privremeno nedostupna ili nemate pravo pristupa.</p>
-            <a href='@Url.Action("Index", "Home")'>nazad</a>
+            <a href="@Url.Action("Index", "Home")">nazad</a>
         </div>
     </div>
 

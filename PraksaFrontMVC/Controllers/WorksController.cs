@@ -32,12 +32,18 @@ namespace PraksaFrontMVC.Controllers
 
         public ActionResult Calendar()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         public ActionResult UserCalendar()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null)
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
         public ActionResult GetCalendarEvents()
         {
@@ -71,19 +77,28 @@ namespace PraksaFrontMVC.Controllers
         // GET: Works
         public async Task<IActionResult> AdminIndex()
         {
-            return View(await WorkData.GetWorks());
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await WorkData.GetWorks());
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // GET: Works
         public async Task<IActionResult> UserIndex()
         {
-            return View(await WorkData.GetWorks());
+            if (HttpContext.Session.GetString("admin") != null)
+                return View(await WorkData.GetWorks());
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // Get: Done Works
         public async Task<IActionResult> DismissedWorks()
         {
-            return View(await WorkData.GetWorks());
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(await WorkData.GetWorks());
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
 
@@ -101,14 +116,20 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
 
         // GET: Works/Create
         public IActionResult Create()
         {
-            return View();
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View();
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // POST: Works/Create
@@ -125,7 +146,10 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("AdminIndex", "Works");
             }
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // POST: Works/Create
@@ -142,7 +166,10 @@ namespace PraksaFrontMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Calendar", "Works");
             }
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // GET: Works/Edit/5
@@ -158,7 +185,10 @@ namespace PraksaFrontMVC.Controllers
             {
                 return NotFound();
             }
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // POST: Works/Edit/5
@@ -194,7 +224,10 @@ namespace PraksaFrontMVC.Controllers
                 else
                     return RedirectToAction("Calendar", "Works");
             }
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // GET: Works/Delete/5
@@ -212,7 +245,10 @@ namespace PraksaFrontMVC.Controllers
                 return NotFound();
             }
 
-            return View(work);
+            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
+                return View(work);
+            else
+                return RedirectToAction("ErrorPage", "Home");
         }
 
         // POST: Works/Delete/5
