@@ -210,7 +210,7 @@ namespace PraksaFrontMVC
                 {
                     throw;
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Edit", "People", new { id = person.Id });
             }
 
             if (HttpContext.Session.GetString("admin") != null && (HttpContext.Session.GetString("admin").Equals("true") || HttpContext.Session.GetInt32("uid") == person.Id))
