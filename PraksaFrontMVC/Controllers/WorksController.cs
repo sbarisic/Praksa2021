@@ -219,7 +219,7 @@ namespace PraksaFrontMVC.Controllers
                 {
                     throw;
                 }
-                if((int)isCalendar == 0)
+                if(isCalendar == null)
                     return RedirectToAction("AdminIndex", "Works");
                 else
                     return RedirectToAction("Calendar", "Works");
