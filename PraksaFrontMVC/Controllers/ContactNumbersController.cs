@@ -169,10 +169,15 @@ namespace PraksaFrontMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int userId, int id)
         {
-            var contactNumber = await ContactNumberData.GetContactNumber(userId, id);
-            ContactNumberData.DeleteContactNumber(id);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "ContactNumbers", new { @id = contactNumber.IdUser });
+            var numbers = await ContactNumberData.GetContactNumbers(userId);
+            if (numbers.Count > 1)
+            {
+                var contactNumber = await ContactNumberData.GetContactNumber(userId, id);
+                ContactNumberData.DeleteContactNumber(id);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "ContactNumbers", new { @id = userId });
+            }
+            return RedirectToAction("DeleteError", "Home");
         }
 
         private bool ContactNumberExists(int id)

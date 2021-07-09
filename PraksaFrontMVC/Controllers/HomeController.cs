@@ -27,6 +27,10 @@ namespace PraksaFrontMVC.Controllers
         public IActionResult ErrorPage(){
             return View();        
         }
+        public IActionResult DeleteError()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
