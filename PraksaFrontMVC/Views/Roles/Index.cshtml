@@ -15,7 +15,7 @@
 </div>
 
 <p>
-    <a asp-action="Create" asp-route-userId="@ViewBag.userId">Stvori Ulogu</a>
+    <a class="workButton" asp-action="Create" asp-route-userId="@ViewBag.userId">Dodaj ulgou</a>
 </p>
 <div class="card-body">
     <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
@@ -37,7 +37,10 @@
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
                             <td>
-                                <a asp-action="Delete" asp-route-id="@item.Id">Izbriši</a>
+                                <form asp-action="Delete" asp-route-id="@item.Id" asp-route-userId="@ViewBag.userId">
+                                    <input type="hidden" />
+                                    <input type="submit" value="Obriši" onclick="confirm('Jeste li sigurni da želite obrisati ulogu?')" class="btn btn-danger" /> 
+                                </form>
                             </td>
                         </tr>
                     }

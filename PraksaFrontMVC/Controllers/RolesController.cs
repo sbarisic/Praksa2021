@@ -99,36 +99,14 @@ namespace PraksaFrontMVC
 
         }
 
-        // GET: Roles/Delete/5
-        public async Task<IActionResult> Delete(string role, int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            if (role == null)
-            {
-                return NotFound();
-            }
-            await _context.SaveChangesAsync();
-            ViewBag.userId = id;
-
-            if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
-                return View(role);
-            else
-                return RedirectToAction("ErrorPage", "Home");
-
-        }
-
         // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int userId)
         {
             RoleData.DeleteRole((int)id);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Roles", new { id=userId });
         }
 
         private bool RoleExists(int id)
