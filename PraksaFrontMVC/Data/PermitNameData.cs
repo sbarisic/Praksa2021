@@ -102,6 +102,7 @@ namespace PraksaFrontMVC.Data
                 while (dr.Read())
                 {
                     permitName.Name = dr["Naziv dozvole"].ToString();
+                    permitName.Id = Convert.ToInt32(dr["ID dozvole"]);
                 }
             }
             return Task.FromResult(permitName);
