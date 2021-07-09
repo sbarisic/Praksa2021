@@ -21,20 +21,25 @@ namespace PraksaFrontMVC
         }
 
         // GET: Roles
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
+            ViewBag.userId = id;
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
-                return View(await _context.Role.ToListAsync());
+                return View(await RoleData.GetRoles((int)id));
             else
                 return RedirectToAction("ErrorPage", "Home");
 
         }
 
         // GET: Roles/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create(int? userId)
         {
+            var person = await PeopleData.GetUser((int)userId);
+            ViewBag.userName = person.FirstName + " " + person.LastName;
+            ViewBag.userId = userId;
+
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
-                return View();
+                return View(await RoleNameData.GetRoleNames());
             else
                 return RedirectToAction("ErrorPage", "Home");
 
@@ -49,7 +54,7 @@ namespace PraksaFrontMVC
         {
             if (ModelState.IsValid)
             {
-               RoleData.CreateRole(role);
+                RoleData.CreateRole(role);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -60,58 +65,33 @@ namespace PraksaFrontMVC
 
         }
 
-        // GET: Roles/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Add(int? roleId, int? userId)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var role = await RoleNameData.GetRoleName((int)roleId);
+            var person = await PeopleData.GetUser((int)userId);
+            ViewBag.userName = person.FirstName + " " + person.LastName;
+            ViewBag.userId = userId;
+            ViewBag.roleId = roleId;
+            ViewBag.roleName = role.Name;
 
-            var role = await _context.Role.FindAsync(id);
-            if (role == null)
-            {
-                return NotFound();
-            }
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
-                return View(role);
+                return View();
             else
                 return RedirectToAction("ErrorPage", "Home");
 
         }
 
-        // POST: Roles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IdRole,IdUser")] Role role)
+        public async Task<IActionResult> Add([Bind("Id,Name,IdRole,IdUser")] Role role)
         {
-            if (id != role.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(role);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!RoleExists(role.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                RoleData.CreateRole(role);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Roles", new { @id = role.IdUser });
             }
+
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
                 return View(role);
             else
@@ -120,19 +100,20 @@ namespace PraksaFrontMVC
         }
 
         // GET: Roles/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string role, int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var role = await _context.Role
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (role == null)
             {
                 return NotFound();
             }
+            await _context.SaveChangesAsync();
+            ViewBag.userId = id;
+
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
                 return View(role);
             else

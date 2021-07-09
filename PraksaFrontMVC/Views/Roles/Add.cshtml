@@ -1,0 +1,38 @@
+﻿@model PraksaFrontMVC.Models.Role
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <link href="~/css/loginStyle.css" rel="stylesheet" />
+    <link href="~/css/createStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+
+<div class="card-header" style="border:1px solid rgba(0,0,0,0.1)">
+    <h1 style="font-variant: small-caps;">Dodavanje uloge - @ViewBag.roleName</h1>
+</div>
+<div class="create-wrap">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label fontGreen">Ime korisnika: </label>
+                    <label class="control-label normal-variant">@ViewBag.userName</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label fontGreen">Uloga: </label>
+                    <label class="control-label normal-variant">@ViewBag.roleName</label>
+                </div>
+                <input asp-for="IdUser" value="@ViewBag.userId" style="display:none;" />
+                <input asp-for="IdRole" value="@ViewBag.roleId" style="display:none;" />
+                <div class="form-group">
+                    <input type="submit" style="font-variant:small-caps;" value="Dodaj" class="workButton" formmethod="post" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

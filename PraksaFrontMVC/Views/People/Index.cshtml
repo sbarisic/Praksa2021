@@ -43,6 +43,9 @@
                         <th>
                             Dozvole
                         </th>
+                        <th>
+                            Uloge
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -75,6 +78,9 @@
                         </td>
                         <td style="width:90px;">
                             <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="Permits" asp-action="Index" asp-route-id="@item.Id">dozvole</a></div>
+                        </td>
+                        <td style="width:90px;">
+                            <div style="width: 70px; display: inline;"><a class="editButton" style="font-variant:small-caps" asp-controller="Roles" asp-action="Index" asp-route-id="@item.Id">uloge</a></div>
                         </td>
                         <td style="padding:20px 10px; width:300px;">
                             <div style="width:70px; display:inline;"><a class="workButton" style="font-variant: small-caps" asp-action="Edit" asp-route-id="@item.Id">Uredi</a></div>
