@@ -289,6 +289,25 @@ namespace PraksaFrontMVC.Controllers
             else
                 return RedirectToAction("UserIndex", "Works");
         }
+
+        public async Task<IActionResult> UserCome(int? workId, int? userId)
+        {
+            Attendant att = AttendantData.GetAttendant((int)workId, (int)userId);
+            att.IdAttendance = 2;
+            AttendantData.EditAttendant(att);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", new { id = workId });
+        }
+
+        public async Task<IActionResult> UserNotCome(int? workId, int? userId)
+        {
+            Attendant att = AttendantData.GetAttendant((int)workId, (int)userId);
+            att.IdAttendance = 3;
+            AttendantData.EditAttendant(att);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", new { id = workId });
+        }
     }
 
 }

@@ -29,10 +29,10 @@
                             Interes
                         </th>
                         <th>
-                            Dolaznost
-                        </th>
-                        <th>
                             Vrijeme Odabira
+                        </th>
+                        <th width="350px">
+                            Dolaznost
                         </th>
                     </tr>
                 </thead>
@@ -50,10 +50,30 @@
                             @Html.DisplayFor(modelItem => item.Interes)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Attendance)
+                            @Html.DisplayFor(modelItem => item.SelectionTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SelectionTime)
+                            @if (item.IdAttendance == 2)
+                            {
+                                <a href="@Url.Action("UserCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin:5px; background-color:#32a852!important">Došao</a>
+                                <a href="@Url.Action("UserNotCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin: 5px; background-color: #badbc3 !important ">Nije došao</a>
+                            }
+                            else if (item.IdAttendance == 3)
+                            {
+                                <a href="@Url.Action("UserCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin: 5px; background-color: #badbc3 !important">Došao</a>
+                                <a href="@Url.Action("UserNotCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin: 5px; background-color: #32a852 !important">Nije došao</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("UserCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin: 5px;">Došao</a>
+                                <a href="@Url.Action("UserNotCome", "Attendants", new { workId=item.IdJob, userId=item.IdUser, isCalendar=0})" class="workButton"
+                                   style="font-variant: small-caps; margin: 5px;">Nije došao</a>
+                            }
                         </td>
                     </tr>
                     }

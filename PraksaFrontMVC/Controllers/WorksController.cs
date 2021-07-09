@@ -96,7 +96,7 @@ namespace PraksaFrontMVC.Controllers
         public async Task<IActionResult> DismissedWorks()
         {
             if (HttpContext.Session.GetString("admin") != null && HttpContext.Session.GetString("admin").Equals("true"))
-                return View(await WorkData.GetWorks());
+                return View(await WorkData.GetDoneWorks());
             else
                 return RedirectToAction("ErrorPage", "Home");
         }

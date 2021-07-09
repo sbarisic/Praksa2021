@@ -38,7 +38,9 @@ namespace PraksaFrontMVC.Data
                         Job = dr["Naziv posla"].ToString(),
                         Interes = dr["Interes"].ToString(),
                         Attendance = dr["Dolaznost"].ToString(),
-                        SelectionTime = dr["Vrijeme odabira"].ToString()
+                        SelectionTime = dr["Vrijeme odabira"].ToString(),
+                        IdAttendance = Convert.ToInt32(dr["ID Dolaznosti"]),
+                        IdJob = Convert.ToInt32(dr["ID Posla"])
                     };
                     attendants.Add(attendant);
                 }
