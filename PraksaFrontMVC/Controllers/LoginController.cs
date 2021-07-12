@@ -33,8 +33,6 @@ namespace PraksaFrontMVC.Controllers
                 ModelState.AddModelError("password", "Upisali ste krivi email ili lozinku.");
                 return View("/Views/Login/Index.cshtml");
             }
-                
-            //System.Diagnostics.Debug.WriteLine("Kriva loz ili pass");
             else if (rv == 1)
             {
                 ModelState.AddModelError("password", "Korisnik nije prihvaćen.");

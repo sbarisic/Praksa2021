@@ -44,7 +44,7 @@
     </style>
 </head>
 <body style="background: url(../../img/paviljon.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
-    <form asp-action="Create">
+    <form id="regForm" asp-action="Create">
         <asp:ScriptManager ID="ScriptManager1"></asp:ScriptManager>
         <section class="ftco-section">
             <div class="container">
@@ -90,16 +90,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label fontGreen">Lozinka</label>
-                                    <input asp-for="Password" type="password" class="form-control rounded-left" placeholder="Lozinka..." />
+                                    <input asp-for="Password" id="pwd" type="password" class="form-control rounded-left" placeholder="Lozinka..." />
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label fontGreen">Ponovi lozinku</label>
-                                    <input asp-for="Password" type="password" class="form-control rounded-left" placeholder="Ponovi lozinku..." />
+                                    <input asp-for="Password" id="pwd2" type="password" class="form-control rounded-left" placeholder="Ponovi lozinku..." />
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group d-flex">
-                                    <input type="submit" formmethod="post" class="form-control btn btn-primary submit px-3" value="Potvrdi" />
+                                    <input type="submit"  id="submitButton" formmethod="post" class="form-control btn btn-primary submit px-3" value="Potvrdi" />
                                     <br /><br />
                                 </div>
                                 <div class="form-group">
@@ -113,6 +113,22 @@
                     </div>
                 </div>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                $("#submitButton").click(function () {
+                    $("#regForm").submit(function (e) {
+                        var pwd = document.getElementById("pwd").value;
+                        var pwd2 = document.getElementById("pwd2").value;
+
+                        if (pwd.localeCompare(pwd2) == 0) {
+                            return true;
+                        } else {
+                            alert("Molimo provjerite lozinke.")
+                            return false;
+                        }
+                    });
+                });
+            </script>
         </section>
     </form>
 </body>
