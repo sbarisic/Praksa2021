@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bjelovarska Udruga</title>
     <link href="~/css/home.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/radneAkcije.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <style>
@@ -138,7 +139,7 @@
                         <div class="sb-sidenav-footer">
                             <div class="small">
                                 <label ID="loginas" runat="server" >Prijavljen kao:</label>
-                                <a href="@Url.Action("Edit", "People", new { id=HttpContextAccessor.HttpContext.Session.GetInt32("uid")})" ID="lnkuname">@HttpContextAccessor.HttpContext.Session.GetString("uname").ToString()</a>
+                                <a style="text-decoration: none; color: #6bc277 !important; font-size: 0.875em; " href="@Url.Action("Edit", "People", new { id=HttpContextAccessor.HttpContext.Session.GetInt32("uid")})" ID="lnkuname">@HttpContextAccessor.HttpContext.Session.GetString("uname").ToString()</a>
                             </div>
                         </div>
                     }
