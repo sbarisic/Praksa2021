@@ -108,7 +108,8 @@
                                 </nav>
                             </div>
 
-                            @if (HttpContextAccessor.HttpContext.Session.GetString("admin") != null && HttpContextAccessor.HttpContext.Session.GetString("admin").ToString().Equals("true"))
+                            @if (HttpContextAccessor.HttpContext.Session.GetString("admin") != null && 
+                                HttpContextAccessor.HttpContext.Session.GetString("admin").ToString().Equals("true"))
                             {
                                 <a class="nav-link navItem" href="@Url.Action("Index", "People")" id="users" runat="server">
                                     <div class="sb-nav-link-icon"><i class="fas fa-users" style="color:#6bc277!important;"></i></div>

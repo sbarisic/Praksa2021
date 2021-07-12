@@ -29,9 +29,17 @@ namespace PraksaFrontMVC.Controllers
         {
             int rv = Authentication.LogIn(person.Email, person.Password);
             if (rv == 0)
-                System.Diagnostics.Debug.WriteLine("Kriva loz ili pass");
+            {
+                ModelState.AddModelError("password", "Upisali ste krivi email ili lozinku.");
+                return View("/Views/Login/Index.cshtml");
+            }
+                
+            //System.Diagnostics.Debug.WriteLine("Kriva loz ili pass");
             else if (rv == 1)
-                System.Diagnostics.Debug.WriteLine("Korisnik nije prihvaćen");
+            {
+                ModelState.AddModelError("password", "Korisnik nije prihvaćen.");
+                return View("/Views/Login/Index.cshtml");
+            }
             else if (rv == 2)
             {
                 int userId = PeopleData.GetUserId(person.Email);
